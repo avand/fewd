@@ -1,0 +1,82 @@
+body {
+  text-align: center;
+  margin: 0;
+  font-family: "Lucida Grande", sans-serif;
+  background: #ECECEC url(../images/background.png);
+}
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+header {
+  text-align: left;
+  margin-bottom: 40px;
+  padding: 10px 20px;
+  background: #c4c4c4;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #A1A1A1;
+}
+header h1 {
+  height: 55px;
+  width: 200px;
+  background: yellow;
+  text-indent: -9999px;
+  background: url(../images/acme-corp.jpg);
+  background-size: 200px 55px;
+}
+header nav {
+  float: right;
+  line-height: 60px;
+}
+header nav a {
+  text-decoration: none;
+  color: white;
+  padding-right: 20px;
+  text-shadow: 0 1px 0 #4C4C4C;
+}
+header nav a:last-child {
+  color: white;
+  background: #4067CA;
+  text-decoration: none;
+  padding: 8px 19px;
+  border-radius: 5px;
+  border: 1px solid #3353A2;
+  font-size: 16px;
+  text-shadow: 0 1px 0 #1E3163;
+}
+main, footer {
+  margin: 0 10%;
+}
+main {
+  text-align: left;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #D3D3D3;
+}
+main section {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px 34px;
+  border: 1px solid #D8D8D8;
+}
+main section h2 {
+  margin-bottom: 1em;
+}
+main section p:last-child {
+  margin-bottom: 0;
+}
+main section form label,
+main section form input {
+  display: block;
+}
+main section form input[type=text],
+main section form input[type=password],
+main section form textarea {
+  margin-bottom: 1em;
+}
+footer {
+  border-top: 1px solid white;
+  padding-top: 20px;
+  font-size: 12px;
+  color: #B2B2B2;
+  text-shadow: 0 1px 0 white;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <title>ACME Corp</title>
+
+    <link rel="stylesheet" href="stylesheets/acme_corp.css" type="text/css" media="all">
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <a href="/about">About ACME Corp</a>
+        <a href="/contact">Contact Us</a>
+        <a href="/signup">Sign Up</a>
+      </nav>
+      <a href="/"><h1>ACME Corp</h1></a>
+    </header>
+
+    <main>
+      <section>
+        <%= yield %>
+      </section>
+    </main>
+
+    <footer>
+      Copyright, 2013
+    </footer>
+  </body>
+
+</html>
