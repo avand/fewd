@@ -1,0 +1,26 @@
+<div class="alert alert-success">
+  <%= notice %>
+</div>
+
+<p>
+  <strong>Name:</strong>
+  <%= @outfit.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @outfit.description %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @outfit.color %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @outfit.size %>
+</p>
+
+<%= link_to 'Edit', edit_outfit_path(@outfit) %> |
+<%= link_to 'Back', outfits_path %>
