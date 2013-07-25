@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Animations - v2 CSS</title>
+    <style>
+      #ga {
+        position: absolute;
+        -webkit-animation-name: slide;
+        -webkit-animation-duration: 5s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-direction: alternate;
+        -webkit-animation-timing-function: linear;
+      }
+      @-webkit-keyframes slide {
+        from {
+          left: 0;
+        }
+
+        to {
+          left: calc(100% - 100px);
+        }
+      }
+    </style>
+  </head>
+  <body onload="animate()">
+    <img src="images/ga.jpg" height="100" width="100" alt="General Assembly" id="ga">
+  </body>
+</html>
