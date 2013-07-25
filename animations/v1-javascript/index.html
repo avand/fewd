@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Animations - v1 JavaScript</title>
+    <style>
+      #ga {
+        position: absolute;
+        left: 0;
+      }
+    </style>
+    <script>
+      function animate() {
+        var ga        = document.getElementById("ga");
+        var direction = "right";
+        var increment = 2;
+
+        setInterval(function() {
+          var gaStyle = window.getComputedStyle(ga);
+          var gaLeft  = window.parseInt(gaStyle.left);
+          var gaWidth = window.parseInt(gaStyle.width);
+          var maxLeft = window.innerWidth - gaWidth;
+
+          if (direction === "right") {
+            ga.style.left = gaLeft + increment + "px";
+            if (gaLeft >= maxLeft) direction = "left";
+          } else if (direction === "left") {
+            ga.style.left = gaLeft - increment + "px";
+            if (gaLeft <= 0) direction = "right";
+          }
+        }, 10)
+      };
+    </script>
+  </head>
+  <body onload="animate()">
+    <img src="images/ga.jpg" height="100" width="100" alt="General Assembly" id="ga">
+  </body>
+</html>
