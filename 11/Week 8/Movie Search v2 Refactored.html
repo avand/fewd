@@ -1,0 +1,72 @@
+<html>
+<head>
+  <title>Movie Search v2</title>
+</head>
+<body>
+  <h1>Movie Search v2</h1>
+
+  <form id="search">
+    <input type="search" id="query" placeholder="Movie title...">
+    <input type="submit" value="Search">
+  </form>
+
+  <ul id="results">
+  </ul>
+
+  <img src="" id="poster">
+
+  <script type="text/javascript">
+    var form = document.getElementById("search");
+    form.addEventListener("submit", function(event){
+      event.preventDefault();
+      var input = document.getElementById("query");
+
+      getJSON("http://omdbapi.com/?s=" + input.value, updateResults)
+    })
+
+    var updateResults = function(results) {
+      var movies = results["Search"];
+      var ul = document.getElementById("results");
+
+      // Clear the results (consider extending HTMLUListElement's prototype)
+      ul.innerHTML = "";
+
+      for (var i = 0; i < movies.length; i++) {
+        var movie = movies[i];
+        var li = document.createElement("li");
+        var a = document.createElement("a");
+        a.setAttribute("href", "http://www.imdb.com/title/" + movie["imdbID"]);
+        a.innerText = movie["Title"];
+        li.appendChild(a);
+        ul.appendChild(li);
+
+        a.addEventListener("click", getMoviePoster);
+      }
+    }
+
+    var getJSON = function(url, onSuccess) {
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          var results = JSON.parse(xhr.response);
+          onSuccess(results);
+        }
+      }
+      xhr.open("GET", url);
+      xhr.send();
+    };
+
+    var setPosterSource = function(movie) {
+      var img = document.getElementById("poster");
+      img.setAttribute("src", movie["Poster"]);
+    };
+
+    var getMoviePoster = function(event) {
+      event.preventDefault();
+      var imdbID = event.target.getAttribute("href").split("title/")[1];
+
+      getJSON("http://omdbapi.com/?i=" + imdbID, setPosterSource)
+    }
+  </script>
+</body>
+</html>

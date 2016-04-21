@@ -1,0 +1,51 @@
+<ul id="primary-menu">
+  <li>Products</li>
+  <li>Pricing</li>
+  <li>
+    <span id="feature-btn">Features</span>
+    <ul id="secondary-menu">
+      <li>Speed</li>
+      <li>Accuracy</li>
+      <li>Cheap</li>
+    </ul>
+  </li>
+</ul>
+
+<style>
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    display: inline-block;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid black;
+    background: #ccc;
+    position: relative;
+  }
+  #secondary-menu {
+    display: none;
+    position: absolute;
+    top: 38px;
+    left: 0;
+  }
+  #secondary-menu li {
+    margin: 0;
+  }
+</style>
+
+<script type="text/javascript">
+  var span = document.querySelector("#feature-btn");
+  span.addEventListener("click", function(e) {
+    e.preventDefault();
+
+    var secondaryMenu = document.querySelector("#secondary-menu");
+
+    if (secondaryMenu.style.display == "none") {
+      secondaryMenu.style.display = "block";
+    } else {
+      secondaryMenu.style.display = "none";
+    }
+  })
+</script>

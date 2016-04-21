@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Todo List v2</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="stylesheets/screen.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="stylesheets/narrow.css" type="text/css" media="screen and (max-width: 640px)">
+  </head>
+  <body>
+    <header>
+      <h1>Todo List v2</h1>
+    </header>
+
+    <section>
+      <div class="container">
+        <form id="add-item-form">
+          <input type="text" id="item-name" placeholder="Name" required autofocus>
+          <input type="date" id="item-due-date">
+          <input type="submit" value="Add item" id="add-item-button">
+        </form>
+
+        <ul id="list">
+          <li>
+            <label>
+              <input type="checkbox">
+              <span>Laundry</span>
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" checked>
+              <span>Homework
+                <time datetime="2013-11-23 00:00">(Nov 23rd)</time>
+              </span>
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox">
+              <span>Cookies</span>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <script>
+      var form = document.getElementById("add-item-form");
+      form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        var list = document.getElementById("list");
+        var name = document.getElementById("item-name");
+        var date = document.getElementById("item-due-date")
+
+        var li    = document.createElement("li");
+        var label = document.createElement("label");
+        var input = document.createElement("input");
+        var span  = document.createElement("span");
+
+        input.type = "checkbox";
+        span.innerText = name.value;
+
+        label.appendChild(input);
+        label.appendChild(span);
+        li.appendChild(label);
+        list.appendChild(li);
+
+        if (date.value !== "") {
+          var time = document.createElement("time");
+          time.innerText = date.value;
+          span.appendChild(time);
+        }
+      });
+    </script>
+  </body>
+</html>

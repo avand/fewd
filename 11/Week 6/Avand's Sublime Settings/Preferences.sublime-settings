@@ -1,0 +1,30 @@
+{
+	"auto_complete": false,
+	"caret_style": "phase",
+	"color_scheme": "Packages/Color Scheme - Default/Made of Code.tmTheme",
+	"ensure_newline_at_eof_on_save": true,
+	"fade_fold_buttons": false,
+	"folder_exclude_patterns":
+	[
+		".bundle",
+		".git",
+		"_site",
+		"build",
+		"log",
+		"tmp",
+		"vendor/ruby",
+		"public/assets"
+	],
+	"font_face": "Inconsolata",
+	"font_size": 28.0,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"save_on_focus_lost": true,
+	"tab_size": 2,
+	"theme": "Soda Dark.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+	"word_wrap": false
+}

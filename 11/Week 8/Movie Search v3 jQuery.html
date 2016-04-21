@@ -1,0 +1,54 @@
+<html>
+<head>
+  <title>Movie Search v3 jQuery</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+</head>
+<body>
+  <h1>Movie Search v3 jQuery</h1>
+
+  <form id="search">
+    <input type="search" id="query" placeholder="Movie title...">
+    <input type="submit" value="Search">
+  </form>
+
+  <ul id="results">
+  </ul>
+
+  <img src="" id="poster">
+
+  <script type="text/javascript">
+    $("#search").on("submit", function(event) {
+      event.preventDefault();
+
+      $.getJSON("http://omdbapi.com/?s=" + $("#query").val(), updateResults)
+    })
+
+    var updateResults = function(results) {
+      var movies = results["Search"];
+      var ul = $("#results").empty();
+
+      movies.each(function() {
+        var url = "http://www.imdb.com/title/" + this["imdbID"];
+        var li = $("<li>").appendTo(ul);
+
+        $("<a>")
+          .attr("href", url)
+          .text(this["Title"])
+          .appendTo(li)
+          .on("click", getMoviePoster);
+      })
+    }
+
+    var setPosterSource = function(movie) {
+      $("#poster").attr("src", movie["Poster"]);
+    };
+
+    var getMoviePoster = function(event) {
+      event.preventDefault();
+      var imdbID = $(event.target).attr("href").split("title/")[1];
+
+      $.getJSON("http://omdbapi.com/?i=" + imdbID, setPosterSource)
+    }
+  </script>
+</body>
+</html>

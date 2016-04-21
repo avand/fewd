@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Calculator v2</title>
+
+    <script type="text/javascript" charset="utf-8">
+      var num1 = prompt("Number 1:");
+      var num2 = prompt("Number 2:");
+      var op   = prompt("Operator:");
+      num1 = parseInt(num1);
+      num2 = parseInt(num2);
+      if (op === "+") {
+        alert("Sum is: " + (num1 + num2));
+      } else if (op === "-") {
+        alert("Difference is: " + (num1 - num2));
+      } else if (op === "/") {
+        alert("Quotient is: " + (num1 / num2));
+      } else if (op === "*") {
+        alert("Product is: " + (num1 * num2));
+      }
+    </script>
+  </head>
+
+  <body>
+    <h1>Calculator v2</h1>
+  </body>
+</html>

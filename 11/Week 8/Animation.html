@@ -1,0 +1,35 @@
+<div id="box">
+  It's hip to be a square.
+</div>
+
+<style>
+  #box {
+    background: orange;
+    border-radius: 5px;
+    height: 150px;
+    width: 150px;
+    padding: 25px;
+    text-align: center;
+    color: white;
+    position: absolute;
+    -webkit-animation-name: move-right;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-timing-function: ease-in-out;
+  }
+
+  @-webkit-keyframes move-right {
+    0% {
+      opacity: 0.0;
+      left: 0;
+    }
+    50% {
+      -webkit-transform: rotate(180deg) scale(2) skewY(1.07rad) translateX(2em);
+    }
+    100% {
+      opacity: 1.0;
+      left: 500px;
+    }
+  }
+</style>

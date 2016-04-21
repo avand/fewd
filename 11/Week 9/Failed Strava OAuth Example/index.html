@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Strava OAuth Example</title>
+</head>
+<body>
+  <h1>Strava OAuth Example</h1>
+
+  <a href="https://www.strava.com/oauth/authorize?client_id=653&redirect_uri=https%3A//dl.dropboxusercontent.com/u/1062541/Strava%2520OAuth%2520Example/index.html&response_type=code">
+    <img src="images/LogInWithStrava@2x.png">
+  </a>
+
+  <script type="text/javascript">
+    function foo(data) {
+      console.log(data);
+    }
+
+    // If code appears in the query string, Strava is redirecting back to us
+    // after user authorized.
+    if (location.search.indexOf("code") > 0) {
+      // VIA XHR
+      //
+      // Sadly, an XHR request doesn't work due to restrictions of the
+      // Single-Origin Policy. Specifically, the server does not set the
+      // HTTP header "Access-Control-Allow-Origin".
+      //
+      // var code = location.search.split("=")[1].split("&")[0];
+      // var xhr = new XMLHttpRequest();
+      //
+      // xhr.onreadystatechange = function() {
+      //   if (xhr.readyState == 4 && xhr.status == 200) {
+      //     console.log(xhr.response);
+      //   }
+      // }
+      //
+      // xhr.open("POST", "https://www.strava.com/oauth/token")
+      // xhr.send("client_id=653&client_secret=21959b590cb9a76213c3eeb72e31e3a9972b8043&code=" + code);
+
+      // VIA JSON-P
+      //
+      // Sadly, this also does not work because Strava 404's when doing a
+      // GET instead of a POST.
+      //
+      // var code = location.search.split("=")[1].split("&")[0];
+      // var script = document.createElement("script");
+      // var url = "https://www.strava.com/oauth/token?client_id=653&client_secret=21959b590cb9a76213c3eeb72e31e3a9972b8043&code=" + code + "&callback=foo"
+      // script.setAttribute("src", url);
+      // var body = document.getElementsByTagName("body")[0];
+      // body.appendChild(script);
+    }
+  </script>
+</body>
+</html>

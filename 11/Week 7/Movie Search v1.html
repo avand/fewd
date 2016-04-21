@@ -1,0 +1,51 @@
+<html>
+<head>
+  <title>Movie Search v1</title>
+</head>
+<body>
+  <h1>Movie Search v1</h1>
+
+  <p>
+    <span id="total"></span> results for "matrix" from
+    <a href="http://omdbapi.com">omdbapi.com</a>:
+  </p>
+
+  <ul id="results">
+    <!--li>The Matrix</li>
+    <li>The Matrix Reloaded</li>
+    <li>The Matrix Revolutions</li>
+    <li>The Matrix Revisited</li>
+    <li>Enter the Matrix</li>
+    <li>Armitage III: Poly Matrix</li>
+    <li>The Matrix: Path of Neo</li>
+    <li>Sex and the Matrix</li>
+    <li>Armitage: Dual Matrix</li>
+    <li>CR: Enter the Matrix</li-->
+  </ul>
+
+  <script type="text/javascript">
+    var xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        var j = JSON.parse(xhr.response);
+        var movies = j["Search"];
+        var ul = document.getElementById("results");
+        var span = document.getElementById("total");
+
+        span.innerText = movies.length;
+
+        for (var i = 0; i < movies.length; i++) {
+          var movie = movies[i];
+          var li = document.createElement("li");
+          li.innerText = movie["Title"];
+          ul.appendChild(li);
+        }
+      }
+    }
+
+    xhr.open("GET", "http://omdbapi.com/?s=matrix")
+    xhr.send();
+  </script>
+</body>
+</html>

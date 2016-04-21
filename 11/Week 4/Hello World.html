@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Hello World</title>
+    <style>
+      body { margin: 0; }
+    </style>
+  </head>
+  <body>
+    <form id="calculator">
+      <label for="number1">Number 1:</label>
+      <input type="number" id="number1"><br>
+
+      <label for="number2">Number 2:</label>
+      <input type="number" id="number2"><br>
+
+      <input type="submit" value="Add"><br>
+
+      <label for="answer">Answer:</label>
+      <input type="text" id="answer">
+    </form>
+
+    <script>
+      var name = window.prompt("What is your name?");
+      var greeting = "Hello, " + name;
+      window.alert(greeting);
+
+      var n = parseInt(prompt("Enter a number"));
+      var m = parseInt(prompt("Enter a second number"));
+      alert(n + m);
+
+      var form = document.getElementById("calculator");
+
+      form.onsubmit = function(event) {
+        event.preventDefault();
+
+        var number1 = document.getElementById("number1");
+        var number2 = document.getElementById("number2");
+        var answer  = document.getElementById("answer");
+        var number1 = parseInt(number1.value);
+        var number2 = parseInt(number2.value);
+        answer.value = number1 + number2;
+      };
+    </script>
+  </body>
+</html>

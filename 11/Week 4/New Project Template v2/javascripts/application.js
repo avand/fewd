@@ -1,0 +1,3 @@
+window.onload = function() {
+  // Your JS goes here...
+};

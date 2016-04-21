@@ -1,0 +1,19 @@
+<ul id="list">
+</ul>
+
+<script>
+  var list = document.getElementById("list");
+
+  var listItem = document.createElement("li");
+  var label    = document.createElement("label");
+  var checkbox = document.createElement("input");
+  var span     = document.createElement("span");
+
+  checkbox.type = "checkbox";
+  span.innerText = "Milk";
+
+  label.appendChild(checkbox);
+  label.appendChild(span);
+  listItem.appendChild(label);
+  list.appendChild(listItem);
+</script>

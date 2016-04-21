@@ -1,0 +1,6 @@
+[
+	// Swap the keybindings for paste and paste_and_indent
+	// https://gist.github.com/twosixcode/1988097
+	{ "keys": ["super+v"], "command": "paste_and_indent" },
+	{ "keys": ["super+shift+v"], "command": "paste" }
+]

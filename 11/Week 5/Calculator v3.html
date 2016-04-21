@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Calculator v3</title>
+  </head>
+
+  <body>
+    <h1>Calculator v3</h1>
+
+    <input type="number" id="num1"value="3">
+    <select id="operator">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="/">/</option>
+      <option value="*">*</option>
+    </select>
+    <input type="number" id="num2" value="6">
+    <input type="submit" id="calc" value="=">
+    <input type="number" id="answer" disabled>
+
+    <script type="text/javascript" charset="utf-8">
+      var num1   = document.getElementById("num1").value;
+      var num2   = document.getElementById("num2").value;
+      var op     = document.getElementById("operator").value;
+      var answer = document.getElementById("answer");
+
+      num1 = parseInt(num1);
+      num2 = parseInt(num2);
+
+      if (op === "+") {
+        answer.value = num1 + num2;
+      } else if (op === "-") {
+        answer.value = num1 - num2;
+      } else if (op === "/") {
+        answer.value = num1 / num2;
+      } else if (op === "*") {
+        answer.value = num1 * num2;
+      }
+    </script>
+
+  </body>
+</html>

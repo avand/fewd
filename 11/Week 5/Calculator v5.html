@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Calculator v4</title>
+
+    <script type="text/javascript" charset="utf-8">
+      window.onload = function() {
+        var num1   = document.getElementById("num1");
+        var num2   = document.getElementById("num2");
+        var op     = document.getElementById("operator");
+        var answer = document.getElementById("answer");
+        var calc   = document.getElementById("calculator");
+
+        calc.addEventListener("submit", function(e) {
+          e.preventDefault();
+
+          var n = parseInt(num1.value);
+          var m = parseInt(num2.value);
+
+          if (op.value === "+") {
+            answer.value = n + m;
+          } else if (op.value === "-") {
+            answer.value = n - m;
+          } else if (op.value === "/") {
+            answer.value = n / m;
+          } else if (op.value === "*") {
+            answer.value = n * m;
+          }
+        });
+      }
+    </script>
+  </head>
+
+  <body>
+    <h1>Calculator v4</h1>
+
+    <form id="calculator">
+      <input type="number" id="num1" value="3">
+      <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="/">/</option>
+        <option value="*">*</option>
+      </select>
+      <input type="number" id="num2" value="6">
+      <input type="submit" value="=">
+      <input type="number" id="answer" disabled>
+    </form>
+  </body>
+</html>

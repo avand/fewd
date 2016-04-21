@@ -1,0 +1,95 @@
+<script type="text/javascript" charset="utf-8">
+  function createNewItem(item) {
+    var li = document.createElement("li");
+    li.innerText = item.name;
+
+    if (item.completeBy !== "") {
+      var dateTag = document.createElement("time");
+      dateTag.innerText = "(" + item.completeBy + ")";
+      li.appendChild(dateTag);
+    }
+
+    return li;
+  };
+
+  window.onload = function() {
+    var form = document.getElementById("add-item-form");
+    var list = document.getElementById("list");
+    var item = document.getElementById("new-item");
+    var date = document.getElementById("new-date");
+    var items = [];
+
+    // get saved items from localStorage
+    if (localStorage.key('items')) {
+      var items = JSON.parse(localStorage.getItem('items'));
+      for (var i = 0; i < items.length; i++) {
+        var li = createNewItem(items[i]);
+        list.appendChild(li);
+      }
+    }
+
+    form.onsubmit = function(event) {
+      event.preventDefault();
+
+      var newItem = { name: item.value, completeBy: date.value };
+      var li = createNewItem(newItem);
+
+      for (var i = 0; i < items.length; i++) {
+        if (items[i].name       === newItem.name &&
+            items[i].completeBy === newItem.completeBy) {
+          alert("Item is already on the list!");
+          return;
+        }
+      }
+
+      items.push(newItem);
+      list.appendChild(li);
+      form.reset();
+
+      // save items to localStorage
+      var itemsString = JSON.stringify(items);
+      localStorage.setItem('items', itemsString);
+    }
+  }
+</script>
+
+<style type="text/css" media="screen">
+  html, input {
+    font: 25px/35px Verdana, sans-serif;
+  }
+  input {
+    border: 5px solid black;
+    padding: 5px;
+  }
+  input:not(:focus):invalid {
+    border-color: red;
+  }
+  html {
+    background-color: #A7D3DA;
+  }
+  body {
+    background: white;
+    border: 1px solid black;
+    padding: 30px;
+    margin: 30px auto;
+    width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+  }
+  li time {
+    color: gray;
+    text-decoration: italic;
+    margin-left: 10px;
+  }
+</style>
+
+<h1>Todo List v3c</h1>
+
+<form id="add-item-form">
+  <input type="text" name="new-item" id="new-item" placeholder="e.g., milk & cookies" required autofocus>
+  <input type="date" name="new-date" id="new-date">
+  <input type="submit" value="Add item" id="add-item-button">
+</form>
+
+<ul id="list">
+</ul>

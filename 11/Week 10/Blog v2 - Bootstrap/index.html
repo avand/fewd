@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Blog v1</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Blog Post Title</h1>
+
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+
+      <div>
+        <a href="#" class="like-link btn btn-primary">Like</a>
+        (<span id="number-of-likes">0</span>)
+      </div>
+
+      <h2>Comments</h2>
+
+      <div id="comments">
+        <!--p>You're looking good! - Avand</p-->
+      </div>
+
+      <form id="new-comment">
+        <div class="form-group">
+          <textarea name="body" id="comment-body" class="form-control"></textarea>
+        </div>
+
+        <div class="form-group">
+          <input type="submit" value="Comment" class="btn btn-default">
+        </div>
+      </form>
+    </div>
+
+    <script>
+      var likeLinks = document.getElementsByClassName("like-link")
+      var commentForm = document.getElementById("new-comment");
+      var commentBody = document.getElementById("comment-body");
+      var comments = document.getElementById("comments");
+
+      var authenticate = function(callbackFunction) {
+        var name = prompt("What is your user name?");
+        if (name != null && name.length > 0) {
+          callbackFunction(name)
+        }
+      };
+
+      var like = function(event) {
+        event.preventDefault();
+
+        authenticate(function() {
+          var anchor = event.target;
+          var span = anchor.nextElementSibling;
+          var counter = parseInt(span.innerText);
+          span.innerText = ++counter;
+        })
+      };
+
+      for (var i = 0; i < likeLinks.length; i++) {
+        var likeLink = likeLinks[i];
+        likeLink.addEventListener("click", like);
+      };
+
+      commentForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        if (commentBody.value.length > 0) {
+          authenticate(function(userName) {
+            var comment = document.createElement("p");
+            comment.innerText = commentBody.value + " - " + userName;
+            comments.appendChild(comment);
+            commentForm.reset();
+          })
+        }
+      });
+
+    </script>
+  </body>
+</html>
