@@ -1,0 +1,70 @@
+<html>
+<head>
+  <title>Movie Search</title>
+  <script src="jquery-2.1.0.js"></script>
+</head>
+<body>
+  <h1>Movie Search</h1>
+
+  <form>
+    <input type="search" id="query" placeholder="Movie title..." />
+    <input type="submit" value="Search" />
+  </form>
+
+  <ul id="results"></ul>
+
+  <img id="poster"/>
+
+  <script>
+    var form  = $("form");
+    var input = $("#query");
+    var ul    = $("#results");
+    var img   = $("#poster");
+
+    form.on("submit", getMovies);
+
+    function getMovies(e) {
+      e.preventDefault();
+      var url = "http://omdbapi.com/?s=" + input.val();
+      $.getJSON(url, updateMovies);
+    }
+
+    function getPoster(e) {
+      e.preventDefault();
+      var id = $(this).attr("id");
+      var url = "http://www.omdbapi.com/?i=" + id;
+      $.getJSON(url, updatePoster);
+    }
+
+    function updatePoster(json) {
+      if (json["Poster"] == "N/A") {
+        alert("No poster!")
+        return;
+      }
+      var poster = json["Poster"];
+      img.attr("src", poster);
+    }
+
+    function updateMovies(json) {
+      var movies = json["Search"];
+
+      ul.empty();
+      img.removeAttr("src");
+
+      movies.forEach(function(movie) {
+        var li = $("<li>");
+
+        $("<a>")
+          .attr("href", "http://www.imdb.com/title/" + movie["imdbID"])
+          .attr("id",    movie["imdbID"])
+          .text(movie["Title"])
+          .on('click', getPoster)
+          .appendTo(li);
+
+        ul.append(li);
+      });
+    }
+
+  </script>
+</body>
+</html>

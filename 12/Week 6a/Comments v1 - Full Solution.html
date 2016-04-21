@@ -1,0 +1,88 @@
+<div id="container">
+  <h1>Really Interesting Article!</h1>
+
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pellentesque ligula ut est tincidunt dictum. Phasellus et aliquet lorem. In commodo quam urna, nec suscipit dolor ultricies sed. Sed in est consectetur, mattis diam id, dictum risus. Suspendisse potenti. Ut leo tortor, fringilla non pharetra in, fringilla id est. Ut posuere orci eleifend sapien fermentum ultrices. Quisque id eleifend elit, eleifend pellentesque magna. Donec ultrices tincidunt dictum. Donec nec magna ipsum. Fusce molestie velit at sagittis fringilla. Suspendisse at ligula augue. Curabitur ut aliquam nisl, ultricies scelerisque turpis. Vestibulum quis viverra purus. Duis in mauris vehicula, rutrum neque aliquam, hendrerit leo.
+  </p>
+
+  <h2>Comments</h2>
+
+  <div id="comments">
+  </div>
+</div>
+
+<style>
+  body {
+    color: #14293e;
+    background-color: #29547f;
+    font-family: Arial;
+    margin: 2em;
+  }
+  h1 {
+    margin-top: 0;
+  }
+  p {
+    line-height: 1.4em;
+    margin: 0;
+  }
+  #container {
+    box-sizing: border-box;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: .5em;
+    padding: 1.5em 2.5em;
+    border: 2px solid #14293e;
+    box-shadow: 0 1em 2em rgba(0, 0, 0, 0.4);
+  }
+  .comment:not(:last-child) {
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  }
+  .comment img {
+    box-sizing: border-box;
+    display: block;
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    padding: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    float: left;
+    margin-right: 1em;
+    box-shadow: 0 0 .5em rgba(0, 0, 0, 0.2);
+  }
+  .comment p {
+    min-height: 50px;
+  }
+  @media screen and (max-width: 600px) {
+    body {
+      margin: .5em;
+    }
+    #container {
+      padding: .75em 1.25em;
+      border-width: 1px;
+      box-shadow: none;
+    }
+  }
+</style>
+
+<script>
+  function createComment(facebookId, commentBody) {
+    var comments = document.querySelector("#comments"),
+        comment  = document.createElement("div"),
+        body     = document.createElement("p"),
+        picture  = document.createElement("img");
+
+    comment.classList.add("comment");
+
+    picture.setAttribute("src",
+      "http://graph.facebook.com/" + facebookId + "/picture?height=50&width=50");
+
+    body.textContent = commentBody;
+
+    comment.appendChild(picture);
+    comment.appendChild(body);
+    comments.appendChild(comment);
+  };
+</script>

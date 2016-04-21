@@ -1,0 +1,42 @@
+<style type="text/css">
+  input {
+    display: block;
+  }
+  .date-picker {
+    margin-left: 50px;
+  }
+  input:invalid {
+    background: pink;
+  }
+</style>
+
+<form>
+  <label for="fname">First Name
+  </label>
+  <input type="text"
+         value="Foo"
+         placeholder="Type something"
+         id="fname">
+  <label>
+    Password
+    <input type="password" autofocus>
+  </label>
+
+  <input type="date"
+         class="date-picker"
+         required>
+
+  <label>
+    Do you agree?
+    <input type="checkbox">
+  </label>
+
+  <select>
+    <option>Pick one...</option>
+    <option>Cats</option>
+    <option>Dogs</option>
+    <options>Fish</options>
+  </select>
+  <input type="submit"
+         value="GO TIME">
+</form>

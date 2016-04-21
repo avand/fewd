@@ -1,0 +1,21 @@
+<script>
+  // Here we declare variables n and m and
+  // assign their values upon declaration to
+  // the result of prompt.
+  var m = prompt("What is the first number?");
+  var n = prompt("What is the second number?");
+
+  // Parse the string values of m and n as
+  // integers and store the new values as m
+  // and n. This clobbers the old string
+  // values. *poof*
+  m = parseInt(m);
+  n = parseInt(n);
+
+  // Add m and n together as sum.
+  var sum = m + n;
+
+  // Pass the sum to alert to display the
+  // answer.
+  alert(sum);
+</script>

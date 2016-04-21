@@ -1,0 +1,79 @@
+<div>
+  default:
+  <div class="btn">I'm a div</div>
+  <a href="#" class="btn">I'm an anchor</a>
+  <span class="btn">I'm a span</span>
+  <button class="btn">I'm a button</button>
+  <input class="btn" type="submit" value="I'm an input">
+</div>
+
+<div>
+  btn-primary:
+  <div class="btn btn-primary">I'm a div</div>
+  <a href="#" class="btn btn-primary">I'm an anchor</a>
+  <span class="btn btn-primary">I'm a span</span>
+  <button class="btn btn-primary">I'm a button</button>
+</div>
+
+<div>
+  btn-danger:
+  <div class="btn btn-danger">I'm a div</div>
+  <a href="#" class="btn btn-danger">I'm an anchor</a>
+  <span class="btn btn-danger">I'm a span</span>
+  <button class="btn btn-danger">I'm a button</button>
+</div>
+
+<div>
+  btn-disabled:
+  <div class="btn btn-disabled">I'm a div</div>
+  <a href="#" class="btn btn-disabled">I'm an anchor</a>
+  <span class="btn btn-disabled">I'm a span</span>
+  <button class="btn btn-disabled">I'm a button</button>
+</div>
+
+<div>
+  btn-small:
+  <div class="btn btn-small">I'm a div</div>
+  <a href="#" class="btn btn-small">I'm an anchor</a>
+  <span class="btn btn-small">I'm a span</span>
+  <button class="btn btn-small">I'm a button</button>
+</div>
+
+<div>
+  <a href="#" class="btn btn-danger btn-disabled btn-small">
+    Click me!
+  </a>
+</div>
+
+<style>
+  .btn {
+    color: white;
+    background-color: #6d6d6d;
+    font-family: Arial;
+    font-size: inherit;
+    padding: 6px 12px;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+  a.btn {
+    text-decoration: none;
+  }
+  button.btn {
+    margin: 0;
+  }
+  .btn-primary {
+    background: #0080ff;
+  }
+  .btn-danger {
+    background: #ff0000;
+  }
+  .btn-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  .btn-small {
+    font-size: 12px;
+    padding: 3px 6px;
+  }
+</style>

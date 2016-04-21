@@ -1,0 +1,45 @@
+<script>
+  var m = parseInt(prompt("First number?")),
+      n = parseInt(prompt("Second number?"));
+
+  if (m > n) {
+    alert("First is greater than second!");
+  } else {
+    if (m == n) {
+      alert("They're the same!");
+    } else {
+      alert("Second is greater than first!")
+    }
+  }
+
+  // This set of logic is the same as above
+  // only cleaner.
+  if (m > n) {
+    alert("First is greater than second!");
+  } else if (m == n) {
+    alert("They're the same!");
+  } else {
+    alert("Second is greater than first!");
+  }
+
+  if (m > n) {
+    if (m > 100) {
+
+    }
+  }
+
+  // This logic is the same as above but again
+  // cleaner.
+  if (m > n && m > 100) {
+
+  }
+
+  if (m > n || n > 100) {
+
+  }
+
+  // You can group conditionals with parenthesis.
+  if ((m > n || n > 100) && (n < m)) {
+
+  }
+</script>

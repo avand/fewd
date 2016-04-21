@@ -1,0 +1,25 @@
+<ul>
+  <li>
+    <input type="checkbox" id="item-1">
+    <label for="item-1">All the things</label>
+  </li>
+</ul>
+
+<style>
+  input:checked + label {
+    text-decoration: line-through;
+  }
+  label::before {
+    content: "";
+    height: 24px;
+    width: 24px;
+    display: inline-block;
+    background: red;
+  }
+  input:checked + label::before {
+    background: green;
+  }
+  input {
+    display: none;
+  }
+</style>

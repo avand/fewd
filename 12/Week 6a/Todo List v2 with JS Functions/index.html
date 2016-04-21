@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Todo List v1</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="stylesheets/screen.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="stylesheets/narrow.css" type="text/css" media="screen and (max-width: 640px)">
+  </head>
+  <body>
+    <header>
+      <h1>Todo List v1</h1>
+    </header>
+
+    <section>
+      <div class="container">
+        <form id="add-item-form">
+          <input type="text" id="item-name" placeholder="Name" required autofocus>
+          <input type="date" id="item-due-date">
+          <input type="submit" value="Add item" id="add-item-button">
+        </form>
+
+        <ul id="list">
+          <!--li>
+            <label>
+              <input type="checkbox">
+              <span>Laundry</span>
+            </label>
+          </li-->
+        </ul>
+      </div>
+    </section>
+
+    <script src="javascripts/application.js"></script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<script>
+  // This is a *generic* getJSON function that will let us download
+  // JSON from any URL.
+  function getJSON(url, success) {
+    // Create a "bike messenger"
+    var xhr = new XMLHttpRequest();
+
+    // Tell him that whenever readyState changes, call this anonymous
+    // event handler.
+    xhr.addEventListener("readystatechange", function() {
+      // If successfully returned back, then...
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        // Success! Call the callback function and pass in the results!
+        // ...but first, parse the response, which is a JSON string.
+        var results = JSON.parse(xhr.response);
+        success(results);
+      }
+    });
+
+    // Now that he has instructions for his trip,
+    // tell him where to go and how to "get" there (ha!).
+    xhr.open("GET", url);
+    // Send him along his way.
+    xhr.send();
+  }
+
+  // Now, let's use the getJSON function defined above.
+  // First, create your event handler.
+  function success(results) {
+    results["Search"].forEach(function(result) {
+      console.log(result);
+    })
+  }
+
+  // Now call getJSON. It takes a URL and a function.
+  getJSON("http://omdbapi.com/?s=matrix", success);
+</script>

@@ -1,0 +1,23 @@
+<form>
+  <input type="search" name="query">
+  <input type="submit">
+</form>
+
+<script>
+  function onMovieSuccess(data) {
+    console.log(data);
+  };
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    var url = "http://omdbapi.com/?s=" + form.query.value + "&callback=success";
+
+    var scriptTag = document.createElement("script");
+    scriptTag.setAttribute("src", url);
+    form.appendChild(scriptTag);
+  };
+
+  var form = document.querySelector("form");
+  form.addEventListener("submit", handleSubmit);
+</script>

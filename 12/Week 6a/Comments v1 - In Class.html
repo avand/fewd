@@ -1,0 +1,42 @@
+<style>
+  .comment {
+    overflow: auto;
+  }
+  .comment:not(:last-child) {
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    border-bottom: 1px solid gray;
+  }
+  .avatar {
+    border-radius: 50px;
+    float: left;
+    margin-right: 1em;
+  }
+</style>
+
+<div id="comments">
+  <h2>Comments</h2>
+</div>
+
+<script>
+  function createComment(facebookId, commentBody) {
+    var comments   = document.querySelector("#comments"),
+        comment    = document.createElement("div"),
+        picture    = document.createElement("img"),
+        text       = document.createElement("p"),
+        pictureSrc = "https://graph.facebook.com/" + facebookId + "/picture";
+
+    comment.setAttribute("class", "comment");
+    picture.setAttribute("class", "avatar");
+    picture.setAttribute("src", pictureSrc);
+
+    text.textContent = commentBody;
+
+    comment.appendChild(picture);
+    comment.appendChild(text);
+    comments.appendChild(comment);
+  };
+
+  createComment("avand", "Hey there!");
+  createComment("timmmichaud", "What's up?");
+</script>

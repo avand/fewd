@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Blog v1</title>
+    <style type="text/css" media="screen">
+      body {
+        margin: 0;
+        background: #E6D6FF;
+        font-family: sans-serif;
+      }
+      .container {
+        margin: 2em 15% 0;
+        border: 1px solid #AF7CFE;
+        border-radius: 5px;
+        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+        background: white;
+        padding: 20px;
+      }
+      h1 {
+        margin-top: 0;
+      }
+      textarea {
+        display: block;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Blog Post Title</h1>
+
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+
+      <div>
+        <a href="#" id="like-link">Like</a>
+        (<span id="number-of-likes">0</span>)
+      </div>
+
+      <h2>Comments</h2>
+
+      <div id="comments">
+        <!--p>You're looking good! - Avand</p-->
+      </div>
+
+      <form id="new-comment">
+        <textarea name="body" id="comment-body"></textarea>
+        <input type="submit" value="Comment">
+      </form>
+    </div>
+
+    <script>
+      var newCommentForm      = document.querySelector("#new-comment"),
+          commentBodyTextarea = document.querySelector("#comment-body"),
+          numberOfLikesSpan   = document.querySelector("#number-of-likes"),
+          likeLink            = document.querySelector("#like-link");
+
+      function authorize(success) {
+        var username = prompt("What is your name?");
+
+        if (username != null && username.length > 0) {
+          success();
+        }
+      }
+
+      function comment(event) {
+        event.preventDefault();
+
+        var commentBody = commentBodyTextarea.value,
+            username    = prompt("What is your name?");
+
+        if (username != null && username.length > 0) {
+          var comment  = document.createElement("p"),
+              comments = document.querySelector("#comments");
+
+          comment.textContent = commentBody + " - " + username + " - " + event.timeStamp;
+          comments.appendChild(comment);
+          newCommentForm.reset();
+        }
+      }
+
+      function like() {
+        authorize(function() {
+
+        });
+        var username = prompt("What is your name?");
+        if (username != null && username.length > 0) {
+          var numberOfLikes = parseInt(numberOfLikesSpan.textContent);
+          numberOfLikes = numberOfLikes + 1; // Shorthand: numberOfLikes++
+          numberOfLikesSpan.textContent = numberOfLikes;
+        }
+      }
+
+      newCommentForm.addEventListener("submit", comment);
+      likeLink.addEventListener("click", like)
+    </script>
+  </body>
+</html>

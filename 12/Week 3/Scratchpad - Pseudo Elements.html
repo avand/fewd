@@ -1,0 +1,25 @@
+<li>
+  <label>
+    <input type="checkbox">
+    <span>I am the real element!</span>
+  </label>
+</li>
+
+<style>
+  input:checked + span {
+    text-decoration: line-through;
+  }
+  span::before {
+    content: "";
+    height: 24px;
+    width: 24px;
+    background: red;
+    display: inline-block;
+  }
+  input:checked + span::before {
+    background: green;
+  }
+  input {
+    display: none;
+  }
+</style>

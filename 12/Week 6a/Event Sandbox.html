@@ -1,0 +1,27 @@
+<script>
+  function sayHello() {
+    alert("Well hello there...");
+  };
+
+  function sayGoodbye() {
+    alert("You are now leaving this awesome page...");
+  };
+
+  function notSoFast(eventHandler) {
+    alert("I can't let you leave...");
+    eventHandler.preventDefault();
+  };
+
+  function init() {
+    var button = document.querySelector("button");
+    button.addEventListener("click", sayHello);
+
+    var link = document.querySelector("a");
+    link.addEventListener("click", notSoFast);
+  };
+
+  window.addEventListener("load", init);
+</script>
+
+<button>Say Hello!</button>
+<a href="http://google.com">Search Google</a>

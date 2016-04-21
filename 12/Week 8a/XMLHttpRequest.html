@@ -1,0 +1,27 @@
+<script>
+  function getJSON(url, success) {
+    var xhr = new XMLHttpRequest(); // Birthing a bike messenger
+
+    // Tell messenger whenever readyState changes, call function
+    xhr.addEventListener("readystatechange", function() {
+      // If successfully returned back, then...
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        // Success! Call the callback function!
+        // But first, parse the response as JSON
+        var results = JSON.parse(xhr.response);
+        success(results);
+      }
+    });
+
+    xhr.open("GET", url);
+    xhr.send();
+  }
+
+  function success(results) {
+    results["Search"].forEach(function(result) {
+      console.log(result);
+    })
+  }
+
+  getJSON("http://omdbapi.com/?s=matrix", success);
+</script>

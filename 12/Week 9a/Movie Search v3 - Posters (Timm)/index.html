@@ -1,0 +1,68 @@
+<html>
+<head>
+  <title>Movie Search</title>
+  <script src="sugarCookies.js"></script>
+</head>
+<body>
+  <h1>Movie Search</h1>
+
+  <form>
+    <input type="search" id="query" placeholder="Movie title..." />
+    <input type="submit" value="Search" />
+  </form>
+
+  <ul id="results"></ul>
+
+  <img id="poster"/>
+
+  <script>
+    var form  = document.querySelector("form");
+    var input = document.querySelector("#query");
+    var ul    = document.querySelector("#results");
+    var img   = document.querySelector("#poster");
+
+    form.addEventListener("submit", getMovies);
+
+    function getMovies(e) {
+      e.preventDefault();
+      var url = "http://omdbapi.com/?s=" + input.value;
+      sc.getJSON(url, updateMovies);
+    }
+
+    function getPoster(e) {
+      e.preventDefault();
+      var id = e.target.getAttribute("id");
+      var url = "http://www.omdbapi.com/?i=" + id;
+      sc.getJSON(url, updatePoster);
+    }
+
+    function updatePoster(json) {
+      if (json["Poster"] == "N/A") {
+        alert("No poster!")
+        return;
+      }
+      var poster = json["Poster"];
+      img.setAttribute("src", poster);
+    }
+
+    function updateMovies(json) {
+      var movies = json["Search"];
+
+      ul.innerHTML = "";
+      img.removeAttribute("src");
+
+      movies.forEach(function(movie) {
+        var li = document.createElement("li");
+        var a = document.createElement("a");
+        a.setAttribute("href", "http://www.imdb.com/title/" + movie["imdbID"]);
+        a.setAttribute("id", movie["imdbID"]);
+        a.innerText = movie["Title"];
+        a.addEventListener('click', getPoster);
+        li.appendChild(a);
+        ul.appendChild(li);
+      });
+    }
+
+  </script>
+</body>
+</html>

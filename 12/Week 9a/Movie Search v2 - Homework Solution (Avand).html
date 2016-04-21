@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Movie Search v2</title>
+</head>
+<body>
+  <form>
+    <input type="search" name="query" placeholder="e.g., matrix">
+    <input type="submit" value="Search">
+  </form>
+
+  <ul>
+  </ul>
+
+  <script>
+    var form = document.querySelector("form"),
+        list = document.querySelector("ul");
+
+    function getJSON(url, success) {
+      var xhr = new XMLHttpRequest();
+
+      xhr.addEventListener("readystatechange", function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          var results = JSON.parse(xhr.response);
+          success(results);
+        }
+      });
+
+      xhr.open("GET", url);
+      xhr.send();
+    };
+
+    function createMovie(imdbID, title) {
+      var listItem = document.createElement("li"),
+          anchor   = document.createElement("a"),
+          url      = "http://www.imdb.com/title/" + imdbID;
+
+      anchor.setAttribute("href", url);
+      anchor.setAttribute("target", "_blank");
+      anchor.textContent = title;
+      listItem.appendChild(anchor);
+      list.appendChild(listItem);
+    }
+
+    function resultsReceived(results) {
+      results["Search"].forEach(function(result) {
+        createMovie(result["imdbID"], result["Title"]);
+      });
+    }
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+      list.innerHTML = "";
+
+      var url = "http://omdbapi.com?s=" + form["query"].value;
+
+      getJSON(url, resultsReceived)
+    });
+  </script>
+</body>
+</html>

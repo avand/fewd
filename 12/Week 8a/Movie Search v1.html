@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Movie Search v1</title>
+</head>
+<body>
+  <form>
+    <input type="search" value="matrix" disabled>
+    <input type="submit" value="Search">
+  </form>
+
+  <ul>
+  </ul>
+
+  <script>
+    var form    = document.querySelector("form"),
+        list    = document.querySelector("ul"),
+        results = {"Search":[{"Title":"The Matrix","Year":"1999","imdbID":"tt0133093","Type":"movie"},{"Title":"The Matrix Reloaded","Year":"2003","imdbID":"tt0234215","Type":"movie"},{"Title":"The Matrix Revolutions","Year":"2003","imdbID":"tt0242653","Type":"movie"},{"Title":"The Matrix Revisited","Year":"2001","imdbID":"tt0295432","Type":"movie"},{"Title":"Enter the Matrix","Year":"2003","imdbID":"tt0277828","Type":"game"},{"Title":"Armitage III: Poly Matrix","Year":"1997","imdbID":"tt0109151","Type":"movie"},{"Title":"The Matrix: Path of Neo","Year":"2005","imdbID":"tt0451118","Type":"game"},{"Title":"Sex and the Matrix","Year":"2000","imdbID":"tt0274085","Type":"movie"},{"Title":"Armitage: Dual Matrix","Year":"2002","imdbID":"tt0303678","Type":"movie"},{"Title":"CR: Enter the Matrix","Year":"2009","imdbID":"tt1675286","Type":"game"}]};
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+      list.innerHTML = "";
+
+      results["Search"].forEach(function(result) {
+        var listItem = document.createElement("li"),
+            anchor   = document.createElement("a"),
+            movieId  = result["imdbID"],
+            url      = "http://www.imdb.com/title/" + movieId;
+
+        console.log(url);
+
+        anchor.setAttribute("href", url);
+        anchor.setAttribute("target", "_blank");
+        anchor.textContent = result["Title"];
+        listItem.appendChild(anchor);
+        list.appendChild(listItem);
+      });
+    });
+  </script>
+</body>
+</html>
