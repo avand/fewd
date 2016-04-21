@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<!--
+
+  When the "View JSON" button is clicked
+    Get the textarea's value
+    Pass the textarea's value to JSON.parse(...)
+    Create a <table>
+    Loop over each key and value and create a <tr>
+      Append the <tr> to the <table>
+    Set the <div id="json-result">'s innerHTML to the <table>
+
+-->
+
+<html>
+  <head>
+    <title>JSON Viewer v1</title>
+    <script src="http://f.cl.ly/items/211Q3t2m2L0U452C2g1V/fewd.js"></script>
+    <style>
+      #json-result {
+        background: #C2FFEE;
+        height: 100%;
+      }
+      textarea {
+        font-size: 18px;
+      }
+    </style>
+    <script>
+      // HTML creation with string concatination (aka pain in the butt)
+      function viewJSON() {
+        var textarea = e("json-textarea");
+        var jsonObject = JSON.parse(textarea.value);
+
+        var tableHTML = "<table>";
+
+        for (key in jsonObject) {
+          var row = "<tr>"
+          row = row + "<td>" + key + "</td>";
+          row = row + "<td>" + jsonObject[key] + "</td>";
+          row = row + "</tr>";
+          tableHTML = tableHTML + row;
+        }
+
+        tableHTML = tableHTML + "</table>"; // Same as: tableHTML += "</table>"
+
+        h("json-result", tableHTML);
+      }
+
+      // Programmatic HTML construction via createElement & appendChild
+      function viewJSON2() {
+        var textarea = e("json-textarea");
+        var jsonObject = JSON.parse(textarea.value);
+
+        var table = document.createElement("table")
+
+        for (keyName in jsonObject) {
+          var row       = document.createElement("tr");
+          var keyCell   = document.createElement("td");
+          var valueCell = document.createElement("td");
+
+          var keyValue = jsonObject[keyName];
+
+          keyCell.innerHTML   = keyName;
+          valueCell.innerHTML = keyValue;
+
+          row.appendChild(keyCell);
+          row.appendChild(valueCell);
+          table.appendChild(row)
+        }
+
+        h("json-result", "");
+        document.getElementById("json-result").appendChild(table);
+      }
+    </script>
+  </head>
+
+  <body>
+    <table style="width: 100%; height: 100%">
+      <tr>
+        <td width="50%">
+          <textarea id="json-textarea" style="width: 100%" rows="25">{ "name": "Avand", "twitter": "@avand" }</textarea>
+          <div>
+            <button onclick="viewJSON2()">
+              View JSON
+            </button>
+          </div>
+        </td>
+        <td width="50%">
+          <h5>JSON:</h5>
+          <div id="json-result">
+          </div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

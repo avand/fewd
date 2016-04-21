@@ -1,0 +1,65 @@
+<!-- Screencast: https://vimeo.com/channels/571580/72359248 -->
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Countdown v1</title>
+    <style type="text/css" media="screen">
+      #time-remaining,
+      #start-button {
+        margin: 0 auto;
+        width: 300px;
+        text-align: center;
+        font-family: Verdana;
+        font-weight: bold;
+      }
+      #time-remaining {
+        font-size: 200px;
+      }
+      #start-button {
+        font-size: 30px;
+        background: red;
+        border: 10px solid black;
+        padding: 20px;
+        cursor: pointer;
+      }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+      // When you click "Start"
+      //   Every second
+      //     Get the time remaining from the div#time-remaining
+      //     If it's zero, stop the countdown
+      //     Otherwise, decrement by one and update the div's text
+      var intervalId;
+
+      function start() {
+        if (!intervalId) {
+          intervalId = setInterval(tick, 1000);
+        }
+      }
+
+      function tick() {
+        var timeRemaining = document.getElementById("time-remaining");
+        var seconds = parseInt(timeRemaining.innerText);
+
+        if (seconds === 0) {
+          clearInterval(intervalId);
+          return;
+        }
+
+        timeRemaining.innerText = seconds - 1;
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="time-remaining">
+      60
+    </div>
+
+    <div id="start-button" onclick="start()">
+      Start
+    </div>
+  </body>
+</html>

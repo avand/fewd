@@ -1,0 +1,40 @@
+<!-- Screencast: https://vimeo.com/channels/571580/72354973 -->
+
+<!--
+
+Calculator v1
+
+Create a page that...
+
+  - Prompts for a number
+  - Prompts for a second number
+  - Writes the sum to the screen via (document.write)
+
+-->
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Calculator v1</title>
+
+    <script type="text/javascript" charset="utf-8">
+      var add = function(a, b) {
+        var sum = a + b;
+        return sum;
+      };
+
+      var num1 = window.prompt("Number 1:");
+      var num2 = window.prompt("Number 2:");
+      num1 = window.parseInt(num1);
+      num2 = window.parseInt(num2);
+
+      var sum = add(num1, num2);
+      document.write("Sum is: " + sum);
+    </script>
+  </head>
+
+  <body>
+    <h1>Calculator v1</h1>
+  </body>
+</html>

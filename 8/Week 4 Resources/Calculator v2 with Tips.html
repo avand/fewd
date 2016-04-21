@@ -1,0 +1,37 @@
+<script>
+  // Grab an element by ID.
+  // Remember, getElementById returns the entire element object
+  var square = document.getElementById("square");
+  square.innerHTML; // Returns "<span>Square</span>"
+  square.innerText; // Returns "Square"
+  square.innerHTML = "Circle"; // Changes the HTML of the element
+
+  // Again, getElementById returns the element, not the value "Foo"
+  var input = document.getElementById("foo");
+  input.value // Returns "Foo"
+  input.value = "Bar"; // Changes the value of the input to "Bar"
+</script>
+<br>
+
+<!-- Tips for Calculator v2 -->
+<script>
+  // Be sure to declare your function before calling it
+  var buttonClicked = function(operator) {
+    if (operator === "+") {
+      alert("Addition")
+    } else if (operator === "-") {
+      // Handle subtraction.
+    }
+  }
+  // A more popular way to write this function is:
+  // function buttonClicked(operator) {
+  //   ...
+  // }
+
+  // Make sure to define a function before calling it.
+</script>
+
+<input type="text" id="num1">
+<input type="text" id="num2">
+<button onclick="buttonClicked('+')">Add</button>
+<button onclick="buttonClicked('-')">Subtract</button>

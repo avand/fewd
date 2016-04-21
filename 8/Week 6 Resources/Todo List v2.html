@@ -1,0 +1,76 @@
+<!-- Screencast: https://vimeo.com/channels/571580/74020032 -->
+
+<!--
+
+  Functions to grab an Array of elements:
+
+    * document.getElementsByTagName("li")          // => []
+    * document.getElementsByClassName("todo-item") // => []
+
+  Grab the input via document.getElementById
+  Get the input's value
+
+  Get all the current <li>s via document.getElementsByTagName("li")
+  Set a variable, itemExists, to false
+  Loop through the <li>s via for(i = 0; i < a.length; i++) { ... }
+    If the current <li>'s innerText is the value
+      Set itemExists to true
+
+  If itemExists is false
+    Create new <li> element
+    Set it's innerText to the value
+    Append the new <li> to list (<ul id="list">) via e.appendChild(...)
+  Otherwise
+    Alert "That's already on the list!"
+
+-->
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Todo List v2</title>
+    <style>
+      body {
+        width: 400px;
+        margin: 50px auto;
+        font-family: Verdana;
+      }
+    </style>
+    <script>
+      function addListItem() {
+        var itemValue    = document.getElementById("item").value;
+        var list         = document.getElementById("list");
+        var itemExists   = false;
+        // var currentItems = document.getElementsByTagName("li");
+        // var currentItems = document.getElementsByClassName("item");
+        var currentItems = list.children;
+
+        for (var i = 0; i < currentItems.length; i++) {
+          if (currentItems[i].innerText === itemValue) {
+            itemExists = true;
+            break; // Or i < currentItems.length && !itemExists in for loop condition
+          }
+        }
+
+        if (itemExists) {
+          alert("That's already on the list!")
+        } else {
+          var item = document.createElement("li");
+          item.className = "item"; // See getElementsByClassName above
+          item.innerText = itemValue;
+          list.appendChild(item);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Todo List</h1>
+
+    <input type="text" id="item">
+    <input type="submit" onclick="addListItem()">
+
+    <ul id="list">
+    </ul>
+  </body>
+</html>

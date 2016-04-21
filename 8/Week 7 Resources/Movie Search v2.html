@@ -1,0 +1,59 @@
+<!-- Screencast: https://vimeo.com/channels/571580/72116821 -->
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Movie Search v2</title>
+
+    <script src="http://f.cl.ly/items/3R0I460S3d3g313m2j3P/fewd-v1.js"></script>
+
+    <script type="text/javascript">
+      function getMovies() {
+        var request = new XMLHttpRequest();
+        var query   = v("query");
+        var url     = "http://www.omdbapi.com/?s=" + query;
+
+        request.open("GET", url);
+
+        request.onreadystatechange = function() {
+          if (request.readyState === 4 && request.status === 200) {
+            var json   = JSON.parse(request.response);
+            var movies = json["Search"];
+            var list   = e("movies");
+
+            // See Todo List v2 (where we didn't add the same item twice)
+            for (var i = 0; i < movies.length; i++) {
+              var item = document.createElement("li");
+              var movie = movies[i];
+              item.innerHTML = movie["Title"];
+              list.appendChild(item);
+            }
+          }
+        }
+
+        request.send();
+      };
+    </script>
+  </head>
+
+  <!--
+    Add an input box and button
+    Bind the button click to our existing getMovie()
+      When the button is clicked:
+        Create a URL from the input's value
+        Make the HTTP request (send & onreadystatechange)
+        Loop over the results
+          Create a <li> and append to empty list
+  -->
+
+  <body>
+    <h1>Movie Search v2</h1>
+
+    <input type="text" id="query">
+    <button onclick="getMovies()">Search</button>
+
+    <ul id="movies">
+    </ul>
+  </body>
+</html>

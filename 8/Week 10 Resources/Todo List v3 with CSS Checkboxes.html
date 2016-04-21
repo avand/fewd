@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Todo List v3 with jQuery and CSS</title>
+    <style>
+      body {
+        width: 400px;
+        margin: 50px auto;
+        font-family: Verdana;
+      }
+      ul {
+        padding: 0;
+      }
+      li {
+        list-style: none;
+      }
+      li input {
+        margin: 0 8px 0;
+      }
+      li input:checked + span {
+        text-decoration: line-through;
+        font-style: italic;
+      }
+    </style>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script>
+      function addListItem(event) {
+        event.preventDefault();
+
+        var item         = $("#item");
+        var itemValue    = item.val();
+        var list         = $("#list");
+        var itemExists   = false;
+
+        var currentItems = list.children();
+
+        currentItems.each(function(i) {
+          if ($(this).text() === itemValue) {
+            itemExists = true;
+            return false;
+          }
+        });
+
+        if (itemExists) {
+          alert("That's already on the list!")
+        } else {
+          var li       = $("<li>");    // Create a <li>
+          var label    = $("<label>"); // Create a <label>
+          var checkbox = $("<input>"); // Create an <input>
+          var span     = $("<span>");  // Create a <span>
+
+          // Make <input> type = "checkbox"
+          checkbox.attr("type", "checkbox");
+
+          // Set the text of <span> to itemValue
+          span.text(itemValue);
+
+          checkbox.appendTo(label); // Append <input> to <label>
+          span.appendTo(label);     // Append <span> to <label>
+          label.appendTo(li);       // Append <label> to <li>
+          li.appendTo(list);        // Append <li> to list
+        }
+
+        item.val(""); // Clear the input value
+        item.focus();
+      };
+
+      $(document).ready(function() {
+        $("form").on("submit", addListItem);
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Todo List</h1>
+
+    <form>
+      <input type="text" id="item" autocomplete="off" autofocus>
+      <input type="submit">
+    </form>
+
+    <ul id="list">
+    </ul>
+  </body>
+</html>

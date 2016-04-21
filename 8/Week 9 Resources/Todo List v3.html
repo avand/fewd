@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Todo List v3</title>
+    <style>
+      body {
+        width: 400px;
+        margin: 50px auto;
+        font-family: Verdana;
+      }
+      ul {
+        list-style: none;
+        padding-left: 0;
+      }
+      .item input[type="checkbox"] {
+        margin: 0 10px 0 0;
+      }
+      .item.completed {
+        font-style: italic;
+        text-decoration: line-through;
+      }
+    </style>
+    <script>
+      var lastItem = 1;
+
+      function init() {
+        resetInput();
+        var form = document.getElementById("add-item");
+        form.addEventListener("submit", addListItem);
+      }
+
+      function resetInput() {
+        var item = document.getElementById("item");
+        item.value = "";
+        item.focus();
+      };
+
+      function addListItem(event) {
+        event.preventDefault();
+
+        var itemValue    = document.getElementById("item").value;
+        var list         = document.getElementById("list");
+        var itemExists   = false;
+        var currentItems = list.children;
+
+        for (var i = 0; i < currentItems.length; i++) {
+          if (currentItems[i].innerText === itemValue) {
+            itemExists = true;
+            break; // Or i < currentItems.length && !itemExists in for loop condition
+          }
+        }
+
+        if (itemExists) {
+          alert("That's already on the list!")
+        } else {
+          var checkbox = document.createElement("input");
+          var label = document.createElement("label");
+          var item = document.createElement("li");
+
+          item.className = "item";
+          label.innerText = itemValue;
+
+          checkbox.setAttribute("id", lastItem);
+          checkbox.setAttribute("type", "checkbox");
+          label.setAttribute("for", lastItem++);
+
+          item.appendChild(checkbox);
+          item.appendChild(label);
+          list.appendChild(item);
+
+          checkbox.addEventListener("click", function(event) {
+            var link = event.target;
+            var item = link.parentElement;
+
+            if (item.className.match("completed")) {
+              item.className = "item";
+            } else {
+              item.className = "item completed";
+            }
+          });
+
+          resetInput();
+        }
+      }
+    </script>
+  </head>
+  <body onload="init()">
+    <h1>Todo List v3</h1>
+
+    <form id="add-item">
+      <input type="text" id="item">
+      <input type="submit" value="Add item">
+    </form>
+
+    <ul id="list">
+    </ul>
+  </body>
+</html>

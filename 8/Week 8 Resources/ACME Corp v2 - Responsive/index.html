@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>ACME Corp</title>
+
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+
+    <meta name="viewport" content="user-scalable=no, initial-scale=1">
+
+    <style>
+      html {
+        background-color: #EEEDEC;
+        background-image: url(images/background.png);
+        font-family: "Lucida Grande", sans-serif;
+      }
+      body {
+        margin: 0;
+      }
+
+      header {
+        background-color: #c4c4c4;
+        padding: 10px 20px;
+        border-bottom: 1px solid #848484;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        min-width: 700px;
+      }
+      header nav {
+        text-shadow: 0 1px 0 #555;
+        overflow: hidden;
+        float: right;
+      }
+      header nav ol {
+        padding-left: 0;
+        margin: 0;
+        line-height: 55px;
+      }
+      header nav li {
+        display: inline;
+        margin-left: 25px;
+      }
+      header nav li:first-child {
+        margin-left: 0;
+      }
+      header nav a {
+        color: white;
+        text-decoration: none;
+      }
+      header nav a.signup-button {
+        background-color: #2A4CB2;
+        padding: 10px 20px;
+        border: 1px solid #213A82;
+        text-shadow: 0 1px 0 #213A82;
+        border-radius: 4px;
+      }
+
+      section,
+      footer {
+        margin-left: 10%;
+        margin-right: 10%;
+      }
+
+      section {
+        background-color: white;
+        padding: 30px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        border: 1px solid #C7C7C7;
+        border-radius: 9px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+      }
+      section h1 {
+        margin-top: 0;
+      }
+      section p {
+        margin-bottom: 0;
+      }
+      section img {
+        float: left;
+        width: 20%;
+        margin-right: 20px;
+        margin-bottom: 10px;
+      }
+
+      footer {
+        color: #9A989A;
+        font-size: 12px;
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid #C1C1C1;
+        box-shadow: inset 0 1px 1px white;
+        text-shadow: 0 1px 0 white;
+      }
+
+      @media (max-width: 700px) {
+        header {
+          min-width: 0;
+        }
+
+        header nav {
+          float: none;
+        }
+        header nav ol {
+          line-height: 22.5px;
+        }
+        header nav li {
+          display: block;
+        }
+
+        section,
+        footer {
+          margin-left: 5%;
+          margin-right: 5%;
+        }
+      }
+      
+
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <img src="images/acme-corp.jpg" width="200" height="55" id="logo" alt="ACME Anvil Corporation">
+
+      <nav>
+        <ol>
+          <li><a href="#">About ACME Corp</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#" class="signup-button">Sign Up</a></li>
+        </ol>
+      </nav>
+    </header>
+
+    <section>
+      <img src="images/road-runner.gif">
+
+      <h1>Welcome to ACME Corp!</h1>
+
+      <p>
+        Lorem ipsum dolor sit amet, consectetur
+        adipisicing elit, sed do eiusmod tempor
+        incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud
+        exercitation ullamco laboris nisi ut
+        aliquip ex ea commodo consequat. Duis aute
+        irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla
+        pariatur.
+      </p>
+
+      <p>
+        Excepteur sint occaecat cupidatat
+        non proident, sunt in culpa qui officia
+        deserunt mollit anim id est laborum.
+      </p>
+    </section>
+
+    <footer>
+      Copyright, 2013
+    </footer>
+  </body>
+</html>

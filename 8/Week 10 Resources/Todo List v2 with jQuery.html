@@ -1,0 +1,48 @@
+<!-- Screencast: https://vimeo.com/channels/571580/74019376 -->
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Todo List v2 with jQuery</title>
+    <style>
+      body {
+        width: 400px;
+        margin: 50px auto;
+        font-family: Verdana;
+      }
+    </style>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script>
+      function addListItem() {
+        var itemValue    = $("#item").val();
+        var list         = $("#list");
+        var itemExists   = false;
+
+        var currentItems = list.children();
+
+        currentItems.each(function(i) {
+          if ($(this).text() === itemValue) {
+            itemExists = true;
+            return false;
+          }
+        });
+
+        if (itemExists) {
+          alert("That's already on the list!")
+        } else {
+          $("<li>").addClass("item").text(itemValue).appendTo(list);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Todo List</h1>
+
+    <input type="text" id="item">
+    <input type="submit" onclick="addListItem()">
+
+    <ul id="list">
+    </ul>
+  </body>
+</html>

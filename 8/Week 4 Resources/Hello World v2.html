@@ -1,0 +1,32 @@
+<!-- Screencast: https://vimeo.com/channels/571580/72355462 -->
+
+<!--
+
+  Create a HTML page that..
+
+    - Alerts "Hello world!"
+    - Prompts for "What is your name?"
+    - Alerts "Your name is '...'"
+    - Prompt for "How old are you?"
+    - Alert the year they were born, "You were born in ..."
+
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello World v2</title>
+    <script>
+      window.alert("Hello world!");
+      var name = window.prompt("What is your name?");
+      window.alert("Your name is " + name);
+      var age = window.prompt("How old are you?");
+      var ageInt = window.parseInt(age);
+      var year = new Date().getFullYear();
+      var yearBorn = year - age;
+      window.alert("You were born in " + yearBorn);
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

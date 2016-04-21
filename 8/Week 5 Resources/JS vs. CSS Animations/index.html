@@ -1,0 +1,75 @@
+<!-- Screencast: https://vimeo.com/channels/571580/74020444 -->
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Animations</title>
+
+    <style type="text/css" media="screen">
+      #ga-js {
+        position: absolute;
+        left: 0;
+      }
+      #ga-css {
+        position: absolute;
+        left: 0;
+        top: 200px;
+        -webkit-animation-direction: alternate;
+        -webkit-animation-duration: 3s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-name: hammertime;
+      }
+
+      @-webkit-keyframes hammertime {
+        0% {
+          left: 0;
+        }
+        100% {
+          left: calc(100% - 150px);
+        }
+      }
+    </style>
+
+    <script type="text/javascript" charset="utf-8">
+      var gaLogo, gaWidth;
+      var direction = "right";
+      var increment = 2.5;
+      var refreshRate = 3;
+
+      function startAnimation() {
+        gaLogo = document.getElementById("ga-js");
+        gaWidth = gaLogo.width;
+
+        setInterval(animate, refreshRate);
+      }
+
+      function animate() {
+        var gaLeft = parseInt(getComputedStyle(gaLogo).left);
+        var maxLeft = innerWidth - gaWidth;
+
+        if (gaLeft >= maxLeft) {
+          direction = "left";
+        } else if (gaLeft <= 0) {
+          direction = "right";
+        }
+
+        if (direction === "right") {
+          gaLogo.style.left = gaLeft + increment + "px"
+        } else if (direction === "left") {
+          gaLogo.style.left = gaLeft - increment + "px"
+        }
+      }
+    </script>
+  </head>
+
+  <body onload="startAnimation()">
+    <div>
+      <img src="images/ga.jpg" width="150" height="150" id="ga-js">
+    </div>
+    <div>
+      <img src="images/ga.jpg" width="150" height="150" id="ga-css">
+    </div>
+  </body>
+</html>

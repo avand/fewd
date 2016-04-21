@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Image Search v1</title>
+    <style>
+      body {
+        font-family: Verdana;
+      }
+      #branding {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+      img {
+        margin: 0 10px 10px 0;
+      }
+    </style>
+    <script src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("search", "1");
+
+      function searchComplete(imageSearch) {
+        var results = imageSearch.results;
+
+        if (results && results.length > 0) {
+          var images = document.getElementById("images");
+          images.innerHTML = "";
+
+          // Loop through our results, printing them to the page.
+          for (var i = 0; i < results.length; i++) {
+            var img = document.createElement("img");
+            img.src = results[i]["tbUrl"];
+            
+            images.appendChild(img);
+          }
+
+          // Now add links to additional pages of search results.
+          addPaginationLinks(imageSearch);
+        }
+      }
+
+      function search(event) {
+        event.preventDefault();
+
+        var query = document.getElementById("query").value;
+
+        var imageSearch = new google.search.ImageSearch();
+
+        imageSearch.setSearchCompleteCallback(this, searchComplete, [imageSearch]);
+        imageSearch.execute(query);
+
+        google.search.Search.getBranding('branding');
+      }
+
+      function init() {
+        var form = document.getElementById("images-search");
+        form.addEventListener("submit", search)
+      }
+
+      google.setOnLoadCallback(init);
+    </script>
+
+  </head>
+  <body onload="init()">
+    <h1>Image Search v1</h1>
+
+    <form id="images-search">
+      <input type="search" id="query">
+      <input type="submit" value="Search">
+    </form>
+
+    <div id="images">
+    </div>
+
+    <div id="branding"></div>
+  </body>
+</html>

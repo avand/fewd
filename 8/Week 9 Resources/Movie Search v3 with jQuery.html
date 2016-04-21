@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Movie Search v3 with jQuery</title>
+
+    <style>
+      #poster {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+      }
+    </style>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+    <script type="text/javascript">
+      function getMovies() {
+        var query = $("#query").val();
+        var url   = "http://www.omdbapi.com/";
+        var data  = { s: query };
+
+        $.getJSON(url, data, function(json) {
+          var movies = json["Search"];
+          var list   = $("#movies");
+
+          $.each(movies, function(i, movie) {
+            // Create an element with jQuery: $("<li>")
+            var item = $("<li>");
+
+            // set the href, html, and add event listener
+            var href = "http://www.imdb.com/title/" + movie["imdbID"];
+            $("<a>").attr("href", href)
+                    .on("click", getMovie)
+                    .html(movie["Title"])
+                    .appendTo(item);
+
+            list.append(item);
+          });
+        })
+      };
+
+      function getMovie(event) {
+        event.preventDefault();
+
+        var link = $(event.target);
+        var href = link.attr("href");
+        var imdbID = href.split("/")[4];
+
+        // Create a URL from the movie imdbID (omdbapi.com/?i=tt123456)
+        var url  = "http://www.omdbapi.com/";
+        var data = { i: imdbID };
+
+        $.getJSON(url, data, renderMovie);
+      };
+
+      function renderMovie(movie) {
+        var poster = $("#poster");
+
+        poster.empty();
+
+        if (movie["Poster"] === "N/A") {
+          alert("No poster available");
+        } else {
+          $("<img>").attr("src", movie["poster"]).appendTo(poster);
+        }
+      };
+    </script>
+  </head>
+
+  <body>
+    <h1>Movie Search v3</h1>
+
+    <input type="text" id="query">
+    <button onclick="getMovies()">Search</button>
+
+    <ul id="movies">
+      <!--li><a href="http://www.imdb.com/title/tt0133093/">Matrix</a></li-->
+    </ul>
+
+    <div id="poster">
+      <!--img src="http://ia.media-imdb.com/images/M/MV5BMjEzNjg1NTg2NV5BMl5BanBnXkFtZTYwNjY3MzQ5._V1_SX300.jpg"-->
+    </div>
+  </body>
+</html>

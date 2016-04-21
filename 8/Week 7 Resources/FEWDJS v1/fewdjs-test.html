@@ -1,0 +1,207 @@
+<!-- Screencast: https://vimeo.com/channels/571580/72116823 -->
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>FEWD JS Test</title>
+    <script src="fewd-v1.js"></script>
+    <style>
+      body {
+        font-family: monospace; }
+      .test-example {
+        display: none; }
+      .test-name {
+        float: left;
+        min-width: 300px; }
+    </style>
+    <script>
+      function assertEqual(expected, actual) {
+        if (expected === actual) {
+          document.write("PASS");
+        } else {
+          document.write("FAIL<br>");
+          document.write("Expected: " + expected + "<br>")
+          document.write("Actual: " + actual)
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="test">
+      <div class="test-name">
+        e(id)
+      </div>
+
+      <div class="test-example">
+        <div id="e-test"></div>
+      </div>
+
+      <div class="test-status">
+        <script>
+          var expected = document.getElementById("e-test");
+          var actual = e("e-test");
+
+          assertEqual(expected, actual);
+        </script>
+      </div>
+    </div>
+
+    <div class="test">
+      <div class="test-name">
+        v(id)
+      </div>
+
+      <div class="test-example">
+        <input type="text" id="v-test-1" value="foo">
+      </div>
+
+      <div class="test-status">
+        <script>
+          var expected = "foo";
+          var actual = v("v-test-1");
+
+          assertEqual(expected, actual);
+        </script>
+      </div>
+    </div>
+
+    <div class="test">
+      <div class="test-name">
+        v(id, newValue)
+      </div>
+
+      <div class="test-example">
+        <input type="text" id="v-test-2" value="foo">
+      </div>
+
+      <div class="test-status">
+        <script>
+          v("v-test-2", "bar");
+          var expected = "bar";
+          var actual = v("v-test-2");
+
+          assertEqual(expected, actual);
+        </script>
+      </div>
+    </div>
+
+    <div class="test">
+      <div class="test-name">
+        h(id)
+      </div>
+
+      <div class="test-example">
+        <div id="h-test-1"><p>HTML</p></div>
+      </div>
+
+      <div class="test-status">
+        <script>
+          var expected = "<p>HTML</p>";
+          var actual = h("h-test-1");
+
+          assertEqual(expected, actual);
+        </script>
+      </div>
+    </div>
+
+    <div class="test">
+      <div class="test-name">
+        h(id, newHTML)
+      </div>
+
+      <div class="test-example">
+        <div id="h-test-2"></div>
+      </div>
+
+      <div class="test-status">
+        <script>
+          h("h-test-2", "<p>New HTML</p>");
+          var expected = "<p>New HTML</p>";
+          var actual = h("h-test-2");
+
+          assertEqual(expected, actual);
+        </script>
+      </div>
+    </div>
+
+    <div class="test">
+      <div class="test-name">
+        t(id)
+      </div>
+
+      <div class="test-example">
+        <div id="t-test-1"><p>Text</p></div>
+      </div>
+
+      <div class="test-status">
+        <script>
+          var expected = "Text";
+          var actual = t("t-test-1");
+
+          assertEqual(expected, actual);
+        </script>
+      </div>
+    </div>
+
+    <div class="test">
+      <div class="test-name">
+        t(id, newText)
+      </div>
+
+      <div class="test-example">
+        <div id="t-test-2"></div>
+      </div>
+
+      <div class="test-status">
+        <script>
+          t("t-test-2", "New Text");
+          var expected = "New Text";
+          var actual = t("t-test-2");
+
+          assertEqual(expected, actual);
+        </script>
+      </div>
+    </div>
+
+    <div class="test">
+      <div class="test-name">
+        c(id)
+      </div>
+
+      <div class="test-example">
+        <div id="c-test-1" class="foo bar"></div>
+      </div>
+
+      <div class="test-status">
+        <script>
+          var expected = "foo bar";
+          var actual = c("c-test-1");
+
+          assertEqual(expected, actual);
+        </script>
+      </div>
+    </div>
+
+    <div class="test">
+      <div class="test-name">
+        c(id, newClass)
+      </div>
+
+      <div class="test-example">
+        <div id="c-test-2"></div>
+      </div>
+
+      <div class="test-status">
+        <script>
+          c("c-test-2", "foo bar");
+          var expected = "foo bar";
+          var actual = c("c-test-2");
+
+          assertEqual(expected, actual);
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!--
+
+Calculator v2
+
+Create a page that...
+
+  - Prompts for a number
+  - Prompts for a second number
+  - Writes the sum to the screen via (document.write)
+-->
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Calculator v2</title>
+
+    <script type="text/javascript" charset="utf-8">
+      var add = function(a, b) {
+        var sum = a + b;
+        return sum;
+      };
+
+      var buttonClick = function(operator) {
+        var answer;
+        var num1 = document.getElementById("num1");
+        var num2 = document.getElementById("num2");
+
+        num1 = window.parseInt(num1.value);
+        num2 = window.parseInt(num2.value);
+
+        if (operator == "+") {
+          answer = num1 + num2;
+        } else if (operator == "-") {
+          answer = num1 - num2;
+        } else if (operator == "x") {
+          answer = num1 * num2;
+        } else if (operator == "/") {
+          answer = num1 / num2;
+        }
+
+        var answerDescription = num1.toString() + " " + operator + " " + num2 + " =";
+
+        document.getElementById("answer-description").innerHTML = answerDescription;
+        document.getElementById("answer").value = answer;
+      }
+    </script>
+    <style>
+      html {
+        font: 13px/18px verdana;
+        background: #D9E9FC;
+      }
+      label {
+        display: inline-block;
+        width: 100px;
+        text-align: right;
+      }
+      h1 {
+        text-align: center;
+      }
+      #calculator {
+        background: white;
+        border: 1px solid black;
+        margin: 0 auto;
+        width: 380px;
+        padding: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Calculator v2</h1>
+
+    <div id="calculator">
+      <div style="border-bottom: 1px solid #A1A1A1; padding-bottom: 7px; margin-bottom: 7px;">
+        <label for="num1">Number 1:</label>
+        <input type="text" id="num1"><br>
+        <label for="num2">Number 2:</label>
+        <input type="text" id="num2">
+        <button onclick="buttonClick('+')">+</button>
+        <button onclick="buttonClick('-')">-</button>
+        <button onclick="buttonClick('x')">x</button>
+        <button onclick="buttonClick('/')">/</button>
+      </div>
+      <label id="answer-description">Answer:</label>
+      <input type="text" id="answer">
+    </div>
+  </body>
+</html>

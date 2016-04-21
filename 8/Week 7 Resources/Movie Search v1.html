@@ -1,0 +1,36 @@
+<!-- Screencast: https://vimeo.com/channels/571580/72116822 -->
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Movie Search v1</title>
+
+    <script src="http://f.cl.ly/items/3R0I460S3d3g313m2j3P/fewd-v1.js"></script>
+
+    <script type="text/javascript">
+      function getMovie() {
+        var request = new XMLHttpRequest();
+        var url = "http://www.omdbapi.com/?t=True%20Grit&y=1969";
+
+        request.open("GET", url);
+
+        request.onreadystatechange = function() {
+          if (request.readyState === 4 && request.status === 200) {
+            var movie = JSON.parse(request.response);
+            h("result", movie["Plot"]);
+          }
+        }
+
+        request.send();
+      };
+    </script>
+  </head>
+
+  <body onload="getMovie()">
+    <h1>Movie Search v1</h1>
+
+    <div id="result">
+    </div>
+  </body>
+</html>

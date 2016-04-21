@@ -1,0 +1,47 @@
+<!-- Screencast: https://vimeo.com/channels/571580/72064293 -->
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Todo List v1</title>
+    <style>
+      body {
+        width: 400px;
+        margin: 50px auto;
+        font-family: Verdana;
+      }
+    </style>
+    <script>
+      // When the button is clicked:
+      //   Grab the input's value
+      //   Create an <li> tag where the innerHTML is the input's value
+      //   Append that <li> tag to the list
+      function addListItem() {
+        var itemValue = document.getElementById("item").value;
+        var list      = document.getElementById("list");
+
+        var item = "<li>" + itemValue + "</li>";
+        list.innerHTML = list.innerHTML + item
+      };
+
+      function addListItem2() {
+        var itemValue = document.getElementById("item").value;
+        var list      = document.getElementById("list");
+
+        var item = document.createElement("li");
+        item.innerText = itemValue;
+        list.appendChild(item);
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Todo List</h1>
+
+    <input type="text" id="item">
+    <input type="submit" onclick="addListItem2()">
+
+    <ul id="list">
+    </ul>
+  </body>
+</html>
