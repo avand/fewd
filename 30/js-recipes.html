@@ -1,0 +1,80 @@
+<ul>
+  <li>
+    Add an element to the page
+    <ul>
+      <li>Does the element have content?</li>
+      <li>Are there any attributes that need to be set?</li>
+      <li>Where does it go?</li>
+      <li>What kind of element? (p, ul, li, etc.)</li>
+    </ul>
+  </li>
+  <li>
+    Adding behavior to an element
+    <ul>
+      <li>Which element?</li>
+      <li>Which function?</li>
+    </ul>
+  </li>
+  <li>
+    Changing something about an existing element
+    <ul>
+      <li>Which element?</li>
+      <li>What are you changing?</li>
+    </ul>
+  </li>
+  <li>Go get data from a server</li>
+  <li>Given a set of things, do something to each of them</li>
+</ul>
+
+<p>View the source :)</p>
+
+<script>
+// Adding an element to the page
+// 1. Create the element
+var child = document.createElement("li");
+// 2. Append the element to some element that is already there
+var parent = document.querySelector("ul");
+parent.appendChild(child);
+// 3. Setting the content
+child.textContent = "Do my homework, like Avand told me to";
+// 4. Setting some attribute
+child.setAttribute("class", "todo-item");
+
+// Yields:
+// <ul>
+//   <li class="todo-item">Do my homework...</li>
+// </ul>
+
+// Adding behavior to an element
+// 1. Which element do you want to attach behavior to?
+var button = document.querySelector("#click-me");
+// 2. What happens when the event occurs (event handler)?
+function sayCursorLocation(clickEvent) {
+  // This is just an example, you can do whatever you'd like.
+  var x = clickEvent.clientX;
+  var y = clickEvent.clientY;
+  alert("Your mouse is at: " + x + ", " + y);
+}
+// 3. Attaching the event handler to the element
+button.addEventListener("click", sayCursorLocation);
+
+
+// Manipulating an existing elemtn
+// 1. Get the element you want to change
+var image = document.querySelector("img#logo");
+var paragraph = document.querySelector("p");
+// 2. Change an attribute
+image.setAttribute("src", "http://example.com/images/small-logo.png");
+paragraph.textContent = "new text content";
+
+</script>
+
+<style>
+  /* Button with a class of important */
+  button.important {
+
+  }
+
+  /* Button with an ID of click-me */
+  button#click-me
+</style>

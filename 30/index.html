@@ -1,0 +1,1064 @@
+<!doctype html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>FEWD 30 👍</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <h1>FEWD 30</h1>
+                <a href="#contents">Contents</a>
+            </div>
+        </nav>
+        <div class="container content">
+            <p>
+              Teaching team:
+              Avand (<a href="mailto:avand@avandamiri.com">avand@avandamiri.com</a>),
+              Rob (<a href="mailto:rob.m.gaston@gmail.com">rob.m.gaston@gmail.com</a>),
+              Sandi (<a href="mailto:sandima.job@gmail.com">sandima.job@gmail.com</a>).
+            </p>
+
+            <h2 id="contents">Contents:</h2>
+            <ul>
+                <li>
+                  <a href="#week-10">Week 10</a>
+                </li>
+                <li>
+                    <a href="#week-9">Week 9</a>
+                </li>
+                <li>
+                    <a href="#week-8">Week 8</a>
+                </li>
+                <li>
+                    <a href="#week-7">Week 7</a>
+                </li>
+                <li>
+                    <a href="#week-6">Week 6</a>
+                </li>
+                <li>
+                    <a href="#week-5">Week 5</a>
+                </li>
+                <li>
+                    <a href="#week-4">Week 4</a>
+                </li>
+                <li>
+                    <a href="#week-3">Week 3</a>
+                </li>
+                <li>
+                    <a href="#week-2">Week 2</a>
+                </li>
+                <li>
+                    <a href="#week-1">Week 1</a>
+                </li>
+                <li>
+                    <a href="#shortcuts">Keyboard Shortcuts</a>
+                </li>
+                <li>
+                    <a href="#github-links">GitHub Links</a>
+                </li>
+            </ul>
+
+            <h2 id="week-10">Week 10</h2>
+
+            <ul>
+              <li><a href="https://daneden.github.io/animate.css/">Animate.css</a></li>
+              <li><a href="https://desandro.github.io/3dtransforms/">Intro to CSS 3D Transforms</a></li>
+              <li><a href="animation.html">In-class transition example</a></li>
+              <li><a href="https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/">
+                Custom Domains with GitHub Pages</a>
+              </li>
+            </ul>
+
+
+            <h2 id="week-9">Week 9</h2>
+
+
+            <h3>Resources</h3>
+
+            <ul>
+              <li><a href="blog-solution.html">Blog homework solution</a></li>
+                <li><a href="todo-local-storage.html">Todo list with local storage</a></li>
+                <li><a href="acme-corp-responsive/">ACME Corp with responsive (media queries)</a></li>
+                <li><a href="https://www.mapbox.com/signup/">Mapbox API sign up</a></li>
+                <li><a href="http://leafletjs.com/reference.html">Leaflet docs</a></li>
+                <li><a href="maps-in-class.html">completed maps page</a></li>
+            </ul>
+
+            <h3>Maps</h3>
+
+            <p>To follow along, you'll need a Mapbox API access token.  To get one, sign up for a Mapbox starter account (free) <a href="https://www.mapbox.com/signup/">here</a></p>
+
+            <p>Leaflet is an excellent javascript mapping library that makes creating web maps super easy.  To add Leaflet to your page, you'll need to add the following two tags:</p>
+
+            <pre><code>&lt;link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" /&gt;<br>&lt;script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"&gt;&lt;/script&gt;</code></pre>
+
+            <p>GeoJSON is just a way of storing geographic data as JSON.  It is widely used in the mapping community, and you'll find it all over the place if you look.  Here's a path to a GeoJSON file that contains SF bicycle routes pulled from the venerable <a href="https://www.openstreetmap.org/">OpenStreetMap project</a> (we'll put this on a map in class):</p>
+
+            <pre><code>https://gist.githubusercontent.com/robgaston/dc5e5d709a0f1874a3b3/raw/ae107de9dc971abacf0cfa7a128c37fd3c38565a/sf_bike_routes.geojson</code></pre>
+
+            <h3>Media Queries</h3>
+
+            <p>Media queries are how you can make your css rules "responsive" - that is, it can respond to differences in the way your user is viewing the page.  Key to making pages mobile-friendly are the media queries <code>max-width</code> and <code>min-width</code></p>
+
+            <p>Here's an example of how you could include a stylesheet for use when the user's screen is small (i.e. a mobile device):</p>
+
+            <pre><code>&lt;link rel="stylesheet" media="(max-width: 600px)" href="mobile.css" /&gt;</code></pre>
+
+            <h3>Local Storage</h3>
+
+            <p>Local storage is a convenient way to store data in a user's browser to retrieve the next time that user visits your page.  To use it, we use a global object called <code>localStorage</code>.</p>
+
+            <p>Items added to local storage are key value pairs.  The values stored in local storage are strings, so if you need to store objects or arrays you should use <code>JSON.stringify()</code> on them before adding them to local storage to store them as a string and use <code>JSON.parse()</code> after getting the value to turn it back into an object.</p>
+
+            <p>Here is an example of how you could set and get data in local storage:</p>
+
+            <pre><code>var fruits = ['apples','pears','oranges','kiwis'];<br>localStorage.setItem('fruits', JSON.stringify(fruits));<br><br>var storedFruits = JSON.parse(localStorage.getItem('fruits'));</code></pre>
+
+            <h2 id="week-8">Week 8</h2>
+
+            <h3>Resources</h3>
+
+            <ul>
+              <li><a href="xhr.html">Working movie search</a></li>
+            </ul>
+
+            <h3>jQuery</h3>
+
+            <p>jQuery is a powerful, widely used library that makes a lot of common practices in javascript web development a bit easier.  Here are some examples of how you can use jQuery for some common things we've already done:</p>
+
+            <table class="table">
+                <tr>
+                    <th></th>
+                    <th>Vanilla JS</th>
+                    <th>jQuery</th>
+                </tr>
+                <tr>
+                    <th>xhr</th>
+                    <td>see get function below...</td>
+                    <td><code>$.get(url, success);</code></td>
+                </tr>
+                <tr>
+                    <th>get element</th>
+                    <td><code>var span = document.querySelector('span');</code></td>
+                    <td><code>var span = $('span').first();</code></td>
+                </tr>
+                <tr>
+                    <th>create element</th>
+                    <td><code>var a = document.createElement('a');</code></td>
+                    <td><code>var a = $('&lt;a&gt;');</code></td>
+                </tr>
+                <tr>
+                    <th>add child</th>
+                    <td><code>span.appendChild(a);</code></td>
+                    <td><code>span.append(a);</code></td>
+                </tr>
+                <tr>
+                    <th>get text</th>
+                    <td><code>var linkText = a.textContent;</code></td>
+                    <td><code>var linkText = a.text();</code></td>
+                </tr>
+                <tr>
+                    <th>set text</th>
+                    <td><code>a.textContent = linkText;</code></td>
+                    <td><code>a.text(linkText);</code></td>
+                </tr>
+                <tr>
+                    <th>get attribute</th>
+                    <td><code>a.getAttribute('href');</code></td>
+                    <td><code>a.attr('href');</code></td>
+                </tr>
+                <tr>
+                    <th>set attribute</th>
+                    <td><code>a.setAttribute('href', 'http://wikipedia.org/');</code></td>
+                    <td><code>a.attr('href', 'http://wikipedia.org/');</code></td>
+                </tr>
+                <tr>
+                    <th>add event listener</th>
+                    <td><code>a.addEventListener('click', function() { console.log('click') };</code></td>
+                    <td><code>a.on('click', function() { console.log('click') };</code></td>
+                </tr>
+            </table>
+
+            <p>The easiest way to add jQuery to your page is by adding the following script tag to your HTML (put this tag before your own scripts):</p>
+
+            <pre><code>&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js">&lt;/script></code></pre>
+
+            <h3>XMLHttpRequest</h3>
+
+            <p><code>XMLHttpRequest</code> (or XHR) is another javascript object that a browser provides.  It is used for retrieving data from a URL for use in your code.</p>
+
+            <p>The following function uses <code>XMLHttpRequest</code> to get data from a url and then passes the data to another function to handle on success:</p>
+
+            <pre><code>function get(url, success) {
+  var xhr = new XMLHttpRequest();
+
+  xhr.addEventListener("readystatechange", function() {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      success(JSON.parse(xhr.response));
+    }
+  });
+
+  xhr.open("GET", url);
+  xhr.send();
+}</code></pre>
+
+            <p>The above code is handy for getting some data from a URL (for example, the <a href="http://www.reddit.com/dev/api">Reddit JSON API</a>) to do something with in your final project!</p>
+
+            <h2 id="week-7">Week 7</h2>
+
+            <h3>Resources</h3>
+
+            <ul>
+              <li><a href="http://bit.ly/fewd-finals">Final project ideas</a></li>
+              <li><a href="http://gallery.ga.co/">GA final project gallery</a></li>
+              <li>
+                <a href="spreadsheet.html">Spreadsheet starting point</a>
+                (<a href="spreadsheet-solution.html">Solution</a>)
+              </li>
+              <li>
+                <a href="arrays-query.html">Sorting a list exercise from class</a>
+              </li>
+              <li>Homework: <a href="for-loops-solution.html">Solution</a> (<a href="for-loops-solution-refactored.html">Refactored</a>)
+              <li>Day 1 In-Class Exercises (<a href="http://cloud.avandamiri.com/192m1n2a163D">Download ZIP</a>)
+                <ul>
+                  <li><a href="conditionals.html">Conditionals</a></li>
+                </ul>
+              </li>
+            </ul>
+
+            <h3>Conditionals</h3>
+
+            <p>Conditionals are how we branch our code based on some condition in programming languages.</p>
+
+            <p>Often times, the condition in a conditional is based on a comparison of some values. In javascript, we use the following operators to compare values:</p>
+
+            <ul>
+                <li><code>==</code> (or <code>===</code>): equal to</li>
+                <li><code>!=</code> (or <code>!==</code>): not equal to</li>
+                <li><code>&gt;</code>: greater than</li>
+                <li><code>&gt;=</code>: greater than or equal to</li>
+                <li><code>&lt;</code>: less than</li>
+                <li><code>&lt;=</code>: less than or equal to</li>
+            </ul>
+
+            <p>Conditionals are simply blocks of code wrapped in some condition statement.  If this statement is <code>true</code>, then the code executes, otherwise it does not. They also provide a way to include alternative logic in an <code>else</code> block.  In javascript, they look something like this:</p>
+
+            <pre><code>var a = 1;<br/>var b = 2;<br/>if (a === b) {<br/>&nbsp;&nbsp;// this will NOT execute...:<br/>&nbsp;&nbsp;alert('how could this be!?!?!');<br/>} else {<br/>&nbsp;&nbsp;// ...but this will execute:<br/>&nbsp;&nbsp;alert('naturally...');<br/>}</code></pre>
+
+            <p>Comparisons return booleans.  We can combine booleans using the <code>&&</code> (and) and <code>||</code> (or) operators.  The following tables show how these operators will combine different boolean values:</p>
+
+            <table class="table">
+                <tr>
+                    <th><code>&&</code> (and)</th>
+                    <th>true</th>
+                    <th>false</th>
+                </tr>
+                <tr>
+                    <th>true</th>
+                    <td>returns <code>true</code></td>
+                    <td>returns <code>false</code></td>
+                </tr>
+                <tr>
+                    <th>false</th>
+                    <td>returns <code>false</code></td>
+                    <td>returns <code>false</code></td>
+                </tr>
+            </table>
+
+            <table class="table">
+                <tr>
+                    <th><code>||</code> (or)</th>
+                    <th>true</th>
+                    <th>false</th>
+                </tr>
+                <tr>
+                    <th>true</th>
+                    <td>returns <code>true</code></td>
+                    <td>returns <code>true</code></td>
+                </tr>
+                <tr>
+                    <th>false</th>
+                    <td>returns <code>true</code></td>
+                    <td>returns <code>false</code></td>
+                </tr>
+            </table>
+
+            <h3>document.querySelectorAll</h3>
+
+            <p><code>document.querySelectorAll</code> is another very useful function available in web browsers. This function can be used to get many items from the document based on a selector.</p>
+
+            <p>It works just like <code>document.querySelector</code>, but instead of returning an <code>Element</code> object, <code>document.querySelectorAll</code> returns a <code>NodeList</code>, which is functionally like an array of <code>Element</code> objects (though it's actually its own object)</p>
+
+            <p>The following code shows an example of how you might get all the <code>&lt;li&gt;</code> elements on the page and log their text content to the console:</p>
+
+            <pre><code>var listItems = document.querySelectorAll('li');<br/>for (var i = 0; i < listItems.length; i++) {<br/>&nbsp;&nbsp;console.log(listItems[i].textContent);<br/>}</code></pre>
+
+            <h2 id="week-6">Week 6</h2>
+
+            <h3>
+                Homework:
+                <a target="_blank" href="https://www.schoology.com/assignment/271420220/info">
+                    My Favorite Movies
+                </a>
+            </h3>
+
+            <h3>Resources</h3>
+
+            <ul>
+              <li>Day 2 In-Class Exercises (<a href="http://cloud.avandamiri.com/2R3W2Y0c3E42">Download ZIP</a>)
+                <ul>
+                  <li>
+                    <a href="arrays.html">Arrays</a>
+                    (<a href="arrays-solution.html">Solution</a>)
+                  </li>
+                  <li>
+                    <a href="for-loops.html">For Loops</a>
+                    (this is the starting point for the homework 6)
+                  </li>
+                </ul>
+              </li>
+              <li><a href="todo-in-class.html">Working Todo List</a></li>
+              <li><a href="todo-pseudo-code.html">Pseudo Code of the Todo List</a></li>
+              <li><a href="js-recipes.html">Common JS recipes</a></li>
+              <li><a href="https://developer.mozilla.org/en-US/docs/Web/Events">the event object according to MDN</a></li>
+            </ul>
+
+            <h3>Event Handling (continued...)</h3>
+
+            <p>When you attach an event handler to an event, it will be called with a special 'event' object as it's first argument (commonly named <code>e</code>).</p>
+
+            <p>This object can be handy, for example, when attaching click events to anchor tags.  In this case, you may not want to bypass the default behavior of an anchor tag (which is to follow the path in the anchor's <code>href</code> attribute) and instead do something else.  To achieve this, you can use a function available on this event object called <code>preventDefault</code> like so:</p>
+
+            <pre><code>// get the anchor element<br/>var a = document.querySelector('a');<br/>a.addEventListener('click', function(e) {<br/>&nbsp;&nbsp;// prevent the link's default action<br/>&nbsp;&nbsp;e.preventDefault();<br/><br/>&nbsp;&nbsp;// now do something else<br/>&nbsp;&nbsp;alert('do something else!');<br/>});</code></pre>
+
+            <p>The event object has lots of other properties you may find interesting or useful, you can find a complete list at <a href="https://developer.mozilla.org/en-US/docs/Web/Events">MDN</a></p>
+
+            <h3>Objects Redux</h3>
+
+            <p>Objects are how we represent things in javascript.  It turns out that everything in javascript is an object. For example, a string is an object with a property called <code>length</code> that contains the length of the string as an integer.  It's accessible like any other object property: <code>myString.length</code></p>
+
+            <p>Here are some important JS objects that we've already worked with, peruse their many properties and methods at your leisure:</p>
+
+            <ul>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window">window</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/document">document</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element">element</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">event</a></li>
+            </ul>
+
+            <p>You won't ever need to know all of the methods and properties on these objects, but it's important to know where to find them when you begin to wonder "How do I do...?"  As you use these objects, you'll learn the super useful ones really quickly.  We're going to learn about another important javascript object next...</p>
+
+            <h3>Arrays</h3>
+
+            <p>In javascript, when we want to store a list of things, we use an object called <code>Array</code>.  Arrays can be created in javascript using square braces (<code>[</code>) like so: <code>['Avand', 'Rob', 'Sandi']</code></p>
+
+            <p>Like the other javascript objects we've looked at so far, Arrays have properties and methods that you'll probably find useful:</p>
+
+            <ul>
+                <li>
+                    properties:
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length">length</a>: a count of the number of items in the array</li>
+                    </ul>
+                </li>
+                <li>
+                    methods:
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push">push</a>: adds an item to the array</li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop">pop</a>: removes an item from the array</li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort">sort</a>: sorts the items in the array</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>For Loops</h3>
+
+            <p>In javascript, when we want to execute some code some number of times, we use a <code>for</code> loop.  <code>for</code> loops are particularly helpful for doing something with each item in an array.</p>
+
+            <p>For example, the following code will add a list item to a list for each item in the array <code>instructors</code>:</p>
+
+            <pre><code>var instructors = ['Avand', 'Rob', 'Sandi'];<br/>var list = document.querySelector('ul');<br/>var item;<br/><br/>for (var i = 0; i < instructors.length; i++) {<br/>&nbsp;&nbsp;item = document.createElement('li');<br/>&nbsp;&nbsp;item.textContent = instructors[i];<br/>&nbsp;&nbsp;list.appendChild(item);<br/>}</code></pre>
+
+            <h2 id="week-5">Week 5</h2>
+
+            <h3>
+                Homework:
+                <a target="_blank" href="https://www.schoology.com/assignment/268664878/info">
+                    Calculator
+                </a>
+            </h3>
+
+            <h3>Resources</h3>
+
+            <ul>
+              <li><a href="calc.html">Homework starting point</a></li>
+              <li><a href="events-1.html">Events in-class</a></li>
+              <li><a href="dom-manip.html">Exercise 1: DOM Manipulation</a>
+                (<a href="dom-manip-solution.html">solution</a>)</li>
+              <li><a href="functions.html">Exercise 2: FUN-ctions!</a>
+                (<a href="functions-solution.html">solution</a>)</li>
+              <li><a href="js-playground.html">JS Playground</a></li>
+              <li><a href="objects.html">Objects</a></li>
+              <li><a href="books/js-reference.pdf">JS Reference</a></li>
+              <li><a href="homework/week-4.html">Homework solution</a></li>
+              <li><a href="http://www.htmldog.com/guides/javascript/">HTML Dog: JavaScript</a></li>
+            </ul>
+
+            <h3>Objects</h3>
+
+            <p>Objects are a very important data type in javascript.  Objects can be stored in variables like other data types, and they themselves can contain more values as <strong>key value pairs</strong>. Here's an example of assigning an object to a variable:</p>
+
+            <pre><code>var myPerson = {<br/>&nbsp;&nbsp;firstName: null,<br/>&nbsp;&nbsp;lastName:null<br/>};</code></pre>
+
+            <p>Object values can be accessed using a period (<code>.</code>), like so:</p>
+
+            <pre><code>console.log(myPerson.firstName);</code></pre>
+
+            <p>Objects can even contain code in the form of functions.  Here's an example of how you can add a function to the above object:</p>
+
+            <pre><code>myPerson.getFullName = function() {<br/>&nbsp;&nbsp;return this.firstName + ' ' + this.lastName;<br/>};</code></pre>
+
+            <p><code>this</code> in the above example is a very special variable in javascript. In this case it refers to the object myPerson because the function is attached to that object.</p>
+
+            <h3>DOM Manipulation</h3>
+
+            <p>"DOM manipulation" is a term used to describe how we change a web page document using javascript.  "DOM" stands for "Document Object Model", which really just refers to the page's document tree (something we've worked with a lot so far).</p>
+
+            <p>A browser tab always includes a few important objects that you'll need to know about in order to manipulate the DOM:</p>
+
+            <ul>
+                <li><code>window</code>: this object represents the entire browser tab.  It is the parent object of things we've already seen like <code>alert</code> and <code>prompt</code></li>
+                <li>
+                    <code>document</code>: this object represents your html document.  You'll use it to get elements from the page.  It has some important functions:
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector">querySelector</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement">createElement</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <code>element</code>: these objects (there's one for every element on your page) represent individual html elements.  The above document functions (<code>querySelector</code> and <code>createElement</code>) return elements. Elements also include some properties and functions that you'll find useful:
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent">textContent</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild">appendChild</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute">setAttribute</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <p>Here's an example of how you could use the functions listed above to add a link to a page:</p>
+
+            <pre><code>// get the body element<br>var body = document.querySelector('body');<br><br>// create an anchor element<br>var anchor = document.createElement('a');<br><br>// set the href and text of the anchor element<br>anchor.setAttribute('href', 'http://avandamiri.com/fewd-30/');<br>anchor.textContent = 'FEWD-30';<br><br>// add the anchor element to the body<br>body.appendChild(anchor);</code></pre>
+
+            <h3>Event Handling</h3>
+
+            <p>Elements in a web page emit all kinds of "events", for example when a button is clicked it "fires" a "click" event.  We can use these events to do things with special javascript functions called event handlers.</p>
+
+            <p>Event handlers, which are just javascript functions to be called on some event, can be connected to events using a function on element objects called <code>addEventListener</code>.</p>
+
+            <p>For example, you can create an event handler for button clicks that alerts a message like so:</p>
+
+            <pre><code>// get the button element<br>var button = document.querySelector('button');<br><br>// create an event handler<br>function buttonClicked() {<br>&nbsp;&nbsp;alert('Hello World!');<br>}<br><br>// add your event listener<br>button.addEventListener('click', buttonClicked);</code></pre>
+
+            <h2 id="week-4">Week 4</h2>
+
+            <h3>
+                Homework:
+                <a target="_blank" href="https://www.schoology.com/assignment/264243070/info">
+                    Calculator with Prompts & Alerts
+                </a>
+            </h3>
+
+            <h3>Resources</h3>
+
+            <ul>
+                <li><a href="http://learnlayout.com/clearfix.html">Clearfix Primer</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input">MDN on HTML Form Inputs</a></li>
+                <li><a href="https://github.com/airbnb/javascript">A pretty good guide on preferred Javascript style</a></li>
+            </ul>
+
+            <h3>Floats Revisted</h3>
+
+            <p>A 'clearfix' is a hack used to manage layouts with floats, see <a href="http://learnlayout.com/clearfix.html">this example</a>.  The modern way to do this is with the CSS property <code>overflow:auto;</code></p>
+
+            <h3>Forms</h3>
+
+            <p>Forms are how we manage data we are going to send to the server. The entire form content is wrapped in a <code>&lt;form&gt;</code> tag.  Forms have attributes that describe how they should interact with the server - the most important of these are <code>method</code> (which describes the HTTP method to use) and <code>action</code> (which describes where the data should be sent).  See <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form">MDN's form reference</a> for a complete list and more details</p>
+            <p>The form's data are stored in <code>&lt;input&gt;</code> tags to allow for user interaction.  There are many types of <code>&lt;input&gt;</code> tags and related attributes, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input">MDN's reference on inputs</a> for a comprehensive list of input types and other related input attributes. </p>
+            <p><code>&lt;input&gt;</code> tags are labeled by <code>&lt;label&gt;</code> tags.  You can use the <code>for</code> attribute on your <code>&lt;label&gt;</code> tag to reference the labeled input element's id.</p>
+
+            <h3>Why do we need programming languages?</h3>
+
+            <ul>
+                <li><strong>branching/condtionals</strong>: if a certain state is observed, do a thing</li>
+                <li><strong>loops</strong>: doing the same thing to a whole list of things</li>
+                <li><strong>input/output</strong>: consuming data and doing something with it</li>
+            </ul>
+
+            <h3>Variables</h3>
+
+            <p>In programming languages, information is stored in things called variables.</p>
+
+            <p>in Javascript variables are created using the keyword <code>var</code>.  For example: <code>var x = 1;</code></p>
+
+            <p>Variables can store different types of data, for example:</p>
+
+            <ul>
+                <li><strong>Numbers</strong>: sometimes called integers (without a decimal) and floats (with a decimal).  In Javascript we just call them all numbers</li>
+                <li><strong>Strings</strong>: some text, programming languages like Javascript are good at manipulating text</li>
+            </ul>
+
+            <h3>Operators</h3>
+
+            <p>In the above example (<code>var x = 1;</code>), we call the equals sign (<code>=</code>) the "operator".  The operator <code>=</code> assigns a value to a variable.  The above example assigns the value <code>1</code> to the variable <code>x</code>.</p>
+
+            <p>There are other operators used to manipulate values, for example: <code>+</code>, <code>-</code>, <code>*</code>, etc.</p>
+
+            <h3>Functions</h3>
+
+            <p>Functions fundamentally have three parts:</p>
+
+            <ul>
+                <li>Take in some information. We call this input information 'arguments'.  You can supply a function with as many arguments as you like.</li>
+                <li>Do something, probably using the information that has been 'passed in' as arguments.</li>
+                <li>Return something.  Functions in Javascript <strong>always</strong> return something. If they don't return a specific value, they return a value called <code>undefined</code>.</li>
+            </ul>
+
+            <p>For example:</p>
+
+            <pre><code>function sum(a, b) {<br/>  var result = a + b;<br/>  return result;<br/>}</code></pre>
+
+            <p>Functions are called with parentheses, for example, the following returns the number 5:</p>
+
+            <pre><code>sum(2, 3);</code></pre>
+
+            <p>Javascript and the browser provide you with a bunch of functions you can use to do things.  You can find a complete list at <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects">MDN</a>.  Some examples (try them out!):</p>
+
+            <ul>
+                <li><code>parseInt</code></li>
+                <li><code>alert</code></li>
+                <li><code>prompt</code></li>
+            </ul>
+
+            <h3>Javascript Language Rules</h3>
+
+            <ul>
+                <li>Lines end with a semicolon (<code>;</code>)</li>
+                <li>Some words are reserved, for example <code>var</code>.</li>
+                <li>Variable names can't start with numbers, but they can contain numbers.</li>
+                <li>Variable names should be camel case for example: <code>forExample</code></li>
+            </ul>
+
+            <h2 id="week-3">Week 3</h2>
+
+            <h3>
+                Homework:
+                <a target="_blank" href="https://www.schoology.com/assignment/261767240/info">
+                    Acme Anvil Co. Continued
+                </a>
+            </h3>
+
+            <p>
+                Build more pages for Acme Anvil Corporation. Designs for the pages are provided in the assignment.
+            </p>
+
+            <h3>Resources</h3>
+
+            <ul>
+                <li><a href="https://github.com/avand/fewd-30/archive/gh-pages.zip">Homework Solution</a></li>
+                <li><a href="http://acme.com/catalog/acme.html">Illustrated Catalog of ACME Products</a></li>
+                <li><a href="https://github.com/avand/fewd-30/blob/gh-pages/quizes/week-3.html">CSS Quiz!!!</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position">Position according to MDN</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display">Display according to MDN</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">MDN's list of CSS pseudo-classes</a></li>
+                <li><a href="http://necolas.github.io/normalize.css/">Normalize CSS</a></li>
+                <li><a href="https://www.schoology.com/system/files/attachments/files/m/201504/course/252050260/classes-ids_552607aaa712c.zip">In-class Exercise on Classes and Ids</a></li>
+                <li><a href="https://www.schoology.com/system/files/attachments/files/m/201504/course/252050260/layout-intro_552607bcef399.zip">In-class Exercise on CSS Layouts</a></li>
+                <li><a href="http://blog.teamtreehouse.com/flexbox-next-generation-css-layout-arrived">Flexbox Introduction</a></li>
+                <li><a href="http://flexboxin5.com/">Flexbox Tour/demo</a></li>
+                <li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">Authoritative reference guide on flexbox</a></li>
+                <li><a href="http://alistapart.com/article/css-positioning-101">Absolute Positioning Tutorial</a></li>
+            </ul>
+
+            <h3>CSS selectors</h3>
+
+            <p>CSS selectors are how you get things on the page to style them in your CSS. There are a few basic ways to do this:</p>
+
+            <ul>
+                <li>by element: <code>a {color: red;}</code></li>
+                <li>by class: <code>.danger {color: red;}</code></li>
+                <li>by id: <code>#warning-message {color: red;}</code></li>
+            </ul>
+
+            <p>When it comes to ids and classes, remember:</p>
+
+            <ul>
+                <li>An id should only appear once on the page.  Ids should be unique and elements can only have one id.</li>
+                <li>Classes may be applied to many elements on the page.</li>
+                <li>Elements <strong>can</strong> have many classes!</li>
+            </ul>
+
+            <p>Select on multiple things on a single element by chaining selectors together without a space, for example: <code>a.danger.btn {color: red;}</code></p>
+
+            <h3>Descendant CSS selectors</h3>
+
+            <p>You can select nested elements by putting a space between selectors. For example: <code>header a</code> selects all the <code>&lt;a&gt;</code> tags in the header.
+
+            <p>Some rules of thumb when nesting CSS selectors:</p>
+
+            <ul>
+                <li>Keep it shallow! Deeply nested selectors can get confusing.</li>
+                <li>Omit any unnecessary selectors.  Keep it as simple as possible!</li>
+            </ul>
+
+            <h3>Pseudo-selectors!</h3>
+
+            <p>Pseudo-selectors allow you to create CSS selectors that select elements based on a particular state of that element (called pseudo-classes).  They are denoted by a colon.  For example: <code>a:hover</code> selects the <code>&lt;a&gt;</code> tags that are currently being hovered over by the cursor.</p>
+
+            <p>A list of all the available pseudo-classes is available on <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">MDN</a>.</p>
+
+            <p>Some rules of thumb when using pseudo-selectors:</p>
+
+            <ul>
+                <li>Use them sparingly! If you're uncertain, you probably don't need it.</li>
+                <li>Don't get too clever -- It's really easy for pseudo-selectors to get confusing!</li>
+            </ul>
+
+            <h3>CSS Layouts</h3>
+
+            <p>The way we've managed CSS layouts has evolved over the years.  In chronological order:</p>
+
+            <ul>
+                <li><strong>Tables:</strong> using the <code>&lt;table&gt;</code> tag, you can create columns and rows.  This (sort of) allows you to manage complex layouts, but it's really clunky and has some limitations</li>
+                <li><strong>Floats:</strong> using the CSS property <code>float:left;</code> or <code>float:right;</code> pulls elements out of the layout flow.  This has been used to create column layouts, but floating has some idiosyncrasies that require proactive management. Floated elements must be "cleared", and this can cause problems.</li>
+                <li><strong>Flexbox:</strong> using the CSS property <code>display:flex;</code> is the modern way to manage complex layouts with CSS.  It allows you to flexibly size child elements using some special CSS properties such as <code>flex</code>.  You can find more info at <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes">MDN</a>.</li>
+            </ul>
+
+            <p>There are 3 ways to set child width when using <code>display:flex;</code>:</p>
+
+            <ul>
+
+                <li>By default the element will be the width of the content inside it</li>
+                <li>Horizontal width in <code>px</code> using the <code>width</code> property</li>
+                <li>Proportional sizing using the <code>flex</code> property.  Elements with a <code>flex</code> value will get a proportion of the entire remaining width of the parent element based on the ratio of it's flex value to those of all other child elements with a <code>flex</code> property</li>
+            </ul>
+
+            <h2 id="week-2">Week 2</h2>
+
+            <h3>
+                Homework:
+                <a target="_blank" href="https://www.schoology.com/assignment/256861994/info">
+                    Acme Anvil Co.
+                </a>
+            </h3>
+
+            <p>
+                Build the homepage for Acme Anvil Corporation. Design for the page is provided in the assignment.
+                <br>
+                Remember to push your work to GitHub then submit a link to your page on Schoology.
+            </p>
+
+            <h3>Resources</h3>
+
+            <ul>
+                <li><a href="http://www.csszengarden.com/">CSS Zen Garden</a></li>
+                <li><a href="http://learnlayout.com">Learn Layout</a></li>
+                <li><a href="http://caniuse.com/">Can I Use?</a></li>
+                <li><a href="http://learn.shayhowe.com/">Learn from Shay Howe</a></li>
+                <li><a href="http://www.w3.org/TR/html5/">W3C HTML5 Specification</a></li>
+                <li><a href="homework/week-1.html">Solution to Homework 1, Whales</a></li>
+                <li>
+                    MDN (also) has a <strong>great</strong>
+                    <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference">
+                      CSS reference
+                    </a>
+                    for all the styling properties used on the web. Here's some you'll probably use a lot:
+                        <ul>
+                            <li>
+                                <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/background">background</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/border">border</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/color">color</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/font">font</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/height">height</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/width">width</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin">margin</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/padding">padding</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius">border-radius</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow">box-shadow</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-align">text-align</a>
+                            </li>
+                        </ul>
+                  </li>
+            </ul>
+
+            <h3>Submitting Homework</h3>
+            <ul>
+                <li>Create a folder in your GitHub repo for homework. (maybe call it "homework")</li>
+                <li>Put your homework files in the homework folder</li>
+                <li>Commit and sync your changes to GitHub</li>
+                <li>Create a text file containing a link to your published page, for example: <a target="_blank" href="http://avand.github.io/fewd-30/profile.html">http://avand.github.io/fewd-30/profile.html</a></li>
+                <li>Post this file to Schoology as your homework submission</li>
+            </ul>
+
+            <h3>Things on a web page outside the document itself...</h3>
+            <p>There are a bunch of things that make up a web page aside from the actual document content itself.  Stuff like...</p>
+            <ul>
+                <li>Window/Tab/Page title</li>
+                <li>Description</li>
+                <li>Metadata about the page (used by other pages, like Facebook and Google)
+                <li>Javascript files</li>
+                <li>CSS files</li>
+            </ul>
+            <p>
+                <span>Generally speaking, metadata goes in the <code>&lt;head&gt;</code> tag, and page content goes in the <code>&lt;body&gt;</code> tag.</span>
+            </p>
+
+            <h3>Ways to style your HTML</h3>
+            <ul>
+                <li>
+                    'Inline styling' with the <code>style</code> attribute. In most cases, this is the wrong way to style your web page, but can be handy for testing things out.
+                    </br><strong>example:</strong> <code>&lt;footer style="text-align:center;"&gt;&lt;/footer&gt;</code>
+                </li>
+                <li>
+                    Embedding styling rules in your HTML page in a <code>&lt;style&gt;</code> tag.  This can work for small pages, but is usually not preferred.
+                    </br><strong>example:</strong> <code>&lt;style&gt;footer { text-align:center; }&lt;/style&gt;</code>
+                </li>
+                <li>
+                    Linking to a CSS file that contains your styling rules using a <code>&lt;link&gt;</code> tag.  This is usually the best thing to do as it separates your style completely from your markup.
+                    </br><strong>example:</strong> <code>&lt;link rel="stylesheet" href="styles.css"&gt;</code>
+                </li>
+            </ul>
+            <p>
+                <strong>IMPORTANT NOTE!</strong> Inline styles take precedence over styling rules.  Still, you probably shouldn't use them.
+            </p>
+
+            <h3>Positioning Elements with CSS</h3>
+            <p>
+                When you use anything other that "static" (the default value for position), you'll be able to use the properties "top", "right", "bottom" and "left" to adjust your elements position, but how it is positioned depends on what value you set position to:
+            </p>
+            <ul>
+                <li>
+                    <code>position: static;</code>
+                    <p>positions based on the content; cannot be adjusted and it's the default value for position for all elements (you probably don't need to know that, but can use it to sound cool at parties)</p>
+                </li>
+                <li>
+                    <code>position: relative;</code>
+                    <p>positions relative to where it normally is</p>
+                </li>
+                <li>
+                    <code>position: absolute;</code>
+                    <p>like "fixed", but positions with respect to the element's nearest relative container</p>
+                </li>
+                <li>
+                    <code>position: fixed;</code>
+                    <p>positions with respect to the browser window (useful for sticky headers and stuff)</p>
+                </li>
+            </ul>
+
+            <h2 id="week-1">Week 1</h2>
+
+            <h3>
+                Homework:
+                <a target="_blank" href="https://www.schoology.com/assignment/254284284/info">
+                    Whales!
+                </a>
+            </h3>
+
+            <p>
+                Some things to remember:
+                <ul>
+                    <li>Do your work in the GitHub repo we've been working in during class</li>
+                    <li>Your work for this assignment should be in a file called <code>homework-1.html</code></li>
+                    <li>Your work should be viewable over the web at <code>http://{ your user name }.github.io/{ your repo name }/homework-1.html</code></li>
+                    <li>If you're having trouble with committing your work, no worries, we'll work it out on Monday</li>
+                </ul>
+            </p>
+
+            <h3>Resources</h3>
+
+            <ul>
+                <li><a target="_blank" href="https://docs.google.com/a/generalassemb.ly/forms/d/13ek85gOtpvkz67O0vG1hLiuB19RzjOkrPHANqxGv2KU/viewform">Exit Tickets</a></li>
+                <li><a href="profile.html">Avand’s profile</a></li>
+                <li>
+                    <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">MDN has a <strong>great</strong> reference of all the HTML tags used on the web</a>
+                    <p>
+                        Here's some you'll probably use a lot:
+                        <ul>
+                            <li>
+                                <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p">p (paragraph)</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h1">h1 - h6 (headers)</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div">div (division)</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a">a (anchor)</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img">img (image)</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul">ul (unordered list)</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li">li (list item)</a>
+                            </li>
+                        </ul>
+                    </p>
+                </li>
+                <li><a target="_blank" href="http://www.crockford.com/wrrrld/color.html">HTML Colors</a></li>
+                <li><a target="_blank" href="http://www.w3.org/TR/CSS2/propidx.html">W3C CSS Properties Table</a></li>
+                <li><a target="_blank" href="https://css-tricks.com/">CSS Tricks</a></li>
+            </ul>
+
+            <h3>Getting Started:</h3>
+            <ul>
+                <li>Sign up for <a target="_blank" href="https://github.com/">GitHub</a> (and verify Email address!!)</li>
+                <li>Download <a target="_blank" href="https://atom.io/">Atom</a></li>
+                <li>Download <a target="_blank" href="https://mac.github.com/">GitHub for Mac</a> (or <a target="_blank" href="https://windows.github.com/">Windows</a>)</li>
+                <li>Create a repository with GitHub</li>
+                <li>Open your repository folder with Atom</li>
+                <li>Create a file (Command + N) and save it (Command + S) as "index.html"</li>
+                <li>Make your first commit!</li>
+                <li>Sync your commit to GitHub</li>
+                <li>Create a new branch called "gh-pages" and <strong>sync</strong> it to GitHub</li>
+                <li>
+                    See your page at <code>http://{ your user name }.github.io/{ your repository name }/</code> for example: <a href="#">http://avand.github.io/fewd-30/</a>
+                </li>
+            </ul>
+
+            <h3>A good developer starts her day by...</h3>
+            <ul>
+                <li>Open GitHub. Make sure you start clean... Discard any bad changes!</li>
+                <li>Open Atom and then open the project folder you are working on.</li>
+                <li>Open up Chrome. It's where you'll see your work. You'll probably want to open the page you're working on too.</li>
+                <li>Arrange your windows in a way that will minimize fussing.  Try making Atom side by side with Chrome maybe.</li>
+            </ul>
+
+            <h2 id="shortcuts">Keyboard Shortcuts</h2>
+
+            <table class="table">
+                <tr>
+                    <th>Application</th>
+                    <th>Command</th>
+                    <th>Result</th>
+                </tr>
+                <tr>
+                    <td>Atom</td>
+                    <td>Command + Right Arrow</td>
+                    <td>Move cursor to the <strong>end of a line</strong></td>
+                </tr>
+                <tr>
+                    <td>Atom</td>
+                    <td>Command + Left Arrow</td>
+                    <td>Move cursor to the <strong>end of a line</strong></td>
+                </tr>
+                <tr>
+                    <td>Atom</td>
+                    <td>Option + Right Arrow</td>
+                    <td>Move cursor to the <strong>end of next word</strong></td>
+                </tr>
+                <tr>
+                    <td>Atom</td>
+                    <td>Option + Left Arrow</td>
+                    <td>Move cursor to the <strong>beginning of previous word</strong></td>
+                </tr>
+                <tr>
+                    <td>Atom</td>
+                    <td>Command + N</td>
+                    <td>New file</td>
+                </tr>
+                <tr>
+                    <td>Atom</td>
+                    <td>Command + S</td>
+                    <td>Save current file</td>
+                </tr>
+                <tr>
+                    <td>Atom</td>
+                    <td>Command + D</td>
+                    <td>Multi-select</td>
+                </tr>
+                <tr>
+                    <td>Atom</td>
+                    <td>Command + Enter</td>
+                    <td>Add a new line below the current line</td>
+                </tr>
+                <tr>
+                    <td>Chrome</td>
+                    <td>Command + R</td>
+                    <td>Refresh Page</td>
+                </tr>
+                <tr>
+                    <td>Chrome</td>
+                    <td>Command + Option + I</td>
+                    <td>Open Developer Tools</td>
+                </tr>
+                <tr>
+                    <td>Chrome</td>
+                    <td>Control + Tab</td>
+                    <td>Switch tab (forward)</td>
+                </tr>
+                <tr>
+                    <td>Chrome</td>
+                    <td>Control + Shift + Tab</td>
+                    <td>Switch tab (backward)</td>
+                </tr>
+                <tr>
+                    <td>Mac</td>
+                    <td>Command + Control + Space</td>
+                    <td>EMOJIS!!!!!!!!😍😍😍😍😍</td>
+                </tr>
+                <tr>
+                    <td>Mac</td>
+                    <td>Command + Tab</td>
+                    <td>Switch programs</td>
+                </tr>
+                <tr>
+                    <td>Mac</td>
+                    <td>Command + `</td>
+                    <td>Switch windows within a program</td>
+                </tr>
+                <tr>
+                    <td>Mac</td>
+                    <td>Command + Shift + 4</td>
+                    <td>Take a screenshot (saved to desktop) and... free ruler!</td>
+                </tr>
+            </table>
+
+            <p>
+                For more keyboard shortcuts: <a target="_blank" href="https://docs.google.com/document/d/1hRjBaYl62jw77oq_QvWiI-emrwAGzLX4iqruPK_lOew/edit#heading=h.xlcdnayntkd6">click here</a>.
+            </p>
+
+            <h2 id="github-links">GitHub Links</h2>
+
+            <table class="table">
+                <tr>
+                    <th>Student</th>
+                    <th>repo link</th>
+                    <th>gh-pages link</th>
+                </tr>
+                <tr>
+                    <td>Dave</td>
+                    <td><a href="https://github.com/bdave76/fewd-30/">repo</a></td>
+                    <td><a href="https://bdave76.github.io/fewd-30/">github pages</a></td>
+                </tr>
+                <tr>
+                    <td>Arjun</td>
+                    <td><a href="https://github.com/adesai13/fewd/">repo</a></td>
+                    <td><a href="https://adesai13.github.io/fewd/">github pages</a></td>
+                </tr>
+                <tr>
+                    <td>Yana</td>
+                    <td><a href="https://github.com/yananasakin/FEWD30/">repo</a></td>
+                    <td><a href="https://yananasakin.github.io/FEWD30/">github pages</a></td>
+                </tr>
+                <tr>
+                    <td>Lila</td>
+                    <td><a href="https://github.com/lalbizu/fewd/">repo</a></td>
+                    <td><a href="https://lalbizu.github.io/fewd/">github pages</a></td>
+                </tr>
+                <tr>
+                    <td>Celso</td>
+                    <td><a href="https://github.com/celsojrnet/fewd/">repo</a></td>
+                    <td><a href="https://celsojrnet.github.io/fewd/">github pages</a></td>
+                </tr>
+                <tr>
+                    <td>Jeanne</td>
+                    <td><a href="https://github.com/jeannes/fewd-30/">repo</a></td>
+                    <td><a href="https://jeannes.github.io/fewd-30/">github pages</a></td>
+                </tr>
+                <tr>
+                    <td>Angela</td>
+                    <td><a href="https://github.com/shanegela/FEWD/">repo</a></td>
+                    <td><a href="https://shanegela.github.io/FEWD/">github pages</a></td>
+                </tr>
+                <tr>
+                    <td>Fernanda</td>
+                    <td><a href="https://github.com/fefa77/fewd-30/">repo</a></td>
+                    <td><a href="https://fefa77.github.io/fewd-30/">github pages</a></td>
+                </tr>
+                <tr>
+                    <td>Kristin</td>
+                    <td><a href="https://github.com/kristinoh/FEWD-30/">repo</a></td>
+                    <td><a href="https://kristinoh.github.io/FEWD-30/">github pages</a></td>
+                </tr>
+                <tr>
+                    <td>Alfredo</td>
+                    <td><a href="https://github.com/adcoloniv/fewd/">repo</a></td>
+                    <td><a href="https://adcoloniv.github.io/fewd/">github pages</a></td>
+                </tr>
+                <tr>
+                    <td>Stephanie</td>
+                    <td><a href="https://github.com/SJDukes/FEWD-30/">repo</a></td>
+                    <td><a href="https://SJDukes.github.io/FEWD-30/">github pages</a></td>
+                </tr>
+                <tr>
+                    <td>Lindsey</td>
+                    <td><a href="https://github.com/LindseyMiller/FEWD/">repo</a></td>
+                    <td><a href="https://LindseyMiller.github.io/FEWD/">github pages</a></td>
+                </tr>
+                <tr>
+                    <td>Wenjia</td>
+                    <td><a href="https://github.com/arorgwyn/fewd-30/">repo</a></td>
+                    <td><a href="https://arorgwyn.github.io/fewd-30/">github pages</a></td>
+                </tr>
+                <tr>
+                    <td>Maks</td>
+                    <td><a href="https://github.com/maksimstevenson/fewd-30/">repo</a></td>
+                    <td><a href="https://maksimstevenson.github.io/fewd-30/">github pages</a></td>
+                </tr>
+                <tr>
+                    <td>Gregory</td>
+                    <td><a href="https://github.com/gregory-james/fewd-30/">repo</a></td>
+                    <td><a href="https://gregory-james.github.io/fewd-30/">github pages</a></td>
+                </tr>
+                <tr>
+                    <td>Roman</td>
+                    <td><a href="https://github.com/rodogg85/fewd/">repo</a></td>
+                    <td><a href="https://rodogg85.github.io/fewd/">github pages</a></td>
+                </tr>
+                <tr>
+                    <td>Kaitlin</td>
+                    <td><a href="https://github.com/nelawk/fewd-class/">repo</a></td>
+                    <td><a href="https://nelawk.github.io/fewd-class/">github pages</a></td>
+                </tr>
+                <tr>
+                    <td>jakub</td>
+                    <td><a href="https://github.com/ejifa/fdwd-30/">repo</a></td>
+                    <td><a href="https://ejifa.github.io/fdwd-30/">github pages</a></td>
+                </tr>
+            </table>
+        <div>
+    </body>
+</html>

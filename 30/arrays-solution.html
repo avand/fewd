@@ -1,0 +1,33 @@
+<ul>
+  <li><input type="text" id="item-1" value="tomatoes"></li>
+  <li><input type="text" id="item-2" value="avocado"></li>
+  <li><input type="text" id="item-3" value="bananas"></li>
+  <li><input type="text" id="item-4" value="celery"></li>
+  <li><input type="text" id="item-5" value="apples"></li>
+</ul>
+
+<ol>
+  <li id="item-a"></li>
+  <li id="item-b"></li>
+  <li id="item-c"></li>
+  <li id="item-d"></li>
+  <li id="item-e"></li>
+</ol>
+
+<script>
+var items = [];
+
+items.push(document.querySelector("#item-1").value);
+items.push(document.querySelector("#item-2").value);
+items.push(document.querySelector("#item-3").value);
+items.push(document.querySelector("#item-4").value);
+items.push(document.querySelector("#item-5").value);
+
+items.sort();
+
+document.querySelector("#item-a").textContent = items[0];
+document.querySelector("#item-b").textContent = items[1];
+document.querySelector("#item-c").textContent = items[2];
+document.querySelector("#item-d").textContent = items[3];
+document.querySelector("#item-e").textContent = items[4];
+</script>

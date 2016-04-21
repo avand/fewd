@@ -1,0 +1,31 @@
+.visible { display: block; }
+.hidden { display: none; }
+
+header {
+  text-align: center;
+}
+
+header nav {
+  position: static;
+  transition: all 500ms;
+  transform: scaleY(0);
+  height: 0;
+}
+
+header nav li {
+  display: block;
+}
+
+header nav.expanded {
+  height: 120px;
+  transform: scaleY(1);
+}
+
+main {
+  margin-top: 0;
+  box-shadow: none;
+  border-radius: none;
+  border: none;
+  padding: 15px;
+  font-size: 14px;
+}

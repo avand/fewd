@@ -1,0 +1,67 @@
+<form id="new-todo-item-form">
+  <input type="text" id="new-todo-item-input" placeholder="What do you need to do?">
+  <button type="submit">Create todo</button>
+</form>
+
+<hr>
+
+<ul id="todo-list">
+</ul>
+
+<script>
+var newTodoItemForm = document.querySelector("#new-todo-item-form");
+var newTodoItemInput = document.querySelector("#new-todo-item-input");
+var todoList = document.querySelector("#todo-list");
+
+localStorage.setItem("key", "value")
+localStorage.setItem("key", { make: "Corvette", model: "Z06" })
+localStorage.getItem("key") => {...}
+
+function saveObject(key, object) {
+  localStorage.setItem(key, JSON.stringify(object));
+}
+
+function loadObject(key) {
+  return JSON.parse(localStorage.getItem(key));
+}
+
+function saveTodo(text) {
+  var currentTodos = JSON.parse(localStorage.getItem("todos"));
+
+  if (currentTodos == null) {
+    currentTodos = [];
+  }
+
+  currentTodos.push(text);
+  localStorage.setItem("todos", JSON.stringify(currentTodos));
+};
+
+function createTodo(formSubmitEvent) {
+  var newListItem = document.createElement("li");
+  saveTodo(newTodoItemInput.value);
+  newListItem.textContent = newTodoItemInput.value;
+  todoList.appendChild(newListItem);
+  newTodoItemForm.reset();
+  formSubmitEvent.preventDefault();
+}
+
+newTodoItemForm.addEventListener("submit", createTodo);
+
+var existingTodos = JSON.parse(localStorage.getItem("todos"));
+
+for (var i = 0; i < existingTodos.length; i++) {
+
+  var newListItem = document.createElement("li");
+  newListItem.textContent = existingTodos[i];
+  todoList.appendChild(newListItem);
+
+}
+
+
+</script>
+
+<style>
+#new-todo-item-input {
+  width: 200px;
+}
+</style>

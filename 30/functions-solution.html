@@ -1,0 +1,129 @@
+<p style="font-style: italic;">
+  <strong>Instructions</strong>:
+  You are going to implement three functions. At the bottom of this code the functions
+  are all being used. Your job is to write their definitions. If the functions work as
+  expected, you won't see any red in your console. If they don't... well, red is bad.
+</p>
+
+<h1>
+  Set 1: Return a number
+</h1>
+
+<p>
+  There's a function <code>returnANumber()</code> being called. It should prompt
+  for a number, which will be a string (right?!). However, <code>returnANumber()</code>
+  should return a number.
+</p>
+
+<code>
+<pre>
+  returnANumber();
+</pre>
+</code>
+
+<h1>
+  Set 2: Add two numbers
+</h1>
+
+<p>
+  There's a function <code>addTwoNumbers()</code> being called. It will be called
+  with two arguments. Your job is to make it add the two arguments together. It
+  should also work if you pass in to numbers as strings (e.g. "2" + "2" = 4).
+</p>
+
+<code>
+<pre>
+  addTwoNumbers(5, 6); // should return 11
+  addTwoNumbers("5", "6"); // should also return 11
+</pre>
+</code>
+
+<h1>
+  Set 3: Create an image
+</h1>
+
+<p>
+  There's a function <code>createImage()</code>. It should return an <code>&lt;img&gt;</code>
+  element. It will be called with three arguments, a source, width, and height. All those
+  attributes should be set on the image.
+</p>
+
+<code>
+<pre>
+  createImage("http://example.com/image.jpg", 450, 300);
+  // should return &lt;img src="http://example.com/image.jpg" width="450" height="300"&gt;
+
+  createImage("http://example.com/image.jpg", 45, 30);
+  // should return &lt;img src="http://example.com/image.jpg" width="45" height="30"&gt;
+</pre>
+</code>
+
+<script>
+// Define your functions here.
+
+function returnANumber() {
+  var input = prompt("Give me a number:")
+  var result = parseInt(input);
+  return result;
+
+  // Or...
+  // return parseInt(prompt("Give me a number:"));
+}
+
+function addTwoNumbers(n, m) {
+  n = parseInt(n);
+  m = parseInt(m);
+  return n + m;
+
+  // Or...
+  // return parseInt(n) + parseInt(m);
+}
+
+function createImage(source, width, height) {
+  var picture = document.createElement("img");
+  picture.setAttribute("src", source);
+  picture.setAttribute("width", width);
+  picture.setAttribute("height", height);
+  return picture;
+}
+
+// DO NOT CHANGE ANYTHING BELOW THIS LINE!
+
+var num = returnANumber();
+if (typeof num != 'number') { console.error('returnANumber does not return a number') }
+
+var sum = addTwoNumbers(5, 6);
+if (sum != 11 || sum != 11.0) { console.error('addTwoNumbers does not return the sum') }
+
+var sum2 = addTwoNumbers("5", "6");
+if (sum != 11 || sum != 11.0) { console.error('addTwoNumbers does not parse string values') }
+
+var img = createImage("http://cloud.avandamiri.com/image/3z1n220j0G17/sausage.jpg", 450, 300);
+if (img == undefined) {
+  console.error('createImage returns undefined')
+} else if (img.nodeName != "IMG") {
+  console.error('createImage does not return an image')
+} else {
+  if (img.getAttribute("src") != "http://cloud.avandamiri.com/image/3z1n220j0G17/sausage.jpg") {
+    console.error('createImage does not set the right src')
+  }
+
+  if (img.getAttribute("width") != "450") {
+    console.error('createImage does not set the right width')
+  }
+
+  if (img.getAttribute("height") != "300") {
+    console.error('createImage does not set the right height')
+  }
+
+  var img2 = createImage("http://cloud.avandamiri.com/image/3z1n220j0G17/sausage.jpg", 45, 30);
+  if (img2.getAttribute("width") != "45") {
+    console.error('createImage does not set the width dynamically')
+  }
+
+  if (img2.getAttribute("height") != "30") {
+    console.error('createImage does not set the height dynamically')
+  }
+}
+
+</script>

@@ -1,0 +1,59 @@
+<form id="new-todo-item-form">
+  <input type="text" id="new-todo-item-input" placeholder="What do you need to do?">
+  <button type="submit">Create todo</button>
+</form>
+
+<hr>
+
+<button id="sort-button">Sort A-Z</button>
+
+<ul id="todo-list">
+  <li>c</li>
+  <li>b</li>
+  <li>a</li>
+</ul>
+
+<script>
+var newTodoItemForm = document.querySelector("#new-todo-item-form");
+var newTodoItemInput = document.querySelector("#new-todo-item-input");
+var todoList = document.querySelector("#todo-list");
+var sortButton = document.querySelector("#sort-button");
+
+function createTodo(text) {
+  var newListItem = document.createElement("li");
+  newListItem.textContent = text;
+  todoList.appendChild(newListItem);
+}
+
+function handleFormSubmit(formSubmitEvent) {
+  createTodo(newTodoItemInput.value);
+  formSubmitEvent.preventDefault();
+  newTodoItemForm.reset();
+}
+
+function sortList(buttonClickEvent) {
+  var listItems = document.querySelectorAll("#todo-list li");
+  var todos = [];
+
+  for (var i = 0; i < listItems.length; i++) {
+    var listItem = listItems[i];
+    todos.push(listItem.textContent);
+    todoList.removeChild(listItem);
+  }
+
+  todos.sort();
+
+  for (var i = 0; i < todos.length; i++) {
+    createTodo(todos[i]);
+  }
+}
+
+newTodoItemForm.addEventListener("submit", handleFormSubmit);
+sortButton.addEventListener("click", sortList);
+</script>
+
+<style>
+#new-todo-item-input {
+  width: 200px;
+}
+</style>

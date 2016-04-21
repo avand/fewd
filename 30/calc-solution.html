@@ -1,0 +1,72 @@
+<style>
+body { font-size: 20px; font-family: sans-serif; }
+
+td { width: 100px; text-align: center; }
+.placeholder, button { width: 100%; }
+.placeholder { height: 23px; border: 1px solid #bababa; border-radius: 3px; }
+button { cursor: pointer; border: 1px solid #58c0f5; color: #58c0f5; background-color: white; font: inherit; }
+button { background-color: #58c0f5; color: white; border-radius: 3px; }
+</style>
+
+<table>
+  <tr>
+    <td>
+      <div id="first-operand" class="placeholder" contenteditable></div>
+    </td>
+    <td>
+      <div id="second-operand" class="placeholder" contenteditable></div>
+    </td>
+    <td>
+      =
+    </td>
+    <td>
+      <div id="result" class="placeholder"></div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <button id="add-button" class="inverted-button">+</button>
+    </td>
+    <td>
+      <button id="subtract-button" class="inverted-button">-</button>
+    </td>
+    <td>
+      <button id="multiply-button" class="inverted-button">*</button>
+    </td>
+    <td>
+      <button id="divide-button" class="inverted-button">/</button>
+    </td>
+  </tr>
+</table>
+
+<script>
+var firstOperand = document.querySelector("#first-operand");
+var secondOperand = document.querySelector("#second-operand");
+var result = document.querySelector("#result")
+
+var addButton = document.querySelector("#add-button");
+var subtractButton = document.querySelector("#subtract-button");
+var multiplyButton = document.querySelector("#multiply-button");
+var divideButton = document.querySelector("#divide-button");
+
+addButton.addEventListener("click", add);
+subtractButton.addEventListener("click", subtract);
+multiplyButton.addEventListener("click", multiply);
+divideButton.addEventListener("click", divide);
+
+function add() {
+  result.textContent = parseFloat(firstOperand.textContent) + parseFloat(secondOperand.textContent);
+}
+
+function subtract() {
+  result.textContent = parseFloat(firstOperand.textContent) - parseFloat(secondOperand.textContent);
+}
+
+function multiply() {
+  result.textContent = parseFloat(firstOperand.textContent) * parseFloat(secondOperand.textContent);
+}
+
+function divide() {
+  result.textContent = parseFloat(firstOperand.textContent) / parseFloat(secondOperand.textContent);
+}
+</script>

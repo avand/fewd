@@ -1,0 +1,85 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
+<div id="map"></div>
+
+<style>
+    #map {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+</style>
+
+<script>
+    // This is where we create the map.  Note the center and zoom configurations.
+    // Remember how I got those? An easy way is to start them all at 0, zoom and pan
+    // your map to the place you want it to start at then call map.getCenter() and
+    // map.getZoom() from the console.
+    var map = L.map('map', {
+        center: [37.749, -122.443],
+        zoom: 13
+    });
+
+    // Here's where we create the tile url.  It's daunting, but you can do it!
+    // The easiest way is probably to just paste in your own access token and map id.
+    // You can feel free to use my map, but please get your own access token so you
+    // don't run up the bill on my account.  Email me if you don't know how to get your
+    // access token or map id.
+    var accessToken = 'pk.eyJ1Ijoicmdhc3RvbiIsImEiOiJJYTdoRWNJIn0.MN6DrT07IEKXadCU8xpUMg'; // This is Rob's! Get your own!
+    var mapId = 'rgaston.m83l8m24';
+
+    // This part is boiler plate - you shouldn't really have to change anything here!
+    var url = 'https://{s}.tiles.mapbox.com/v4/' + mapId + '/{z}/{x}/{y}.png?access_token=' + accessToken;
+    var tileLayer = L.tileLayer(url, {
+        attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>'
+    });
+
+    // And now we add the tile layer to the map.
+    // This is pretty much always how you add things to a map in leaflet...
+    tileLayer.addTo(map);
+
+    // Now let's get some bike route data for SF as GeoJSON
+    $.get('https://gist.githubusercontent.com/robgaston/dc5e5d709a0f1874a3b3/raw/ae107de9dc971abacf0cfa7a128c37fd3c38565a/sf_bike_routes.geojson', function(data) {
+        // Now that we've got our data we can just let leaflet read it and add it to the map
+        L.geoJson(JSON.parse(data),{
+            // This is the sort of strange way that we add popups to 
+            // features added to the map from GeoJSON.  There are other
+            // ways to do this, but leaflet makes the simplest case
+            // pretty easy.
+            onEachFeature: function(feature, layer) {
+                layer.bindPopup(feature.properties.name);
+            },
+            // Here's where we can style our features.
+            style: function(feature) {
+                var color = "orange";
+                if (feature.properties.name === "Sutter Street") {
+                    color = "purple";
+                }
+                return {
+                    color: color
+                };
+            }
+        // note the call here to addTo() once again
+        }).addTo(map);
+    });
+
+    // Time for some geolocation.  Leaflet makes this super easy.
+    // First, we need to add an event listener to the locationfound event
+    // on the map
+    map.on('locationfound', function(e) {
+        // Now we've got an event object (e) with information about the user's
+        // location.  
+        L.marker([e.latitude, e.longitude]).
+            addTo(map).
+            bindPopup('You are here!');
+    });
+
+    // Now we just call map.locate()
+    // passing in an object with setView as true will automatically
+    // pan and zoom the map to the user's location.
+    map.locate({ setView: true });
+</script>

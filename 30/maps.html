@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/2.2.2/octicons.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
+<style>
+    body { margin: 0; }
+    #map { 
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+    }
+    #locate { 
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        padding: 6px 8px;
+        background: white;
+        border-radius: 4px;
+        color: black;
+        box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+    }
+    #locate:hover {
+        background-color: #f4f4f4;
+    }
+</style>
+
+<div id="map"></div>
+
+<a id="locate" class="octicon octicon-location" href="javascript:void(0);"></a>
+
+<script>
+    var map = L.map('map',{
+        center: [37.753, -122.441], 
+        zoom: 13
+    });
+
+    // this is rob's - get yr own!
+    var accessToken = 'pk.eyJ1Ijoicmdhc3RvbiIsImEiOiJJYTdoRWNJIn0.MN6DrT07IEKXadCU8xpUMg';
+    
+    var mapName = 'rgaston.m8385lok';
+    var mapboxTiles = L.tileLayer('https://{s}.tiles.mapbox.com/v4/' + mapName + '/{z}/{x}/{y}.png?access_token=' + accessToken, {
+        attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>'
+    });
+    map.addLayer(mapboxTiles);
+
+    var geoJsonUrl = "https://gist.githubusercontent.com/robgaston/dc5e5d709a0f1874a3b3/raw/ae107de9dc971abacf0cfa7a128c37fd3c38565a/sf_bike_routes.geojson";
+    $.get(geoJsonUrl, function(data) {
+        var geoJsonLayer = L.geoJson(JSON.parse(data), {
+            style: function (feature) {
+                return { color: 'orange' };
+            },
+            onEachFeature: function (feature, layer) {
+                layer.bindPopup(feature.properties.name);
+            }
+        })
+        map.addLayer(geoJsonLayer);
+    });
+
+    $('#locate').on('click', function() {
+        map.locate({setView: true, maxZoom: 15});  
+    });
+
+    map.on('locationfound', function (e) {
+        L.marker([e.latitude, e.longitude]).addTo(map)
+            .bindPopup('You are here.')
+            .openPopup();
+    });
+</script>

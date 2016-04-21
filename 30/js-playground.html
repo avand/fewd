@@ -1,0 +1,34 @@
+<p>
+  Hello world!
+</p>
+
+<ul>
+  <li>First item!</li>
+</ul>
+
+<script>
+
+  // Set 1. Change the paragraph text
+  var paragraph = document.querySelector("p");
+  paragraph.textContent = "Goodbye world!";
+
+  // Set 2. Add a list item to the list
+  var list = document.querySelector("ul");
+  var newListItem = document.createElement("li");
+  newListItem.textContent = "Second item!";
+  list.appendChild(newListItem);
+
+  // Set 3. Add an image to the paragraph
+  var newImage = document.createElement("img");
+  newImage.setAttribute("src", "http://upload.wikimedia.org/wikipedia/commons/c/c5/Smoked_Chinese_sausage.jpg")
+  paragraph.appendChild(newImage);
+
+  // Set 4. Add a link to the paragraph
+  var anchor = document.createElement("a");
+  anchor.setAttribute("href", "https://www.google.com/search?q=sausages")
+  anchor.setAttribute("target", "_blank");
+  anchor.setAttribute("title", "Search for sausages...")
+  anchor.textContent = "Sausages";
+  paragraph.appendChild(anchor);
+
+</script>

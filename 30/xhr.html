@@ -1,0 +1,53 @@
+<form>
+  <input type="text" placeholder="Search">
+  <button>Search</button>
+</form>
+
+<ul>
+
+</ul>
+
+<script>
+var list = document.querySelector("ul");
+var form = document.querySelector("form");
+var input = form.querySelector("input");
+
+function get(url, success) {
+  var xhr = new XMLHttpRequest();
+
+  xhr.addEventListener("readystatechange", function() {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      success(JSON.parse(xhr.response));
+    }
+  });
+
+  xhr.open("GET", url);
+  xhr.send();
+}
+
+function listMovies(results) {
+  var movies = results["Search"];
+
+  list.innerHTML = ""; // Clears the list
+
+  for (var i = 0; i < movies.length; i++) {
+    var movie = movies[i];
+    var li = document.createElement("li");
+
+    var anchor = document.createElement("a");
+    anchor.setAttribute("href", "http://www.imdb.com/title/" + movie["imdbID"]);
+    anchor.textContent = movie["Title"];
+
+    li.appendChild(anchor);
+    list.appendChild(li);
+  }
+}
+
+function formSubmitted(event) {
+  event.preventDefault();
+  get("http://omdbapi.com/?s=" + input.value, listMovies);
+}
+
+form.addEventListener("submit", formSubmitted);
+
+</script>

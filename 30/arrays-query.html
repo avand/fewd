@@ -1,0 +1,36 @@
+<ul>
+  <li><input type="text" id="item-1" value="tomatoes"></li>
+  <li><input type="text" id="item-2" value="avocado"></li>
+  <li><input type="text" id="item-3" value="bananas"></li>
+  <li><input type="text" id="item-4" value="celery"></li>
+  <li><input type="text" id="item-5" value="apples"></li>
+</ul>
+
+<ol>
+</ol>
+
+<script>
+// Copy the values from the first list into the second list but sort them!
+
+var groceries = [];
+
+var inputs = document.querySelectorAll("input");
+
+for (var i = 0; i < inputs.length; i++) {
+  var input = inputs[i];
+  groceries.push(input.value);
+}
+
+groceries.sort();
+
+var list = document.querySelector("ol");
+
+for (var i = 0; i < groceries.length; i++) {
+  var groceryItem = groceries[i];
+
+  var li = document.createElement("li");
+  li.textContent = groceryItem;
+  list.appendChild(li);
+}
+
+</script>

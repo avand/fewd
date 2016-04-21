@@ -1,0 +1,16 @@
+header,
+footer {
+  display: none;
+}
+
+main {
+  box-shadow: none;
+  padding: 0;
+  border: none;
+}
+
+/*
+Alternatively you could define a class like this:
+.dont-print {
+  display: none;
+}*/

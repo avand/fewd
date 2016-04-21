@@ -1,0 +1,20 @@
+<script>
+
+function fullName(fName, lName) {
+  return fName + " " + lName;
+}
+
+function yob(age) {
+  return 2015 - parseInt(age);
+}
+
+var f = prompt("What is your first name?");
+var l = prompt("What is your last name?");
+var a = prompt("How old are you?");
+
+var message = "Your full name is " + fullName(f, l) +
+              " and you were born in " + yob(a) + ".";
+
+alert(message);
+
+</script>
