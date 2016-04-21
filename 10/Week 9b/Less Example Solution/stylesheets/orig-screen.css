@@ -1,0 +1,74 @@
+.box {
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  left: 0;
+  top: 25px;
+  border-radius: 5px;
+  border: 5px inset #ccc;
+}
+#box-1 {
+  background: red;
+  background: -moz-linear-gradient(top, red 0%, darkred 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, red), color-stop(100%, darkred));
+  background: -webkit-linear-gradient(top, red 0%, darkred 100%);
+  background: -o-linear-gradient(top, red 0%, darkred 100%);
+  background: -ms-linear-gradient(top, red 0%, darkred 100%);
+  background: linear-gradient(to bottom, red 0%, darkred 100%);
+  -webkit-animation-name: hammertime;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-iteration-count: infinite;
+  animation-name: hammertime;
+  animation-duration: 1s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+#box-2 {
+  top: 125px;
+  background: green;
+  background: -moz-linear-gradient(top, green 0%, darkgreen 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, green), color-stop(100%, darkgreen));
+  background: -webkit-linear-gradient(top, green 0%, darkgreen 100%);
+  background: -o-linear-gradient(top, green 0%, darkgreen 100%);
+  background: -ms-linear-gradient(top, green 0%, darkgreen 100%);
+  background: linear-gradient(to bottom, green 0%, darkgreen 100%);
+  -webkit-animation-name: hammertime;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-iteration-count: infinite;
+  animation-name: hammertime;
+  animation-duration: 2s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+#box-3 {
+  top: 225px;
+  background: blue;
+  background: -moz-linear-gradient(top, blue 0%, darkblue 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, blue), color-stop(100%, darkblue));
+  background: -webkit-linear-gradient(top, blue 0%, darkblue 100%);
+  background: -o-linear-gradient(top, blue 0%, darkblue 100%);
+  background: -ms-linear-gradient(top, blue 0%, darkblue 100%);
+  background: linear-gradient(to bottom, blue 0%, darkblue 100%);
+  -webkit-animation-name: hammertime;
+  -webkit-animation-duration: 4s;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-iteration-count: infinite;
+  animation-name: hammertime;
+  animation-duration: 4s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+@-webkit-keyframes hammertime {
+  to {
+    left: 90%;
+    -webkit-transform: rotate(180deg);
+  }
+}
+@keyframes hammertime {
+  to {
+    left: 90%;
+    transform: rotate(180deg);
+  }
+}

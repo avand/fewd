@@ -1,0 +1,21 @@
+body {
+  min-width: 0;
+}
+header {
+  padding: 5px 10px;
+}
+header nav li {
+  margin-left: 12.5px;
+}
+section,
+footer {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+section {
+  margin-top: 20px;
+  padding: 20px;
+}
+.product img {
+  max-width: 100px;
+}

@@ -1,0 +1,29 @@
+<script>
+  // setTimeout is a function that takes another function
+  setTimeout(function() {
+    alert("Times up!")
+  }, 3000)
+
+  // setTimeout's function definition might look like this:
+  function setTimeout(callback, time) {
+    // When the time is up... call the callback function!
+    callback();
+  }
+
+  function sayHello(personName, callback) {
+    var greeting = "Hello, " + personName;
+    callback(greeting);
+  };
+
+  sayHello("Avand", function(a) {
+    console.log(a);
+  });
+
+  sayHello("Chris", function(b) {
+    alert(b);
+  });
+
+  sayHello("Skye", function(c) {
+    document.write(c);
+  });
+</script>

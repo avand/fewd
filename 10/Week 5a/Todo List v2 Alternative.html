@@ -1,0 +1,77 @@
+<style type="text/css" media="screen">
+  html, input {
+    font: 20px/30px Verdana, sans-serif;
+  }
+  input {
+    border: 3px solid #8C8C8C;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  input:not(:focus):invalid {
+    border-color: #FFADA9;
+  }
+  html {
+    background-color: #A7D3DA;
+  }
+  body {
+    background: white;
+    border: 1px solid black;
+    padding: 30px;
+    margin: 50px auto;
+    width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+  }
+  li span {
+    font-style: italic;
+    color: #9E9E9E;
+    margin-left: 10px;
+  }
+</style>
+
+<h1>Todo List v2</h1>
+
+<form id="add-item-form">
+  <input type="text" name="new-item-name" id="new-item-name" placeholder="e.g., milk & cookies" required autofocus>
+  <input type="date" name="new-item-date" id="new-item-date">
+  <input type="submit" value="Add item" id="add-item-button">
+</form>
+
+<ul id="list">
+</ul>
+
+<script type="text/javascript" charset="utf-8">
+  var form = document.getElementById("add-item-form");
+  var list = document.getElementById("list");
+
+  form.onsubmit = function(event) {
+    event.preventDefault();
+
+    var li   = document.createElement("li");
+
+    li.innerText = form["new-item-name"].value;
+
+    if (form["new-item-date"].value !== "") {
+      var span = document.createElement("span");
+      span.innerText = "(" + form["new-item-date"].value + ")";
+      li.appendChild(span)
+    }
+
+    list.appendChild(li);
+
+    // reset the form
+    form.reset();
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+

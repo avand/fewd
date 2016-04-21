@@ -1,0 +1,75 @@
+<h1>Reverse Polish Notation Test</h1>
+
+<table>
+  <tr>
+    <th>Example</th>
+    <th>Expected</th>
+    <th>Actual</th>
+  </tr>
+  <tr>
+    <td><code>rpn([2, 3, "+"])</code></td>
+    <td>5</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>rpn([5, 1, "-"])</code></td>
+    <td>4</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>rpn([1, 5, "+", 2, "/"])</code></td>
+    <td>3</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>rpn([2, 3, 5, "+", "-"])</code></td>
+    <td>-6</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>rpn([100, 10, "%"])</code></td>
+    <td>0</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>rpn([74, 2, "/"])</code></td>
+    <td>36</td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<script>
+  function rpn(args) {
+  }
+
+  var examples = document.getElementsByTagName("code");
+
+  for (var i = 0; i < examples.length; i++) {
+    var tableRow = examples[i].parentElement.parentElement;
+    var expected = parseInt(tableRow.children[1].innerText);
+    var actual   = "?";
+
+    try {
+      actual = eval(examples[i].innerText);
+    } catch (exception) {
+      tableRow.children[3].innerText = exception;
+    }
+
+    tableRow.children[2].innerText = actual;
+    tableRow.children[2].className = expected === actual ? "pass" : "fail";
+  }
+</script>
+
+<style>
+  body, code { font: 14px/1.2em Courier; }
+  th         { text-align: left; padding-right: 2em; }
+  th, td     { padding: 0.5em; }
+  .pass      { color: white; background-color: #3BAC85 }
+  .fail      { color: white; background-color: #FF656C }
+</style>

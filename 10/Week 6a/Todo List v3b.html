@@ -1,0 +1,79 @@
+<script type="text/javascript" charset="utf-8">
+  function createNewItem(itemValue, dateValue) {
+    var li = document.createElement("li");
+    li.innerText = itemValue;
+
+    if (dateValue !== "") {
+      var dateTag = document.createElement("time");
+      dateTag.innerText = "(" + dateValue + ")";
+      li.appendChild(dateTag);
+    }
+
+    return li;
+  };
+
+  window.onload = function() {
+    var form = document.getElementById("add-item-form");
+    var list = document.getElementById("list");
+    var item = document.getElementById("new-item");
+    var date = document.getElementById("new-date");
+
+    form.onsubmit = function(event) {
+      event.preventDefault();
+
+      var currentListItems = document.getElementsByTagName("li");
+      var li = createNewItem(item.value, date.value);
+
+      for (var i = 0; i < currentListItems.length; i++) {
+        if (currentListItems[i].innerText === li.innerText) {
+          alert("Item is already on the list!");
+          return;
+        }
+      }
+
+      list.appendChild(li);
+      form.reset();
+    }
+  }
+</script>
+
+<style type="text/css" media="screen">
+  html, input {
+    font: 25px/35px Verdana, sans-serif;
+  }
+  input {
+    border: 5px solid black;
+    padding: 5px;
+  }
+  input:not(:focus):invalid {
+    border-color: red;
+  }
+  html {
+    background-color: #A7D3DA;
+  }
+  body {
+    background: white;
+    border: 1px solid black;
+    padding: 30px;
+    margin: 30px auto;
+    width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+  }
+  li time {
+    color: gray;
+    text-decoration: italic;
+    margin-left: 10px;
+  }
+</style>
+
+<h1>Todo List v3b</h1>
+
+<form id="add-item-form">
+  <input type="text" name="new-item" id="new-item" placeholder="e.g., milk & cookies" required autofocus>
+  <input type="date" name="new-date" id="new-date">
+  <input type="submit" value="Add item" id="add-item-button">
+</form>
+
+<ul id="list">
+</ul>

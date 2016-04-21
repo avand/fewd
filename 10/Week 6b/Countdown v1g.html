@@ -1,0 +1,35 @@
+<form id="timer" onreset="alert('reset')">
+  <input type="number" id="time-remaining">
+  <input type="submit">
+  <input type="reset">
+</form>
+
+<script>
+  // function timesUp() {
+  //   // window.alert("Times up!");
+  // };
+  // 
+  // function stopTimer() {
+  //   clearInterval(intervalID);
+  // }
+  // 
+  // var intervalID = setInterval(timesUp, 3000);
+  // 
+  // setTimeout(stopTimer, 10000)
+
+  var timer = document.getElementById("timer");
+  var timeRemaining = document.getElementById("time-remaining");
+
+  timer.onsubmit = function(e) {
+    e.preventDefault();
+
+    setInterval(function() {
+      var number = parseInt(timeRemaining.value) - 1;
+      timeRemaining.value = number;
+      console.log(number);
+    }, 1000)
+  };
+
+  
+
+</script>

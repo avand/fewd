@@ -1,0 +1,29 @@
+<form id="search">
+  <input type="text" id="query">
+  <input type="submit" value="search">
+</form>
+
+<div id="results">
+</div>
+
+<script>
+  var searchForm = document.getElementById("search");
+  var queryInput = document.getElementById("query");
+  var resultsDiv = document.getElementById("results");
+
+  searchForm.onsubmit = function(e) {
+    e.preventDefault();
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
+      if (request.readyState === 4 && request.status === 200) {
+        var results = JSON.parse(request.response);
+        resultsDiv.innerText = request.response;
+        alert(results["Search"][0]["Title"]);
+      }
+    }
+
+    request.open("GET", "http://omdbapi.com/?s=" + queryInput.value)
+    request.send();
+  }
+</script>

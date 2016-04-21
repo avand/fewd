@@ -1,0 +1,22 @@
+<img id="logo">
+
+<script>
+  // The attr function takes 0 - 3 arguments.
+  // If you call it with 0, they're all undefined.
+  // If you call it with 3, they all have values.
+  // So you can check any of the arguments to see
+  // if they're undefined.
+  function attr(id, name, value) {
+    var element = document.getElementById(id);
+    if (value !== undefined) {
+      element.setAttribute(name, value);
+    } else {
+      return element.getAttribute(name)
+    }
+  }
+
+  setTimeout(function() {
+    attr("logo", "src", "https://d3o09jpaxs6yh2.cloudfront.net/production/assets/ga-lockup-91b6faf530625d6c62c44ae5fae9aa46.png")
+    alert(attr("logo", "src"));
+  }, 1000)
+</script>

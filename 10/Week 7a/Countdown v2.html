@@ -1,0 +1,51 @@
+<form id="timer">
+  <input type="number" id="time-remaining">
+  <input type="submit" value="Start" id="start-stop">
+  <input type="reset">
+</form>
+
+<script>
+  var timer = document.getElementById("timer");
+  var timeRemaining = document.getElementById("time-remaining");
+  var startStopButton = document.getElementById("start-stop");
+  var intervalID;
+  var originalTimeRemaining;
+
+  function resetTimer() {
+    startStopButton.value = "Start";
+    clearInterval(intervalID);
+  };
+
+  timer.onsubmit = function(e) {
+    e.preventDefault();
+
+    if (originalTimeRemaining === undefined) originalTimeRemaining = timeRemaining.value;
+
+    if (startStopButton.value === "Start") {
+      startStopButton.value = "Stop";
+
+      intervalID = setInterval(function() {
+        var number = parseInt(timeRemaining.value) - 1;
+        timeRemaining.value = number;
+
+        if (number <= 0) {
+          alert("Times up!");
+          resetTimer();
+        }
+      }, 1000);
+    } else {
+      resetTimer();
+    }
+
+    console.log(originalTimeRemaining);
+  };
+
+  timer.onreset = function(e) {
+    e.preventDefault();
+
+    timeRemaining.value = originalTimeRemaining;
+    originalTimeRemaining = undefined;
+
+    if (intervalID !== undefined) resetTimer();
+  };
+</script>

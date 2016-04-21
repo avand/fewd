@@ -1,0 +1,59 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<form id="search">
+  <input type="text" id="query">
+  <input type="submit" value="search">
+</form>
+
+<ul id="results">
+  <!--li>
+    <a href="http://www.imdb.com/title/tt0133093" id="matrix">
+      The Matrix
+    </a>
+  </li-->
+</ul>
+
+<div id="poster">
+</div>
+
+<script>
+  var searchForm      = $("#search");
+  var queryInput      = $("#query");
+  var anchor          = $("#matrix");
+  var posterContainer = $("#poster");
+  var resultsList     = $("#results");
+
+  searchForm.on("submit", function(e) {
+    e.preventDefault();
+
+    resultsList.empty();
+
+    $.getJSON("http://omdbapi.com/?s=" + queryInput.val(), function(results) {
+      var movies  = results["Search"];
+
+      $.each(movies, function(i) {
+        var movie = this;
+        var movieListItem = $("<li>");
+        $("<a>").attr("href", "http://www.imdb.com/title/" + movie["imdbID"])
+                .text(movie["Title"] + " (" + movie["Year"] + ")")
+                .appendTo(movieListItem)
+                .on("click", function(event) {
+                  event.preventDefault();
+
+                  posterContainer.empty();
+
+                  var imdbId = event.target.href.split("title/")[1];
+
+                  $.getJSON("http://omdbapi.com/?i=" + imdbId, function(movie) {
+                    $("<img>").attr({
+                      src: movie["Poster"],
+                      alt: movie["Title"] + " Poster"
+                    }).appendTo(posterContainer);
+                  })
+                });
+
+        movieListItem.appendTo(resultsList);
+      })
+    })
+  })
+</script>

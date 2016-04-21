@@ -1,0 +1,53 @@
+.vertical-two-stop-gradient(@top-color, @bottom-color) {
+  background: @top-color;
+  background: -moz-linear-gradient(top, @top-color 0%, @bottom-color 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @top-color), color-stop(100%, @bottom-color));
+  background: -webkit-linear-gradient(top, @top-color 0%, @bottom-color 100%);
+  background: -o-linear-gradient(top, @top-color 0%, @bottom-color 100%);
+  background: -ms-linear-gradient(top, @top-color 0%, @bottom-color 100%);
+  background: linear-gradient(to bottom, @top-color 0%, @bottom-color 100%);
+}
+.animation(@name, @duration, @direction, @iteration-count) {
+  -webkit-animation-name: @name;
+  -webkit-animation-duration: @duration;
+  -webkit-animation-direction: @direction;
+  -webkit-animation-iteration-count: @iteration-count;
+  animation-name: @name;
+  animation-duration: @duration;
+  animation-direction: @direction;
+  animation-iteration-count: @iteration-count;
+}
+.hammertime() {
+  to {
+    left: 90%;
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+  }
+}
+
+.box {
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  left: 0;
+  border-radius: 5px;
+  border: 5px inset #ccc;
+}
+#box-1 {
+  top: 25px;
+  .vertical-two-stop-gradient(red, darkred);
+  .animation(hammertime, 1s, alternate, infinite);
+}
+#box-2 {
+  top: 125px;
+  .vertical-two-stop-gradient(green, darkgreen);
+  .animation(hammertime, 2s, alternate, infinite);
+}
+#box-3 {
+  top: 225px;
+  .vertical-two-stop-gradient(blue, darkblue);
+  .animation(hammertime, 3s, alternate, infinite);
+}
+
+@-webkit-keyframes hammertime { .hammertime(); }
+@keyframes hammertime         { .hammertime(); }

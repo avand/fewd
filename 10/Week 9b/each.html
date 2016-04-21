@@ -1,0 +1,12 @@
+<script>
+  function each(array, callback) {
+    // callback(item, i);
+    for (var i = 0; i < array.length; i++) {
+      callback(array[i], i)
+    }
+  }
+
+  each(["a", "b", "c"], function(item, i) {
+    console.log(item, i);
+  });
+</script>

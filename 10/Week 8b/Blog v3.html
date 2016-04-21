@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Blog v1</title>
+    <style type="text/css" media="screen">
+      body {
+        margin: 0;
+        background: #E6D6FF;
+        font-family: sans-serif;
+      }
+      .container {
+        margin: 2em 15% 0;
+        border: 1px solid #AF7CFE;
+        border-radius: 5px;
+        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+        background: white;
+        padding: 20px;
+      }
+      h1 {
+        margin-top: 0;
+      }
+      textarea {
+        display: block;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Blog Post Title</h1>
+
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+
+      <div>
+        <a href="#" id="like-link">Like</a>
+        (<span id="number-of-likes">0</span>)
+      </div>
+
+      <h2>Comments</h2>
+
+      <div id="comments">
+      </div>
+
+      <form id="new-comment">
+        <textarea name="body" id="comment-body"></textarea>
+        <input type="submit" value="Comment">
+      </form>
+    </div>
+
+    <script>
+      var likeLink = document.getElementById("like-link");
+      var newCommentForm = document.getElementById("new-comment");
+
+      // LIKE BUTTON:
+      // When the likeLink is clicked:
+      //   Get the innerHTML of numberOfLikes
+      //   Parse that value as an integer
+      //   Increment that number by one
+      //   Set the innerHTML of numberOfLikes to the new number
+
+      likeLink.addEventListener("click", function(event) { // Same as likeLink.onclick = function() { ... }
+        var numberOfLikes = document.getElementById("number-of-likes");
+
+        event.preventDefault();
+        authenticate(function() {
+          var likes = parseInt(numberOfLikes.innerText);
+          numberOfLikes.innerText = likes + 1;
+        })
+      })
+
+      // COMMENTS:
+      // When the newCommentForm is submitted:
+      //   Prevent the form from actually submitting (preventDefault)
+      //   Get the value of the text area
+      //   Append the current date to that value
+      //   Create a new paragraph
+      //   Set that paragraph's innerHTML to the concatenated string
+      //   Append the paragraph to the #comments
+
+      newCommentForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        authenticate(function(username) {
+          var newCommentBody = document.getElementById("comment-body");
+          var comments       = document.getElementById("comments");
+          var comment        = document.createElement("p");
+
+          var now = new Date();
+          var dateString = now.getDate() + "/" + (now.getMonth() + 1) + "/" + now.getFullYear();
+          comment.innerText = dateString + ": " + newCommentBody.value + " - " + username;
+
+          comments.appendChild(comment);
+        });
+
+        newCommentForm.reset();
+      });
+
+      function authenticate(onLoginSuccess) {
+        var username = prompt("What is your name?");
+        if (username) onLoginSuccess(username);
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script>
+// VANILLA JAVASCRIPT:                            JQUERY:
+
+var el = document.getElementById("query");        var el = $("#query");
+var q  = el.value;                                var q  = el.val();
+
+var el = document.getElementById("movies");       var el = $("#movies");
+el.innerText = "new inner text";                  el.text("new inner text");
+el.innerHTML = "<p>foo</p>";                      el.html("<p>foo</p>");
+
+var form = document.getElementById("search");     var form = $("#search");
+form.addEventListener("submit", function(e) {     form.on("submit", function(e) {
+  e.preventDefault;                                 e.preventDefault();
+})                                                });
+
+var request = new XMLHttpRequest();               $.getJSON("http://...", function(movies) {
+request.open("GET", "http://...")
+request.onreadystatechange = function() {
+  if (request.readyState === 4 &&
+      request.status     === 200) {
+    var movies = JSON.parse(request.response);
+    var search = movies["Search"];
+
+    for (var i = 0; i < search.length; i++) {       $.each(movies["Search"], function(movie) {
+      var li = document.createElement("li");          var li = $("<li>").text(movie["Title"]);
+      li.innerText = search[i]["Title"];
+      el.appendChild(li);                             li.appendTo(el); // OR el.append(li)
+    }                                               });
+  }                                               });
+}
+request.send()
+
+</script>

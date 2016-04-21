@@ -1,0 +1,64 @@
+<script>
+  var intervalID;
+
+  function tick() {
+    var numberInput = document.getElementsByTagName("input")[0];
+    var timeLeft = parseInt(numberInput.value);
+
+    if (timeLeft === 0) {
+      alert("Times up!");
+      clearInterval(intervalID);
+      return;
+    }
+
+    timeLeft = timeLeft - 1; // timeLeft--
+    numberInput.value = timeLeft;
+  };
+
+  window.onload = function() {
+    var timerForm = document.getElementById("timer");
+
+    timerForm.onsubmit = function(event) {
+      event.preventDefault();
+      intervalID = setInterval(tick, 1000);
+    }
+  }
+</script>
+
+<style>
+  h1 {
+    text-align: center;
+    font-family: Lucida Grande;
+    font-size: 60px;
+  }
+  #timer,
+  input[type="number"] {
+    width: 400px;
+  }
+  #timer {
+    margin: 0 auto;
+    padding: 50px;
+    background: #557EA2;
+  }
+  input[type="number"],
+  input[type="submit"],
+  input[type="reset"] {
+    font-size: 40px;
+    border: 1px solid #421E5D;
+    background: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  input[type="submit"],
+  input[type="reset"] {
+    width: 198px;
+  }
+</style>
+
+<h1>Countdown v1</h1>
+
+<form id="timer">
+  <input type="number" value="3" autofocus required>
+  <input type="submit" value="Start">
+  <input type="reset">
+</form>

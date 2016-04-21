@@ -1,0 +1,18 @@
+<script>
+  function timesUp() {
+    window.alert("Times up!");
+  };
+
+  // Less idiomatic than above, but the same.
+  // In other words, no one writes functions like this.
+  // var timesUp = function(string) {
+  //   window.alert("Times up!");
+  // }
+
+  setTimeout(timesUp, 3000);
+
+  // Same as above, but anonymous.
+  // setTimeout(function() {
+  //   window.alert("Times up!");
+  // }, 3000);
+</script>

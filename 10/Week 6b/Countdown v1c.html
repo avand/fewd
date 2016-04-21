@@ -1,0 +1,13 @@
+<script>
+  function timesUp() {
+    // window.alert("Times up!");
+  };
+
+  function stopTimer() {
+    clearInterval(intervalID);
+  }
+
+  var intervalID = setInterval(timesUp, 3000);
+
+  setTimeout(stopTimer, 10000)
+</script>
