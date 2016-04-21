@@ -1,0 +1,20 @@
+<input type="text" id="new-item">
+<input type="submit" value="Add Item" id="add-item">
+<input type="submit" value="Remove Last Item" id="remove-item">
+
+<script>
+  var items = [];
+  var newItem = document.getElementById("new-item");
+  var addItem = document.getElementById("add-item")
+  var removeItem = document.getElementById("remove-item");
+
+  addItem.addEventListener("click", function() {
+    items.push(newItem.value);
+    console.log(items);
+  });
+
+  removeItem.addEventListener("click", function() {
+    items.pop();
+    console.log(items);
+  });
+</script>

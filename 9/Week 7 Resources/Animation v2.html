@@ -1,0 +1,52 @@
+<style>
+  #ga {
+    position: absolute;
+    left: 0px;
+  }
+</style>
+
+<img src="http://hire.jeremiahlee.com/img/general-assembly-logo.png" width="128" height="128" id="ga">
+
+<!--
+
+  Direction = right
+
+  Every 10ms
+    if (gaLeft >= (innerWidth - ga.width)) {
+      direction = "left";
+    };
+
+    if (gaLeft <= 0) {
+      direction = "right";
+    };
+
+    If direction is right
+      Increment img's left by one
+    If direction is left
+      Decrement img's left by one
+
+-->
+
+<script>
+  var ga = document.getElementById("ga");
+  var gaLeft = parseInt(getComputedStyle(ga).left);
+  var direction = "right";
+
+  setInterval(function() {
+    if (gaLeft >= (innerWidth - ga.width)) {
+      direction = "left";
+    }
+    if (gaLeft <= 0) {
+      direction = "right";
+    }
+
+    if (direction == "right") {
+      gaLeft = gaLeft + 1; // Same as gaLeft++
+    }
+    if (direction == "left") {
+      gaLeft = gaLeft - 1; // Same as gaLeft--
+    }
+
+    ga.style.left = gaLeft + "px";
+  }, 10)
+</script>

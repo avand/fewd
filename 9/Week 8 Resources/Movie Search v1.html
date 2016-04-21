@@ -1,0 +1,43 @@
+<h1>Movie Search v1</h1>
+
+<input type="search" id="query" placeholder="e.g., Matrix" autofocus>
+<input type="submit" id="search" value="Search">
+
+<p id="info">
+</p>
+
+<ul id="titles">
+</ul>
+
+<script>
+  var button = document.getElementById("search");
+  var info   = document.getElementById("info");
+  var query  = document.getElementById("query");
+  var titles = document.getElementById("titles");
+
+  button.addEventListener("click", function() {
+    var request = new XMLHttpRequest();
+    request.open("GET", "http://omdbapi.com/?s=" + query.value);
+    request.onreadystatechange = function() {
+      if (request.readyState == 4 && request.status == 200) {
+        var json = JSON.parse(request.response);
+        info.innerHTML = json["Search"].length + " result(s) for <strong>" + query.value + "</strong>:";
+
+        for (var i = 0; i < json["Search"].length; i++) {
+          var title = json["Search"][i]["Title"];
+
+          var li = document.createElement("li");
+          li.innerText = title
+
+          titles.appendChild(li);
+        }
+      }
+    }
+    request.send();
+  });
+</script>
+
+
+
+
+

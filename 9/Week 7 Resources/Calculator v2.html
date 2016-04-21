@@ -1,0 +1,28 @@
+<input type="number" id="num-1">
+<input type="number" id="num-2">
+<input type="submit" value="Add" id="add">
+<input type="submit" value="Subtract" id="subtract">
+
+<script>
+  var num1 = document.getElementById("num-1");
+  var num2 = document.getElementById("num-2");
+  var addButton = document.getElementById("add");
+  var subtractButton = document.getElementById("subtract");
+
+  function add(eventObject) {
+    var sum = parseFloat(num1.value) + parseFloat(num2.value);
+
+    console.log(eventObject);
+    console.log(sum);
+  };
+
+  function subtract() {
+    var difference = parseFloat(num1.value) - parseFloat(num2.value);
+
+    console.log(difference);
+  };
+
+  addButton.addEventListener("click", add);
+  subtractButton.addEventListener("click", subtract);
+
+</script>

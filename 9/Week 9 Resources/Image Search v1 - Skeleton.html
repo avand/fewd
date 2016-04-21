@@ -1,0 +1,38 @@
+<style>
+  img { margin: 0 10px 10px 0; }
+</style>
+
+<h1>Image Search v1</h1>
+
+<input type="search" id="query">
+<input type="submit" value="Search" id="search">
+
+<div id="images">
+</div>
+
+<script src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  google.load("search", "1"); // Specific to Google's JavaScript library
+
+  var button = document.getElementById("search");
+  var query  = document.getElementById("query");
+  var images = document.getElementById("images");
+
+  button.addEventListener("click", function() {
+    // Create a new ImageSearch - kind of like XMLHttpRequest
+    var imageSearch = new google.search.ImageSearch();
+
+    // Set the callback - kind of like request.onreadystatechange = function() {}
+    imageSearch.setSearchCompleteCallback(this, function() {
+      // Make sure we have results - kind of like request.readyState == 4 && request.status == 200
+      if (imageSearch["results"] && imageSearch["results"].length > 0) {
+        // For every imageSearch["results"]
+        //   Create an <img> tag
+        //   Set the <img>'s src to the "tbUrl" (i.e. imageSearch["results"][i]["tbUrl"])
+        //   Append the <img> to <div id="images">
+      }
+    });
+
+    imageSearch.execute(query.value);
+  })
+</script>

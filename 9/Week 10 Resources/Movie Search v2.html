@@ -1,0 +1,74 @@
+<style>
+  #poster {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+</style>
+
+<h1>Movie Search v1</h1>
+
+<input type="search" name="query" value="" id="query">
+<input type="submit" name="search" value="Search" id="search">
+<input type="submit" name="clear" value="Clear" id="clear">
+
+<ul id="results">
+</ul>
+
+<div id="poster">
+</div>
+
+<script type="text/javascript" charset="utf-8">
+  var query   = document.getElementById("query");
+  var search  = document.getElementById("search");
+  var clear   = document.getElementById("clear");
+  var results = document.getElementById("results");
+  var poster  = document.getElementById("poster");
+
+  function clearResults() {
+    results.innerHTML = "";
+  }
+
+  function getStuff(url, callback) {
+    var request = new XMLHttpRequest();
+    request.open("GET", url);
+    request.onreadystatechange = function() {
+      if (request.readyState == 4 && request.status == 200) {
+        var json = JSON.parse(request.response);
+        callback(json);
+      }
+    }
+    request.send();
+  }
+
+  function getResults() {
+    clearResults();
+    var movieTitle = query.value;
+    getStuff("http://omdbapi.com/?s=" + movieTitle, function(searchResults) {
+      var movies = searchResults["Search"];
+
+      for (var i = 0; i < movies.length; i++) {
+        var movie = movies[i];
+        var li = document.createElement("li");
+        var a  = document.createElement("a");
+        a.setAttribute("href", "http://www.imdb.com/title/" + movie["imdbID"]);
+        a.innerHTML = movie["Title"] + ", " + movie["Year"];
+        a.addEventListener("click", function(event) {
+          event.preventDefault();
+          var imdbID = this.getAttribute("href").split("/")[4];
+          getStuff("http://omdbapi.com/?i=" + imdbID, function(movie) {
+            var img = document.createElement("img")
+            img.setAttribute("src", movie["Poster"]);
+            poster.innerHTML = "";
+            poster.appendChild(img);
+          })
+        });
+        li.appendChild(a);
+        results.appendChild(li);
+      }
+    })
+  };
+
+  search.addEventListener("click", getResults);
+  clear.addEventListener("click", clearResults);
+</script>

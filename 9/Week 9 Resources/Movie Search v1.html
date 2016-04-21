@@ -1,0 +1,45 @@
+<h1>Movie Search v1</h1>
+
+<input type="search" name="query" value="" id="query">
+<input type="submit" name="search" value="Search" id="search">
+<input type="submit" name="clear" value="Clear" id="clear">
+
+<ul id="results">
+</ul>
+
+<script type="text/javascript" charset="utf-8">
+  var query   = document.getElementById("query");
+  var search  = document.getElementById("search");
+  var clear   = document.getElementById("clear");
+  var results = document.getElementById("results");
+
+  function clearResults() {
+    results.innerHTML = "";
+  }
+
+  function getResults() {
+    clearResults();
+    var movieTitle = query.value;
+    var request = new XMLHttpRequest();
+    request.open("GET", "http://omdbapi.com/?s=" + movieTitle);
+    request.onreadystatechange = function() {
+      if (request.readyState == 4 && request.status == 200) {
+        var response = request.response;
+        var searchResults = JSON.parse(response);
+        var movies = searchResults["Search"];
+
+        for (var i = 0; i < movies.length; i++) {
+          var movie = movies[i];
+          var li = document.createElement("li");
+          li.innerHTML = movie["Title"] + ", " + movie["Year"];
+          results.appendChild(li);
+        }
+      }
+    }
+
+    request.send();
+  };
+
+  search.addEventListener("click", getResults);
+  clear.addEventListener("click", clearResults);
+</script>

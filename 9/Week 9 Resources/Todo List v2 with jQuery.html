@@ -1,0 +1,30 @@
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<input type="text" id="item" placeholder="New item" autofocus>
+<input type="submit" id="add" value="Add">
+
+<ul id="list">
+  <!--
+    We're going to create this markup with JavaScript:
+    <li>Milk</li>
+  -->
+</ul>
+
+<script>
+  // When the "Add" button is clicked
+  //   Read the value of the input
+  //   Create a new <li> with the input's value as the innerText
+  //   Append that <li> to the existing <ul id="list">
+
+  var $button = $("#add");
+  var $input  = $("#item");
+  var $ul     = $("#list");
+
+  $button.on("click", function() {
+    var newItems = $input.val().split(", ");
+
+    $.each(newItems, function(i, newItem) {
+      $("<li>").text(newItem).appendTo($ul);
+    });
+  });
+</script>

@@ -1,0 +1,41 @@
+<input type="number" value="3" id="duration">
+<input type="submit" value="Start" id="start">
+
+<script>
+  // When the start button is clicked
+  //   Get the value of duration
+  //   Parse duration as int
+  //   Every second
+  //     If duration is 0 or greater
+  //       Decrement duration by 1
+  //       Update the input's value
+  //     Else
+  //       Stop the timer
+
+  var durationInt;
+  var intervalID;
+  var startButton = document.getElementById("start");
+
+  function tick() {
+    if (durationInt > 0) {
+      console.log("tick", durationInt);
+
+      durationInt = durationInt - 1;
+
+      var duration = document.getElementById("duration");
+      duration.value = durationInt;
+    } else {
+      alert("Times up!");
+      clearInterval(intervalID);
+    }
+  };
+
+  startButton.addEventListener("click", function() {
+    var duration = document.getElementById("duration");
+    var durationValue = duration.value;
+
+    durationInt = parseInt(durationValue);
+
+    intervalID = setInterval(tick, 1000);
+  });
+</script>

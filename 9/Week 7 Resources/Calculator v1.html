@@ -1,0 +1,35 @@
+<!--
+  When the button is clicked
+    Get value of num1
+    Get value of num2
+    parse value of num1 as float
+    parse value of num2 as float
+    add floats together
+    console log the sum
+-->
+
+<input type="number" id="num-1">
+<input type="number" id="num-2">
+<input type="submit" value="Add" id="add">
+
+<script>
+  var num1 = document.getElementById("num-1");
+  var num2 = document.getElementById("num-2");
+  var addButton = document.getElementById("add");
+
+  addButton.addEventListener("click", function() {
+    var num1Value = num1.value;
+    var num2Value = num2.value;
+
+    var num1Float = parseFloat(num1Value);
+    var num2Float = parseFloat(num2Value);
+
+    var sum = num1Float + num2Float;
+
+    // Same thing in one line:
+    // var sum = parseFloat(num1.value) + parseFloat(num2.value);
+
+    console.log(sum);
+  })
+
+</script>

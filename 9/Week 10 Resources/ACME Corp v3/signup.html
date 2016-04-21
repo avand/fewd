@@ -1,0 +1,63 @@
+<!-- Screencast: https://vimeo.com/channels/571580/72354970 -->
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>ACME Corp</title>
+
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen">
+    <link href="stylesheets/mobile.css" rel="stylesheet" media="screen">
+  </head>
+
+  <body>
+    <header>
+      <a href="index.html">
+        <img src="images/acme-corp.jpg" width="200" height="55" id="logo" alt="ACME Anvil Corporation">
+      </a>
+
+      <nav>
+        <ol>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="signup.html" class="btn">Sign Up</a></li>
+        </ol>
+      </nav>
+    </header>
+
+    <section>
+      <h1>Sign Up</h1>
+
+      <form>
+        <ul>
+          <li>
+            <label for="first_name">First Name</label>
+            <input type="text" id="first_name" placeholder="John" autofocus required>
+          </li>
+          <li>
+            <label for="last_name">Last Name</label>
+            <input type="text" id="last_name" placeholder="Doe" required>
+          </li>
+          <li>
+            <label for="email">Email</label>
+            <input type="text" id="email" placeholder="john.doe@example.com" required>
+          </li>
+          <li>
+            <label for="password">Password</label>
+            <input type="password" id="password" required>
+          </li>
+          <li>
+            <input type="checkbox" id="terms" required>
+            <label for="terms">Agree to our terms of service</label>
+          </li>
+          <li>
+            <input type="submit" value="Sign Up">
+          </li>
+        </ul>
+      </form>
+    </section>
+
+    <footer>
+      Copyright, 2013
+    </footer>
+  </body>
+</html>

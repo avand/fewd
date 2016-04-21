@@ -1,0 +1,32 @@
+@media screen and (max-width: 600px) {
+  body {
+    line-height: 30px;
+  }
+
+  header {
+    text-align: center;
+  }
+  header #logo {
+    float: none;
+  }
+  header nav ol {
+    text-align: inherit;
+  }
+
+  section,
+  footer {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+  }
+  section {
+    border-radius: 0;
+    border: 0;
+    box-shadow: none;
+    padding: 15px;
+  }
+
+  .product img {
+    max-width: 100px;
+  }
+}

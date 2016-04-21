@@ -1,0 +1,43 @@
+<!-- Screencast: https://vimeo.com/75671662 -->
+
+<script>
+  function add(m, n) {
+    m = parseFloat(m);
+    n = parseFloat(n);
+    var sum = m + n;
+    return sum;
+  };
+
+  function crunchNumbers() {
+    var num1 = document.getElementById("num1").value;
+    var num2 = document.getElementById("num2").value;
+
+    var result = add(num1, num2);
+
+    alert(result);
+  }
+
+  window.onload = function() {
+    var btn = document.getElementById("btn");
+    btn.addEventListener("click", crunchNumbers);
+  }
+
+  // Using an anonymous function:
+  // 
+  // window.onload = function() {
+  //   var btn = document.getElementById("btn");
+  //   btn.addEventListener("click", function() {
+  //     var num1 = document.getElementById("num1").value;
+  //     var num2 = document.getElementById("num2").value;
+  // 
+  //     var result = add(num1, num2);
+  // 
+  //     alert(result);
+  //   });
+  // }
+
+</script>
+
+<input type="number" id="num1">
+<input type="number" id="num2">
+<button id="btn">Add</button>

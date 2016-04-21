@@ -1,0 +1,39 @@
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<h1>Movie Search v1</h1>
+
+<input type="search" name="query" value="" id="query">
+<input type="submit" name="search" value="Search" id="search">
+<input type="submit" name="clear" value="Clear" id="clear">
+
+<ul id="results">
+</ul>
+
+<script type="text/javascript" charset="utf-8">
+  var $query   = $("#query");
+  var $search  = $("#search");
+  var $clear   = $("#clear");
+  var $results = $("#results");
+
+  function clearResults() {
+    $results.empty();
+  }
+
+  function getResults() {
+    clearResults();
+    var movieTitle = $query.val();
+
+    $.getJSON("http://omdbapi.com/?s=" + movieTitle, function(response) {
+      $.each(response["Search"], function(i, movie) {
+        $("<li>").html(movie["Title"] + ", " + movie["Year"]).appendTo($results);
+
+        var $li = $("<li>");
+        $li.html(movie["Title"] + ", " + movie["Year"]);
+        $li.appendTo($results);
+      });
+    });
+  };
+
+  $search.on("click", getResults);
+  $clear.on("click", clearResults);
+</script>
