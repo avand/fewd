@@ -9,6 +9,44 @@
         max-width: 600px;
         margin: 0 auto;
       }
+      .cohorts {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .cohorts li {
+        display: inline;
+      }
+      .cohort {
+        border: 2px solid rgb(225, 225, 225);
+        display: block;
+        padding: .5em;
+        margin-bottom: 1em;
+        text-decoration: none;
+      }
+      .cohort:hover {
+        border-color: blue;
+      }
+      .cohort-current {
+        border-color: rgb(150, 150, 150);
+      }
+      .cohort-name {
+        text-decoration: underline;
+      }
+      .cohort-info {
+        color: rgb(150, 150, 150);
+      }
+      .cohort-current .cohort-name {
+        font-weight: bold;
+      }
+      .cohort-label {
+        float: right;
+        background-color: rgb(150, 150, 150);
+        color: white;
+        padding: 0 .5em;
+        text-transform: uppercase;
+        font-size: .8em;
+      }
     </style>
   </head>
   <body>
@@ -33,10 +71,32 @@
       wonderful folks at <a href="https://pages.github.com">GitHub</a>:
     </p>
 
-    <ul>
-      <li><a href="37">Section 37</a> 👈 latest &amp; greatest</li>
-      <li><a href="34">Section 34</a></li>
-      <li><a href="30">Section 30</a></li>
+    <ul class="cohorts">
+      <li>
+        <a href="46" class="cohort cohort-current">
+          <div class="cohort-label">In progress</div>
+          <div class="cohort-name">Section 46</div>
+          <div class="cohort-info">May 25th, 2016 - Aug 8th, 2016</div>
+        </a>
+      </li>
+      <li>
+        <a href="37" class="cohort">
+          <div class="cohort-name">Section 37</div>
+          <div class="cohort-info">Oct 28, 2015 - Jan 25th, 2016</div>
+        </a>
+      </li>
+      <li>
+        <a href="34" class="cohort">
+          <div class="cohort-name">Section 34</div>
+          <div class="cohort-info">Jul 23rd, 2015 - Sep 29th, 2015</div>
+        </a>
+      </li>
+      <li>
+        <a href="30" class="cohort">
+          <div class="cohort-name">Section 30</div>
+          <div class="cohort-info">Mar 23rd, 2015 - May 27th, 2015</div>
+        </a>
+      </li>
     </ul>
 
     <p>
