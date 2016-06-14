@@ -26,7 +26,17 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
+    tr td:not(:first-child),
+    tr th:not(:first-child) {
+      text-align: center;
+    }
   </style>
+
+  <script>
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+  </script>
 </head>
 <body>
   <nav class="navbar navbar-default">
@@ -95,7 +105,7 @@
   </nav>
 
   <div class="container content">
-    <h4>Course details</h4>
+    <h4 style="margin-top: 0;">Course details</h4>
 
     <p>
       June 14th - August 18th, 2016<br>
@@ -118,246 +128,259 @@
 
     <table class="table">
       <tr>
-        <th colspan="2">Name</th>
-        <th><a class="truncate" href="homework/1-acme-corp.html" title="ACME Corp">ACME Corp</a></th>
-        <th><a class="truncate" href="homework/3-calculators.html" title="Calculators">Calculators</a></th>
-        <th><a class="truncate" href="homework/4-acme-corp-js.html" title="ACME Corp JS">ACME Corp JS</a></th>
-        <th><a class="truncate" href="homework/5-blog.html" title="Blog">Blog</a></th>
-        <th><a class="truncate" href="homework/6-stop-light.html" title="Stop Light">Stop Light</a></th>
-        <th><a class="truncate" href="homework/7-todo-list-csv.html" title="Todo List CSV">Todo List CSV</a></th>
-        <th><a class="truncate" href="homework/8-movie-search.html" title="Movie Search">Movie Search</a></th>
-        <th><a class="truncate" href="homework/9-spreadsheet.html" title="Spreadsheet">Spreadsheet</a></th>
-        <th><a class="truncate" href="homework/10-chat.html" title="Chat">Chat</a></th>
-        <th><a class="truncate" href="#" title="Final Project">Final Project</a></th>
+        <th style="text-align: right;">Exercises:</th>
+        <th><a class="truncate" href="#" data-toggle="tooltip" title="ACME Corp">1</a></th>
+        <th><a class="truncate" href="#" data-toggle="tooltip" title="ACME Corp Continued">2</a></th>
+        <th><a class="truncate" href="#" data-toggle="tooltip" title="Calculators">3</a></th>
+        <th><a class="truncate" href="#" data-toggle="tooltip" title="ACME Corp Built w/ JS">4</a></th>
+        <th><a class="truncate" href="#" data-toggle="tooltip" title="Blog w/ Likes & Comments">5</a></th>
+        <th><a class="truncate" href="#" data-toggle="tooltip" title="Stop Light">6</a></th>
+        <th><a class="truncate" href="#" data-toggle="tooltip" title="Todo List">7</a></th>
+        <th><a class="truncate" href="#" data-toggle="tooltip" title="Movie Search">8</a></th>
+        <th><a class="truncate" href="#" data-toggle="tooltip" title="Spreadsheet">9</a></th>
+        <th><a class="truncate" href="#" data-toggle="tooltip" title="Chat">10</a></th>
+        <th><a class="truncate" href="#" data-toggle="tooltip" title="Final Project">Final Project</a></th>
       </tr>
 
       <tr>
-        <td>Aziza</td>
         <td>
+          Aziza<br>
           <i class="fa fa-twitter"></i>
           <i class="fa fa-linkedin"></i>
           <i class="fa fa-facebook"></i>
           <i class="fa fa-github"></i>
         </td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
       </tr>
       <tr>
-        <td>Christine</td>
         <td>
+          Christine<br>
           <i class="fa fa-twitter"></i>
           <i class="fa fa-linkedin"></i>
           <i class="fa fa-facebook"></i>
           <i class="fa fa-github"></i>
         </td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
       </tr>
       <tr>
-        <td>Colleen</td>
         <td>
+          Colleen<br>
           <i class="fa fa-twitter"></i>
           <i class="fa fa-linkedin"></i>
           <i class="fa fa-facebook"></i>
           <i class="fa fa-github"></i>
         </td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
       </tr>
       <tr>
-        <td>Gabriel</td>
         <td>
+          Gabriel<br>
           <i class="fa fa-twitter"></i>
           <i class="fa fa-linkedin"></i>
           <i class="fa fa-facebook"></i>
           <i class="fa fa-github"></i>
         </td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
       </tr>
       <tr>
-        <td>Megan</td>
         <td>
+          Megan<br>
           <i class="fa fa-twitter"></i>
           <i class="fa fa-linkedin"></i>
           <i class="fa fa-facebook"></i>
           <i class="fa fa-github"></i>
         </td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
       </tr>
       <tr>
-        <td>Nadine</td>
         <td>
+          Nadine<br>
           <i class="fa fa-twitter"></i>
           <i class="fa fa-linkedin"></i>
           <i class="fa fa-facebook"></i>
           <i class="fa fa-github"></i>
         </td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
       </tr>
       <tr>
-        <td>Nour</td>
         <td>
+          Nour<br>
           <i class="fa fa-twitter"></i>
           <i class="fa fa-linkedin"></i>
           <i class="fa fa-facebook"></i>
           <i class="fa fa-github"></i>
         </td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
       </tr>
       <tr>
-        <td>Paige</td>
         <td>
+          Paige<br>
           <i class="fa fa-twitter"></i>
           <i class="fa fa-linkedin"></i>
           <i class="fa fa-facebook"></i>
           <i class="fa fa-github"></i>
         </td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
       </tr>
       <tr>
-        <td>Ritagya</td>
         <td>
+          Ritagya<br>
           <i class="fa fa-twitter"></i>
           <i class="fa fa-linkedin"></i>
           <i class="fa fa-facebook"></i>
           <i class="fa fa-github"></i>
         </td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
       </tr>
       <tr>
-        <td>Sora</td>
         <td>
+          Sora<br>
           <i class="fa fa-twitter"></i>
           <i class="fa fa-linkedin"></i>
           <i class="fa fa-facebook"></i>
           <i class="fa fa-github"></i>
         </td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
       </tr>
       <tr>
-        <td>Tiana</td>
         <td>
+          Tiana<br>
           <i class="fa fa-twitter"></i>
           <i class="fa fa-linkedin"></i>
           <i class="fa fa-facebook"></i>
           <i class="fa fa-github"></i>
         </td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
       </tr>
       <tr>
-        <td>Xiaoxiao</td>
         <td>
+          Xiaoxiao<br>
           <i class="fa fa-twitter"></i>
           <i class="fa fa-linkedin"></i>
           <i class="fa fa-facebook"></i>
           <i class="fa fa-github"></i>
         </td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
-        <td><i class="fa fa-external-link-square"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
+        <td><i class="fa fa-circle-o"></i></td>
       </tr>
     </table>
   <div>
