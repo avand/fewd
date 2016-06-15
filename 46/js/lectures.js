@@ -7,31 +7,30 @@ $(document).ready(function() {
   $(".enlarge-on-hover").mouseenter(function() {
     if (skipEnlargment) return;
 
-    var img = $(this);
+    var smallImage = $(this);
+    var largeImage = smallImage.clone();
     var rect = this.getBoundingClientRect();
 
     timer = setTimeout(function() {
-      console.log("url(" + img.attr("src") + ")");
+      console.log("url(" + smallImage.attr("src") + ")");
       $("<div>").addClass("image-enlargement-target").css({
         position: "fixed",
         top: rect.top,
         left: rect.left,
-        width: img.width(),
-        height: img.height()
+        width: smallImage.width(),
+        height: smallImage.height()
       }).mouseleave(function() {
         $(this).remove();
-        console.log("remove")
-        img.removeAttr("style");
+        largeImage.remove();
         setTimeout(function() { skipEnlargment = false; }, 100);
       }).appendTo("body")
 
-      img.css({
+      largeImage.css({
         position: "fixed",
-        top: "20px",
-        left: "5%",
-        right: "5%",
-        width: "90%"
-      });
+        top: "5px",
+        left: "10%",
+        width: "80%"
+      }).removeClass("enlarge-on-hover").appendTo("body");
 
       skipEnlargment = true;
     }, 200);
