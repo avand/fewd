@@ -26,9 +26,26 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
-    tr td:not(:first-child),
-    tr th:not(:first-child) {
+    table.students tr td:not(:first-child),
+    table.students tr th:not(:first-child) {
       text-align: center;
+    }
+    .date {
+      float: right;
+      opacity: 0.5;
+    }
+    .info {
+      margin-bottom: .5em;
+    }
+    .info:not(:last-of-type) {
+      padding-bottom: .25em;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    .calendar strong {
+      background-color: rgba(255, 255, 0, 0.4);
+    }
+    .today {
+      background-color: rgba(0, 0, 0, 0.05);
     }
   </style>
 
@@ -105,7 +122,7 @@
   </nav>
 
   <div class="container content">
-    <h4 style="margin-top: 0;">Course details</h4>
+    <h2 style="margin-top: 0;">Course details</h2>
 
     <p>
       June 14th - August 18th, 2016<br>
@@ -124,23 +141,25 @@
       Evan Ponchick, Producer (<a href="mailto:evan@generalassemb.ly">evan@generalassemb.ly</a>)
     </p>
 
-    <h4>Students</h4>
+    <h2>Students</h2>
 
-    <table class="table">
-      <tr>
-        <th style="text-align: right;">Exercises:</th>
-        <th><a class="truncate" href="#" data-toggle="tooltip" title="ACME Corp">1</a></th>
-        <th><a class="truncate" href="#" data-toggle="tooltip" title="ACME Corp Continued">2</a></th>
-        <th><a class="truncate" href="#" data-toggle="tooltip" title="Calculators">3</a></th>
-        <th><a class="truncate" href="#" data-toggle="tooltip" title="ACME Corp Built w/ JS">4</a></th>
-        <th><a class="truncate" href="#" data-toggle="tooltip" title="Blog w/ Likes & Comments">5</a></th>
-        <th><a class="truncate" href="#" data-toggle="tooltip" title="Stop Light">6</a></th>
-        <th><a class="truncate" href="#" data-toggle="tooltip" title="Todo List">7</a></th>
-        <th><a class="truncate" href="#" data-toggle="tooltip" title="Movie Search">8</a></th>
-        <th><a class="truncate" href="#" data-toggle="tooltip" title="Spreadsheet">9</a></th>
-        <th><a class="truncate" href="#" data-toggle="tooltip" title="Chat">10</a></th>
-        <th><a class="truncate" href="#" data-toggle="tooltip" title="Final Project">Final Project</a></th>
-      </tr>
+    <table class="table students">
+      <thead>
+        <tr>
+          <th style="text-align: right;">Exercises:</th>
+          <th><a class="truncate" href="#" data-toggle="tooltip" title="ACME Corp">1</a></th>
+          <th><a class="truncate" href="#" data-toggle="tooltip" title="ACME Corp Continued">2</a></th>
+          <th><a class="truncate" href="#" data-toggle="tooltip" title="Calculators">3</a></th>
+          <th><a class="truncate" href="#" data-toggle="tooltip" title="ACME Corp Built w/ JS">4</a></th>
+          <th><a class="truncate" href="#" data-toggle="tooltip" title="Blog w/ Likes & Comments">5</a></th>
+          <th><a class="truncate" href="#" data-toggle="tooltip" title="Stop Light">6</a></th>
+          <th><a class="truncate" href="#" data-toggle="tooltip" title="Todo List">7</a></th>
+          <th><a class="truncate" href="#" data-toggle="tooltip" title="Movie Search">8</a></th>
+          <th><a class="truncate" href="#" data-toggle="tooltip" title="Spreadsheet">9</a></th>
+          <th><a class="truncate" href="#" data-toggle="tooltip" title="Chat">10</a></th>
+          <th><a class="truncate" href="#" data-toggle="tooltip" title="Final Project">Final Project</a></th>
+        </tr>
+      </thead>
 
       <tr>
         <td>
@@ -383,6 +402,296 @@
         <td><i class="fa fa-circle-o"></i></td>
       </tr>
     </table>
+
+    <h2>Calendar</h2>
+
+    <table class="calendar table table-bordered">
+      <thead>
+        <tr>
+          <th style="width: 12%">Sunday</th>
+          <th style="width: 12%">Monday</th>
+          <th style="width: 20%">Tuesday</th>
+          <th style="width: 12%">Wednesday</th>
+          <th style="width: 20%">Thursday</th>
+          <th style="width: 12%">Friday</th>
+          <th style="width: 12%">Saturday</th>
+        </tr>
+      </thead>
+      <tr>
+        <td>
+          <div class="date">12th</div>
+        </td>
+        <td>
+          <div class="date">13th</div>
+        </td>
+        <td class="today">
+          <div class="date">14th</div>
+          <div class="info">6:30-9:30: <strong>First class</strong></div>
+          <div class="info">Atom, GitHub, HTML, submitting homework</div>
+        </td>
+        <td>
+          <div class="date">15th</div>
+        </td>
+        <td>
+          <div class="date">16th</div>
+          <div class="info">6:30-8:00: Class</div>
+          <div class="info">8:00-9:30: <strong>Drinks!</strong></div>
+          <div class="info">CSS, positioning, float</div>
+        </td>
+        <td>
+          <div class="date">17th</div>
+        </td>
+        <td>
+          <div class="date">18th</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="date">19th</div>
+        </td>
+        <td>
+          <div class="date">20th</div>
+        </td>
+        <td>
+          <div class="date">21st</div>
+          <div class="info">Due: ACME Corp</div>
+          <div class="info">5:30-6:30: Study hall</div>
+          <div class="info">6:30-9:30: Class</div>
+        </td>
+        <td>
+          <div class="date">22nd</div>
+        </td>
+        <td>
+          <div class="date">23rd</div>
+          <div class="info">5:30-6:30: Study hall</div>
+          <div class="info">6:30-9:30: Class</div>
+        </td>
+        <td>
+          <div class="date">24th</div>
+        </td>
+        <td>
+          <div class="date">25th</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="date">26th</div>
+        </td>
+        <td>
+          <div class="date">27th</div>
+        </td>
+        <td>
+          <div class="date">28th</div>
+          <div class="info">5:30-6:30: Study hall</div>
+          <div class="info">6:30-9:30: Class</div>
+        </td>
+        <td>
+          <div class="date">29th</div>
+        </td>
+        <td>
+          <div class="date">30th</div>
+          <div class="info">5:30-6:30: Study hall</div>
+          <div class="info">6:30-9:30: Class</div>
+        </td>
+        <td>
+          <div class="date">1st</div>
+        </td>
+        <td>
+          <div class="date">2nd</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="date">3rd</div>
+        </td>
+        <td>
+          <div class="date">4th</div>
+        </td>
+        <td>
+          <div class="date">5th</div>
+          <div class="info">5:30-6:30: Study hall</div>
+          <div class="info">6:30-9:30: Class</div>
+        </td>
+        <td>
+          <div class="date">6th</div>
+        </td>
+        <td>
+          <div class="date">7th</div>
+          <div class="info">5:30-6:30: Study hall</div>
+          <div class="info">6:30-9:30: Class</div>
+        </td>
+        <td>
+          <div class="date">8th</div>
+        </td>
+        <td>
+          <div class="date">9th</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="date">10th</div>
+        </td>
+        <td>
+          <div class="date">11th</div>
+        </td>
+        <td>
+          <div class="date">12th</div>
+          <div class="info">5:30-6:30: Study hall</div>
+          <div class="info">6:30-9:30: Class</div>
+        </td>
+        <td>
+          <div class="date">13th</div>
+        </td>
+        <td>
+          <div class="date">14th</div>
+          <div class="info">5:30-6:30: Study hall</div>
+          <div class="info">6:30-7:00: <strong>Mid-course survey</strong></div>
+          <div class="info">7:00-9:30: Class</div>
+        </td>
+        <td>
+          <div class="date">15th</div>
+        </td>
+        <td>
+          <div class="date">16th</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="date">17th</div>
+        </td>
+        <td>
+          <div class="date">18th</div>
+        </td>
+        <td>
+          <div class="date">19th</div>
+          <div class="info">5:30-6:30: Study hall</div>
+          <div class="info">6:30-9:30: Class</div>
+        </td>
+        <td>
+          <div class="date">20th</div>
+        </td>
+        <td>
+          <div class="date">21st</div>
+          <div class="info">5:30-6:30: Study hall</div>
+          <div class="info">6:30-9:30: Class</div>
+        </td>
+        <td>
+          <div class="date">22nd</div>
+        </td>
+        <td>
+          <div class="date">23rd</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="date">24th</div>
+        </td>
+        <td>
+          <div class="date">25th</div>
+        </td>
+        <td>
+          <div class="date">26th</div>
+          <div class="info">5:30-6:30: Study hall</div>
+          <div class="info">6:30-9:30: Class</div>
+        </td>
+        <td>
+          <div class="date">27th</div>
+        </td>
+        <td>
+          <div class="date">28th</div>
+          <div class="info">5:30-6:30: Study hall</div>
+          <div class="info">6:30-9:30: Class</div>
+        </td>
+        <td>
+          <div class="date">29th</div>
+        </td>
+        <td>
+          <div class="date">30th</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="date">31st</div>
+        </td>
+        <td>
+          <div class="date">1st</div>
+        </td>
+        <td>
+          <div class="date">2nd</div>
+          <div class="info">5:30-6:30: Study hall</div>
+          <div class="info">6:30-9:30: Class</div>
+        </td>
+        <td>
+          <div class="date">3rd</div>
+        </td>
+        <td>
+          <div class="date">4th</div>
+          <div class="info">5:30-6:30: Study hall</div>
+          <div class="info">6:30-9:30: Class</div>
+        </td>
+        <td>
+          <div class="date">5th</div>
+        </td>
+        <td>
+          <div class="date">6th</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="date">7th</div>
+        </td>
+        <td>
+          <div class="date">8th</div>
+        </td>
+        <td>
+          <div class="date">9th</div>
+          <div class="info">5:30-6:30: Study hall</div>
+          <div class="info">6:30-9:30: Class</div>
+        </td>
+        <td>
+          <div class="date">10th</div>
+        </td>
+        <td>
+          <div class="date">11th</div>
+          <div class="info">5:30-6:30: Study hall</div>
+          <div class="info">6:30-9:30: Class</div>
+        </td>
+        <td>
+          <div class="date">12th</div>
+        </td>
+        <td>
+          <div class="date">13th</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="date">14th</div>
+        </td>
+        <td>
+          <div class="date">15th</div>
+        </td>
+        <td>
+          <div class="date">16th</div>
+          <div class="info">5:30-9:30: <strong>Extended study hall</strong></div>
+        </td>
+        <td>
+          <div class="date">17th</div>
+        </td>
+        <td>
+          <div class="date">18th</div>
+          <div class="info">5:30-6:30: Study hall</div>
+          <div class="info">6:30-7:00: End-of-course survey</div>
+          <div class="info">7:00-9:30: <strong>Final projects</strong></div>
+        </td>
+        <td>
+          <div class="date">19th</div>
+        </td>
+        <td>
+          <div class="date">20th</div>
+        </td>
+      </tr>
+    </table>
+
   <div>
 </body>
 </html>
