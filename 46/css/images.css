@@ -1,0 +1,7 @@
+.enlarge-on-hover,
+.image-enlargement-target {
+  cursor: pointer;
+}
+
+.enlarge-on-hover         { z-index: 1000; }
+.image-enlargement-target { z-index: 1010; }

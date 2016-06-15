@@ -190,20 +190,74 @@
   </li>
 </ul>
 
-<h3>Getting started:</h3>
+<h3>Setup &amp; publish your FEWD repo</h3>
+
+<div class="sidebar">
+  <a href="https://generalassembly.wistia.com/medias/jkrycndgrs">This helpful video</a> by General Assembly walks through some of these instructions. It's not exactly the same but it will give you an overview.
+</div>
+
+<p>
+  There's some plumbing to sort out before we get to HTML. For now we just want to get a page up on the web that says "hello world."
+</p>
 
 <ol>
   <li>
-    Sign up for <a target="_blank" href="https://github.com/">GitHub</a>
+    Sign up for <a target="_blank" href="https://github.com/">GitHub</a> on github.com.
   </li>
   <li>
-    Verify your email address
+    Verify your email address <strong>(don't skip this step)</strong>
   </li>
   <li>
-    Download <a target="_blank" href="https://desktop.github.com/">GitHub Desktop</a>
+    Download and install <a target="_blank" href="https://desktop.github.com/">GitHub Desktop</a>
   </li>
   <li>
-    Open GitHub Desktop and follow the steps to sign into your account
+    Open GitHub Desktop and follow the steps to sign into your account<br>
+    <img src="images/github/1-initial-state.png" width="100" class="enlarge-on-hover">
+  </li>
+  <li>
+    On your computer, create a new folder "fewd"
+  </li>
+  <li>
+    Open Atom, File > Open, navigate to the "fewd" folder you just created
+  </li>
+  <li>
+    Create a new file in that folder "index.html" (File > New)
+  </li>
+  <li>
+    Write the words "Hello world!" in that file and save (File > Save or Comman + S)
+  </li>
+  <li>
+    Go back to GitHub Desktop and create a repository from that folder<br>
+    <img src="images/github/2-adding-fewd-folder.png" width="100" class="enlarge-on-hover">
+  </li>
+  <li>
+    Commit your work—a good commit summary might be "Hello world, this is my first commit!"<br>
+    <img src="images/github/3-first-commit.png" width="100" class="enlarge-on-hover">
+  </li>
+  <li>
+    Hit "Publish" and confirm the repo name (maybe add a description like "My work for learning front-end web dev or something"). You should now see your commit in the history<br>
+    <img src="images/github/4-history.png" width="100" class="enlarge-on-hover">
+    <img src="images/github/5-publishing-repo.png" width="100" class="enlarge-on-hover">
+  </li>
+  <li>
+    Go back to github.com and make sure that you see your repository there
+  </li>
+  <li>
+    Now, create a branch called "gh-pages" (from master) and publish it<br>
+    <img src="images/github/6-cut-gh-pages-branch.png" width="100" class="enlarge-on-hover">
+    <img src="images/github/7-publish-gh-pages.png" width="100" class="enlarge-on-hover">
+  </li>
+  <li>
+    Confirm that your "gh-pages" branch does indeed exist on the github.com<br>
+    <img src="images/github/8-on-the-web.png" width="100" class="enlarge-on-hover">
+  </li>
+  <li>
+    See your "hello world" at <code>http://{ your user name }.github.io/{ your repository name }/</code> for example:
+    <a href="http://avand.github.io/fewd">http://avand.github.io/fewd/</a>
+  </li>
+  <li>
+    <strong>One last important step!</strong> Change the default branch to "gh-pages" in your repository settings<br>
+    <img src="images/github/9-change-default-branch.png" width="100" class="enlarge-on-hover">
   </li>
 </ol>
 
@@ -213,24 +267,6 @@
   <li>What is HTML?</li>
   <li>What is a markup language? As opposed to, say, a programming language?</li>
 </ul>
-
-<h3>"Hello World"</h3>
-
-<ol>
-  <li>Confirm that you have not created any repos on GitHub thus far</li>
-  <li>Create a new folder "fewd-46"</li>
-  <li>Open that folder in Atom</li>
-  <li>Create a file in that folder "index.html"</li>
-  <li>Add the folder to GitHub, which will make it a repository</li>
-  <li>Make your first commit!</li>
-  <li>Publish to GitHub</li>
-  <li>View your repo on GitHub</li>
-  <li>"Cut" a branch called "gh-pages" and <strong>publish</strong> it to GitHub</li>
-  <li>
-    See your page at <code>http://{ your user name }.github.io/{ your repository name }/</code> for example:
-    <a href="http://avand.github.io/fewd">http://avand.github.io/fewd/</a>
-  </li>
-</ol>
 
 <h3>The anatomy of an element</h3>
 
