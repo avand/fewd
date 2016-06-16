@@ -5,3 +5,7 @@
 
 .enlarge-on-hover         { z-index: 1000; }
 .image-enlargement-target { z-index: 1010; }
+
+.thumbnail {
+  max-height: 200px;
+}

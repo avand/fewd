@@ -15,7 +15,9 @@
   <li><a href="#atom">Atom</a></li>
   <li><a href="#github">GitHub</a></li>
   <li><a href="#html">Intro to HTML</a></li>
-  <li><a href="#homework">Submitting homework</a>
+  <li><a href="#pr">Pull Requests</a></li>
+  <li><a href="#css">Intro to CSS</a></li>
+  <li><a href="#homework">Homework</a></li>
 </ol>
 
 <h2 id="expectations">1. Course expectations</h2>
@@ -302,7 +304,7 @@
 </p>
 
 <p>
-  Practice: <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;title&gt;</code>, <code>&lt;body&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code>.<br>
+  Practice: <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;title&gt;</code>, <code>&lt;body&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>, <code>&lt;h4&gt;</code>, <code>&lt;h5&gt;</code>, <code>&lt;h6&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code>.<br>
   <img src="images/html/2-nesting.png" width="200" class="enlarge-on-hover">
 </p>
 
@@ -369,21 +371,28 @@
   A complete list of shortcuts is available <a href="../../../resources/keyboard-shortcuts.html">here</a>.
 </p>
 
-<h2 id="homework">7. Submitting homework</h2>
+<h2 id="pr">7. Pull Requests</h2>
 
 <p>
-  You'll submit your homework by making a pull request that links up your project to this course homepage. Feedback will be provided on the Pull Request.
+  You'll submit your homework by making a pull request that links up your project to this course homepage. Feedback will be provided on the Pull Request. Practice this by linking up your name to your course webpage and wiring up any social links you'd like to include.
 </p>
 
 <ol>
   <li>
-    "Fork" the course curriculum repo: <a href="https://github.com/avand/fewd">github.com/avand/fewd</a>
+    Search github.com for "fewd"<br>
+    <img src="images/pr/1-github-home.png" width="100" class="enlarge-on-hover">
+    <img src="images/pr/2-search.png" width="100" class="enlarge-on-hover">
+  <li>
+    "Fork" the course curriculum repo
   </li>
   <li>
-    Clone the repo in GitHub Desktop
+    Clone the repo in GitHub Desktop<br>
+    <img src="images/pr/3-clone.png" width="100" class="enlarge-on-hover">
+    <img src="images/pr/4-name-destination.png" width="100" class="enlarge-on-hover">
+    <img src="images/pr/5-downloading.png" width="100" class="enlarge-on-hover">
   </li>
   <li>
-    Make sure you're on the gh-pages branch
+    Double check that you are indeed on the gh-pages branch
   </li>
   <li>
     Open the repo in Atom
@@ -392,24 +401,159 @@
     Find the file <code>46/index.html</code> and find the part that references you!
   </li>
   <li>
-    Create the necessary links (including the link to your profile)
+    Create the necessary links (including the link to your profile)<br>
+    <img src="images/pr/6-edit-in-atom.png" width="100" class="enlarge-on-hover">
   </li>
   <li>
-    Commit and sync your changes (a good commit message would be "Submitting Homework 1: ACME Corp")
+    Commit and sync your changes<br>
+    <img src="images/pr/7-commit.png" width="100" class="enlarge-on-hover">
   </li>
   <li>
-    Go back to your copy of the repo on github.com
+    Go back to your copy of the repo on github.com<br>
+    <img src="images/pr/8-view-on-github.png" width="100" class="enlarge-on-hover">
   </li>
   <li>
-    Submit a pull request from your repo back to <a href="https://github.com/avand/fewd">avand/fewd</a>
+    Submit a pull request from your repo back to <a href="https://github.com/avand/fewd">avand/fewd</a>. Make sure you're making a pull request from and to the gh-pages branch<br>
+    <img src="images/pr/9-create-pr.png" width="100" class="enlarge-on-hover">
+    <img src="images/pr/10-finish-pr.png" width="100" class="enlarge-on-hover">
   </li>
   <li>
-    Make sure you're making a pull request from and to the gh-pages branch
+    Soon your code will be merged into the main repository.<br>
+    <img src="images/pr/11-review.png" width="100" class="enlarge-on-hover">
+    <img src="images/pr/12-view-pr.png" width="100" class="enlarge-on-hover">
+    <img src="images/pr/13-merged.png" width="100" class="enlarge-on-hover">
   </li>
 </ol>
 
 <p>
-  Practice by linking up your name to your course webpage and wiring up any social links you'd like to include.
+  Once your changes have been merged, just click "Update from avand/gh-pages" in GitHub Desktop to make sure that your copy of "fewd" is the same as the course's.
+</p>
+
+<h2 id="css">8. Intro to CSS</h2>
+
+<h3>Anatomy of a selector</h3>
+
+<img src="images/anatomy-of-a-css-rule.gif" class="supporting-image">
+
+<p>
+  A CSS style rule consists of two parts:
+</p>
+
+<ul>
+  <li>
+    <strong>Selector</strong>: Which elements do you want to target?
+  </li>
+  <li>
+    <strong>Declaration</strong>: What styles do you want those elements to have?
+  </li>
+</ul>
+
+<p>
+  A declaration consists of two parts:
+</p>
+
+<ul>
+  <li>
+    <strong>Property</strong>: What property are you trying to control on the element (e.g., color)?
+  </li>
+  <li>
+    <strong>Value</strong>: What's the value for that property (e.g., red)?
+  </li>
+</ul>
+
+<h3>Commonly used properties</h3>
+
+<ul>
+  <li>
+    <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/background">background</a>
+  </li>
+  <li>
+    <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/border">border</a>
+  </li>
+  <li>
+    <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/color">color</a>
+  </li>
+  <li>
+    <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/font">font</a>
+  </li>
+  <li>
+    <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/height">height</a>
+  </li>
+  <li>
+    <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/width">width</a>
+  </li>
+  <li>
+    <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin">margin</a>
+  </li>
+  <li>
+    <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/padding">padding</a>
+  </li>
+  <li>
+    <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius">border-radius</a>
+  </li>
+  <li>
+    <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow">box-shadow</a>
+  </li>
+  <li>
+    <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-align">text-align</a>
+  </li>
+</ul>
+
+<h3>Where does CSS go?</h3>
+
+<p>
+  When writing CSS, you have three options of where to put it.
+</p>
+
+<ol>
+  <li>
+    <strong>Inline</strong>: With inline styles you use an <strong>attribute</strong> on the element you want to target. No selector is necessary.<br>
+    <code>&lt;p style="color: red;"&gt;I'm red text&lt;/p&gt;</code>
+  </li>
+  <li>
+    <strong>Internal</strong>: Add CSS to the HTML page you're working on by opening a <code>&lt;style&gt;</code> tag and putting your CSS inside.<br>
+    <code>&lt;style&gt;<br>p { color: red; }<br>&lt;/style&gt;</code><br>
+    This code makes <em>all</em> paragraphs on that page red.
+  </li>
+  <li>
+    <strong>External</strong>: Share styles between pages with an external stylesheet. Create a file in your project that ends with .css. Put your styles in that file. Then reference that file in your HTML with a link tag.<br>
+    <code>&lt;link rel="stylesheet" href="css/colors.css" media="screen" charset="utf-8"&gt;</code>
+  </li>
+</ol>
+
+<p>
+  What are the pros and cons of each method of including CSS?
+</p>
+
+<p>
+  Spruce up your homepage by adding some styles to it. Experiment with all three methods of including styles and try all the properties listed above.
+</p>
+
+<h3>Descendant CSS selectors</h3>
+
+<p>You can select nested elements by putting a space between selectors. For example: <code>header a</code> selects all the <code>&lt;a&gt;</code> tags in the header.</p>
+
+<p>Some rules of thumb when nesting CSS selectors:</p>
+
+<ul>
+  <li>Keep it shallow! Deeply nested selectors can get confusing.</li>
+  <li>Omit any unnecessary selectors.  Keep it as simple as possible!</li>
+</ul>
+
+<h3>Floats</h3>
+
+<p>
+  Doing layout with CSS doesn't come naturally, but one really simple way to get content to go next to one another is with floats. You can <code>float: left;</code> or <code>float: right;</code>. Traditionally floats are used on images to have an image display next to text.
+</p>
+
+<p>
+  Practice floating your photo left and right and see what happens.
+</p>
+
+<h2 id="homework">9. Homework</h2>
+
+<p>
+  <a href="../../exercises/1-acme-corp.html">ACME Corp</a>
 </p>
 
 <meta charset="utf-8">
