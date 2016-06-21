@@ -1,0 +1,193 @@
+<title>Week 2 Lecture Notes, FEWD 46</title>
+<meta charset="utf-8">
+<nav>Loading navigation&hellip;</nav>
+
+<h1>Week 2</h1>
+
+<p>
+  This week we'll talk about course logistics and expectations. We'll also go over HTML and CSS basics. With your new found skills you'll publish a very simple course profile page, which will be your ongoing homepage for the course.
+</p>
+
+<ol>
+  <li><a href="#floats">Floats</a></li>
+  <li><a href="#positioning">Positioning</a></li>
+  <li><a href="#classes-ids">Classes &amp; IDs</a></li>
+  <li><a href="#block-inline">Display: block &amp; inline</a></li>
+  <li><a href="#div-span">div &amp; span</a></li>
+</ol>
+
+<p>
+  Helpful resources:
+</p>
+
+<ul>
+  <li><a href="http://learnlayout.com">Learn Layout</a></li>
+  <li><a href="http://www.csszengarden.com/">CSS Zen Garden</a></li>
+  <li><a href="http://learn.shayhowe.com/">Learn from Shay Howe</a></li>
+</ul>
+
+<h2 id="floats">Floats</h2>
+
+<img src="images/balloon.png" class="supporting-image">
+
+<p>
+  When you want an image and text to appear side-by-side, you want to `float` the image (usually) to the `left` or `right`.
+</p>
+
+<p>
+  The balloon to the right is <code>float: right</code>.
+</p>
+
+<p>
+  Once an element is floated, it is no longer part of the "document flow," which can often have unintended consequences.
+</p>
+
+<h3>Clearfix</h3>
+
+<p>
+  A "clearfix" is a hack used to manage layouts with floats, see <a href="http://learnlayout.com/clearfix.html">this example</a>. The modern way to do this is by adding the CSS property <code>overflow: auto;</code> to the parent.
+</p>
+
+<p>
+  <a href="floats.html">Example</a>
+</p>
+
+<h2 id="positioning">Positioning </h2>
+
+<p>
+  When you use anything other that <code>static</code> (the default value for position),
+  you'll be able to use the properties <code>top</code>, <code>right</code>,
+  <code>bottom</code> and <code>left</code> to adjust your elements position, but
+  how it is positioned depends on what value you set position to:
+</p>
+
+<ul>
+  <li>
+    <code>position: static;</code>
+    <p>
+      Positions based on the content; cannot be adjusted and it's the default
+      value for position for all elements (you probably don't need to know that,
+      but can use it to sound cool at parties).
+    </p>
+  </li>
+  <li>
+    <code>position: fixed;</code>
+    <p>
+      Positions with respect to the browser window (useful for sticky headers and stuff).
+      Use with caution because it will probably cover text!
+    </p>
+  </li>
+  <li>
+    <code>position: relative;</code>
+    <p>
+      Positions relative to where it normally is.
+    </p>
+  </li>
+  <li>
+    <code>position: absolute;</code>
+    <p>
+      "Absolute children have relative parents!" An absolute child element will be positioned
+      relative to it's parent (the one that has <code>position: relative</code>).
+    </p>
+  </li>
+</ul>
+
+<p>
+  Examples: <a href="position-absolute.html">absolute</a> &amp; <a href="position-fixed-header.html">fixed</a>.
+</p>
+
+<p>
+  What happens if you make the header on ACME Corp fixed?
+</p>
+
+<h2 id="classes-ids">Classes &amp; IDs</h2>
+
+<p>
+  Classes and IDs allow us to identify and target styles on elements based on more than just their tag name. Let's say you have a particular button style you like. You'd like to be able to style <code>&lt;button&gt;</code> and <code>&lt;a&gt;</code> in the same way. One way to do this is to attach your styles to both elements:
+</p>
+
+<pre>
+<code>a,
+button {
+  border: 1px solid black;
+  border-radius: 5px;
+  /* etc... */
+}
+</code>
+</pre>
+
+<p>
+  What's bad about this?
+</p>
+
+<p>
+  Creating a class allows apply styles to any element as we choose. Define a class with a <code>.</code>:
+</p>
+
+<pre>
+<code>.my-button {
+  border: 1px solid black;
+  border-radius: 5px;
+  /* etc... */
+}
+</code>
+</pre>
+
+<p>
+  And in your HTML, give elements that class with the class attribute.
+</p>
+
+<pre>
+<code>&lt;a href="http://example.com" class="my-button"&gt;Click me&lt;a&gt;
+</code>
+</pre>
+
+<h3>Sharing styles and writing less code</h3>
+
+<p>
+  An element can have as many classes modifying it as you'd like. This let's us share common styles and get more specific as we need to.
+</p>
+
+<pre>
+<code>.my-button {
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: .25em;
+}
+.my-smaller-button {
+  font-size: 12px;
+}
+</code>
+</pre>
+
+<p>
+  Practice with <a href="buttons.html">Buttons</a>.
+</p>
+
+<h3>IDs</h3>
+
+<p>
+  IDs work just like classes but are less flexible because <strong>an element can only have one ID</strong>. You also use a <code>#</code> instead of a <code>.</code> to select an element by ID.
+</p>
+
+<h2 id="block-inline">Display: block &amp; inline</h2>
+
+<p>
+  <strong>Block</strong> elements are "100% wide" and do not let any other pieces of content share space on the same horizontal row.
+</p>
+
+<p>
+  <strong>Inline</strong> elements are as wide as their content and allow other elements to share space to the left and right.
+</p>
+
+<h2 id="div-span">div &amp; span</h2>
+
+<p>
+  When you can add whatever descripitors you want to an element via classes or IDs, the name of the element becomes less important. For example, you could have a paragraph that serves as the "introduction" to an article. If you had a <code>&lt;introduction&gt;</code> tag, you might use it instead. In cases like this, consider using a completely generic element like <code>&lt;span&gt;</code> and <code>&lt;div&gt;</code>.
+</p>
+
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../css/lectures.css" media="screen" charset="utf-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="../../js/lectures.js"></script>
