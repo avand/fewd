@@ -47,6 +47,21 @@
     .today {
       background-color: rgba(0, 0, 0, 0.05);
     }
+    .info.hw {
+      background-color: rgba(0, 255, 0, 0.12);
+      font-weight: 500;
+      padding: 0.1em;
+      text-align: center;
+      border-radius: 4px;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+    }
+    .info.hw a {
+      color: inherit;
+      text-decoration: underline;
+    }
+    .info.hw a:hover {
+      text-decoration: none;
+    }
   </style>
 
   <script>
@@ -407,7 +422,7 @@
         <td>
           <div class="date">13th</div>
         </td>
-        <td class="today">
+        <td>
           <div class="date">14th</div>
           <div class="info">6:30-9:30: <strong>First class</strong></div>
           <div class="info">Atom, GitHub, HTML, submitting homework</div>
@@ -444,10 +459,11 @@
         <td>
           <div class="date">22nd</div>
         </td>
-        <td>
+        <td class="today">
           <div class="date">23rd</div>
           <div class="info">5:30-6:30: Study hall</div>
           <div class="info">6:30-9:30: Class</div>
+          <div class="info hw">Due: <a href="exercises/1-acme-corp.html">ACME Corp</a></div>
         </td>
         <td>
           <div class="date">24th</div>
