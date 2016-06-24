@@ -14,6 +14,11 @@
   <li><a href="#classes-ids">Classes &amp; IDs</a></li>
   <li><a href="#block-inline">Display: block &amp; inline</a></li>
   <li><a href="#div-span">div &amp; span</a></li>
+  <li><a href="#inheritance">Inheritance</a></li>
+  <li><a href="#file-references">File references</a></li>
+  <li>CSS Quiz</li>
+  <li><a href="#box-model">Box Model</a></li>
+  <li><a href="#homework">Homework</a></li>
 </ol>
 
 <p>
@@ -24,6 +29,7 @@
   <li><a href="http://learnlayout.com">Learn Layout</a></li>
   <li><a href="http://www.csszengarden.com/">CSS Zen Garden</a></li>
   <li><a href="http://learn.shayhowe.com/">Learn from Shay Howe</a></li>
+  <li><a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0182.html">History of the <code>img</code> tag</a></li>
 </ul>
 
 <h2 id="floats">Floats</h2>
@@ -185,6 +191,34 @@ button {
 
 <p>
   When you can add whatever descripitors you want to an element via classes or IDs, the name of the element becomes less important. For example, you could have a paragraph that serves as the "introduction" to an article. If you had a <code>&lt;introduction&gt;</code> tag, you might use it instead. In cases like this, consider using a completely generic element like <code>&lt;span&gt;</code> and <code>&lt;div&gt;</code>.
+</p>
+
+<h2 id="inheritance">Inheritance</h2>
+
+<ul>
+  <li><a href="http://www.w3.org/TR/CSS21/propidx.html">CSS properties &amp; inheritance</a></li>
+  <li><code>inherit</code></li>
+</ul>
+
+<h2 id="file-references">File references</h2>
+
+<ul>
+  <li><code>/</code> at the beginning of a path means "go to the root". For example, <code>/images/logo.png</code> will look for a file in an images folder that is at the root. But root can mean different things. If you're serving a file up in Chrome with <code>file://</code> then root means your hard drive. If you're running a web server, for example with <code>python -m SimpleHTTPServer</code> then root means your website project folder.</li>
+  <li><code>..</code> means "go up a folder"</li>
+</ul>
+
+<p>
+  It is recommended to references files in a "relative" way. So you have to ask yourself, "from the file I'm in, how do I get to the file I want to reference."
+</p>
+
+<h2 id="box-model">Box Model</h2>
+
+<img src="images/box-model.png" >
+
+<h2 id="homework">Homework</h2>
+
+<p>
+  <a href="../../exercises/2-acme-corp-extended.html">ACME Corp Extended</a>
 </p>
 
 <meta charset="utf-8">
