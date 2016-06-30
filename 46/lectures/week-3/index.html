@@ -1,0 +1,86 @@
+<title>Week 3 Lecture Notes, FEWD 46</title>
+<meta charset="utf-8">
+<nav>Loading navigation&hellip;</nav>
+
+<h1>Week 3</h1>
+
+<p>
+
+</p>
+
+<ol>
+  <li><a href="#box-model">Box Model</a></li>
+  <li><a href="#positioning">Positioning</a></li>
+  <li>CSS Quiz</li>
+</ol>
+
+<p>
+  Resources:
+</p>
+
+<ul>
+  <li><a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0182.html">History of the <code>img</code> tag</a></li>
+</ul>
+
+<h2 id="positioning">Positioning </h2>
+
+<p>
+  When you use anything other that <code>static</code> (the default value for position),
+  you'll be able to use the properties <code>top</code>, <code>right</code>,
+  <code>bottom</code> and <code>left</code> to adjust your elements position, but
+  how it is positioned depends on what value you set position to:
+</p>
+
+<ul>
+  <li>
+    <code>position: static;</code>
+    <p>
+      Positions based on the content; cannot be adjusted and it's the default
+      value for position for all elements (you probably don't need to know that,
+      but can use it to sound cool at parties).
+    </p>
+  </li>
+  <li>
+    <code>position: fixed;</code>
+    <p>
+      Positions with respect to the browser window (useful for sticky headers and stuff).
+      Use with caution because it will probably cover text!
+    </p>
+  </li>
+  <li>
+    <code>position: relative;</code>
+    <p>
+      Positions relative to where it normally is.
+    </p>
+  </li>
+  <li>
+    <code>position: absolute;</code>
+    <p>
+      "Absolute children have relative parents!" An absolute child element will be positioned
+      relative to it's parent (the one that has <code>position: relative</code>).
+    </p>
+  </li>
+</ul>
+
+<p>
+  Examples: <a href="position-absolute.html">absolute</a> &amp; <a href="position-fixed-header.html">fixed</a>.
+</p>
+
+<p>
+  What happens if you make the header on ACME Corp fixed?
+</p>
+
+<p>
+  <a href="http://learnlayout.com/position.html">
+    Great example from Learn Layout
+  </a>
+</p>
+
+<h2 id="box-model">Box Model</h2>
+
+<img src="images/box-model.png" >
+
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../css/lectures.css" media="screen" charset="utf-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="../../js/lectures.js"></script>
