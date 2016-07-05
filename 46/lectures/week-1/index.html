@@ -1,556 +1,567 @@
-<title>Week 1 Lecture Notes, FEWD 46</title>
-<meta charset="utf-8">
-<nav>Loading navigation&hellip;</nav>
-
-<h1>Week 1</h1>
-
-<p>
-  This week we'll talk about course logistics and expectations. We'll also go over HTML and CSS basics. With your new found skills you'll publish a very simple course profile page, which will be your ongoing homepage for the course.
-</p>
-
-<ol>
-  <li><a href="#expectations">Course expectations</a></li>
-  <li><a href="#slack">Slack</a></li>
-  <li><a href="#chrome">Chrome</a></li>
-  <li><a href="#atom">Atom</a></li>
-  <li><a href="#github">GitHub</a></li>
-  <li><a href="#html">Intro to HTML</a></li>
-  <li><a href="#pr">Pull Requests</a></li>
-  <li><a href="#css">Intro to CSS</a></li>
-  <li><a href="#homework">Homework</a></li>
-</ol>
-
-<h2 id="expectations">1. Course expectations</h2>
-
-<img src="images/code-first-time.jpg" class="right" style="margin: 0 0 1em 1em">
-
-<p>
-  This is <em>your course</em>. So you decide how much you want to get out of it and how much you're willing to put in. In general, this is what success looks like:
-</p>
-
-<ul>
-  <li>Bringing your best to class—<a href="https://signalvnoise.com/posts/3504-you-play-like-you-practice">"you play like you practice"</a></li>
-  <li>Can't is not spoken here, fake it till you make it</li>
-  <li>Missing no more than two classes</li>
-  <li>Doing all your homework</li>
-  <li>Taking written notes during lectures—these lecture notes will only give you an overview but will leave a lot of questions unanswered</li>
-  <li>Helping other students with topics you understand</li>
-  <li>Presenting a final project on the last day</li>
-  <li>Complete exit tickets after each lesson</li>
-  <li>Complete mid &amp; end-of-course surveys</li>
-</ul>
-
-<p>
-  Notice that success is not defined by the quality of your work. You're not here to learn everything about how to build web applications. Some people learn material faster than others. Some people have more prior knowledge than others. So define your own expectations of success.
-</p>
-
-<p>
-  One thing is for sure: the more work you do, the better you'll get.
-</p>
-
-<h3>Missing a class</h3>
-
-<p>
-  If you have to miss a class, no problem, just let the instructional team know ahead of time. Try and schedule a time with someone to review the material you will have missed.
-</p>
-
-<h2 id="slack">2. Slack</h2>
-
-<div class="sidebar">
-  <ul>
-    <li><a href="https://slack.com/downloads">Download Slack</a></li>
-    <li><a href="../../../resources/slack.html">More info</a></li>
-  </ul>
-</div>
-
-<p>
-  All course communication will happen on Slack. So it's critical to make sure you're set up and receiving notifications.
-</p>
-
-<p>
-  Slack is designed to help us all communicate and stay on the same page but it a perfect tool and it has some drawbacks. Jason Fried, CEO at Basecamp, discusses some of the <a href="https://m.signalvnoise.com/is-group-chat-making-you-sweat-744659addf7d#.eb9dl1gvj">pros/cons of group chat</a>.
-</p>
-
-<p>
-  Here are some ground rules:
-</p>
-
-<ul>
-  <li>
-    <strong style="color: green">Yes to:</strong>
-    <ul>
-      <li>Taking a few minutes to make sure your notifications are configured so you receive the right notifications (especially #announcements)</li>
-      <li>Self-coordinating study groups</li>
-      <li>Posting notes and whiteboard pictures</li>
-      <li>Reaching out to the instructional team for help (#help)</li>
-      <li>Proper grammar and correct use of code blocks</li>
-      <li>Emojis 😃</li>
-    </ul>
-  </li>
-  <li>
-    <strong style="color: red">No to:</strong>
-    <ul>
-      <li>Chatting during lectures</li>
-      <li>Talking about other people</li>
-      <li>Distracting GIFs and videos</li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="chrome">3. Chrome</h2>
-
-<div class="sidebar">
-  <ul>
-    <li><a href="https://www.google.com/chrome/browser/desktop/">Download Chrome</a></li>
-    <li><a href="https://developers.google.com/web/tools/chrome-devtools/">Dev Tools</a></li>
-  </ul>
-</div>
-
-<p>
-  Chrome is the browser we're going to be using throughout the course.
-</p>
-
-<h2 id="atom">4. Atom</h2>
-
-<div class="sidebar">
-  <ul>
-    <li><a href="https://atom.io">Download Atom</a></li>
-    <li><a href="../../../resources/atom.html">Configure Atom</a></li>
-    <li><a href="../../../resources/keyboard-shortcuts.html">Keyboard shortcuts</a></li>
-  </ul>
-</div>
-
-<p>
-  To write code you need a text editor. Atom is the text editor of choice for this class. You're welcome to use something else but your own if you get stuck.
-</p>
-
-<ul>
-  <li>Why do we use a text editor? As opposed to, say, Google Docs or Word?</li>
-  <li>What does WYSIWYG mean?</li>
-  <li>If I can't control formatting with UI controls, how will I do it?</li>
-</ul>
-
-<p>
-  Your editor helps you:
-</p>
-
-<ul>
-  <li>Keep indentation under control</li>
-  <li>Spot errors before you save and run your code</li>
-  <li>Search, find, and replace across multiple files</li>
-  <li>See all the files in your project</li>
-  <li>Type less</li>
-</ul>
-
-<h2 id="github">5. GitHub</h2>
-
-<h3>What is "source control?"</h3>
-
-<a href="http://nvie.com/posts/a-successful-git-branching-model/">
-  <img src="images/git-branching.png" class="supporting-image">
-</a>
-
-<p>
-  Source control is a system of managing the code we write. We don't just write code and leave it forever. When you want to make an improvement or fix a bug, you have to edit code you've written. Using source control makes that process easier, especially when working on a team.
-</p>
-
-<ul>
-  <li>
-    If you're a designer or writer, how do you version your files?
-    <ul>
-      <li>What's good about that system?</li>
-      <li>What's bad about that system?</li>
-      <li>What happens when you're dealing with huge files, like videos?</li>
-    </ul>
-  </li>
-  <li>
-    What happens when you want to work on multiple things at once?
-  </li>
-  <li>
-    What are some other flavors of source control?
-  </li>
-  <li>
-    What's a "repository?"
-  </li>
-  <li>
-    What's a "commit?"
-  </li>
-  <li>
-    What's a "diff?"
-  </li>
-  <li>
-    What's a "branch?"
-  </li>
-  <li>
-    What's the difference between git and GitHub?
-  </li>
-  <li>
-    What is git actually doing under the hood?
-  </li>
-  <li>
-    What's the deal with <a href="https://pages.github.com">GitHub Pages</a>
-  </li>
-</ul>
-
-<h3>Setup &amp; publish your FEWD repo</h3>
-
-<div class="sidebar">
-  <a href="https://generalassembly.wistia.com/medias/jkrycndgrs">This helpful video</a> by General Assembly walks through some of these instructions. It's not exactly the same but it will give you an overview.
-</div>
-
-<p>
-  There's some plumbing to sort out before we get to HTML. For now we just want to get a page up on the web that says "hello world."
-</p>
-
-<ol>
-  <li>
-    Sign up for <a target="_blank" href="https://github.com/">GitHub</a> on github.com.
-  </li>
-  <li>
-    Verify your email address <strong>(don't skip this step)</strong>
-  </li>
-  <li>
-    Download and install <a target="_blank" href="https://desktop.github.com/">GitHub Desktop</a>
-  </li>
-  <li>
-    Open GitHub Desktop and follow the steps to sign into your account<br>
-    <img src="images/github/1-initial-state.png" width="100" class="enlarge-on-hover">
-  </li>
-  <li>
-    On your computer, create a new folder "fewd"
-  </li>
-  <li>
-    Open Atom, File > Open, navigate to the "fewd" folder you just created
-  </li>
-  <li>
-    Create a new file in that folder "index.html" (File > New)
-  </li>
-  <li>
-    Write the words "Hello world!" in that file and save (File > Save or Comman + S)
-  </li>
-  <li>
-    Go back to GitHub Desktop and create a repository from that folder<br>
-    <img src="images/github/2-adding-fewd-folder.png" width="100" class="enlarge-on-hover">
-  </li>
-  <li>
-    Commit your work—a good commit summary might be "Hello world, this is my first commit!"<br>
-    <img src="images/github/3-first-commit.png" width="100" class="enlarge-on-hover">
-  </li>
-  <li>
-    Hit "Publish" and confirm the repo name (maybe add a description like "My work for learning front-end web dev or something"). You should now see your commit in the history<br>
-    <img src="images/github/4-history.png" width="100" class="enlarge-on-hover">
-    <img src="images/github/5-publishing-repo.png" width="100" class="enlarge-on-hover">
-  </li>
-  <li>
-    Go back to github.com and make sure that you see your repository there
-  </li>
-  <li>
-    Now, create a branch called "gh-pages" (from master) and publish it<br>
-    <img src="images/github/6-cut-gh-pages-branch.png" width="100" class="enlarge-on-hover">
-    <img src="images/github/7-publish-gh-pages.png" width="100" class="enlarge-on-hover">
-  </li>
-  <li>
-    Confirm that your "gh-pages" branch does indeed exist on the github.com<br>
-    <img src="images/github/8-on-the-web.png" width="100" class="enlarge-on-hover">
-  </li>
-  <li>
-    See your "hello world" at <code>http://{ your user name }.github.io/{ your repository name }/</code> for example:
-    <a href="http://avand.github.io/fewd">http://avand.github.io/fewd/</a>
-  </li>
-  <li>
-    <strong>One last important step!</strong> Change the default branch to "gh-pages" in your repository settings<br>
-    <img src="images/github/9-change-default-branch.png" width="100" class="enlarge-on-hover">
-  </li>
-</ol>
-
-<h2 id="html">6. Intro to HTML</h2>
-
-<ul>
-  <li>What is HTML?</li>
-  <li>What is a markup language? As opposed to, say, a programming language?</li>
-</ul>
-
-<h3>The anatomy of an element</h3>
-
-<img src="images/anatomy-of-an-html-element.jpg" width="400" class="supporting-image">
-
-<p>
-  At its most essential, an element consists of an opening and a closing <em>tag</em>. Some tags don't close but we'll get to that in a minute.
-</p>
-
-<ul>
-  <li>
-    <strong>Opening tag:</strong> Tells the browser that you're about to start describing some sort of content. It could be a paragraph, or a link, or anything that a browser understands.
-  </li>
-  <li>
-    <strong>Content:</strong> The stuff you're describing! Usually this ends up being the words on the page.
-  </li>
-  <li>
-    <strong>Closing tag:</strong> When you're done with the <em>content</em>, you just match the opening tag with a closing tag.
-  </li>
-</ul>
-
-<p>
-  Practice: <code>&lt;p&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code>.<br>
-  <img src="images/html/1-elements.png" width="200" class="enlarge-on-hover">
-</p>
-
-<h3>Nesting tags</h3>
-
-<img src="images/simple-document-tree.png" class="supporting-image">
-
-<p>
-  Elements can be nested. And, in practice, that's a critical part of HTML. We refer to the whole page, or the entire HTML file as the <strong>document</strong>. And, as you can see, it forms a tree. There are rules about what elements can go inside other elements but it's not strongly enforced and mostly obvious.
-</p>
-
-<p>
-  Practice: <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;title&gt;</code>, <code>&lt;body&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>, <code>&lt;h4&gt;</code>, <code>&lt;h5&gt;</code>, <code>&lt;h6&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code>.<br>
-  <img src="images/html/2-nesting.png" width="200" class="enlarge-on-hover">
-</p>
-
-<h3>Attributes</h3>
-
-<img src="images/element-attributes.png" class="supporting-image">
-
-<p>
-  How would you go about linking to something? Even if you knew the element's tag was: <code>&lt;a&gt;</code>. Where would you put the link?
-</p>
-
-<p>
-  A complete list of all tags and their attributes can be found on the Mozilla Developer Network (MDN): <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">HTML element reference</a>.
-</p>
-
-<p>
-  Practice: <code>&lt;img&gt;</code>, <code>&lt;a&gt;</code>.
-</p>
-
-<h3>Putting it all together: create a profile</h3>
-
-<img src="images/profile-example.png" class="supporting-image">
-
-<p>
-  Let's put it all together to create a profile page that will live for the life of this course and probably beyond. Eventually you'll pull all your homework assignments here and anything else you want to show off.
-</p>
-
-<ol>
-  <li>
-    Download a picture of you and put it in the same folder as your repo/project
-  </li>
-  <li>
-    Edit index.html to include
-    <ul>
-      <li>Your name</li>
-      <li>The image of you (if the file is called "me.jpg" then your image element should like like this: <code>&lt;img src="me.jpg"&gt;</code>)</li>
-      <li>A short bio-paragrah</li>
-      <li>Links to your various online profiles</li>
-    </ul>
-  </li>
-  <li>
-    Save, commit, and sync
-  </li>
-</ol>
-
-<img src="images/html/3-attributes.png" width="200" class="enlarge-on-hover">
-
-<h3>Some important keyboard shortcuts</h3>
-
-<p>
-  When writing HTML there are two keyboard shortcuts you should use all the time:
-</p>
-
-<ol>
-  <li>Command + Option + . will close the last opened tag</li>
-  <li>Any tag name + Tab will stub out that tag for you</li>
-</ol>
-
-<p>
-  Try it. Note that for these to work, you must see "HTML" in the lower right of Atom.
-</p>
-
-<p>
-  A complete list of shortcuts is available <a href="../../../resources/keyboard-shortcuts.html">here</a>.
-</p>
-
-<h2 id="pr">7. Pull Requests</h2>
-
-<p>
-  You'll submit your homework by making a pull request that links up your project to this course homepage. Feedback will be provided on the Pull Request. Practice this by linking up your name to your course webpage and wiring up any social links you'd like to include.
-</p>
-
-<ol>
-  <li>
-    Search github.com for "fewd"<br>
-    <img src="images/pr/1-github-home.png" width="100" class="enlarge-on-hover">
-    <img src="images/pr/2-search.png" width="100" class="enlarge-on-hover">
-  <li>
-    "Fork" the course curriculum repo
-  </li>
-  <li>
-    Clone the repo in GitHub Desktop<br>
-    <img src="images/pr/3-clone.png" width="100" class="enlarge-on-hover">
-    <img src="images/pr/4-name-destination.png" width="100" class="enlarge-on-hover">
-    <img src="images/pr/5-downloading.png" width="100" class="enlarge-on-hover">
-  </li>
-  <li>
-    Double check that you are indeed on the gh-pages branch
-  </li>
-  <li>
-    Open the repo in Atom
-  </li>
-  <li>
-    Find the file <code>46/index.html</code> and find the part that references you!
-  </li>
-  <li>
-    Create the necessary links (including the link to your profile)<br>
-    <img src="images/pr/6-edit-in-atom.png" width="100" class="enlarge-on-hover">
-  </li>
-  <li>
-    Commit and sync your changes<br>
-    <img src="images/pr/7-commit.png" width="100" class="enlarge-on-hover">
-  </li>
-  <li>
-    Go back to your copy of the repo on github.com<br>
-    <img src="images/pr/8-view-on-github.png" width="100" class="enlarge-on-hover">
-  </li>
-  <li>
-    Submit a pull request from your repo back to <a href="https://github.com/avand/fewd">avand/fewd</a>. Make sure you're making a pull request from and to the gh-pages branch<br>
-    <img src="images/pr/9-create-pr.png" width="100" class="enlarge-on-hover">
-    <img src="images/pr/10-finish-pr.png" width="100" class="enlarge-on-hover">
-  </li>
-  <li>
-    Soon your code will be merged into the main repository.<br>
-    <img src="images/pr/11-review.png" width="100" class="enlarge-on-hover">
-    <img src="images/pr/12-view-pr.png" width="100" class="enlarge-on-hover">
-    <img src="images/pr/13-merged.png" width="100" class="enlarge-on-hover">
-  </li>
-</ol>
-
-<p>
-  Once your changes have been merged, just click "Update from avand/gh-pages" in GitHub Desktop to make sure that your copy of "fewd" is the same as the course's.
-</p>
-
-<h2 id="css">8. Intro to CSS</h2>
-
-<h3>Anatomy of a selector</h3>
-
-<img src="images/anatomy-of-a-css-rule.gif" class="supporting-image">
-
-<p>
-  A CSS style rule consists of two parts:
-</p>
-
-<ul>
-  <li>
-    <strong>Selector</strong>: Which elements do you want to target?
-  </li>
-  <li>
-    <strong>Declaration</strong>: What styles do you want those elements to have?
-  </li>
-</ul>
-
-<p>
-  A declaration consists of two parts:
-</p>
-
-<ul>
-  <li>
-    <strong>Property</strong>: What property are you trying to control on the element (e.g., color)?
-  </li>
-  <li>
-    <strong>Value</strong>: What's the value for that property (e.g., red)?
-  </li>
-</ul>
-
-<h3>Commonly used properties</h3>
-
-<ul>
-  <li>
-    <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/background">background</a>
-  </li>
-  <li>
-    <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/border">border</a>
-  </li>
-  <li>
-    <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/color">color</a>
-  </li>
-  <li>
-    <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/font">font</a>
-  </li>
-  <li>
-    <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/height">height</a>
-  </li>
-  <li>
-    <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/width">width</a>
-  </li>
-  <li>
-    <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin">margin</a>
-  </li>
-  <li>
-    <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/padding">padding</a>
-  </li>
-  <li>
-    <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius">border-radius</a>
-  </li>
-  <li>
-    <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow">box-shadow</a>
-  </li>
-  <li>
-    <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-align">text-align</a>
-  </li>
-</ul>
-
-<p>
-  Here is the complete CSS property reference: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference">MDN CSS Property Reference</a>.
-</p>
-
-<h3>Where does CSS go?</h3>
-
-<p>
-  When writing CSS, you have three options of where to put it.
-</p>
-
-<ol>
-  <li>
-    <strong>Inline</strong>: With inline styles you use an <strong>attribute</strong> on the element you want to target. No selector is necessary.<br>
-    <code>&lt;p style="color: red;"&gt;I'm red text&lt;/p&gt;</code>
-  </li>
-  <li>
-    <strong>Internal</strong>: Add CSS to the HTML page you're working on by opening a <code>&lt;style&gt;</code> tag and putting your CSS inside.<br>
-    <code>&lt;style&gt;<br>p { color: red; }<br>&lt;/style&gt;</code><br>
-    This code makes <em>all</em> paragraphs on that page red.
-  </li>
-  <li>
-    <strong>External</strong>: Share styles between pages with an external stylesheet. Create a file in your project that ends with .css. Put your styles in that file. Then reference that file in your HTML with a link tag.<br>
-    <code>&lt;link rel="stylesheet" href="css/colors.css" media="screen" charset="utf-8"&gt;</code>
-  </li>
-</ol>
-
-<p>
-  What are the pros and cons of each method of including CSS?
-</p>
-
-<p>
-  Spruce up your homepage by adding some styles to it. Experiment with all three methods of including styles and try all the properties listed above.
-</p>
-
-<h3>Descendant CSS selectors</h3>
-
-<p>You can select nested elements by putting a space between selectors. For example: <code>header a</code> selects all the <code>&lt;a&gt;</code> tags in the header.</p>
-
-<p>Some rules of thumb when nesting CSS selectors:</p>
-
-<ul>
-  <li>Keep it shallow! Deeply nested selectors can get confusing.</li>
-  <li>Omit any unnecessary selectors.  Keep it as simple as possible!</li>
-</ul>
-
-<h2 id="homework">9. Homework</h2>
-
-<p>
-  <a href="../../exercises/1-acme-corp.html">ACME Corp</a>
-</p>
-
-<meta charset="utf-8">
-<link rel="stylesheet" href="../../css/lectures.css" media="screen" charset="utf-8">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="../../js/lectures.js"></script>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Week 1 Lecture Notes, FEWD 46</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/lectures.css" media="screen" charset="utf-8">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="../../js/lectures.js"></script>
+  </head>
+  <body>
+    <nav><script>$("nav").load("../../partials/navigation.html");</script></nav>
+
+    <main class="container">
+      <h1>Week 1</h1>
+
+      <p>
+        This week we'll talk about course logistics and expectations. We'll also go over HTML and CSS basics. With your new found skills you'll publish a very simple course profile page, which will be your ongoing homepage for the course.
+      </p>
+
+      <ol>
+        <li><a href="#expectations">Course expectations</a></li>
+        <li><a href="#slack">Slack</a></li>
+        <li><a href="#chrome">Chrome</a></li>
+        <li><a href="#atom">Atom</a></li>
+        <li><a href="#github">GitHub</a></li>
+        <li><a href="#html">Intro to HTML</a></li>
+        <li><a href="#pr">Pull Requests</a></li>
+        <li><a href="#css">Intro to CSS</a></li>
+        <li>Homework: <a href="../../exercises/1-acme-corp.html">ACME Corp</a></li>
+      </ol>
+
+      <h2 id="expectations">Course expectations</h2>
+
+      <img src="images/code-first-time.jpg" class="right" style="margin: 0 0 1em 1em">
+
+      <p>
+        This is <em>your course</em>. So you decide how much you want to get out of it and how much you're willing to put in. In general, this is what success looks like:
+      </p>
+
+      <ul>
+        <li>Bringing your best to class—<a href="https://signalvnoise.com/posts/3504-you-play-like-you-practice">"you play like you practice"</a></li>
+        <li>Can't is not spoken here, fake it till you make it</li>
+        <li>Missing no more than two classes</li>
+        <li>Doing all your homework</li>
+        <li>Taking written notes during lectures—these lecture notes will only give you an overview but will leave a lot of questions unanswered</li>
+        <li>Helping other students with topics you understand</li>
+        <li>Presenting a final project on the last day</li>
+        <li>Complete exit tickets after each lesson</li>
+        <li>Complete mid &amp; end-of-course surveys</li>
+      </ul>
+
+      <p>
+        Notice that success is not defined by the quality of your work. You're not here to learn everything about how to build web applications. Some people learn material faster than others. Some people have more prior knowledge than others. So define your own expectations of success.
+      </p>
+
+      <p>
+        One thing is for sure: the more work you do, the better you'll get.
+      </p>
+
+      <h3>Missing a class</h3>
+
+      <p>
+        If you have to miss a class, no problem, just let the instructional team know ahead of time. Try and schedule a time with someone to review the material you will have missed.
+      </p>
+
+      <h2 id="slack">Slack</h2>
+
+      <div class="sidebar">
+        <ul>
+          <li><a href="https://slack.com/downloads">Download Slack</a></li>
+          <li><a href="../../../resources/slack.html">More info</a></li>
+        </ul>
+      </div>
+
+      <p>
+        All course communication will happen on Slack. So it's critical to make sure you're set up and receiving notifications.
+      </p>
+
+      <p>
+        Slack is designed to help us all communicate and stay on the same page but it a perfect tool and it has some drawbacks. Jason Fried, CEO at Basecamp, discusses some of the <a href="https://m.signalvnoise.com/is-group-chat-making-you-sweat-744659addf7d#.eb9dl1gvj">pros/cons of group chat</a>.
+      </p>
+
+      <p>
+        Here are some ground rules:
+      </p>
+
+      <ul>
+        <li>
+          <strong style="color: green">Yes to:</strong>
+          <ul>
+            <li>Taking a few minutes to make sure your notifications are configured so you receive the right notifications (especially #announcements)</li>
+            <li>Self-coordinating study groups</li>
+            <li>Posting notes and whiteboard pictures</li>
+            <li>Reaching out to the instructional team for help (#help)</li>
+            <li>Proper grammar and correct use of code blocks</li>
+            <li>Emojis 😃</li>
+          </ul>
+        </li>
+        <li>
+          <strong style="color: red">No to:</strong>
+          <ul>
+            <li>Chatting during lectures</li>
+            <li>Talking about other people</li>
+            <li>Distracting GIFs and videos</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h2 id="chrome">Chrome</h2>
+
+      <div class="sidebar">
+        <ul>
+          <li><a href="https://www.google.com/chrome/browser/desktop/">Download Chrome</a></li>
+          <li><a href="https://developers.google.com/web/tools/chrome-devtools/">Dev Tools</a></li>
+        </ul>
+      </div>
+
+      <p>
+        Chrome is the browser we're going to be using throughout the course.
+      </p>
+
+      <h2 id="atom">Atom</h2>
+
+      <div class="sidebar">
+        <ul>
+          <li><a href="https://atom.io">Download Atom</a></li>
+          <li><a href="../../../resources/atom.html">Configure Atom</a></li>
+          <li><a href="../../../resources/keyboard-shortcuts.html">Keyboard shortcuts</a></li>
+        </ul>
+      </div>
+
+      <p>
+        To write code you need a text editor. Atom is the text editor of choice for this class. You're welcome to use something else but your own if you get stuck.
+      </p>
+
+      <ul>
+        <li>Why do we use a text editor? As opposed to, say, Google Docs or Word?</li>
+        <li>What does WYSIWYG mean?</li>
+        <li>If I can't control formatting with UI controls, how will I do it?</li>
+      </ul>
+
+      <p>
+        Your editor helps you:
+      </p>
+
+      <ul>
+        <li>Keep indentation under control</li>
+        <li>Spot errors before you save and run your code</li>
+        <li>Search, find, and replace across multiple files</li>
+        <li>See all the files in your project</li>
+        <li>Type less</li>
+      </ul>
+
+      <h2 id="github">GitHub</h2>
+
+      <h3>What is "source control?"</h3>
+
+      <a href="http://nvie.com/posts/a-successful-git-branching-model/">
+        <img src="images/git-branching.png" class="supporting-image">
+      </a>
+
+      <p>
+        Source control is a system of managing the code we write. We don't just write code and leave it forever. When you want to make an improvement or fix a bug, you have to edit code you've written. Using source control makes that process easier, especially when working on a team.
+      </p>
+
+      <ul>
+        <li>
+          If you're a designer or writer, how do you version your files?
+          <ul>
+            <li>What's good about that system?</li>
+            <li>What's bad about that system?</li>
+            <li>What happens when you're dealing with huge files, like videos?</li>
+          </ul>
+        </li>
+        <li>
+          What happens when you want to work on multiple things at once?
+        </li>
+        <li>
+          What are some other flavors of source control?
+        </li>
+        <li>
+          What's a "repository?"
+        </li>
+        <li>
+          What's a "commit?"
+        </li>
+        <li>
+          What's a "diff?"
+        </li>
+        <li>
+          What's a "branch?"
+        </li>
+        <li>
+          What's the difference between git and GitHub?
+        </li>
+        <li>
+          What is git actually doing under the hood?
+        </li>
+        <li>
+          What's the deal with <a href="https://pages.github.com">GitHub Pages</a>
+        </li>
+      </ul>
+
+      <h3>Setup &amp; publish your FEWD repo</h3>
+
+      <div class="sidebar">
+        <a href="https://generalassembly.wistia.com/medias/jkrycndgrs">This helpful video</a> by General Assembly walks through some of these instructions. It's not exactly the same but it will give you an overview.
+      </div>
+
+      <p>
+        There's some plumbing to sort out before we get to HTML. For now we just want to get a page up on the web that says "hello world."
+      </p>
+
+      <ol>
+        <li>
+          Sign up for <a target="_blank" href="https://github.com/">GitHub</a> on github.com.
+        </li>
+        <li>
+          Verify your email address <strong>(don't skip this step)</strong>
+        </li>
+        <li>
+          Download and install <a target="_blank" href="https://desktop.github.com/">GitHub Desktop</a>
+        </li>
+        <li>
+          Open GitHub Desktop and follow the steps to sign into your account<br>
+          <img src="images/github/1-initial-state.png" width="100" class="enlarge-on-hover">
+        </li>
+        <li>
+          On your computer, create a new folder "fewd"
+        </li>
+        <li>
+          Open Atom, File > Open, navigate to the "fewd" folder you just created
+        </li>
+        <li>
+          Create a new file in that folder "index.html" (File > New)
+        </li>
+        <li>
+          Write the words "Hello world!" in that file and save (File > Save or Comman + S)
+        </li>
+        <li>
+          Go back to GitHub Desktop and create a repository from that folder<br>
+          <img src="images/github/2-adding-fewd-folder.png" width="100" class="enlarge-on-hover">
+        </li>
+        <li>
+          Commit your work—a good commit summary might be "Hello world, this is my first commit!"<br>
+          <img src="images/github/3-first-commit.png" width="100" class="enlarge-on-hover">
+        </li>
+        <li>
+          Hit "Publish" and confirm the repo name (maybe add a description like "My work for learning front-end web dev or something"). You should now see your commit in the history<br>
+          <img src="images/github/4-history.png" width="100" class="enlarge-on-hover">
+          <img src="images/github/5-publishing-repo.png" width="100" class="enlarge-on-hover">
+        </li>
+        <li>
+          Go back to github.com and make sure that you see your repository there
+        </li>
+        <li>
+          Now, create a branch called "gh-pages" (from master) and publish it<br>
+          <img src="images/github/6-cut-gh-pages-branch.png" width="100" class="enlarge-on-hover">
+          <img src="images/github/7-publish-gh-pages.png" width="100" class="enlarge-on-hover">
+        </li>
+        <li>
+          Confirm that your "gh-pages" branch does indeed exist on the github.com<br>
+          <img src="images/github/8-on-the-web.png" width="100" class="enlarge-on-hover">
+        </li>
+        <li>
+          See your "hello world" at <code>http://{ your user name }.github.io/{ your repository name }/</code> for example:
+          <a href="http://avand.github.io/fewd">http://avand.github.io/fewd/</a>
+        </li>
+        <li>
+          <strong>One last important step!</strong> Change the default branch to "gh-pages" in your repository settings<br>
+          <img src="images/github/9-change-default-branch.png" width="100" class="enlarge-on-hover">
+        </li>
+      </ol>
+
+      <h2 id="html">Intro to HTML</h2>
+
+      <ul>
+        <li>What is HTML?</li>
+        <li>What is a markup language? As opposed to, say, a programming language?</li>
+      </ul>
+
+      <h3>The anatomy of an element</h3>
+
+      <img src="images/anatomy-of-an-html-element.jpg" width="400" class="supporting-image">
+
+      <p>
+        At its most essential, an element consists of an opening and a closing <em>tag</em>. Some tags don't close but we'll get to that in a minute.
+      </p>
+
+      <ul>
+        <li>
+          <strong>Opening tag:</strong> Tells the browser that you're about to start describing some sort of content. It could be a paragraph, or a link, or anything that a browser understands.
+        </li>
+        <li>
+          <strong>Content:</strong> The stuff you're describing! Usually this ends up being the words on the page.
+        </li>
+        <li>
+          <strong>Closing tag:</strong> When you're done with the <em>content</em>, you just match the opening tag with a closing tag.
+        </li>
+      </ul>
+
+      <p>
+        Practice: <code>&lt;p&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code>.<br>
+        <img src="images/html/1-elements.png" width="200" class="enlarge-on-hover">
+      </p>
+
+      <h3>Nesting tags</h3>
+
+      <img src="images/simple-document-tree.png" class="supporting-image">
+
+      <p>
+        Elements can be nested. And, in practice, that's a critical part of HTML. We refer to the whole page, or the entire HTML file as the <strong>document</strong>. And, as you can see, it forms a tree. There are rules about what elements can go inside other elements but it's not strongly enforced and mostly obvious.
+      </p>
+
+      <p>
+        Practice: <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;title&gt;</code>, <code>&lt;body&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>, <code>&lt;h4&gt;</code>, <code>&lt;h5&gt;</code>, <code>&lt;h6&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code>.<br>
+        <img src="images/html/2-nesting.png" width="200" class="enlarge-on-hover">
+      </p>
+
+      <h3>Attributes</h3>
+
+      <img src="images/element-attributes.png" class="supporting-image">
+
+      <p>
+        How would you go about linking to something? Even if you knew the element's tag was: <code>&lt;a&gt;</code>. Where would you put the link?
+      </p>
+
+      <p>
+        A complete list of all tags and their attributes can be found on the Mozilla Developer Network (MDN): <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">HTML element reference</a>.
+      </p>
+
+      <p>
+        Practice: <code>&lt;img&gt;</code>, <code>&lt;a&gt;</code>.
+      </p>
+
+      <h3>Putting it all together: create a profile</h3>
+
+      <img src="images/profile-example.png" class="supporting-image">
+
+      <p>
+        Let's put it all together to create a profile page that will live for the life of this course and probably beyond. Eventually you'll pull all your homework assignments here and anything else you want to show off.
+      </p>
+
+      <ol>
+        <li>
+          Download a picture of you and put it in the same folder as your repo/project
+        </li>
+        <li>
+          Edit index.html to include
+          <ul>
+            <li>Your name</li>
+            <li>The image of you (if the file is called "me.jpg" then your image element should like like this: <code>&lt;img src="me.jpg"&gt;</code>)</li>
+            <li>A short bio-paragrah</li>
+            <li>Links to your various online profiles</li>
+          </ul>
+        </li>
+        <li>
+          Save, commit, and sync
+        </li>
+      </ol>
+
+      <img src="images/html/3-attributes.png" width="200" class="enlarge-on-hover">
+
+      <h3>Some important keyboard shortcuts</h3>
+
+      <p>
+        When writing HTML there are two keyboard shortcuts you should use all the time:
+      </p>
+
+      <ol>
+        <li>Command + Option + . will close the last opened tag</li>
+        <li>Any tag name + Tab will stub out that tag for you</li>
+      </ol>
+
+      <p>
+        Try it. Note that for these to work, you must see "HTML" in the lower right of Atom.
+      </p>
+
+      <p>
+        A complete list of shortcuts is available <a href="../../../resources/keyboard-shortcuts.html">here</a>.
+      </p>
+
+      <h2 id="pr">Pull Requests</h2>
+
+      <p>
+        You'll submit your homework by making a pull request that links up your project to this course homepage. Feedback will be provided on the Pull Request. Practice this by linking up your name to your course webpage and wiring up any social links you'd like to include.
+      </p>
+
+      <ol>
+        <li>
+          Search github.com for "fewd"<br>
+          <img src="images/pr/1-github-home.png" width="100" class="enlarge-on-hover">
+          <img src="images/pr/2-search.png" width="100" class="enlarge-on-hover">
+        </li>
+        <li>
+          "Fork" the course curriculum repo
+        </li>
+        <li>
+          Clone the repo in GitHub Desktop<br>
+          <img src="images/pr/3-clone.png" width="100" class="enlarge-on-hover">
+          <img src="images/pr/4-name-destination.png" width="100" class="enlarge-on-hover">
+          <img src="images/pr/5-downloading.png" width="100" class="enlarge-on-hover">
+        </li>
+        <li>
+          Double check that you are indeed on the gh-pages branch
+        </li>
+        <li>
+          Open the repo in Atom
+        </li>
+        <li>
+          Find the file <code>46/index.html</code> and find the part that references you!
+        </li>
+        <li>
+          Create the necessary links (including the link to your profile)<br>
+          <img src="images/pr/6-edit-in-atom.png" width="100" class="enlarge-on-hover">
+        </li>
+        <li>
+          Commit and sync your changes<br>
+          <img src="images/pr/7-commit.png" width="100" class="enlarge-on-hover">
+        </li>
+        <li>
+          Go back to your copy of the repo on github.com<br>
+          <img src="images/pr/8-view-on-github.png" width="100" class="enlarge-on-hover">
+        </li>
+        <li>
+          Submit a pull request from your repo back to <a href="https://github.com/avand/fewd">avand/fewd</a>. Make sure you're making a pull request from and to the gh-pages branch<br>
+          <img src="images/pr/9-create-pr.png" width="100" class="enlarge-on-hover">
+          <img src="images/pr/10-finish-pr.png" width="100" class="enlarge-on-hover">
+        </li>
+        <li>
+          Soon your code will be merged into the main repository.<br>
+          <img src="images/pr/11-review.png" width="100" class="enlarge-on-hover">
+          <img src="images/pr/12-view-pr.png" width="100" class="enlarge-on-hover">
+          <img src="images/pr/13-merged.png" width="100" class="enlarge-on-hover">
+        </li>
+      </ol>
+
+      <p>
+        Once your changes have been merged, just click "Update from avand/gh-pages" in GitHub Desktop to make sure that your copy of "fewd" is the same as the course's.
+      </p>
+
+      <h2 id="css">Intro to CSS</h2>
+
+      <h3>Anatomy of a selector</h3>
+
+      <img src="images/anatomy-of-a-css-rule.gif" class="supporting-image">
+
+      <p>
+        A CSS style rule consists of two parts:
+      </p>
+
+      <ul>
+        <li>
+          <strong>Selector</strong>: Which elements do you want to target?
+        </li>
+        <li>
+          <strong>Declaration</strong>: What styles do you want those elements to have?
+        </li>
+      </ul>
+
+      <p>
+        A declaration consists of two parts:
+      </p>
+
+      <ul>
+        <li>
+          <strong>Property</strong>: What property are you trying to control on the element (e.g., color)?
+        </li>
+        <li>
+          <strong>Value</strong>: What's the value for that property (e.g., red)?
+        </li>
+      </ul>
+
+      <h3>Commonly used properties</h3>
+
+      <ul>
+        <li>
+          <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/background">background</a>
+        </li>
+        <li>
+          <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/border">border</a>
+        </li>
+        <li>
+          <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/color">color</a>
+        </li>
+        <li>
+          <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/font">font</a>
+        </li>
+        <li>
+          <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/height">height</a>
+        </li>
+        <li>
+          <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/width">width</a>
+        </li>
+        <li>
+          <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin">margin</a>
+        </li>
+        <li>
+          <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/padding">padding</a>
+        </li>
+        <li>
+          <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius">border-radius</a>
+        </li>
+        <li>
+          <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow">box-shadow</a>
+        </li>
+        <li>
+          <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-align">text-align</a>
+        </li>
+      </ul>
+
+      <p>
+        Here is the complete CSS property reference: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference">MDN CSS Property Reference</a>.
+      </p>
+
+      <h3>Where does CSS go?</h3>
+
+      <p>
+        When writing CSS, you have three options of where to put it.
+      </p>
+
+      <ol>
+        <li>
+          <strong>Inline</strong>: With inline styles you use an <strong>attribute</strong> on the element you want to target. No selector is necessary.<br>
+          <code>&lt;p style="color: red;"&gt;I'm red text&lt;/p&gt;</code>
+        </li>
+        <li>
+          <strong>Internal</strong>: Add CSS to the HTML page you're working on by opening a <code>&lt;style&gt;</code> tag and putting your CSS inside.<br>
+          <code>&lt;style&gt;<br>p { color: red; }<br>&lt;/style&gt;</code><br>
+          This code makes <em>all</em> paragraphs on that page red.
+        </li>
+        <li>
+          <strong>External</strong>: Share styles between pages with an external stylesheet. Create a file in your project that ends with .css. Put your styles in that file. Then reference that file in your HTML with a link tag.<br>
+          <code>&lt;link rel="stylesheet" href="css/colors.css" media="screen" charset="utf-8"&gt;</code>
+        </li>
+      </ol>
+
+      <p>
+        What are the pros and cons of each method of including CSS?
+      </p>
+
+      <p>
+        Spruce up your homepage by adding some styles to it. Experiment with all three methods of including styles and try all the properties listed above.
+      </p>
+
+      <h3>Descendant CSS selectors</h3>
+
+      <p>You can select nested elements by putting a space between selectors. For example: <code>header a</code> selects all the <code>&lt;a&gt;</code> tags in the header.</p>
+
+      <p>Some rules of thumb when nesting CSS selectors:</p>
+
+      <ul>
+        <li>Keep it shallow! Deeply nested selectors can get confusing.</li>
+        <li>Omit any unnecessary selectors.  Keep it as simple as possible!</li>
+      </ul>
+    </main>
+  </body>
+</html>

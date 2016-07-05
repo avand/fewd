@@ -1,172 +1,182 @@
-<title>Week 2 Lecture Notes, FEWD 46</title>
-<meta charset="utf-8">
-<nav>Loading navigation&hellip;</nav>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
 
-<h1>Week 2</h1>
+    <title>Week 2 Lecture Notes, FEWD 46</title>
 
-<p>
-  This week we'll talk about course logistics and expectations. We'll also go over HTML and CSS basics. With your new found skills you'll publish a very simple course profile page, which will be your ongoing homepage for the course.
-</p>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<ol>
-  <li><a href="#floats">Floats</a></li>
-  <li><a href="#classes-ids">Classes &amp; IDs</a></li>
-  <li><a href="#block-inline">Display: block &amp; inline</a></li>
-  <li><a href="#div-span">div &amp; span</a></li>
-  <li><a href="#inheritance">Inheritance</a></li>
-  <li><a href="#file-references">File references</a></li>
-  <li><a href="#homework">Homework</a></li>
-</ol>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/lectures.css" media="screen" charset="utf-8">
 
-<p>
-  Helpful resources:
-</p>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="../../js/lectures.js"></script>
+  </head>
+  <body>
+    <nav><script>$("nav").load("../../partials/navigation.html");</script></nav>
 
-<ul>
-  <li><a href="http://learnlayout.com">Learn Layout</a></li>
-  <li><a href="http://www.csszengarden.com/">CSS Zen Garden</a></li>
-  <li><a href="http://learn.shayhowe.com/">Learn from Shay Howe</a></li>
-  <li><a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0182.html">History of the <code>img</code> tag</a></li>
-</ul>
+    <main class="container">
+      <h1>Week 2</h1>
 
-<h2 id="floats">Floats</h2>
+      <p>
+        This week we'll talk about course logistics and expectations. We'll also go over HTML and CSS basics. With your new found skills you'll publish a very simple course profile page, which will be your ongoing homepage for the course.
+      </p>
 
-<img src="images/balloon.png" class="supporting-image">
+      <ol>
+        <li><a href="#floats">Floats</a></li>
+        <li><a href="#classes-ids">Classes &amp; IDs</a></li>
+        <li><a href="#block-inline">Display: block &amp; inline</a></li>
+        <li><a href="#div-span">div &amp; span</a></li>
+        <li><a href="#inheritance">Inheritance</a></li>
+        <li><a href="#file-references">File references</a></li>
+        <li>Homework: <a href="../../exercises/2-acme-corp-extended.html">ACME Corp Extended</a></li>
+      </ol>
 
-<p>
-  When you want an image and text to appear side-by-side, you want to `float` the image (usually) to the `left` or `right`.
-</p>
+      <p>
+        Helpful resources:
+      </p>
 
-<p>
-  The balloon to the right is <code>float: right</code>.
-</p>
+      <ul>
+        <li><a href="http://learnlayout.com">Learn Layout</a></li>
+        <li><a href="http://www.csszengarden.com/">CSS Zen Garden</a></li>
+        <li><a href="http://learn.shayhowe.com/">Learn from Shay Howe</a></li>
+        <li><a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0182.html">History of the <code>img</code> tag</a></li>
+      </ul>
 
-<p>
-  Once an element is floated, it is no longer part of the "document flow," which can often have unintended consequences.
-</p>
+      <h2 id="floats">Floats</h2>
 
-<h3>Clearfix</h3>
+      <img src="images/balloon.png" class="supporting-image">
 
-<p>
-  A "clearfix" is a hack used to manage layouts with floats, see <a href="http://learnlayout.com/clearfix.html">this example</a>. The modern way to do this is by adding the CSS property <code>overflow: auto;</code> to the parent.
-</p>
+      <p>
+        When you want an image and text to appear side-by-side, you want to `float` the image (usually) to the `left` or `right`.
+      </p>
 
-<p>
-  <a href="floats.html">Example</a>
-</p>
+      <p>
+        The balloon to the right is <code>float: right</code>.
+      </p>
 
-<h2 id="classes-ids">Classes &amp; IDs</h2>
+      <p>
+        Once an element is floated, it is no longer part of the "document flow," which can often have unintended consequences.
+      </p>
 
-<p>
-  Classes and IDs allow us to identify and target styles on elements based on more than just their tag name. Let's say you have a particular button style you like. You'd like to be able to style <code>&lt;button&gt;</code> and <code>&lt;a&gt;</code> in the same way. One way to do this is to attach your styles to both elements:
-</p>
+      <h3>Clearfix</h3>
 
-<pre>
-<code>a,
-button {
-  border: 1px solid black;
-  border-radius: 5px;
-  /* etc... */
-}
-</code>
-</pre>
+      <p>
+        A "clearfix" is a hack used to manage layouts with floats, see <a href="http://learnlayout.com/clearfix.html">this example</a>. The modern way to do this is by adding the CSS property <code>overflow: auto;</code> to the parent.
+      </p>
 
-<p>
-  What's bad about this?
-</p>
+      <p>
+        <a href="floats.html">Example</a>
+      </p>
 
-<p>
-  Creating a class allows apply styles to any element as we choose. Define a class with a <code>.</code>:
-</p>
+      <h2 id="classes-ids">Classes &amp; IDs</h2>
 
-<pre>
-<code>.my-button {
-  border: 1px solid black;
-  border-radius: 5px;
-  /* etc... */
-}
-</code>
-</pre>
+      <p>
+        Classes and IDs allow us to identify and target styles on elements based on more than just their tag name. Let's say you have a particular button style you like. You'd like to be able to style <code>&lt;button&gt;</code> and <code>&lt;a&gt;</code> in the same way. One way to do this is to attach your styles to both elements:
+      </p>
 
-<p>
-  And in your HTML, give elements that class with the class attribute.
-</p>
+      <pre>
+      <code>a,
+      button {
+        border: 1px solid black;
+        border-radius: 5px;
+        /* etc... */
+      }
+      </code>
+      </pre>
 
-<pre>
-<code>&lt;a href="http://example.com" class="my-button"&gt;Click me&lt;a&gt;
-</code>
-</pre>
+      <p>
+        What's bad about this?
+      </p>
 
-<h3>Sharing styles and writing less code</h3>
+      <p>
+        Creating a class allows apply styles to any element as we choose. Define a class with a <code>.</code>:
+      </p>
 
-<p>
-  An element can have as many classes modifying it as you'd like. This let's us share common styles and get more specific as we need to.
-</p>
+      <pre>
+      <code>.my-button {
+        border: 1px solid black;
+        border-radius: 5px;
+        /* etc... */
+      }
+      </code>
+      </pre>
 
-<pre>
-<code>.my-button {
-  border: 1px solid black;
-  border-radius: 5px;
-  font-size: 16px;
-  padding: .25em;
-}
-.my-smaller-button {
-  font-size: 12px;
-}
-</code>
-</pre>
+      <p>
+        And in your HTML, give elements that class with the class attribute.
+      </p>
 
-<p>
-  Practice with <a href="buttons.html">Buttons</a>.
-</p>
+      <pre>
+      <code>&lt;a href="http://example.com" class="my-button"&gt;Click me&lt;a&gt;
+      </code>
+      </pre>
 
-<h3>IDs</h3>
+      <h3>Sharing styles and writing less code</h3>
 
-<p>
-  IDs work just like classes but are less flexible because <strong>an element can only have one ID</strong>. You also use a <code>#</code> instead of a <code>.</code> to select an element by ID.
-</p>
+      <p>
+        An element can have as many classes modifying it as you'd like. This let's us share common styles and get more specific as we need to.
+      </p>
 
-<h2 id="block-inline">Display: block &amp; inline</h2>
+      <pre>
+      <code>.my-button {
+        border: 1px solid black;
+        border-radius: 5px;
+        font-size: 16px;
+        padding: .25em;
+      }
+      .my-smaller-button {
+        font-size: 12px;
+      }
+      </code>
+      </pre>
 
-<p>
-  <strong>Block</strong> elements are "100% wide" and do not let any other pieces of content share space on the same horizontal row.
-</p>
+      <p>
+        Practice with <a href="buttons.html">Buttons</a>.
+      </p>
 
-<p>
-  <strong>Inline</strong> elements are as wide as their content and allow other elements to share space to the left and right.
-</p>
+      <h3>IDs</h3>
 
-<h2 id="div-span">div &amp; span</h2>
+      <p>
+        IDs work just like classes but are less flexible because <strong>an element can only have one ID</strong>. You also use a <code>#</code> instead of a <code>.</code> to select an element by ID.
+      </p>
 
-<p>
-  When you can add whatever descripitors you want to an element via classes or IDs, the name of the element becomes less important. For example, you could have a paragraph that serves as the "introduction" to an article. If you had a <code>&lt;introduction&gt;</code> tag, you might use it instead. In cases like this, consider using a completely generic element like <code>&lt;span&gt;</code> and <code>&lt;div&gt;</code>.
-</p>
+      <h2 id="block-inline">Display: block &amp; inline</h2>
 
-<h2 id="inheritance">Inheritance</h2>
+      <p>
+        <strong>Block</strong> elements are "100% wide" and do not let any other pieces of content share space on the same horizontal row.
+      </p>
 
-<ul>
-  <li><a href="http://www.w3.org/TR/CSS21/propidx.html">CSS properties &amp; inheritance</a></li>
-  <li><code>inherit</code></li>
-</ul>
+      <p>
+        <strong>Inline</strong> elements are as wide as their content and allow other elements to share space to the left and right.
+      </p>
 
-<h2 id="file-references">File references</h2>
+      <h2 id="div-span">div &amp; span</h2>
 
-<ul>
-  <li><code>/</code> at the beginning of a path means "go to the root". For example, <code>/images/logo.png</code> will look for a file in an images folder that is at the root. But root can mean different things. If you're serving a file up in Chrome with <code>file://</code> then root means your hard drive. If you're running a web server, for example with <code>python -m SimpleHTTPServer</code> then root means your website project folder.</li>
-  <li><code>..</code> means "go up a folder"</li>
-</ul>
+      <p>
+        When you can add whatever descripitors you want to an element via classes or IDs, the name of the element becomes less important. For example, you could have a paragraph that serves as the "introduction" to an article. If you had a <code>&lt;introduction&gt;</code> tag, you might use it instead. In cases like this, consider using a completely generic element like <code>&lt;span&gt;</code> and <code>&lt;div&gt;</code>.
+      </p>
 
-<p>
-  It is recommended to references files in a "relative" way. So you have to ask yourself, "from the file I'm in, how do I get to the file I want to reference."
-</p>
+      <h2 id="inheritance">Inheritance</h2>
 
-<h2 id="homework">Homework</h2>
+      <ul>
+        <li><a href="http://www.w3.org/TR/CSS21/propidx.html">CSS properties &amp; inheritance</a></li>
+        <li><code>inherit</code></li>
+      </ul>
 
-<p>
-  <a href="../../exercises/2-acme-corp-extended.html">ACME Corp Extended</a>
-</p>
+      <h2 id="file-references">File references</h2>
 
-<meta charset="utf-8">
-<link rel="stylesheet" href="../../css/lectures.css" media="screen" charset="utf-8">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="../../js/lectures.js"></script>
+      <ul>
+        <li><code>/</code> at the beginning of a path means "go to the root". For example, <code>/images/logo.png</code> will look for a file in an images folder that is at the root. But root can mean different things. If you're serving a file up in Chrome with <code>file://</code> then root means your hard drive. If you're running a web server, for example with <code>python -m SimpleHTTPServer</code> then root means your website project folder.</li>
+        <li><code>..</code> means "go up a folder"</li>
+      </ul>
+
+      <p>
+        It is recommended to references files in a "relative" way. So you have to ask yourself, "from the file I'm in, how do I get to the file I want to reference."
+      </p>
+    </main>
+  </body>
+</html>
