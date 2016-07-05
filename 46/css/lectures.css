@@ -9,6 +9,8 @@
 
 body { padding-top: 70px; }
 
+h1, h2, h3, h4, h5, h6 { clear: both; }
+
 .you-do {
   padding: 1em;
   border: 1px solid rgba(0, 0, 0, 0.2);
