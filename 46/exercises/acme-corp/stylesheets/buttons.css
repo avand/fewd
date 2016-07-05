@@ -8,3 +8,10 @@
   text-decoration: none;
   display: inline-block;
 }
+
+.button-link {
+  color: #2A4CB2;
+  background-color: transparent;
+  border-color: transparent;
+  text-shadow: none;
+}

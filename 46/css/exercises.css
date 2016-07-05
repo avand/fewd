@@ -1,17 +1,10 @@
-@import 'fonts.css';
-@import 'links.css';
 @import 'homework.css';
 @import 'frames.css';
 @import 'icons.css';
 @import 'carousels.css';
-@import 'code.css';
 @import 'asides.css';
 @import 'utilities.css';
 @import 'images.css';
 @import 'tables.css';
 
-body {
-  margin: 12px auto;
-  padding: 0 2.5%;
-  max-width: 800px;
-}
+body { padding-top: 70px; }
