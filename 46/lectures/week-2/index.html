@@ -79,41 +79,13 @@
         Classes and IDs allow us to identify and target styles on elements based on more than just their tag name. Let's say you have a particular button style you like. You'd like to be able to style <code>&lt;button&gt;</code> and <code>&lt;a&gt;</code> in the same way. One way to do this is to attach your styles to both elements:
       </p>
 
-      <pre>
-      <code>a,
-      button {
-        border: 1px solid black;
-        border-radius: 5px;
-        /* etc... */
-      }
-      </code>
-      </pre>
+      <script src="https://gist.github.com/avand/cbbee16526a0f8e9ae31aa6e2152c588.js"></script>
 
       <p>
-        What's bad about this?
+        Creating a class allows apply styles to any element as we choose. Define a class with a <code>.</code> followed by your own name. And in your HTML, give elements that class with the class attribute.
       </p>
 
-      <p>
-        Creating a class allows apply styles to any element as we choose. Define a class with a <code>.</code>:
-      </p>
-
-      <pre>
-      <code>.my-button {
-        border: 1px solid black;
-        border-radius: 5px;
-        /* etc... */
-      }
-      </code>
-      </pre>
-
-      <p>
-        And in your HTML, give elements that class with the class attribute.
-      </p>
-
-      <pre>
-      <code>&lt;a href="http://example.com" class="my-button"&gt;Click me&lt;a&gt;
-      </code>
-      </pre>
+      <script src="https://gist.github.com/avand/88c98588a081697a9d344be3de342a96.js"></script>
 
       <h3>Sharing styles and writing less code</h3>
 
@@ -121,21 +93,10 @@
         An element can have as many classes modifying it as you'd like. This let's us share common styles and get more specific as we need to.
       </p>
 
-      <pre>
-      <code>.my-button {
-        border: 1px solid black;
-        border-radius: 5px;
-        font-size: 16px;
-        padding: .25em;
-      }
-      .my-smaller-button {
-        font-size: 12px;
-      }
-      </code>
-      </pre>
+      <script src="https://gist.github.com/avand/9ad27f2e9d8d2bdf2b89d001580ff540.js"></script>
 
-      <p>
-        Practice with <a href="buttons.html">Buttons</a>.
+      <p class="you-do">
+        Now, do some practice with creating classes by making some buttons. Create a class <code>.button</code> and apply it to <code>&lt;a&gt;</code>, <code>&lt;button&gt;</code>, and <code>&lt;input&gt;</code> (of type "submit"). Continue adding CSS declarations until all the buttons look the same. Then create a <code>.button-small</code> and <code>.button-danger</code> class that allows you to change the look of certain buttons simply by adding those classes. Here's an <a href="buttons.html">example</a> of the final result.
       </p>
 
       <h3>IDs</h3>
