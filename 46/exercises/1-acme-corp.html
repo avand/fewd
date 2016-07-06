@@ -1,45 +1,84 @@
-<h1>ACME Corp</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
 
-<a href="http://cloud.avandamiri.com/image/1H04140w312u/Screen%20Shot%202015-07-30%20at%2011.07.06%20PM.png">
-  <img src="http://cloud.avandamiri.com/image/1H04140w312u/Screen%20Shot%202015-07-30%20at%2011.07.06%20PM.png"
-       alt="ACME Corp homework screenshot"
-       class="homework-thumbnail">
-</a>
+    <title>ACME Corp Exercise, FEWD 46</title>
 
-<p>
-  Build the homepage for Acme Anvil Corporation using HTML and CSS. Please do so without using classes or IDs.
-</p>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-</a>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/exercises.css" media="screen" charset="utf-8">
 
-<ul>
-  <li><a href="http://cloud.avandamiri.com/image/1H04140w312u/Screen%20Shot%202015-07-30%20at%2011.07.06%20PM.png">Hi-res screenshot</a></li>
-  <li><a href="http://cloud.avandamiri.com/image/423B1n2p2v0U/acme-corp.jpg">The logo image (jpg)</a></li>
-  <li><a href="http://cloud.avandamiri.com/image/3N410e2Q2Z3F/background.png">The background image (png)</a></li>
-  <li>
-    To center a container (e.g. <code>&lt;main&gt;</code>) set <code>margin-left</code>
-    and <code>margin-right</code> to <code>auto</code> and set a <code>width</code>.
-    You can set the width to a percentage like 60% or so. Try also playing with <code>max-width</code>.
-  </li>
-  <li>
-    Font-family is "Lucida Grande".
-  </li>
-  <li>
-    Use the "Digital Color Meter" under Utilities on your Mac to figure match the colors. When you have your mouse over the color you want, use Command + Shift + C to copy the color to your clipboard.
-  </li>
-  <li>
-    The buttons and links don't have to work.
-  </li>
-  <li>
-    Take advantage the <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, and <code>&lt;footer&gt;</code> elements to organize your content.
-  </li>
-  <li>
-    Use a <code>&lt;button&gt;</code> element for the "Sign up" button.
-  </li>
-</ul>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <nav><script>$("nav").load("../partials/navigation.html");</script></nav>
 
-<p>
-  Want more? Try the <a href="2-acme-corp-extended.html">ACME Corp Extended</a>.
-</p>
+    <main class="container">
+      <h1>ACME Corp</h1>
 
-<link rel="stylesheet" href="../css/exercises.css" media="screen" title="All styles" charset="utf-8">
+      <p>
+        The designers of ACME Anvil Corporation have just come up with a fresh new look for the company website. It's up to you to implement their designs. Their designers know a little bit about the web, so they've prepared for you a few resources to help you get started:
+      </p>
+
+      <ul>
+        <li>
+          A screenshot of the finished design (see below, click for full resolution)
+        </li>
+        <li>
+          A <a href="assets/acme-corp/images.zip">ZIP file</a> including the logo image and the textured background image
+        </li>
+        <li>
+          A list of colors to use throughout the design:
+          <ul>
+            <li>Header background color: #c4c4c4</li>
+            <li>Button background color: #2A4CB2</li>
+          </ul>
+        </li>
+        <li>
+          The font-family: "Lucida Grande"
+        </li>
+        <li>
+          Layout commentary: The header should run completely from the left edge of the browser window to the right edge. The content, including the footer, should be centered horizontally and consume approximately 80% of the width of the browser (not to exceed a width of 800px).
+        </li>
+      </ul>
+
+      <p>
+        Here are some tips:
+      </p>
+
+      <ul>
+        <li>
+          It is entirely possible to implement this design without classes or IDs. You're welcome to use classes or IDs but it's probably unnecessary.
+        </li>
+        <li>
+          Remember that to center a block container (e.g. <code>&lt;main&gt;</code>) set <code>margin-left</code> and <code>margin-right</code> to <code>auto</code> and set a <code>width</code>. You can set the width to a percentage too. Try also playing with <code>max-width</code>.
+        </li>
+        <li>
+          Use the "Digital Color Meter" under Utilities on your Mac to figure match the colors. When you have your mouse over the color you want, use <kbd><kbd>cmd</kbd> + <kbd>shift</kbd> + <kbd>C</kbd></kbd> to copy the color to your clipboard.
+        </li>
+        <li>
+          The buttons and links don't have to work.
+        </li>
+        <li>
+          Take advantage the <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, and <code>&lt;footer&gt;</code> elements to organize your content. Use the right tags and avoid using classes or IDs.
+        </li>
+        <li>
+          Use a <code>&lt;button&gt;</code> element for the "Sign up" button. That will let you style it like a button, differently than the other links in the header.
+        </li>
+      </ul>
+
+      <p>
+        <a href="assets/acme-corp/index-screenshot.png">
+          <img src="assets/acme-corp/index-screenshot.png"
+               alt="ACME Corp homework screenshot"
+               class="img-responsive" width="">
+        </a>
+      </p>
+    </main>
+  </body>
+</html>

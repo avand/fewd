@@ -25,40 +25,49 @@
       </nav>
     </header>
 
-    <section class="container">
+    <main class="container">
       <h1>Sign Up</h1>
 
       <form>
-        <ol>
-          <li>
-            <label for="first_name">First Name</label>
-            <input type="text" id="first_name" placeholder="John" autofocus required>
-          </li>
-          <li>
-            <label for="last_name">Last Name</label>
-            <input type="text" id="last_name" placeholder="Doe" required>
-          </li>
-          <li>
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="john.doe@example.com" required>
-          </li>
-          <li>
-            <label for="password">Password</label>
-            <input type="password" id="password" required>
-          </li>
-          <li>
-            <input type="checkbox" id="terms" required>
-            <label for="terms">Agree to our terms of service</label>
-          </li>
-          <li>
-            <input type="submit" value="Sign Up">
-          </li>
-        </ol>
+        <div class="form-row">
+          <label for="first_name">First Name</label>
+          <input type="text" id="first_name" placeholder="John" autofocus required>
+        </div>
+        <div class="form-row">
+          <label for="last_name">Last Name</label>
+          <input type="text" id="last_name" placeholder="Doe" required>
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="john.doe@example.com" required>
+        </div>
+        <div class="form-row">
+          <label for="password">Password</label>
+          <input type="password" id="password" required>
+        </div>
+        <div class="form-row">
+          <label for="how">How did you hear about us?</label><br>
+          <select>
+            <option></option>
+            <option>Friend</option>
+            <option>Search</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <input type="checkbox" id="terms" required>
+          <label for="terms">Agree to our terms of service</label>
+        </div>
+        <div class="form-row">
+          <input type="submit" value="Sign Up" class="button">
+        </div>
       </form>
-    </section>
+    </main>
 
     <footer class="container">
-      Copyright, 2015
+      <p>
+        Copyright, 2015
+      </p>
     </footer>
   </body>
 </html>

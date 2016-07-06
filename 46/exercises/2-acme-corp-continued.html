@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>ACME Corp Continued Exercise, FEWD 46</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/exercises.css" media="screen" charset="utf-8">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <nav><script>$("nav").load("../partials/navigation.html");</script></nav>
+
+    <main class="container">
+      <h1>Acme Corp Continued</h1>
+
+      <p>
+        The designers at ACME Corp are happy with the way the homepage turned out and have now continued to redesign the remaining pages. Just like before, use the information provided to build out the rest of the website.
+      </p>
+
+      <p>
+        Here are some specifics from the ACME design team:
+      </p>
+
+      <ul>
+        <li>
+          Screenshots are provided below (click for full resolution).
+        </li>
+        <li>
+          On the sign up form, the focus state (when the user's cursor is blinking in a field), should change the border color to the same blue as the buttons (#2A4CB2).
+        </li>
+        <li>
+          The sign up form should include four options under "how did you hear about us:" blank, Friend, Search, Other.
+        </li>
+        <li>
+          Choose any three products to highlight from the <a href="http://acme.com/catalog" target="_blank">ACME Product Catalog</a>.
+        </li>
+      </ul>
+
+      <p>
+        <a href="assets/acme-corp/products-screenshot.png" target="_blank">
+          <img src="assets/acme-corp/products-screenshot.png" class="img-responsive" alt="ACME Products Screenshot">
+        </a>
+      </p>
+
+      <p>
+        <a href="assets/acme-corp/signup-screenshot.png" target="_blank">
+          <img src="assets/acme-corp/signup-screenshot.png" class="img-responsive" alt="ACME Signup Screenshot">
+        </a>
+      </p>
+
+      <p>
+        And some more tips and tricks:
+      </p>
+
+      <ul>
+        <li>
+          To build out the form, you'll need to use some new tags:
+          <ul>
+            <li><code>&lt;label&gt;</code></li>
+            <li><code>&lt;input&gt;</code></li>
+            <li><code>&lt;select&gt;</code></li>
+            <li><code>&lt;option&gt;</code></li>
+            <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">Element reference and documentation</a></li>
+          </ul>
+        </li>
+        <li>
+          The "focus state" the designers describe can be accomplished with a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-selector</a>
+        </li>
+        <li>
+          The header, footer, and main content styles are the same between all three pages. Do not repeat those styles! Simply put them in their own stylesheet and reference the one file from all three pages. Each page should then also have it's own page-specific styles.
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>

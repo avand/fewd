@@ -1,17 +1,33 @@
-@import 'fonts.css';
-@import 'links.css';
 @import 'homework.css';
 @import 'frames.css';
 @import 'icons.css';
 @import 'carousels.css';
-@import 'code.css';
 @import 'asides.css';
 @import 'utilities.css';
 @import 'images.css';
 @import 'tables.css';
 
-body {
-  margin: 12px auto;
-  padding: 0 2.5%;
-  max-width: 800px;
+body { padding-top: 70px; }
+
+h1, h2, h3, h4, h5, h6 { clear: both; }
+
+.you-do {
+  padding: 1em;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: rgba(253, 255, 176, 0.2);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  margin: 3em 1em;
+  font-size: 1.2em;
+}
+
+.you-do::before {
+  content: "Your turn";
+  text-transform: uppercase;
+  display: block;
+  font-size: 0.6em;
+  letter-spacing: 1px;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+  opacity: 0.5;
 }

@@ -1,3 +1,10 @@
+@import "base.css";
+
+.products {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 .products li {
   overflow: auto;
   border-bottom: 1px solid #c1c1c1;
@@ -21,8 +28,4 @@
 .products p,
 .products .stars {
   margin-bottom: 1em;
-}
-.products a {
-  background-color: #DB0021;
-  border-color: #650020;
 }
