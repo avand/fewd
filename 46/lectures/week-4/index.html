@@ -30,6 +30,7 @@
         <li><a href="#calculator">Calculator</a></li>
         <li><a href="#events-functions">Events &amp; Functions</a></li>
         <li><a href="#calculator-continued">Calculator Continued</a></li>
+        <li><a href="#dom-manipulation">DOM Manipulation</a></li>
         <li><a href="#yelp-revisited">Yelp Revisited</a></li>
       </ol>
 
@@ -407,6 +408,137 @@
       <div class="you-do">
         Now, you should have all the parts you need to build our better calculator. Give it a try and compare to the <a href="https://gist.github.com/avand/6f12294c77e123925b1e1cf7992b9798" target="_blank">solution</a> when you're ready.
       </div>
+
+      <h2 id="dom-manipulation">DOM Manipulation</h2>
+
+      <p>
+        If you're feeling comfortable with the calculator, great! You should be relieved. 90% of JavaScript programs you'll ever write will use these exact same concepts. You'll learn new functions and new types of objects to work with, but you just learned the absolute essentials.
+      </p>
+
+      <p>
+        As we've already learned you can't do much with <code>prompt()</code> and <code>alert()</code>. It's great to take in user input and display it back but those aren't the types of applications we want to build. We want to be able interact with elements on the page. And we also want to create new elements and put them on the page. You'll need to do this if you want to add a comment to the page as the result of the user filling out a form or to display results from a search that are loaded by JavaScript.
+      </p>
+
+      <h3>Interacting with Existing Elements</h3>
+
+      <p>
+        You've already done a bit of this but let's review.
+      </p>
+
+      <script src="https://gist.github.com/avand/bc640f2037b337000839f8e266b8da60.js"></script>
+
+      <div class="you-do">
+        <p>
+          You should now be able to look at the above code and figure out what the program is doing.
+        </p>
+
+        <p>
+          Describe every line of the above code in detail. Try it and compare your results to the <a href="https://gist.github.com/avand/0406f3a369ddfc7771d9e1cf7e19832c" target="_blank">annotated version</a>.
+        </p>
+
+        <p>
+          How would this program change if we used an <code>&lt;input&gt;</code> instead of a <code>&lt;button&gt;</code>?
+        </p>
+      </div>
+
+      <h3>Creating New Elements</h3>
+
+      <a href="images/comments.gif" target="_blank">
+        <img src="images/comments.gif" class="supporting-image">
+      </a>
+
+      <p>
+        Imagine you want to put a comments box at the bottom of your web page. Unlike the calculator, you can no longer simply update a paragraph with the sum. Now, you have to create new elements and them to the page as people submit comments.
+      </p>
+
+      <p>
+        This is a two step process: creating the element then adding it to the page. And you need to learn two new functions to make it happen.
+      </p>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Parameters</th>
+            <th>Returns</th>
+          </tr>
+        </thead>
+        <tr>
+          <td>
+            <code>document.createElement(tagName)</code>
+          </td>
+          <td>
+            <p>
+              Create a new element of a given tagName
+            </p>
+
+            <p>
+              For example:<br>
+              <code>document.createElement("p")</code><br>
+              <code>document.createElement("div")</code>
+            </p>
+          </td>
+          <td>
+            <p>
+              Returns an element, just like <code>document.querySelector()</code>. The only different is that this element does not exist on the page yet.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>parentEl.appendChild(childEl)</code>
+          </td>
+          <td>
+
+            <p>
+              Adds an element to the page. Call this method on the parent element and pass in the child element. In this way you specify <em>where</em> you want the element to go.
+            </p>
+          </td>
+          <td>
+            <p>
+              Returns the child element as a convenience.
+            </p>
+          </td>
+        </tr>
+      </table>
+
+      <p>
+        Once you've created a new element, it behaves just like every other element. So you can set the <code>textContent</code> or <code>addEventListener()</code> just like before.
+      </p>
+
+      <script src="https://gist.github.com/avand/73fce6e027bc00f3d63d135c0f234cee.js"></script>
+
+      <div class="you-do">
+        <p>
+          Try building a very simple interface for adding comments to the page. Try and build a program that behaves just like the <a href="images/comments.gif" target="_blank">GIF</a>.
+        </p>
+
+        <p>
+          When you're finished or if you get stuck, take a peek at the <a href="https://gist.github.com/avand/2c042e232a73349df9680bc0c76a42c3" target="_blank">solution</a>.
+        </p>
+      </div>
+
+      <h3>Adding or Removing a Class from an Element</h3>
+
+      <p>
+        So you now know how to find an existing elements, create new elements, attach event listeners to them, and change their text. What about changing the CSS of an element to make it look a certain way?
+      </p>
+
+      <p>
+        For the same reason that inline styles are bad, setting CSS properties of an element with JS isn't recommended. But you can do it.
+      </p>
+
+      <script src="https://gist.github.com/avand/d0cfb6ef643fbd24842b02402811384e.js"></script>
+
+      <p>
+        If you continue down this route, you'll find yourself writing a lot of CSS in your JS. Nobody on your team, including you, will ever think to look in the JS for styles. Instead, use clases. Declare your rules in CSS and then add/remove classes as needed using an element's <code>classList</code> object.
+      </p>
+
+      <script src="https://gist.github.com/avand/61eefdd77a050364a6f9bd4c2bb96854.js"></script>
+
+      <p>
+        It should go without saying that you'll need to have already defined the rules in your CSS (e.g., <code>.button-danger { background-color: red; }</code>).
+      </p>
 
       <h2 id="yelp-revisited">Yelp Revisited</h2>
 
