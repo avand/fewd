@@ -22,8 +22,7 @@ main {
 }
 
 .gist,
-pre,
-.you-do {
+pre {
   clear: both;
   margin: 2em 0;
   max-width: 700px;
