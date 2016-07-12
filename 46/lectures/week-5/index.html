@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Week 5 Lecture Notes, FEWD 46</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/lectures.css" media="screen" charset="utf-8">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="../../js/lectures.js"></script>
+  </head>
+  <body>
+    <nav><script>$("nav").load("../../partials/navigation.html");</script></nav>
+
+    <main class="container">
+      <h1>Week 5</h1>
+
+      <h3>Table of Contents</h3>
+
+      <ol>
+        <li><a href="#inventory">Taking Inventory</a></li>
+        <li><a href="#debugging">Debugging</a></li>
+        <li><a href="#arrays">Arrays</a>
+      </ol>
+
+      <!-- <h3>Resources</h3>
+
+      <ul>
+        <li>Book: <a href="http://eloquentjavascript.net/">Eloquent JavaScript</a></li>
+        <li><a href="https://docs.google.com/forms/d/1KPE8gZZFPt0Hhe9kwHwJ-oj5UGcB37JfQTyMTuaNCE8/viewform" target="_blank">Week 4 Exit tickets</a></li>
+      </ul> -->
+
+      <h2 id="taking-inventory">Taking Inventory</h2>
+
+      <p>
+        Before we go any further, let's take stock of the functions and objects we currently know about.
+      </p>
+
+      <h3>Built-in Functions</h3>
+
+      <p>
+        These functions are pre-defined for us by browsers and available for us to use.
+      </p>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Usage</th>
+            <th>Description</th>
+            <th>Output</th>
+          </tr>
+        </thead>
+        <tr>
+          <td><code>alert(message)</code></td>
+          <td>
+            <p>
+              Displays a message to the user.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>alert("Congrats! You're visitor 1,000.");</code>
+            </p>
+          </td>
+          <td>
+            <code>undefined</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>prompt(message)</code></td>
+          <td>
+            <p>
+              Displays a message to the user and asks them for input.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>var age = prompt("How old are you?");</code>
+            </p>
+          </td>
+          <td>
+            String
+          </td>
+        </tr>
+        <tr>
+          <td><code>parseInt(string)</code></td>
+          <td>
+            <p>
+              Converts a string value into a whole number.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>var n = parseInt("123");</code>
+            </p>
+          </td>
+          <td>
+            Whole number (integer) or <code>NaN</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>parseFloat(string)</code></td>
+          <td>
+            <p>
+              Converts a string value into a decimal number.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>var pi = parseFloat("3.14");</code>
+            </p>
+          </td>
+          <td>
+            Decimal number (float) or <code>NaN</code>
+          </td>
+        </tr>
+      </table>
+
+      <h3>String</h3>
+
+      <p>
+        A string is a sequence of characters. We use them in code to represent names of CSS selectors or event names. But they can also store data or be used to construct content for the page. Here are a couple things strings can do but for a complete list, please reference the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/" target="_blank">MDN</a>.
+      </p>
+
+      <p>
+        Note that <code>string</code> below represents <em>any</em> string or variable with a string value. You could make these examples work by declare a variable like <code>var string = "something";</code>.
+      </p>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Usage</th>
+            <th>Description</th>
+            <th>Output</th>
+          </tr>
+        </thead>
+        <tr>
+          <td><code>string.length</code></td>
+          <td>
+            <p>
+              Retrieves the length of a the <code>string</code>.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>"apple".length</code>
+            </p>
+          </td>
+          <td>
+            Integer
+          </td>
+        </tr>
+        <tr>
+          <td><code>string.split(delimiter)</code></td>
+          <td>
+            <p>
+              Breaks up a string on a given delimiter.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>var fruits = "apples,bananas,oranges".split(",");</code>
+            </p>
+          </td>
+          <td>
+            Array
+          </td>
+        </tr>
+        <tr>
+          <td><code>string + string</code></td>
+          <td>
+            <p>
+              Concatenates (string addition) two strings together.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>"evil" + "olive"</code>
+            </p>
+          </td>
+          <td>
+            String
+          </td>
+        </tr>
+      </table>
+
+      <h3>Document</h3>
+
+      <p>
+        The <code>document</code> is a special object that is also available for us when developing for a browser. It has a few very useful properties and methods:
+      </p>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Usage</th>
+            <th>Description</th>
+            <th>Output</th>
+          </tr>
+        </thead>
+        <tr>
+          <td><code>document.title</code></td>
+          <td>
+            <p>
+              Retrieves the title of the current webpage.
+            </p>
+          </td>
+          <td>
+            String
+          </td>
+        </tr>
+        <tr>
+          <td><code>document.domain</code></td>
+          <td>
+            <p>
+              Retrieves the domain name of the current webpage.
+            </p>
+          </td>
+          <td>
+            String
+          </td>
+        </tr>
+        <tr>
+          <td><code>document.querySelector(selector)</code></td>
+          <td>
+            <p>
+              Retrieves a particular element on the webpage that matches a given CSS selector.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>var p = document.querySelector("p");</code><br>
+              <code>var lastItem = document.querySelector("li:last-child");</code>
+            </p>
+          </td>
+          <td>
+            Element
+          </td>
+        </tr>
+        <tr>
+          <td><code>document.createElement(tagName)</code></td>
+          <td>
+            <p>
+              Creates a new empty element given tag name. This new element does not exist in the document.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>var li = document.createElement("li");</code>
+            </p>
+          </td>
+          <td>
+            Element
+          </td>
+        </tr>
+      </table>
+
+      <h3>Elements</h3>
+
+      <p>
+        Without elements, you wouldn't be able to do much to a webpage. So being able to interact with them in JS is critical. Fortunately, elements can do a lot.
+      </p>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Usage</th>
+            <th>Description</th>
+            <th>Output</th>
+          </tr>
+        </thead>
+        <tr>
+          <td><code>element.textContent</code></td>
+          <td>
+            <p>
+              The contents of an element (everything between the opening and closing tag).
+            </p>
+
+            <p>
+              Can be used to get the text of an existing element, for example:<br>
+              <code>var text = document.querySelector("p").textContent</code>
+            </p>
+
+            <p>
+              Can also be used to set the text of an element. For example:<br>
+              <code>document.querySelector(".notice").textContent = "Times up!"</code>
+            </p>
+          </td>
+          <td>
+            String
+          </td>
+        </tr>
+        <tr>
+          <td><code>element.value</code></td>
+          <td>
+            <p>
+              The value of an <code>&lt;input&gt;</code>, <code>&lt;select&gt;</code>, or <code>&lt;textarea&gt;</code>. Does not apply to paragraphs or any other element with a closing tag.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>var s = document.querySelector("input").value</code>
+            </p>
+          </td>
+          <td>
+            String
+          </td>
+        </tr>
+        <tr>
+          <td><code>element.addEventListener(eventType, handler)</code></td>
+          <td>
+            <p>
+              Call the given <code>handler</code> function <em>when</em> an event of type <code>eventType</code> fires.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>button.addEventListener("click", startGame)</code>
+            </p>
+          </td>
+          <td>
+            <code>undefined</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>element.appendChild(childElement)</code></td>
+          <td>
+            <p>
+              Make one element a child of another. Always call this method on the parent and pass in the child.
+            </p>
+          </td>
+          <td>
+            <code>undefined</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>element.setAttribute(name, value)</code></td>
+          <td>
+            <p>
+              Set the <code>name</code> attribute of an element to a <code>value</code>.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>img.setAttribute("src", "logo.jpg")</code>
+            </p>
+          </td>
+          <td>
+            <code>undefined</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>element.removeAttribute(name)</code></td>
+          <td>
+            <p>
+              Removes an attribute from an element.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>img.removeAttribute("alt")</code>
+            </p>
+          </td>
+          <td>
+            <code>undefined</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>element.classList.add(className)</code></td>
+          <td>
+            <p>
+              Add a CSS class to an element. This method does not define the CSS rule. It simply allows the element to take on any matching rules in your stylesheets.
+            </p>
+
+            <p>
+              This is almost equivalent to <code>element.setAttribute("class", className)</code> but accounts for elements that have many classes.
+            </p>
+          </td>
+          <td>
+            <code>undefined</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>element.classList.remove(className)</code></td>
+          <td>
+            <p>
+              Removes a CSS class from an element.
+            </p>
+          </td>
+          <td>
+            <code>undefined</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>element.classList.toggle(className)</code></td>
+          <td>
+            <p>
+              Adds the class if the element doesn't have it. Removes the class if it is already there.
+            </p>
+
+            <p>
+              Great for expanding or collapsing a menu.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>menu.toggleClass("expanded");</code>
+            </p>
+          </td>
+          <td>
+            Boolean
+          </td>
+        </tr>
+      </table>
+    </main>
+  </body>
+</html>
