@@ -377,6 +377,37 @@
 
       <script src="https://gist.github.com/avand/070405be3a44ceae6aa804741ebce8d2.js"></script>
 
+      <p>
+        It's very important that you not <em>call</em> the <code>add()</code> function when binding the event listener. You're simply referencing it. You should never call the event handler directly—the browser will listen for the user input and when the time is right call your function for you.
+      </p>
+
+      <h3>The Event Object</h3>
+
+      <p>
+        There's just one more thing you need to know about events. When an event occurs, a function is called. That much you know. But an object called an Event is actually passed into that function when it's called. The Event knows:
+      </p>
+
+      <ul>
+        <li>Exactly what time the event occurred</li>
+        <li>Which element triggered the event</li>
+      </ul>
+
+      <p>
+        This object also is responsible for telling the browser what to do after your event handler is called. For example, you might link to the sign out page but want to confirm with your user before continuing.
+      </p>
+
+      <script src="https://gist.github.com/avand/583c469b598c0185db1655b505f08c29.js"></script>
+
+      <p>
+        In the above example, when the user clicks the link the browser registers a new Event. Then it calls the function that you specified as an event handler and passes in the Event object to it. You can call it <code>event</code> or <code>e</code> or <code>taco</code> in your event handler but it will be an Event.
+      </p>
+
+      <p>
+        Calling <code>event.preventDefault()</code> is crucial to our programs because clicking links and submitting forms actually cause the page to change or reload. So from here on out when you declare an event handler function, have it take an <code>event</code> as an argument and call <code>event.preventDefault()</code> on the next line inside the function.
+      </p>
+
+      <script src="https://gist.github.com/avand/a60e5ec6814e0c5e3da5c1f50b61d87b.js"></script>
+
       <h2 id="calculator-continued">Calculator Continued</h2>
 
       <a href="images/calc-2.gif" target="_blank">
@@ -662,6 +693,26 @@
           <td>
             <p>
               <code>undefined</code>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>el.getAttribute(attrName, attrValue)</code>
+          </td>
+          <td>
+            <p>
+              Gets the value of an attribute for the given element by name.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>a.getAttribute("href")</code>
+            </p>
+          </td>
+          <td>
+            <p>
+              Returns the value as a string.
             </p>
           </td>
         </tr>
