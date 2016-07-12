@@ -12,8 +12,13 @@
 
 body {
   padding-top: 70px;
-  background-color: #fffae6;
+  background-color: hsl(47, 100%, 97%);
 }
+
+a         { color: hsl(122, 90%, 34%); }
+a:hover   { color: hsl(122, 90%, 25%); }
+a:active  { color: hsl(122, 90%, 40%); }
+a:visited { color: hsl(122, 80%, 40%); }
 
 main {
   font-family: "Georgia", serif;
@@ -21,8 +26,9 @@ main {
   line-height: 1.6;
 }
 
+pre,
 .gist,
-pre {
+.table {
   clear: both;
   margin: 2em 0;
   max-width: 700px;
@@ -30,4 +36,18 @@ pre {
 
 main p {
   max-width: 600px;
+}
+
+code {
+  font-size: 0.75em;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.table {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+.table th,
+.table td {
+  padding: 4px !important;
 }
