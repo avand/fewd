@@ -19,7 +19,7 @@ function createComment(event) {
   event.preventDefault();
 
   var comment = document.createElement("div");
-  comment.setAttribute("class", "comment");
+  comment.classList.add("comment");
   comment.textContent = commentBody.value;
   comments.appendChild(comment);
   commentForm.reset();
