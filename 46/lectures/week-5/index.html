@@ -26,16 +26,16 @@
 
       <ol>
         <li><a href="#inventory">Taking Inventory</a></li>
-        <li><a href="#debugging">Debugging</a></li>
         <li><a href="#arrays">Arrays</a>
+        <li><a href="#debugging">Debugging</a></li>
       </ol>
 
-      <!-- <h3>Resources</h3>
+      <h3>Resources</h3>
 
       <ul>
-        <li>Book: <a href="http://eloquentjavascript.net/">Eloquent JavaScript</a></li>
-        <li><a href="https://docs.google.com/forms/d/1KPE8gZZFPt0Hhe9kwHwJ-oj5UGcB37JfQTyMTuaNCE8/viewform" target="_blank">Week 4 Exit tickets</a></li>
-      </ul> -->
+        <li><a href="http://learnrubythehardway.org/book/intro.html" target="_blank">Programming Is Hard</a></li>
+        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfo61mGirnFjzXOaxdJy4TnJGIjSK5rFAYdH3isAScTCkAmfA/viewform" target="_blank">Exit Ticket</a></li>
+      </ul>
 
       <h2 id="taking-inventory">Taking Inventory</h2>
 
@@ -357,6 +357,22 @@
           </td>
         </tr>
         <tr>
+          <td><code>element.getAttribute(name)</code></td>
+          <td>
+            <p>
+              Retrieve the value of an attribute by <code>name</code>.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>var destination = anchor.getAttribute("href")</code>
+            </p>
+          </td>
+          <td>
+            <code>String</code>
+          </td>
+        </tr>
+        <tr>
           <td><code>element.removeAttribute(name)</code></td>
           <td>
             <p>
@@ -419,6 +435,160 @@
           </td>
         </tr>
       </table>
+
+      <h3>Event</h3>
+
+      <p>
+        We've even seen the Event object here and there, mostly as a way to prevent the default behavior of built-in events like form submissions and link clicks.
+      </p>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Usage</th>
+            <th>Description</th>
+            <th>Output</th>
+          </tr>
+        </thead>
+        <tr>
+          <td><code>event.target</code></td>
+          <td>
+            <p>
+              A reference to the element that triggered an event. Especially useful when multiple events share one event handler.
+            </p>
+          </td>
+          <td>
+            Element
+          </td>
+        </tr>
+        <tr>
+          <td><code>event.timeStamp</code></td>
+          <td>
+            <p>
+              Returns the time (in milliseconds) at which the event occurred.
+            </p>
+          </td>
+          <td>
+            Integer
+          </td>
+        </tr>
+        <tr>
+          <td><code>event.preventDefault()</code></td>
+          <td>
+            <p>
+              Tells the browser <em>not</em> to skip the default behavior for an event. For example, if you call this method within an event handler for the click of a link, the browser would not follow that link.
+            </p>
+          </td>
+          <td>
+            Integer
+          </td>
+        </tr>
+      </table>
+
+      <p>
+        Before moving on, you should make sure you understand how all these properties and methods behave.
+      </p>
+
+      <h2 id="arrays">Arrays</h2>
+
+      <p>
+        Now, it's time to add another object to our repertoire.
+      </p>
+
+      <p>
+        So far we've only dealt with one object at a time. We may have accessed multiple elements from the DOM, but we've done so one at a time—one variable for each element. But that only gets us so far. In order to really cook with gas we need to be able to deal with collections of things. And JS, like many other programming languages, has an Array object to do just that.
+      </p>
+
+      <p>
+        An Array is simply a list of other objects. It grows and shrinks as you add or remove objects. It always knows how many objects it contains and keeps track of them with a numerical index starting at zero. So the first object in an array is the "zeroth" one, the second is the "first," and so on.
+      </p>
+
+      <p>
+        Arrays are so common in JS that you can declare them with an <em class="vocab">object literal</em>, just like you can a string. Except, unlike using quotes for a string, we'll use <code>[]</code> to declare a new empty Array. Then we'll use the <code>push()</code> and <code>pop()</code> methods to add and remove objects to and from the collection. You can inquire about the object at any position with the bracket syntax too.
+      </p>
+
+      <script src="https://gist.github.com/avand/7661163c2ae2273b77e35e04877dceb2.js"></script>
+
+      <h3>Loops</h3>
+
+      <p>
+        More often than not, you won't be dealing with an array that you create. In other words, you probably won't be declaring arrays, pushing, and popping yourself. Instead, you'll be reading an array of movie results, for example, and want to perform the same action for every movie in the collection. So the most important thing you need to know is how to loop through an array.
+      </p>
+
+      <p>
+        Consider the following program:
+      </p>
+
+      <script src="https://gist.github.com/avand/f7c2a80a29063244984f134b74062cb8.js"></script>
+
+      <p>
+        The key to this script is understanding <code>array.forEach()</code>. This function takes a function as its one and only argument, similar to how <code>element.addEventListener()</code> works. <code>forEach()</code> is the array's function and since the array knows about each and every item in its collection, it simply calls your function once for in every object in the array. We call this function a <em class="vocab">callback function</em> because you aren't calling it directly. Instead, the array calls your function back passing along each object in the array (and the index of that object in the array) one by one.
+      </p>
+
+      <div class="you-do">
+        <p>
+          Using <a href="https://gist.github.com/avand/e830a86659d1861625144e10ceba7bcc" target="_blank">this code</a> as a starting point, add every item in the array to the list with JS. Then change the number in the paragraph to reflect the length of the array.
+        </p>
+      </div>
+
+      <h2 id="debugging">Debugging</h2>
+
+      <p>
+        Now that you know enough to be dangerous, let's explore a few techniques to get yourself out of a jam, when you're stuck.
+      </p>
+
+      <h3>Errors</h3>
+
+
+      <p>
+        The first thing you should do when running your code in a browser is open up your developer tools. In Chrome, type <kbd><kbd>cmd</kbd> + <kbd>opt</kbd> + <kbd>J</kbd></kbd> to open up your JS console.
+      </p>
+
+      <h4>Syntax Errors</h4>
+
+      <a href="images/syntax-error.png" target="_blank">
+        <img src="images/syntax-error.png" alt="syntax error" class="supporting-image" />
+      </a>
+
+      <p>
+        If you see a red circle with an "x" through it, followed by a number, without even trying your program, you know there's something wrong.
+      </p>
+
+      <p>
+        The error should give you a line number. In the example to the right it says "piano.html:8". That means the error is on line 8 of that file.
+      </p>
+
+      <p>
+        Syntax errors are usually pretty easy to spot. Practice good indentation to spot them more easily and avoid mistakes.
+      </p>
+
+      <h4>Type Errors</h4>
+
+      <p>
+        Here's an error: "Cannot read property 'addEventListener' of null." What does it mean?
+      </p>
+
+      <h3>Console</h3>
+
+      <p>
+        You may not be dealing with an error but instead trying to figure out why your program isn't working. It can be hard to solve these problems because you're not seeing any errors.
+      </p>
+
+      <p>
+        Start with an <em class="vocab">assertion</em>. An good assertion is something like, "when I click this button, I expect to see a new div appear on the page." A bad assertion is something like, "it should work." Sometimes an assertion can even be, "when I click this button, I should see an error."
+      </p>
+
+      <p>
+        The console helps you test your assertions.
+      </p>
+
+      <p>
+        Looking at an example: like button with count++.
+      </p>
+
+      <h3>Debugger</h3>
+
+
     </main>
   </body>
 </html>
