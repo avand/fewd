@@ -773,6 +773,14 @@
       <p>
         In JS, <code>"foo"</code> and <code>foo</code> are two different things. The first is a string and the second is a variable. Strings are used whenever you want to refer to something by name or value. You'd use a string to put text on the page (<code>el.textContent = "hello";</code>), reference a class name (<code>document.querySelector(".products")</code>), or specify a type of event (<code>"click"</code>). When you use a string you know its value. But when you reference something without quotes, it's value is dynamic. That's why we call it a variable, because it's value changes based on what a user typed in or what results came back from a database. If you don't put quotes around something, JS will assume that you've defined that thing elsewhere either with <code>var</code> or <code>function</code>. So a good rule of thumb is if it isn't in quotes there better be a <code>var</code> or <code>function</code> that defines it somewhere.
       </p>
+
+      <h3>
+        How do I know when to use <code>()</code>?
+      </h3>
+
+      <p>
+        Parenthesis are used throughout JS and it can be confusing to know when to use them. It's very common for beginners to write something like <code>el.textContent("new text")</code>. But that isn't correct because <code>textContent</code> is a property. You don't <em>call</em> properties—you get or set properties, both of which involve a <code>=</code>. You use <code>()</code> when you're declaring and calling <em>functions</em>. A good rule of thumb is <em>verbs</em> are functions and <em>nouns</em> are a properties or variables.
+      </p>
     </main>
   </body>
 </html>
