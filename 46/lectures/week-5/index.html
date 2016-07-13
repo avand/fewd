@@ -476,7 +476,7 @@
           <td><code>event.preventDefault()</code></td>
           <td>
             <p>
-              Tells the browser <em>not</em> to skip the default behavior for an event. For example, if you call this method within an event handler for the click of a link, the browser would not follow that link.
+              Tells the browser to <em>skip</em> the default behavior for an event. For example, if you call this method within an event handler for the click of a link, the browser would not follow that link.
             </p>
           </td>
           <td>
@@ -496,23 +496,31 @@
       </p>
 
       <p>
-        So far we've only dealt with one object at a time. We may have accessed multiple elements from the DOM, but we've done so one at a time—one variable for each element. But that only gets us so far. In order to really cook with gas we need to be able to deal with collections of things. And JS, like many other programming languages, has an Array object to do just that.
+        So far we've only dealt with one object at a time. We have accessed multiple elements from the DOM but only one at a time—one variable for each element. That only gets us so far. In order to really cook with gas we need to be able to deal with collections of things. And JS, like many other programming languages, has an Array object to do just that.
       </p>
 
       <p>
-        An Array is simply a list of other objects. It grows and shrinks as you add or remove objects. It always knows how many objects it contains and keeps track of them with a numerical index starting at zero. So the first object in an array is the "zeroth" one, the second is the "first," and so on.
+        An Array (I titleize it because I'm referring to the class) simply represents a collection of other objects. It grows and shrinks as you add or remove objects. It always knows how many objects it contains and keeps track of them with a numerical index starting at zero. So the first object in an array is the "zeroth" one, the second is the "first," and so on.
       </p>
 
       <p>
-        Arrays are so common in JS that you can declare them with an <em class="vocab">object literal</em>, just like you can a string. Except, unlike using quotes for a string, we'll use <code>[]</code> to declare a new empty Array. Then we'll use the <code>push()</code> and <code>pop()</code> methods to add and remove objects to and from the collection. You can inquire about the object at any position with the bracket syntax too.
+        Arrays are so common in JS that you can declare them with an <em class="vocab">object literal</em>, just like you can a string. Except, unlike using <code>""</code> for a string, we'll use <code>[]</code> to make an array. Then we'll use the <code>push()</code> and <code>pop()</code> methods to add and remove objects to and from the collection. You can inquire about the object at any position with the bracket syntax too.
       </p>
 
       <script src="https://gist.github.com/avand/7661163c2ae2273b77e35e04877dceb2.js"></script>
 
+      <p>
+        This is the first time you're seeing <em class="vocab">bracket notation</em>. When you write <code>array[1]</code> you're actually asking the array for it's <code>1</code> property. Think about that for a second. You ask the array's <code>length</code> by writing <code>array.length</code>. Well, theoretically you could ask for the <code>1</code> property in the same way: <code>array.1</code>. But that would violate the JS variable naming rules—you can't start a property, function, argument, or variable with a number. But you could access the length of the array with bracket notation: <code>array["length"]</code>. We don't do that frequently, but it's a nice connection to make. The elements of an array are simply properties of the array object!
+      </p>
+
+      <p>
+        Another interesting connection is that strings are actually implemented as arrays too. What do you get when you punch <code>"apple"[1]</code> into your console? You should get <code>"p"</code>. A string is just an array of characters!
+      </p>
+
       <h3>Loops</h3>
 
       <p>
-        More often than not, you won't be dealing with an array that you create. In other words, you probably won't be declaring arrays, pushing, and popping yourself. Instead, you'll be reading an array of movie results, for example, and want to perform the same action for every movie in the collection. So the most important thing you need to know is how to loop through an array.
+        Arguably the most important thing to be able to do with an array is to loop through the items in it. Why? Well, imagine you have a movie search engine. Someone types in "doubtfire" and your program goes to a database and returns an array of search results. You want to list them all on screen for the user to pick. The code to do that has to (a) create an element, (b) set the text content, and (c) add that element to the page. That's at least three steps (although you should be able to anticipate that it's going to be more than just three lines of code). It would really stink to have to repeat all those steps for every result, right?!
       </p>
 
       <p>
@@ -522,7 +530,17 @@
       <script src="https://gist.github.com/avand/f7c2a80a29063244984f134b74062cb8.js"></script>
 
       <p>
-        The key to this script is understanding <code>array.forEach()</code>. This function takes a function as its one and only argument, similar to how <code>element.addEventListener()</code> works. <code>forEach()</code> is the array's function and since the array knows about each and every item in its collection, it simply calls your function once for in every object in the array. We call this function a <em class="vocab">callback function</em> because you aren't calling it directly. Instead, the array calls your function back passing along each object in the array (and the index of that object in the array) one by one.
+        The key to this script is understanding <code>array.forEach()</code>. This function takes a function as its one and only argument, similar to how <code>element.addEventListener()</code> works. <code>forEach()</code> is the array's function and since the array knows about each and every item in its collection, it simply calls the function you specify once for in every object in the array. We call this function a <em class="vocab">callback function</em> because you aren't calling it directly. And when your function, in this case <code>createTodoItem()</code> is called, how does it know <em>which</em> todo to create? Well, when the time comes <code>forEach()</code> calls your function and passes in the "current" object. It also passes in the index of that object as a second (optional) parameter.
+      </p>
+
+      <p>
+        Here's another way to think about it. If you want to loop through an array and do something to every object in the collection, just write a function that performs does what you want to <em>one</em> of those objects. If you have an array of cars, maybe you want a <code>startCar()</code> function. Or if you have an array of movies maybe you want a <code>listMovie()</code> function. And this function, that acts on one object, must take that singular object in as a named argument.
+      </p>
+
+      <script src="https://gist.github.com/avand/47a0b21a018ed80f3b7454e571931028.js"></script>
+
+      <p>
+        Notice: the arguments to the callback function <code>startCar()</code> and <code>listMovie()</code> are the singular form of the array name. Arrays typically are plural nouns (cars, users, movies, etc.). The function that <code>forEach()</code> calls takes the singular form as an argument. This isn't a rule, just a good convention to follow that will make your code easier to understand.
       </p>
 
       <div class="you-do">
