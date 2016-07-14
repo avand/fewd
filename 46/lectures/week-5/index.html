@@ -551,62 +551,187 @@
 
       <h2 id="debugging">Debugging</h2>
 
+      <img src="images/confusion.gif" class="supporting-image">
+
       <p>
-        Now that you know enough to be dangerous, let's explore a few techniques to get yourself out of a jam, when you're stuck.
+        "It's not working" is a necessary and frustrating part of being a developer. It's really important to be able to understand <em>why</em> something isn't working. Otherwise you're just banging your head against the wall.
       </p>
 
-      <h3>Errors</h3>
+      <p>
+        Let's explore a few techniques for getting good at figuring out why our code won't do what we expect.
+      </p>
 
+      <h3>Syntax Errors</h3>
+
+      <p>
+        Of all the errors you can get, syntax errors are the best. Because your browser will tell you about them right away and they're usually easy to fix.
+      </p>
 
       <p>
         The first thing you should do when running your code in a browser is open up your developer tools. In Chrome, type <kbd><kbd>cmd</kbd> + <kbd>opt</kbd> + <kbd>J</kbd></kbd> to open up your JS console.
       </p>
 
-      <h4>Syntax Errors</h4>
-
-      <a href="images/syntax-error.png" target="_blank">
-        <img src="images/syntax-error.png" alt="syntax error" class="supporting-image" />
-      </a>
-
       <p>
-        If you see a red circle with an "x" through it, followed by a number, without even trying your program, you know there's something wrong.
+        <img src="images/syntax-error.png" alt="syntax error" class="img-responsive" />
       </p>
 
       <p>
-        The error should give you a line number. In the example to the right it says "piano.html:8". That means the error is on line 8 of that file.
+        If you see a red circle with an "x" through it, your program probably won't run. Chrome does report other errors here too (like missing images). Click on the red circle and you'll see what errors have been logged.
+      </p>
+
+      <p>
+        The error message in this case, isn't super helpful. It tells me that the browser encountered an error when it got to a particular <code>:</code> in my code. But it doesn't tell me how to fix it. What's perhaps more useful is that it tells me where it encountered the error: "piano.html:8". The number after the colon is the line number where the error occurred. 90% of the time, the syntax error you've made is on that line or very close to it.
       </p>
 
       <p>
         Syntax errors are usually pretty easy to spot. Practice good indentation to spot them more easily and avoid mistakes.
       </p>
 
-      <h4>Type Errors</h4>
+      <script src="https://gist.github.com/avand/713852d7fc638cc2d57a7d1dac93655a.js"></script>
 
       <p>
-        Here's an error: "Cannot read property 'addEventListener' of null." What does it mean?
+        If you were missing a closing <code>}</code> in the first case, it would be hard to spot.
       </p>
 
-      <h3>Console</h3>
+      <h3>Type Errors</h3>
 
       <p>
-        You may not be dealing with an error but instead trying to figure out why your program isn't working. It can be hard to solve these problems because you're not seeing any errors.
-      </p>
-
-      <p>
-        Start with an <em class="vocab">assertion</em>. An good assertion is something like, "when I click this button, I expect to see a new div appear on the page." A bad assertion is something like, "it should work." Sometimes an assertion can even be, "when I click this button, I should see an error."
+        Beyond <code>SyntaxError</code>s there are a lots other kinds of errors in JS but <code>TypeError</code>s happen enough that they are worth exploring.
       </p>
 
       <p>
-        The console helps you test your assertions.
+        Consider the following program:
+      </p>
+
+      <script src="https://gist.github.com/avand/9a0f9446060921838110df4b9e5aef27.js"></script>
+
+      <p>
+        If you're paying close attention, you should realize that this program won't run. But if everything looks OK to you, you're going to be frustrated to realize that when you click the button nothing happens! You could spend a long time looking at the code, Googling for answers, asking your friends, and perhaps even questioning your own sanity.
       </p>
 
       <p>
-        Looking at an example: like button with count++.
+        There's a better way! Open your developer tools and you'll see what's happening instantly:
       </p>
 
-      <h3>Debugger</h3>
+      <p>
+        <img src="images/type-error.png" class="img-responsive">
+      </p>
 
+      <p>
+        Now, you have a clue: "Cannot read property 'addEventListener' of null." Let's decipher this message. First, the error happens on line 6. So we can focus our attention there. Now, remember, that "." in code translates to possession in English. For example, <code>user.name</code> translates to "the user's name" or "the name <em>of</em> the user." That's your next clue. Because the browser is attempting to call <code>button.addEventListener()</code>, which means "call addEventListener of button." Look familiar? The error mentions "addEventListener of null." That must mean that <code>button</code> is null. How could that be? What does <code>document.querySelector()</code> return when it doesn't find a matching element? <code>null</code>! If you had made a mistake typing <code>document.querySelector()</code> you would have gotten an error on line 4 so the issue has to be with your selector.
+      </p>
 
+      <h3>The Console</h3>
+
+      <p>
+        After a little practice you'll realize that you'll see fewer and fewer type errors and syntax errors. But that doesn't mean you'll be writing working programs. You'll still have to deal with programs not doing what you expect. This can be <em>very</em> frustrating. At least when you see an error you have a clue what to fix.
+      </p>
+
+      <p>
+        The key to solving these problems is to start with an <em class="vocab">assertion</em>. An good assertion is something like, "when I click this button, I expect to see a new div appear on the page." A bad assertion is something like, "it should work." Often an assertion can even be, "when I click this button, I should see an error." Knowing how to use to the console can help you make assertions.
+      </p>
+
+      <p>
+        Here's a bit of code that attempts to solve the "Like" portion of the <a href="../../assignments/3-likes-and-comments.html">Likes &amp; Comments</a> assignment:
+      </p>
+
+      <script src="https://gist.github.com/avand/7032ee9fddd232e43a045553759e62a4.js"></script>
+
+      <p>
+        Sadly, this code does not increment the like count. But it's so close! In order to figure out why this program doesn't work, we need some to make some assertions. Let's think through a few.
+      </p>
+
+      <h4>Do the variables point to the right elements?</h4>
+
+      <p>
+        Well, if they pointed to non-existent elements <code>document.querySelector()</code> would have returned <code>null</code>. Then, on line 4 or 5, you'd get a <code>TypeError</code>, just like in the example in the previous section.
+      </p>
+
+      <p>
+        Maybe we're querying the <em>wrong</em> element? A simple way to check that is to hop over to your console, type the variable's name, and hit enter. You should see an element printed to the console and, when you hover over it, you should also see the element in the document.
+      </p>
+
+      <p>
+        <img src="images/like-link.png" class="img-responsive" />
+      </p>
+
+      <p>
+        If all looks good, let's make another assertion.
+      </p>
+
+      <h4>Is the event listener working?</h4>
+
+      <p>
+        Assuming our first assertion passed, meaning the variables are what we expect them to be, there could be an issue with our event handler. Does the function we specified get called when the link is clicked?
+      </p>
+
+      <p>
+        To find this out, let's add a <code>console.log()</code> statement to our code:
+      </p>
+
+      <script src="https://gist.github.com/avand/0efd33db6766063ece8b4df48776aebe.js"></script>
+
+      <p>
+        Like <code>document</code>, <code>console</code> is a special built-in object that you can use to write messages to, you guessed it, the console! <code>log()</code> is perhaps the most common method although you can also call <code>error()</code> or <code>warn()</code> depending on the severity of the message you want to output.
+      </p>
+
+      <p>
+        You can pass pretty much anything to <code>console.log()</code>. In this case, we just pass a string <code>"hello?"</code>. So when I run this program and click the button, I better see that message in the console.
+      </p>
+
+      <p>
+        <img src="images/console-log.png" class="img-responsive">
+      </p>
+
+      <p>
+        So our event listener is working. Looks like we need another assertion.
+      </p>
+
+      <h4>
+        Do the variables have the correct values?
+      </h4>
+
+      <p>
+        In this example, <code>count</code>, declared within the <code>like()</code> event handler function should start with a value of <code>0</code>. Not <code>"0"</code>, because we're using <code>parseInt()</code>. But let's make sure that's what's happening.
+      </p>
+
+      <script src="https://gist.github.com/avand/67a7cb8417fea2959abc3984b2139405.js"></script>
+
+      <p>
+        Notice that <code>console.log()</code> can take any number of parameters. So you can log the name of the variable, <code>"count"</code> and the value at once.
+      </p>
+
+      <p>
+        <img src="images/console-log-multiple-params.png" class="img-responsive">
+      </p>
+
+      <p>
+        So far, everything checks out. To solve this problem, we'll explore one more tool to help us figure out what's wrong with this program.
+      </p>
+
+      <h3>The Debugger</h3>
+
+      <p>
+        When you're dealing with anything but the most trivial of programs, it becomes necessary to see what's happening at a particular moment. The debugger allows us to "freeze" the program on any line we wish. Whenever the program passes that line, it will pause and let you explore the state of that program at that time.
+      </p>
+
+      <p>
+        Continuing with the previous example, let's see what's going on inside our event handler, when someone clicks on the "Like" link. Simply add <code>debugger</code> wherever you wish to pause the program.
+      </p>
+
+      <script src="https://gist.github.com/avand/a851748053dc7304167e656b51ea758d.js"></script>
+
+      <p>
+        Now, when you load the page, nothing special happens. Because we haven't executed that line of code yet. That line is within an event handler function, so we have to call it by triggering the event. Click on the "Like" link and the program will pause when it hits that <code>debugger</code> statement.
+      </p>
+
+      <p>
+        <img src="images/debugger.gif" class="img-responsive">
+      </p>
+
+      <p>
+        Now, we can switch to the Console tab and see what the deal is with our <code>count</code> variable. Let's make one final assertion: <code>count++</code> should give <code>1</code> (0 + 1). But that isn't what we get. <code>count++</code> is incrementing the variable but before it does that it returns the <em>old</em> value. That's just a quirk of the <code>++</code> operator. So, instead of doing that, let's just change the code to be <code>count + 1</code>. Voilà!
+      </p>
     </main>
   </body>
 </html>
