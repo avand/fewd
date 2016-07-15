@@ -32,6 +32,7 @@
         <li><a href="#js-quiz">JS Quiz</a></li>
         <li><a href="#objects">Objects</a></li>
         <li><a href="#json">JSON</a></li>
+        <li><a href="#ajax-jquery">AJAX</a></li>
       </ol>
 
       <h3>Resources</h3>
@@ -895,6 +896,42 @@
       <p>
         You'll do this way less frequently, but it's worth knowing that it's available to you.
       </p>
+
+      <p>
+        In fact, having to call down <code>JSON.parse()</code> hopefully doesn't happen too frequently. Ideally you can use 3rd party libraries that will automatically parse the data you're downloading.
+      </p>
+
+      <h2 id="ajax-jquery">AJAX &amp; jQuery</h2>
+
+      <p>
+        OK, it's time to bring it all together. How can we use JS to go to GitHub, download that JSON, and use it in our application?
+      </p>
+
+      <p>
+        We need to figure out how to perform an HTTP request with JS. This is often called <em class="vocab">AJAX</em>: Asynchronous JavaScript and XML. This acronym is actually a bit dated. These days we really are sending JSON back and form (not XML, another way to store data). I guess AJAJ doesn't have quite the same ring to it.
+      </p>
+
+      <p>
+        Performing an HTTP request relies on an object called an <code>XMLHttpRequest</code>. It requires a few steps so we're not going to use it directly but here's what using it might look like:
+      </p>
+
+      <script src="https://gist.github.com/avand/b564b89211709c6a26bee137d56b9aff.js"></script>
+
+      <p>
+        Yuck! OK, it's not actually <em>that</em> bad. But let's use a library that makes it a little easier.
+      </p>
+
+      <p>
+        We're going to load <em class="vocab">jQuery</em>, a library written with JavaScript to make common tasks more easy. One task we do a lot on the web is downloading data. So we'll use a special function, <code>$.get()</code>. This will save us from doing all the low-level stuff by hand.
+      </p>
+
+      <script src="https://gist.github.com/avand/36dade021c86003dc4d46c2040a00685.js"></script>
+
+      <div class="you-do">
+        <p>
+          Build a simple program that displays your name from GitHub, bio, and picture. Use <a href="https://gist.github.com/avand/0fc54327c3af2e78046f9ae1652608ba" target="_blank">this code</a> as the starting point.
+        </p>
+      </div>
     </main>
   </body>
 </html>
