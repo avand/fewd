@@ -28,6 +28,7 @@
         <li><a href="#inventory">Taking Inventory</a></li>
         <li><a href="#arrays">Arrays</a>
         <li><a href="#debugging">Debugging</a></li>
+        <li><a href="#todo-list-csv">Todo List w/ Comma Separated Values</a></li>
         <li><a href="#js-quiz">JS Quiz</a></li>
       </ol>
 
@@ -733,6 +734,28 @@
       <p>
         Now, we can switch to the Console tab and see what the deal is with our <code>count</code> variable. Let's make one final assertion: <code>count++</code> should give <code>1</code> (0 + 1). But that isn't what we get. <code>count++</code> is incrementing the variable but before it does that it returns the <em>old</em> value. That's just a quirk of the <code>++</code> operator. So, instead of doing that, let's just change the code to be <code>count + 1</code>. Voilà!
       </p>
+
+      <h2 id="todo-list-csv">Todo List w/ Comma Separated Values</h2>
+
+      <p>
+        By now, you should have a working version of the <a href="../../assignments/4-todo-list.html">Todo List</a>. Let's add a hidden feature to this program to make it easier to add multiple items at once.
+      </p>
+
+      <p>
+        When someone enters "milk, cookies" let's have the program automatically add two todo items to the list. This feature isn't without some downside. If someone tries to type "Finish homework due Jan 1st, 2016" then you'll mistakenly add "2016" as a separate item. Let's accept that as a downside for the sake of practice.
+      </p>
+
+      <p>
+        To do this you need to know about two complementary functions, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join" target="_blank"><code>Array#join()</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split"><code>String#split()</code></a>. (This notation simply means, for example, that we're talking about the <code>split()</code> function that is available on all strings.)
+      </p>
+
+      <script src="https://gist.github.com/avand/fc52613a0acac126e93e37585576a207.js"></script>
+
+      <div class="you-do">
+        <p>
+          Modify your todo list to allow for comma separated values. When you type "milk, cookies" and hit enter, you should end up with two items on the list, "milk" and "cookies".
+        </p>
+      </div>
 
       <h2 id="js-quiz">JS Quiz</h2>
 
