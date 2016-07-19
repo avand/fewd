@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Week 6 Lecture Notes, FEWD 46</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/lectures.css" media="screen" charset="utf-8">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="../../js/lectures.js"></script>
+  </head>
+  <body>
+    <nav><script>$("nav").load("../../partials/navigation.html");</script></nav>
+
+    <main class="container">
+      <h1>Week 6</h1>
+
+      <h3>Table of Contents</h3>
+
+      <ol>
+        <li><a href="#objects">Objects</a></li>
+        <li><a href="#json">JSON</a></li>
+        <li><a href="#ajax-jquery">AJAX</a></li>
+      </ol>
+
+      <h3>Resources</h3>
+
+      <ul>
+        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeaCfKr4uQ4XiX3BMVzK-YtFexS2cagnf58ivGAWhU9NXPLlg/viewform" target="_blank">Exit Ticket</a></li>
+      </ul>
+
+      <h2 id="objects">Objects</h2>
+
+      <p>
+        If you remember back to when we first started learning JS, we talked about objects. Everything is an object. An object, to reiterate, allows us to describe things in code. It could be something simple like a Number, something domain-specific like a Movie, or an abstract thing like an Element.
+      </p>
+
+      <p>
+        An object is a collection of properties (nouns) and methods (verbs). A method, remember, is just a fancy word for an object's functions. A Car object, for example, could have properties like <code>color</code>, <code>make</code>, and <code>model</code>. But it could also have methods like <code>start()</code>, <code>stop()</code>, <code>lock()</code>, and <code>unlock()</code>.
+      </p>
+
+      <p>
+        We access the properties and methods of any object with a <code>.</code>. So, continuing with the car analogy, we would type <code>car.color</code> to access its color and <code>car.start()</code> to call the start method of the car.
+      </p>
+
+      <p>
+        So far, you've been utilizing pre-defined objects. Document, String, Element, Event, and Array are built into your browser. You don't have to define their properties and methods—you just follow the documentation. They're pre-baked, built-in objects that are ready for you to use.
+      </p>
+
+      <p>
+        You can also define your own objects. There's an easy way and an advanced way. We're going to learn the easy way, with generic objects. The advanced way involves declaring a class, which will allow you to <em class="vocab">construct</em> instances of an object, for example <code>new User()</code>.
+      </p>
+
+      <p>
+        Let's create a generic object, with a few properties and methods. Remember, we're not defining a new <em>type</em> of object. We're simply creating a container of nouns and verbs.
+      </p>
+
+      <script src="https://gist.github.com/avand/3d7391c3055477a5ac0deeabb334bd40.js"></script>
+
+      <p>
+        This is the 4th type of <em class="vocab">literal</em> we've seen, where JS is able to create an object without refering to the object type. For example, when we write <code>"hello"</code>, we're telling JS that we want a String, whose value is "hello" but we never need to say "String". Similarly if you just type <code>3.14</code> you'll get a Float even though you never had to type "Float". Here, we're instantiating a new Object just by using <code>{}</code>. If this is confusing, don't sweat it, it's just the theory behind the example.
+      </p>
+
+      <p>
+        All you need to know is that in that example, we're creating a plain vanilla object with a couple properties (<code>firstName</code> and <code>lastName</code>) and one method (<code>fullName()</code>). Notice that property names and the corresponding values are separated with a <code>:</code> and that property name/value pairs are separated with a <code>,</code>. The way the function is defined is also a little different. The name of the function is now on the left.
+      </p>
+
+      <p>
+        The last thing to note is the use of <code>this</code>. <code>this</code> is a special keyword in JS and is a magically variable, whose value changes based on the context in which you reference it. Inside the <code>getFullName()</code> function, <code>this</code> refers to the user object. You could replace <code>this</code> with <code>user</code> and it would be the same. But using <code>this</code> allows us to reduce the repetition.
+      </p>
+
+      <p>
+        <strong>How is this useful?</strong>
+      </p>
+
+      <p>
+        In the last set of the quiz, we had three arrays. One for <code>assignmentNames</code>, one for <code>assignmentDescriptions</code>, and a third one for <code>assignmentDueDates</code>. We're storing data about an "assignment" between three arrays. We hope that if you reference the 2nd assignment of each array that you're talking about the same assignment. But that could easily cease to be true. If the arrays are reordered or get screwed up somehow then <code>assignmentsNames[1]</code> may not map to the description in <code>assignmentsDescriptions[1]</code>.
+      </p>
+
+      <p>
+        Objects to the rescue! Rather than have the data about one thing be scattered across three variables, let's keep it together. Let's create a few "assignment" objects and then put those objects in an array.
+      </p>
+
+      <script src="https://gist.github.com/avand/08f006f1b2144fcecf1e53dc8161a76c.js"></script>
+
+      <p>
+        Now, the data about each assignment is together. It's much less likely for there to be a mix up and if you loop through <code>assignments</code> now, you'll have everything about the assignment right there.
+      </p>
+
+      <script src="https://gist.github.com/avand/51e913fcfc09ab0487b1a4b83753124e.js"></script>
+
+      <h2 id="json">JSON</h2>
+
+      <p>
+        You just learned about objects, which allow you to organize shared properties and methods. Basically, it's a storage mechanism. If you know a bunch of details about a person, you can drop them inside <code>{}</code>, correlate the keys and values with a <code>:</code>, and separate each set of key/value pairs with a <code>,</code>.
+      </p>
+
+      <p>
+        As it turns out, this is incredibly useful. It allows us basically describe <em>anything</em> and also send it back and forth.
+      </p>
+
+      <p>
+        GitHub, for example, exposes a special URL that returns all the details about a particular user.
+      </p>
+
+      <script src="https://gist.github.com/avand/c6e7fba0230a902f82a19bef40899609.js"></script>
+
+      <p>
+        There's a lot of data there but basically it's everything GitHub knows about "avand," a user in their system.
+      </p>
+
+      <p>
+        If you were to assign that object to a variable like <code>user</code>, you could access the user's bio by writing <code>user.bio</code>. If you wanted to know when that user was created, you would write <code>user.created_at</code>. Yes, this violates our camelcasing convention. That's OK. It's still a valid variable name. If it really bothers you, you should take it up with GitHub because that was a choice they made when they exposed this API.
+      </p>
+
+      <p>
+        We're missing one thing important thing though. The response you get when you visit <code>https://api.github.com/users/avand</code> is not actually an object! It's just plain text. It's kind of like this:
+      </p>
+
+      <script src="https://gist.github.com/avand/326fc2fce700654988c72d4231df45d4.js"></script>
+
+      <p>
+        Your brain looks at that string and says, "hey, that looks like an object" but technically, it's just a string. So it has a <code>length</code> just like other strings. But it doesn't have a <code>login</code> or an <code>id</code>. Bummer.
+      </p>
+
+      <p>
+        This string is called <em class="vocab">JSON</em>: JavaScript Object Notation. It's a string representation of an object. It's <em>awesome</em> because it allows us to send JS objects back and forth.
+      </p>
+
+      <h3>Parsing JSON</h3>
+
+      <p>
+        So, if you have your hands on a JSON string, you're probably wondering, "how do I turn that into an object I can use?" We simply do this:
+      </p>
+
+      <script src="https://gist.github.com/avand/99c610bd7b01ebe76b37c447c0d467c3.js"></script>
+
+      <p>
+        There's a special function <code>JSON.parse()</code> that we can use to convert a string into an object.
+      </p>
+
+      <p>
+        Easy.
+      </p>
+
+      <h3>Writing JSON</h3>
+
+      <p>
+        You might also want to go the other way. Let's say you have some data organized in an object that you want to send to someone. You can convert that object into a JSON string like this:
+      </p>
+
+      <script src="https://gist.github.com/avand/99c610bd7b01ebe76b37c447c0d467c3.js"></script>
+
+      <p>
+        You'll do this way less frequently, but it's worth knowing that it's available to you.
+      </p>
+
+      <p>
+        In fact, having to call down <code>JSON.parse()</code> hopefully doesn't happen too frequently. Ideally you can use 3rd party libraries that will automatically parse the data you're downloading.
+      </p>
+
+      <h2 id="ajax-jquery">AJAX &amp; jQuery</h2>
+
+      <p>
+        OK, it's time to bring it all together. How can we use JS to go to GitHub, download that JSON, and use it in our application?
+      </p>
+
+      <p>
+        We need to figure out how to perform an HTTP request with JS. This is often called <em class="vocab">AJAX</em>: Asynchronous JavaScript and XML. This acronym is actually a bit dated. These days we really are sending JSON back and form (not XML, another way to store data). I guess AJAJ doesn't have quite the same ring to it.
+      </p>
+
+      <p>
+        Performing an HTTP request relies on an object called an <code>XMLHttpRequest</code>. It requires a few steps so we're not going to use it directly but here's what using it might look like:
+      </p>
+
+      <script src="https://gist.github.com/avand/b564b89211709c6a26bee137d56b9aff.js"></script>
+
+      <p>
+        Yuck! OK, it's not actually <em>that</em> bad. But let's use a library that makes it a little easier.
+      </p>
+
+      <p>
+        We're going to load <em class="vocab">jQuery</em>, a library written with JavaScript to make common tasks more easy. One task we do a lot on the web is downloading data. So we'll use a special function, <code>$.get()</code>. This will save us from doing all the low-level stuff by hand.
+      </p>
+
+      <script src="https://gist.github.com/avand/36dade021c86003dc4d46c2040a00685.js"></script>
+
+      <div class="you-do">
+        <p>
+          Build a simple program that displays your name from GitHub, bio, and picture. Use <a href="https://gist.github.com/avand/0fc54327c3af2e78046f9ae1652608ba" target="_blank">this code</a> as the starting point.
+        </p>
+
+        <p>
+          <img src="images/github.gif" class="img-responsive">
+        </p>
+      </div>
+    </main>
+  </body>
+</html>
