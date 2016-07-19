@@ -20,7 +20,7 @@ function createItem(todo) {
 function formSubmitted(event) {
   event.preventDefault();
 
-  createItem(input.value);
+  input.value.split(",").forEach(createItem);
 
   form.reset();
 }
