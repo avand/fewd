@@ -27,7 +27,7 @@
       <ol>
         <li><a href="#objects">Objects</a></li>
         <li><a href="#json">JSON</a></li>
-        <li><a href="#ajax-jquery">AJAX</a></li>
+        <li><a href="#ajax">AJAX</a></li>
       </ol>
 
       <h3>Resources</h3>
@@ -166,7 +166,7 @@
         In fact, having to call down <code>JSON.parse()</code> hopefully doesn't happen too frequently. Ideally you can use 3rd party libraries that will automatically parse the data you're downloading.
       </p>
 
-      <h2 id="ajax-jquery">AJAX &amp; jQuery</h2>
+      <h2 id="ajax">AJAX</h2>
 
       <p>
         OK, it's time to bring it all together. How can we use JS to go to GitHub, download that JSON, and use it in our application?
@@ -183,24 +183,203 @@
       <script src="https://gist.github.com/avand/b564b89211709c6a26bee137d56b9aff.js"></script>
 
       <p>
-        Yuck! OK, it's not actually <em>that</em> bad. But let's use a library that makes it a little easier.
+        Yuck! OK, it's not actually <em>that</em> bad. To make it a little easier, let's create a function that does the heavy lifting for us.
+      </p>
+
+      <script src="https://gist.github.com/avand/063448ca7d475983e42bd3d331b83d63.js"></script>
+
+      <p>
+        We are now <em>writing</em> functions that take other functions as arguments. Just like <code>element.addEventListener()</code> that takes a string and a function, so does our new <code>get()</code> function. Instead of hard-coding our call to <code>console.log()</code> upon a successful response, we pass it in as <code>callback</code> to <code>get()</code>. And instead of hard-coding the URL, we just pass it in as a string.
       </p>
 
       <p>
-        We're going to load <em class="vocab">jQuery</em>, a library written with JavaScript to make common tasks more easy. One task we do a lot on the web is downloading data. So we'll use a special function, <code>$.get()</code>. This will save us from doing all the low-level stuff by hand.
+        Now, we can make (almost) any HTTP request we want, get the results, and do something with them.
       </p>
 
-      <script src="https://gist.github.com/avand/36dade021c86003dc4d46c2040a00685.js"></script>
+      <p>
+        Remember that our <code>get()</code> function, when it gets a successful response from the server, passes that response to our callback function. It is passed along as a <em>string</em>. So, if you're dealing with JSON response you still have to pass that string to <code>JSON.parse()</code> before you can use the data.
+      </p>
 
       <div class="you-do">
         <p>
           Build a simple program that displays your name from GitHub, bio, and picture. Use <a href="https://gist.github.com/avand/0fc54327c3af2e78046f9ae1652608ba" target="_blank">this code</a> as the starting point.
         </p>
 
+        <ol>
+          <li>Confirm that you see results in your console. The starting point gives you a head-start by immediately performing a <code>get()</code> and logging the response to the console.</li>
+          <li>Use <code>JSON.parse()</code> to log one property of the response object to the console.</li>
+          <li>Wire up the event listeners.</li>
+          <li>Concatenate the value of the input to the URL to make a dynamic request to GitHub's API.</li>
+        </ol>
+
         <p>
           <img src="images/github.gif" class="img-responsive">
         </p>
       </div>
+
+      <h2 id="jquery">jQuery</h2>
+
+      <p>
+        Helpful functions like <code>get()</code> that we just wrote are useful on every project. And it can become a pain to constantly re-write them from project to project.
+      </p>
+
+      <p>
+        Eventually, you'll find that <code>get()</code> is missing a feature or could do something better/faster/stronger. It would be nice if you could improve that function once and have every project you've built reap the benefits.
+      </p>
+
+      <p>
+        That's why we create <em class="vocab">libraries</em>. A library allows us to put a bunch of common code that we use over and over again in one place. Libraries can be something you build for yourself or public that anyone can use. Libraries can also become open-source projects that benefit the community of developers—assuming your library actually is beneficial.
+      </p>
+
+      <p>
+        An incredibly popular JavaScript library is <em class="vocab">jQuery</em>. jQuery provides a lot of helpful functions for DOM manipulation, AJAX, and more. It also provides backward compatibility for a lot of features that make things work more consistently between browsers. For example, <code>document.querySelector()</code> isn't available in older browsers, so jQuery solves for that.
+      </p>
+
+      <h3>Vanilla to jQuery Mapping</h3>
+
+      <p>
+        Writing JS without any libraries is sometimes called "vanilla JS." There's kind of a gag website devoted to the idea too: <a href="http://vanilla-js.com" target="_blank">Vanilla JS</a>.
+      </p>
+
+      <p>
+        Here's how vanilla operations map to their jQuery equivalent:
+      </p>
+
+      <table class="table">
+        <tr>
+          <th></th>
+          <th>Vanilla JS</th>
+          <th>jQuery</th>
+        </tr>
+        <tr>
+          <th>Get element</th>
+          <td><code>document.querySelector("span")</code></td>
+          <td><code>$("span")</code></td>
+        </tr>
+        <tr>
+          <th>Create element</th>
+          <td><code>document.createElement("a")</code></td>
+          <td><code>$("&lt;a&gt;")</code></td>
+        </tr>
+        <tr>
+          <th>Add a class</th>
+          <td><code>el.classList.add("class-name")</code></td>
+          <td><code>$el.addClass("class-name")</code></td>
+        </tr>
+        <tr>
+          <th>Remove a class</th>
+          <td><code>el.classList.remove("class-name")</code></td>
+          <td><code>$el.removeClass("class-name")</code></td>
+        </tr>
+        <tr>
+          <th>Toggle a class</th>
+          <td><code>el.classList.toggle("class-name")</code></td>
+          <td><code>$el.toggleClass("class-name")</code></td>
+        </tr>
+        <tr>
+          <th>Set an inline style</th>
+          <td><code>el.style.backgroundColor = "blue"</code></td>
+          <td><code>$el.css("background-color", "blue")</code></td>
+        </tr>
+        <tr>
+          <th>Add child</th>
+          <td><code>ul.appendChild(li)</code></td>
+          <td><code>$ul.append($li)</code></td>
+        </tr>
+        <tr>
+          <th>Get textContent</th>
+          <td><code>a.textContent</code></td>
+          <td><code>$a.text()</code></td>
+        </tr>
+        <tr>
+          <th>Set textContent</th>
+          <td><code>a.textContent = "new text content";</code></td>
+          <td><code>$a.text("new text content");</code></td>
+        </tr>
+        <tr>
+          <th>Get value</th>
+          <td><code>input.value;</code></td>
+          <td><code>$input.val();</code></td>
+        </tr>
+        <tr>
+          <th>Set value</th>
+          <td><code>input.value = "new value";</code></td>
+          <td><code>$input.val("new value");</code></td>
+        </tr>
+        <tr>
+          <th>Get attribute</th>
+          <td><code>a.getAttribute("href");</code></td>
+          <td><code>$a.attr("href");</code></td>
+        </tr>
+        <tr>
+          <th>Set attribute</th>
+          <td><code>a.setAttribute("href", "http://wikipedia.org/");</code></td>
+          <td><code>$a.attr("href", "http://wikipedia.org/");</code></td>
+        </tr>
+        <tr>
+          <th>Add event listener</th>
+          <td><code>a.addEventListener("click", doSomething);</code></td>
+          <td><code>$a.on("click", doSomething);</code></td>
+        </tr>
+      </table>
+
+      <h3>Adding jQuery to Your Page</h3>
+
+      <p>
+        The easiest way to add jQuery to your page is by adding the following script
+        tag to your HTML (put this tag before your own scripts, usually in the <code>&lt;head&gt;</code>):
+      </p>
+
+      <pre><code>&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js">&lt;/script></code></pre>
+
+      <p>
+        Google will host the jQuery JavaScript file for you and they actually encourage you to use their <em class="vocab">Content Delivery Network (CDN)</em> to serve up this file because your browser will cache it and use it between websites too.
+      </p>
+
+      <h3>Working with Collections</h3>
+
+      <p>
+        The most important difference with using jQuery for DOM manipulation is that
+        jQuery always works with a "set" of elements. Before, you would do <code>document.querySelector("li.todo")</code>
+        and that would just return ONE element. But when you do the equivalent with
+        jQuery (<code>$("li.todo")</code>), you get a set of elements that match that
+        selector. Furthermore, the DOM manipulation operations (like setting text content
+        or changing an attribute or adding a class, etc.) are available on the set.
+        In other words, jQuery makes it easy to manipulate more than one element at a
+        time, which is usually helpful. Here's an example:
+      </p>
+
+      <script src="https://gist.github.com/avand/3044b81aae160d95fcad48c3926d83ae.js"></script>
+
+      <p>
+        The <code>$</code> in front of the variable names is just a convention. It says "the object stored in this variable is a jQuery object, not a normal element."
+      </p>
+
+      <h3>AJAX in jQuery</h3>
+
+      <p>
+        jQuery also provides a way to do AJAX:
+      </p>
+
+      <script src="https://gist.github.com/avand/d977bb055eb8dc2c0d61ce30bc15d84f.js"></script>
+
+      <p>
+        The signature of jQuery's <code>get()</code> function is the same as the one we just wrote so it's a drop in replacement.
+      </p>
+
+      <h3>Chaining</h3>
+
+      <p>
+        One of the most powerful features of jQuery is that almost every function you call returns something you can use to make another call. Think of it like this <code>$("ul")</code> returns a collection of elements. But <code>addClass()</code> also returns a collection of elements. So does <code>text()</code>, etc. So you can chain these methods together:
+      </p>
+
+      <script src="https://gist.github.com/avand/dd5377d3b5a1052a5f0e3e3bafa721ca.js"></script>
+
+      <p>
+        And many of the jQuery functions are overloaded so you can call them in more convenient ways. For example, if you want to change the style of an element without a class, which happens when you need to specify a calculated value you don't have to repeatedly call <code>css()</code>. You can just call it once and pass in all the options:
+      </p>
+
+      <script src="https://gist.github.com/avand/dba9d4957ff9638fbacf934af9b177a7.js"></script>
     </main>
   </body>
 </html>
