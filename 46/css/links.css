@@ -1,13 +1,12 @@
-a { color: hsl(120, 100%, 30%); }
-a:hover { color: hsl(120, 100%, 35%); }
-a:visited { color: hsl(190, 100%, 30%); }
+main a { color: hsl(120, 100%, 30%); }
+main a:hover { color: hsl(120, 100%, 35%); }
+main a:visited { color: hsl(190, 100%, 30%); }
 
-a {
-  font-weight: 500;
+main a {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   text-decoration: none !important;
 }
 
-a:hover {
+main a:hover {
   border-color: rgba(0, 0, 0, 0.4);
 }
