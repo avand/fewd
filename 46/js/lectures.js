@@ -35,5 +35,4 @@ $(document).ready(function() {
   }).mouseleave(function() {
     clearTimeout(timer);
   })
-
 })

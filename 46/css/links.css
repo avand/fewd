@@ -1,11 +1,13 @@
+a { color: hsl(120, 100%, 30%); }
+a:hover { color: hsl(120, 100%, 35%); }
+a:visited { color: hsl(190, 100%, 30%); }
+
 a {
-  color: rgb(0, 1, 103);
-  font-weight: bold;
+  font-weight: 500;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  text-decoration: none;
-  opacity: 0.75;
+  text-decoration: none !important;
 }
 
 a:hover {
-  opacity: 1;
+  border-color: rgba(0, 0, 0, 0.4);
 }

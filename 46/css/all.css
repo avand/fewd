@@ -1,24 +1,13 @@
-@import 'homework.css';
-@import 'frames.css';
-@import 'icons.css';
-@import 'carousels.css';
+@import 'vendor/sprinkles-2.0.0.min.css';
 @import 'asides.css';
-@import 'utilities.css';
-@import 'images.css';
-@import 'tables.css';
 @import 'headings.css';
-@import 'you-do.css';
-@import 'vocab.css';
+@import 'images.css';
+@import 'links.css';
 
 body {
   padding-top: 70px;
   background-color: hsl(47, 100%, 97%);
 }
-
-a         { color: hsl(122, 90%, 34%); }
-a:hover   { color: hsl(122, 90%, 25%); }
-a:active  { color: hsl(122, 90%, 40%); }
-a:visited { color: hsl(122, 80%, 40%); }
 
 main {
   font-family: "Georgia", serif;
@@ -50,4 +39,29 @@ code {
 .table th,
 .table td {
   padding: 4px !important;
+}
+
+.vocab {
+  font-size: 1.2em;
+  position: relative;
+  top: .05em;
+}
+
+.you-do {
+  padding: 1em;
+  border-left: 5px solid green;
+  margin: 3em 0;
+  font-size: 1.25em;
+}
+
+.you-do::before {
+  content: "Your turn";
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  text-transform: uppercase;
+  display: block;
+  font-size: 0.6em;
+  letter-spacing: 1px;
+  margin-bottom: 0.8em;
+  font-weight: 600;
+  color: green;
 }
