@@ -19,26 +19,64 @@
     <nav><script>$("nav").load("../partials/navigation.html");</script></nav>
 
     <main class="container">
-      <h1>Movie Search</h1>
+      <h1>🎥 Movie Search</h1>
 
-      <ul>
-        <li><a href="http://cloud.avandamiri.com/0F3L471w0D1y/movie-search.zip">Download starting point</a></li>
-        <li>Study movie-search.js: there are very helpful comments there to get you started</li>
-      </ul>
+      <a href="assets/movie-search/movie-search.gif" target="_blank">
+        <img src="assets/movie-search/movie-search.gif" class="supporting-image">
+      </a>
 
       <p>
-        There's some code to get you started that wires up the event listener
-        to the form and does the API call to OMDB for results. You'll need to work
-        with the results that come back (an array). Loop through the results
-        and put them on the page.
+        <strong>Congrats!</strong> You made it to Movie Search, the assignment that brings it all together: HTML, CSS, event handlers, AJAX, DOM manipulation, and arrays.
       </p>
 
       <p>
-        Each movie should have the following markup, which means you'll have to
-        continue practicing DOM manipulation.
+        For this assignment, you'll have no starting point. So you'll have to structure the page and get the styles working first before you can get to the JS. Don't fret, in the solution the HTML takes up about 25 lines of code the CSS about 60.
       </p>
 
-      <script src="https://gist.github.com/avand/1ee34e584f5e7942a38896e3a5dc8af9.js"></script>
+      <p class="bold question">
+        Where do I get the movie search results from?
+      </p>
+
+      <p>
+        OMDB API, a free service that serves up movie-related JSON content.
+        You make search calls by simply going to: <code>http://omdbapi.com/?s={query}</code>. So, for example, if you want to search for "matrix" you'd visit <a href="http://omdbapi.com/?s=matrix" target="_blank">http://omdbapi.com/?s=matrix</a>.
+      </p>
+
+      <p>
+        The response comes back as a JSON string, which you may have to parse with <code>JSON.parse()</code> depending on how you decide to perform the HTTP request (jQuery will likely do it for you automatically). The array of movie search results live inside the <code>Search</code> property of the resulting object. So, for example, to get the name of the 2nd movie in the list, we'd write <code>results.Search[1].Title</code>. If the casing bothers you, this also works <code>results["Search"][1]["Title"]</code>. To loop through the results we'd write <code>results.Search.forEach(doSomething)</code>, where <code>doSomething</code> is a function we define.
+      </p>
+
+      <p class="bold question">
+        How do I perform the HTTP GET request?
+      </p>
+
+      <p class="question">
+        You can either copy/paste the <a href="https://gist.github.com/avand/063448ca7d475983e42bd3d331b83d63" target="_blank"><code>get()</code> function</a> that we already discussed. Or, you can <a href="https://developers.google.com/speed/libraries/" target="_blank">include jQuery</a> and use the <code>$.get()</code> function, like a boss. Both functions are called in exactly the same way.
+      </p>
+
+      <p class="bold question">
+        When I do a 2nd search, the results are added to the bottom. How do I clear the movies that are there first?
+      </p>
+
+      <p class="answer">
+        There's a method called <code>removeChild()</code> on all elements but it's a little clunky to use, so it's common practice to just set the <code>textContent</code> to an empty string (e.g., <code>el.textContent = ""</code>).
+      </p>
+
+      <p class="bold question">
+        This feels daunting, where do I even start?
+      </p>
+
+      <p>
+        Always start with the HTML. Get a form on the page with the requisite inputs. Then add the HTML to list a couple movies just as an example of what you'll see when you do a real search. Doing this will make you familiar with the content you need to create with JS. Add a little CSS, just to get the basic structure down but don't do any polish until after the JS is working.
+      </p>
+
+      <p>
+        When it comes to JS, start with some pseudo-code. Go back and look at how we did the <a href="https://gist.github.com/avand/1cc7721b0dd07f61ae36460533314545" target="_blank">GitHub User Lookup</a>. Use the word "when" to help dictate what functions you'll need to write. Give yourself small goals like simply writing what's inputted to the console with <code>console.log()</code> (remember you can call that function anywhere in your code and pass it pretty much anything to see what's happening). You can also work backwards, writing the "display a movie" function first! Then open your console, call your function, pass it the right parameters, and see it appear on the screen. When the results come back from the server and it's time to put the movies on screen you'll already have that part done.
+      </p>
     </main>
   </body>
 </html>
+
+
+create a listMovie function
+get
