@@ -335,10 +335,16 @@
         tag to your HTML (put this tag before your own scripts, usually in the <code>&lt;head&gt;</code>):
       </p>
 
-      <pre><code>&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js">&lt;/script></code></pre>
+      <p>
+        <code>&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js">&lt;/script></code>
+      </p>
 
       <p>
-        Google will host the jQuery JavaScript file for you and they actually encourage you to use their <em class="vocab">Content Delivery Network (CDN)</em> to serve up this file because your browser will cache it and use it between websites too.
+        Note the version number in the URL. You can specify a more recent version of jQuery if you'd like. (Older versions support older browsers and newer versions take advantage of more modern browser technologies.)
+      </p>
+
+      <p>
+        Google is happy to host that file for you and they actually encourage you to use their <em class="vocab">Content Delivery Network (CDN)</em> to serve up this file because once your browser downloads it once, it never has to download it again. Head on over to <a href="https://developers.google.com/speed/libraries/" target="_blank">Google Hosted Libraries</a> for more information.
       </p>
 
       <h3>Working with Collections</h3>
