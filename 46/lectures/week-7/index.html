@@ -25,8 +25,75 @@
       <h3>Table of Contents</h3>
 
       <ol>
-        <li></li>
+        <li><a href="#anon-fn">Anonymous Functions</a></li>
+        <li><a href="#geolocation">Geolocation</a></li>
       </ol>
+
+      <h3>Resources</h3>
+
+      <ol>
+        <li><a href="http://staticmapmaker.com/yandex/">Static Map Maker for Yandex</a></li>
+      </ol>
+
+      <h2 id="anon-fn">Anonymous Functions</h2>
+
+      <p>
+        Coming soon.
+      </p>
+
+      <h2 id="geolocation">Geolocation</h2>
+
+      <p>
+        Let's say you want to customize the content on your website to your customer's location. Your browser knows how to do that!
+      </p>
+
+      <p>
+        Access the geolocation object like so: <code>navigator.geolocation</code>.
+      </p>
+
+      <p>
+        When you ask for the browser's current location:
+      </p>
+
+      <ul>
+        <li>Getting the location takes time</li>
+        <li>When the location is determined, the browser calls a function and passes it a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Position" target="_blank">position object</a></li>
+      </ul>
+
+      <p>
+        Here's how you can ask the browser for the current location and access the latitude/longitude:
+      </p>
+
+      <script src="https://gist.github.com/avand/adc3eead8215d440eea8c80074ccf8a0.js"></script>
+
+      <p>
+        Once you have the latitude and longitude, you can do all kinds of stuff. You could pass the information onto a map, for example. Let's do a really simple case, where we just load an image, using the latitude and longitude. We need to use a service that will let us load a map with just a URL.
+      </p>
+
+      <p>
+        Here's an example:
+      </p>
+
+      <p>
+        <code>http://static-maps.yandex.ru/1.x/?lang=en-US&ll=-73.7638,42.6564&z=13&l=map&size=600,300</code>
+      </p>
+
+      <p>
+        <img src="http://static-maps.yandex.ru/1.x/?lang=en-US&ll=-73.7638,42.6564&z=13&l=map&size=600,300" class="img-response" />
+      </p>
+
+      <p>
+        See how the latitude and longitude are encoded in the URL? <code>ll=-73.7638,42.6564</code>
+      </p>
+
+      <p>
+        Now, let's put it all together to get the current location from the browser, construct that URL, and set it as the <code>src</code> of an image on the page.
+      </p>
+
+      <p>
+        <img src="images/geolocation.gif" class="img-responsive">
+      </p>
+
     </main>
   </body>
 </html>
