@@ -27,6 +27,7 @@
       <ol>
         <li><a href="#anon-fn">Anonymous Functions</a></li>
         <li><a href="#geolocation">Geolocation</a></li>
+        <li><a href="#local-storage">Local Storage</a></li>
       </ol>
 
       <h3>Resources</h3>
@@ -86,14 +87,67 @@
         See how the latitude and longitude are encoded in the URL? <code>ll=-73.7638,42.6564</code>
       </p>
 
+      <div class="you-do">
+        <p>
+          Now, let's put it all together to get the current location from the browser, construct that URL, and set it as the <code>src</code> of an image on the page.
+        </p>
+
+        <p>
+          <img src="images/geolocation.gif" class="img-responsive">
+        </p>
+
+        <p>
+          The only gotcha with this exercise is that up until right now, we've been serving files with right off the file system. Notice, that in your URL bar all the pages start with <code>file://</code>. For security reasons, Chrome won't provide your location over this protocol. It has to be over <code>http://</code>. So we need to run a web server on your computer.
+        </p>
+
+        <p>
+          To launch a server, open Terminal (Applications > Utilities or Spotlight > Terminal). Then go to the directory where your project lives. The command to change directory is <code>cd</code>. So if you your project lives in <code>Code/fewd</code> then type <code>cd Code/fewd</code> (and press return). Type <code>ls</code> (and hit enter) to list the files in the current directory to confirm you're in the right place. If you are, then type <code>python -m SimpleHTTPServer</code>. That will launch a web server out of that directory. Now, you can open up <code>http://localhost:8000</code> and you should see your profile page. Navigate to this exercise from there.
+        </p>
+      </div>
+
+      <h2 id="local-storage">Local Storage</h2>
+
       <p>
-        Now, let's put it all together to get the current location from the browser, construct that URL, and set it as the <code>src</code> of an image on the page.
+        Your browser can save data that is available across refreshes and even reboots. It's actually saved on disk and available so long as the user doesn't clear or reset their browser.
       </p>
 
       <p>
-        <img src="images/geolocation.gif" class="img-responsive">
+        The interface to local storage is actually very simple:
       </p>
 
+      <script src="https://gist.github.com/avand/fa80ff8caf5add682e7b2cdbbb69bfa9.js"></script>
+
+      <p>
+        Notice that the keys, which you use to save and recall information are strings. The values that you save into local storage are strings too.
+      </p>
+
+      <p>
+        You can use local storage to save pretty much anything that can be saved as a string.
+      </p>
+
+      <h3>Saving HTML</h3>
+
+      <p>
+        Sometimes it makes sense to simply take some portion of HTML from the page and store it into local storage. When the user comes back later you can recreate that part of the page. In this way, you don't have to worry about the underlying data or how the HTML came to be. You just take an entire part of the page and store the raw HTML for it in local storage as a string.
+      </p>
+
+      <p>
+        Let's use the todo list as an example:
+      </p>
+
+      <script src="https://gist.github.com/avand/c2ea0242f358c59f0a15bdf75df14131.js"></script>
+
+      <!--
+      <h3>Saving Data</h3>
+
+      <p>
+        You could also use HTML to save data. For example, you might want to save the results of an API call so you don't have to make it again. You might want to do this for speed reasons. Or, you might have a limit on the number of API calls you can make and want to <em class="vocab">cache</em> the results for later. A cache is simply a storage mechanism that stands between you and the actual data. Before you make a call, you check your cache, if it "hits" you get the data form the cache. If it "misses," you go to the data source and update your cache.
+      </p>
+
+      <p>
+        This might be useful on the movie search assignment:
+      </p>
+      -->
     </main>
 
     <script src="../../../js/tracking.js"></script>
