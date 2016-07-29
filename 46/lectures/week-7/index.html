@@ -27,6 +27,7 @@
       <ol>
         <li><a href="#anon-fn">Anonymous Functions</a></li>
         <li><a href="#geolocation">Geolocation</a></li>
+        <li><a href="#callback-hell">Callback Hell</a></li>
         <li><a href="#local-storage">Local Storage</a></li>
       </ol>
 
@@ -104,6 +105,34 @@
           To launch a server, open Terminal (Applications > Utilities or Spotlight > Terminal). Then go to the directory where your project lives. The command to change directory is <code>cd</code>. So if you your project lives in <code>Code/fewd</code> then type <code>cd Code/fewd</code> (and press return). Type <code>ls</code> (and hit enter) to list the files in the current directory to confirm you're in the right place. If you are, then type <code>python -m SimpleHTTPServer</code>. That will launch a web server out of that directory. Now, you can open up <code>http://localhost:8000</code> and you should see your profile page. Navigate to this exercise from there.
         </p>
       </div>
+
+      <h2 id="callback-hell">Callback Hell</h2>
+
+      <p>
+        You've learned about a lot of functions now. And many of them, like <code>addEventListener()</code>, for example, take other functions as arguments. These types of functions are called callbacks because you don't ever call them—the browser calls them when the time is right.
+      </p>
+
+      <p>
+        JavaScript is riddled with callbacks. And there's a good reason too. It's not because they make it easier to write code. In fact, callbacks make it much <em>harder</em> to write code. Let's take geolocation for example:
+      </p>
+
+      <script src="https://gist.github.com/avand/fffeb29570547a2d68c0177b6584048e.js"></script>
+
+      <p>
+        JS is a <em class="vocab">single-threaded</em> language. That's a fancy way of saying that it can only perform one command a time. Let's say in your program, you have some JS code that shows and hides a map that displays the user's current location. When they show the map, you ask for their current location with <code>getCurrentPosition()</code> to center the map on their location. It takes a few seconds for the browser to determine the user's location. Since JS can only do one thing at a time, nothing else could happen while the location is being determined. No other events could fire, no timers would run. The page would literally freeze. Not good.
+      </p>
+
+      <p>
+        Callbacks to the rescue! When you say "get the current position and call this function when you're done" the browser can continue to do other things while the location is being calculated. Then, when the data is ready your callback function is called.
+      </p>
+
+      <p>
+        Let's take a close look at all the callbacks we've seen thus far:
+      </p>
+
+      <p>
+        <img src="images/callbacks.jpg" class="img-responsive">
+      </p>
 
       <h2 id="local-storage">Local Storage</h2>
 
