@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Week 7 Lecture Notes, FEWD 46</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/all.css" media="all" charset="utf-8">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="../../js/lectures.js"></script>
+  </head>
+  <body>
+    <nav><script>$("nav").load("../../partials/navigation.html");</script></nav>
+
+    <main class="container">
+      <h1>Week 7</h1>
+
+      <h3>Table of Contents</h3>
+
+      <ol>
+        <li><a href="#local-storage">Local Storage</a></li>
+      </ol>
+
+      <h2 id="local-storage">Local Storage</h2>
+
+      <p>
+        Your browser can save data that is available across refreshes and even reboots. It's actually saved on disk and available so long as the user doesn't clear or reset their browser.
+      </p>
+
+      <p>
+        The interface to local storage is actually very simple:
+      </p>
+
+      <script src="https://gist.github.com/avand/fa80ff8caf5add682e7b2cdbbb69bfa9.js"></script>
+
+      <p>
+        Notice that the keys, which you use to save and recall information are strings. The values that you save into local storage are strings too.
+      </p>
+
+      <p>
+        You can use local storage to save pretty much anything that can be saved as a string.
+      </p>
+
+      <h3>Saving HTML</h3>
+
+      <p>
+        Sometimes it makes sense to simply take some portion of HTML from the page and store it into local storage. When the user comes back later you can recreate that part of the page. In this way, you don't have to worry about the underlying data or how the HTML came to be. You just take an entire part of the page and store the raw HTML for it in local storage as a string.
+      </p>
+
+      <p>
+        Let's use the todo list as an example:
+      </p>
+
+      <script src="https://gist.github.com/avand/c2ea0242f358c59f0a15bdf75df14131.js"></script>
+
+      <!--
+      <h3>Saving Data</h3>
+
+      <p>
+        You could also use HTML to save data. For example, you might want to save the results of an API call so you don't have to make it again. You might want to do this for speed reasons. Or, you might have a limit on the number of API calls you can make and want to <em class="vocab">cache</em> the results for later. A cache is simply a storage mechanism that stands between you and the actual data. Before you make a call, you check your cache, if it "hits" you get the data form the cache. If it "misses," you go to the data source and update your cache.
+      </p>
+
+      <p>
+        This might be useful on the movie search assignment:
+      </p>
+      -->
+    </main>
+
+    <script src="../../../js/tracking.js"></script>
+  </body>
+</html>
