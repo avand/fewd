@@ -66,7 +66,6 @@
 
       <script src="https://gist.github.com/avand/c2ea0242f358c59f0a15bdf75df14131.js"></script>
 
-      <!--
       <h3>Saving Data</h3>
 
       <p>
@@ -76,7 +75,16 @@
       <p>
         This might be useful on the movie search assignment:
       </p>
-      -->
+
+      <script src="https://gist.github.com/avand/872ab2ed179dfde06779971fc53565a3.js"></script>
+
+      <p>
+        Notice that when the results are retrieved inside of <code>$.get()</code>, we first save them to local storage (line 21). We use the URL as the key and the value is the entire response as a JSON string. Remember, jQuery automatically parses the JSON response from the server, so we're actually converting it back to a string just for local storage.
+      </p>
+
+      <p>
+        Now notice the conditional. The first thing we do when the form is submitted is generate the URL. Then we check local storage to see if there's an item using the URL as the key. <code>if</code> there's nothing, then <code>cache</code> will be <code>null</code> and we'll go call <code>$.get()</code>. But, if something is found, then we'll go down a different path, parsing the JSON string stored in local storage and then iterating on the results.
+      </p>
     </main>
 
     <script src="../../../js/tracking.js"></script>
