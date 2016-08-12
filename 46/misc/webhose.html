@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>News</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  </head>
+  <body>
+    <form id="news-search-form" method="post">
+      <input type="search" value="clinton" disabled>
+      <button type="submit">Get Dat News!</button>
+    </form>
+
+    <ul id="posts-list">
+
+    </ul>
+
+    <script type="text/javascript">
+      var newsSearchForm = document.querySelector("#news-search-form");
+      var postsList = document.querySelector("#posts-list");
+      var submitButton = document.querySelector("button");
+
+      newsSearchForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        var originalButtonText = submitButton.textContent;
+        submitButton.textContent = "Hold onto your butts...";
+        submitButton.setAttribute("disabled", true);
+
+        var token = "d2264a62-aae7-49f6-816f-0bee2ee594bf";
+
+        // Always searching for "clinton" (q=clinton will have to be replaced with something dynamic)
+        $.get("https://webhose.io/search?token=" + token + "&format=json&q=clinton", function(results) {
+          results.posts.forEach(function(post, i) {
+            var postListItem = document.createElement("li");
+            postListItem.textContent = post.title;
+            document.querySelector("#posts-list").appendChild(postListItem);
+
+            submitButton.textContent = originalButtonText;
+            submitButton.removeAttribute("disabled");
+          })
+        })
+      })
+    </script>
+  </body>
+</html>
