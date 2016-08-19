@@ -11,3 +11,7 @@ h3::before {
   top: -.2em;
   font-weight: 600;
 }
+
+h1 {
+  margin: 1em 0;
+}
