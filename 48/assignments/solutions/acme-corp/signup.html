@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>ACME Corp</title>
+
+    <link rel="stylesheet" type="text/css" href="css/signup.css">
+  </head>
+
+  <body>
+    <header>
+      <a href="index.html">
+        <img src="images/acme-corp.jpg" width="200" height="55" id="logo" alt="ACME Anvil Corporation">
+      </a>
+
+      <nav>
+        <ol>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="signup.html" class="button">Sign Up</a></li>
+        </ol>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>Sign Up</h1>
+
+      <form>
+        <div class="form-row">
+          <label for="first_name">First Name</label>
+          <input type="text" id="first_name" placeholder="John" autofocus required>
+        </div>
+        <div class="form-row">
+          <label for="last_name">Last Name</label>
+          <input type="text" id="last_name" placeholder="Doe" required>
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="john.doe@example.com" required>
+        </div>
+        <div class="form-row">
+          <label for="password">Password</label>
+          <input type="password" id="password" required>
+        </div>
+        <div class="form-row">
+          <label for="how">How did you hear about us?</label><br>
+          <select>
+            <option></option>
+            <option>Friend</option>
+            <option>Search</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <input type="checkbox" id="terms" required>
+          <label for="terms">Agree to our terms of service</label>
+        </div>
+        <div class="form-row">
+          <input type="submit" value="Sign Up" class="button">
+        </div>
+      </form>
+    </main>
+
+    <footer class="container">
+      <p>
+        Copyright, 2015
+      </p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Location Demo</title>
+</head>
+<body>
+  <img src="" id="map">
+
+  <script type="text/javascript">
+    function displayCurrentPosition(position) {
+      var lat = position.coords.latitude;
+      var lng = position.coords.longitude;
+      var mapSrc = "http://static-maps.yandex.ru/1.x/?lang=en-US&ll=" + lng + "," + lat + "&z=13&l=map&size=600,300"
+      var img = document.querySelector("#map");
+      img.setAttribute("src", mapSrc);
+    };
+
+    navigator.geolocation.getCurrentPosition(displayCurrentPosition);
+  </script>
+</body>
+</html>

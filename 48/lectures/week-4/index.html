@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Week 4 Lecture Notes, FEWD 48</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/all.css" media="all" charset="utf-8">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="../../js/lectures.js"></script>
+  </head>
+  <body>
+    <nav><script>$("nav").load("../../partials/navigation.html");</script></nav>
+
+    <main class="container">
+      <h1>Week 4</h1>
+
+      <h2>Table of Contents</h2>
+
+      <ol>
+        <li><a href="#yelp-challenge">Yelp Challenge</a></li>
+        <li><a href="#intro-js">Intro to JavaScript</a></li>
+        <li><a href="#calculator">Calculator</a></li>
+        <li><a href="#events-functions">Events &amp; Functions</a></li>
+        <li><a href="#calculator-continued">Calculator Continued</a></li>
+        <li><a href="#yelp-revisited">Yelp Revisited</a></li>
+        <li><a href="#dom-manipulation">DOM Manipulation</a></li>
+        <li><a href="#acme-corp-js">ACME Corp Rebuilt with JS</a></li>
+        <li>Homework: <a href="../../assignments/4-todo-list.html">Todo List</a></li>
+        <li><a href="#faq">Frequently Asked Questions</a></li>
+      </ol>
+
+      <h2>Resources</h2>
+
+      <ul>
+        <li>Book: <a href="http://eloquentjavascript.net/">Eloquent JavaScript</a></li>
+        <li><a href="https://docs.google.com/forms/d/1KPE8gZZFPt0Hhe9kwHwJ-oj5UGcB37JfQTyMTuaNCE8/viewform" target="_blank">Week 4 Exit tickets</a></li>
+      </ul>
+
+      <h2 id="yelp-challenge">Yelp Challenge</h2>
+
+      <a href="images/yelp.gif" target="_blank">
+        <img src="images/yelp.gif" class="supporting-image">
+      </a>
+
+      <p>
+        The job of a developer, engineer, or programmer—whatever you'd like to call yourself—is plauged with challenges. It can often feel like you're stuck in a corner banging your head against the wall. But when you get around the obstacles, it feels really good. You're able to build something <em>really</em> good. Then people use it, like it, and you're happy.
+      </p>
+
+      <p>
+        The key to speed and quality is precision. You have to practice being very very specific. Computers don't talk like people do. They need you to spell out every detail. Even really small problems are solved with many many lines of code.
+      </p>
+
+      <p>
+        So it feels really good when you can solve a big problem with a small solution. Take a look at the GIF on the right. Watch how the map of <a href="http://www.yelp.com/search?find_desc=tacos&find_loc=San+Francisco%2C+CA&ns=1" target="_blank">"tacos in San Francisco"</a> moves with you down the page. But it doesn't follow you <em>all</em> the way to the top—just to the top of the content area. And similarly, it stops above the footer.
+      </p>
+
+      <div class="you-do">
+        How does the map follow you down the page? Can you explain how fixed and relative/absolute positioning are different? Why is the map positioned absolutely when it gets to the footer?
+      </div>
+
+      <p>
+        Use your own developer tools to inspect <a href="http://www.yelp.com/search?find_desc=tacos&find_loc=San+Francisco%2C+CA&ns=1" target="_blank">the page</a> and see for yourself. Find someone, and explain it to them. Or write down your answer.
+      </p>
+
+      <p>
+        How is the positioning changing as we scroll down the page? We'll come back to this example after we learn some JavaScript.
+      </p>
+
+      <h2 id="intro-js">Intro to JavaScript</h2>
+
+      <h3>Why JavaScript?!</h3>
+
+      <p>
+        Before we dig into JavaScript (JS), let's just stop for a minute and ask ourselves, why do we need JS at all? We can already put content on a web page and style it. But as it stands our page doesn't <em>do</em> anything. And that's where JS comes into play. JS describes the behavior of your webpage.
+      </p>
+
+      <p>
+        You can add a button to the page with HTML. You can style it with CSS. But if you want something to happen when it's clicked, you'll need JS.
+      </p>
+
+      <h3>Object-Oriented Programming</h3>
+
+      <p>
+        Object-oriented programming (OOP) allows programmers to describe the world we live in with code. In OOP terms everything is an <em class="vocab">object</em>. Whether it's a simple object like a number or something as complex as a flight plan, everything can be described as an object.
+      </p>
+
+      <p>
+        An object can be defined simply as a collection of properties and behavior. <em class="vocab">Properties</em> are the nouns that serve to describe the object. Let's say we're describing a car as an object. A car has a make, model year, and color. These are properties of the car. But a car can also do things, like start, stop, and park. These are the functions of car and they describe how it behaves. Sometimes these behaviors are also called <em class="vocab">methods</em>.
+      </p>
+
+      <p>
+        The template for an object is called a <em class="vocab">class</em>. A class is what defines what properties and methods an object can have. It's like the recipe for all objects of that type. But a recipe doesn't actually give you anything to eat—it just describes the meal. In order to eat, you have to create the meal. The same is true in OOP. We call this process <em class="vocab">instantiating</em> an object.
+      </p>
+
+      <p>
+        So let's look at some code:
+      </p>
+
+      <script src="https://gist.github.com/avand/55e5ec34d61864b952d6aba7c2d452d4.js"></script>
+
+      <p>
+        Access an object's properties with a <code>.</code> followed by the name of the property. Call a method of the object in the same way, just add parenthesis to actually call the function.
+      </p>
+
+      <p>
+        Notice on the first line that the class, <code>Car</code> starts with a capital "C". The instance, by contrast is <em class="vocab">camelCase</em>, where the first letter is lower case and the first letter of each subsequent word is uppercase.
+      </p>
+
+      <p>
+        We won't be defining our own classes yet. For now, we'll just be using built-in objects. These are going to be completely unfamiliar things that only exist in the context of a web browser. Things like the elements and events. You'll have to learn about how these objects work.
+      </p>
+
+      <h3>The document</h3>
+
+      <p>
+        On the web, the most useful object is the <code>document</code>. The document object describes the page. So it knows the page's title, the domain you're on, and it knows about all the elements on the page too.
+      </p>
+
+      <p>
+        Use the <code>document</code> object to:
+      </p>
+
+      <ul>
+        <li>Get the title of the page: <code>document.title</code></li>
+        <li>Get the domain of the page: <code>document.domain</code></li>
+        <li>Retrieve elements off the page: <code>document.querySelector()</code></li>
+        <li>Create new elements: <code>document.createElement()</code></li>
+      </ul>
+
+      <div class="you-do">
+        Open Chrome's developer tools and switch to the Console tab now to try accessing the title and domain of your favorite website.
+      </div>
+
+      <h3>Functions</h3>
+
+      <p>
+        An object's methods are the functions it can perform. Functions almost always have verb names because they <em>do</em> stuff. And in order to do the work of a function, it has to be called, sometimes with and sometimes without <em class="vocab">parameters</em>. Parameters are the input to a function. If you think of functions like a sausage maker, the meats would be the parameters. The output, or the <em class="vocab">return</em> value of the function, would be a sausage.
+      </p>
+
+      <p>
+        Let's look at a real example. <code>document</code> has a method called <code>querySelector()</code> that will scan the page for an element matching a given CSS selector. That means this method takes one parameter, which you will pass into the parenthesis when you call it. It returns the first element it finds (or <code>null</code> if it doesn't find anything).
+      </p>
+
+      <script src="https://gist.github.com/avand/12f903fb0bf4a7f3d2ca67b70a904dca.js"></script>
+
+      <div class="you-do">
+        Now, on your own, use <code>document.querySelector()</code> to try and access elements off the page of ACME Corp, or any web page. Open the inspector, switch to the Console tab, and find the logo. Remember, you pass in the selector for the element you which to access. Grab the first paragraph. Can you grab the button too?
+      </div>
+
+      <h3>Variables</h3>
+
+      <p>
+        Up until now, you've seen the word <code>var</code> being used but we haven't talked about it yet. <em class="vocab">Variables</em>, just like in math, allow us to refer to an eventual value. Variables are our own references to values that will be defined later. For example, if I'm writing a letter to my customers, I might say something like, "Dear &lt;customer name&gt;, Thank you for signing up...". In that letter, the "&lt;customer name&gt;" is just a stand in for the eventual value.
+      </p>
+
+      <p>
+        In JavaScript, we declare variables with the keyword <code>var</code>. A variable can be called whatever you'd like but it does have to follow certain rules.
+      </p>
+
+      <p>
+        Variable naming rules:
+      </p>
+
+      <ul>
+        <li>Variable names can't start with a number</li>
+        <li>Variable names cannot contain spaces</li>
+        <li>Variable names should camelCase</li>
+        <li>Variable names can not contain any special characters except "$" and "_"</li>
+        <li>Variable names can't be JavaScript keywords like <code>var</code> or <code>new</code></li>
+      </ul>
+
+      <p>
+        Everything else is fair game!
+      </p>
+
+      <p>
+        You declare a variable in one of two ways.
+      </p>
+
+      <script src="https://gist.github.com/avand/1c19dcdcde8a682f05d010fe91004b79.js"></script>
+
+      <h3>Where does JavaScript go?</h3>
+
+      <p>
+        JavaScript is the only programming language your browser knows how execute without any additional plugins or extensions. It is what makes your browser so powerful. To tell your browser you'd like to execute some JavaScript code, simply open up a <code>&lt;script&gt;</code> tag and write some code.
+      </p>
+
+      <script src="https://gist.github.com/avand/15c5a2a981d820efdc2ecc74d7221751.js"></script>
+
+      <p>
+        <strong>For now, just remember put your JS after all the HTML on your page.</strong> This is because you'll be referencing HTML elements in your JavaScript. If you reference an element before it exists in the <code>document</code> you'll just get <code>null</code> back. How can you ask the browser for an element that isn't on the page yet?
+      </p>
+
+      <p>
+        You can also put your code in an external file and reference it that way.
+      </p>
+
+      <script src="https://gist.github.com/avand/c821bd6a0949f7f2787e8b6ea026ee3a.js"></script>
+
+      <p>
+        Just like with an external CSS file, make sure there is no <code>&lt;script&gt;</code> tag inside your <code>.js</code> file.
+      </p>
+
+      <h3>Working with built-in functions</h3>
+
+      <p>
+        Let's start building a program that will practice calling functions, passing them arguments, and saving their return values.
+      </p>
+
+      <p>
+        The first few built-in functions to learn are:
+      </p>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Parameters</th>
+            <th>Returns</th>
+          </tr>
+        </thead>
+        <tr>
+          <td>
+            <code>prompt(message)</code><br>
+            <img src="images/prompt.png" alt="prompt" class="enlarge-on-hover" width="140">
+          </td>
+          <td>
+            <p>
+              Asks someone a question by passing in a string.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>prompt("What is your name?")</code><br>
+              <code>prompt("How are you feeling?")</code>
+            </p>
+          </td>
+          <td>
+            <p>
+              Returns whatever the user typed in as a string. Even if they typed in a number <code>12</code>, you'll get it back as <code>12</code>.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>alert(message)</code><br>
+            <img src="images/alert.png" alt="prompt" class="enlarge-on-hover" width="140">
+          </td>
+          <td>
+
+            <p>
+              Display a message to the user by passing in a string.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>alert("Your fly is down!")</code><br>
+              <code>alert("Made you look.")</code>
+            </p>
+
+            <p>
+              Note that the style of alerts and prompts is determined 100% by the browser. You have no control over them, which is why you don't see them much on the web.
+            </p>
+          </td>
+          <td>
+            <p>
+              Always returns <code>undefined</code>.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td><code>parseInt(string)</code></td>
+          <td>
+            <p>
+              Convert the string representation of a number to an actual number.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>parseInt("12")</code>
+            </p>
+          </td>
+          <td>
+            <p>
+              Returns a number that you can do math with.
+            </p>
+
+            <p>
+              Remember, <code>"12" + "23"</code> equals <code>"1234"</code>.
+            </p>
+          </td>
+        </tr>
+      </table>
+
+      <h3>Numbers vs. Strings</h3>
+
+      <p>
+        In JavaScript <code>"12"</code> is not the same thing as <code>12</code>. One is a <em class="voca">string</em>, a sequence of characters, and the other is a number. Without <code>parseInt()</code>, you'd never be able to do accurate addition. "Int" stands for "integer," which is a fancy word for whole number. There's also a function called <code>parseFloat()</code>, which will convert a string to a decimal number.
+      </p>
+
+      <h2 id="calculator">Calculator</h2>
+
+      <a href="images/calc-1.gif" target="_blank">
+        <img src="images/calc-1.gif" class="supporting-image">
+      </a>
+
+      <p>
+        Let's build a really simple calculator using what we know so far about JavaScript functions. We'll start with a program that prompts for the first number, then the second number, then alerts the sum. Eventually we'll build up the interface using the <code>document</code> object. But let's start with this:
+      </p>
+
+      <p>
+        Let's start with <em class="vocab">pseudo-code</em>, where we write out each step in a procedural way—like how you'd have to explain it to a robot.
+      </p>
+
+      <pre>1. Prompt the user for the first number, save the result
+2. Prompt the user for the second number, save that result too
+3. Convert the string versions of those numbers into actual numbers
+4. Add them together and alert the sum</pre>
+
+      <div class="you-do">
+        Now it's your turn. Create a new HTML file, open up a <code>&lt;script&gt;</code> tag, and see if you can write the code to make this work. When you're ready, you can look at the <a href="https://gist.github.com/avand/c3c583042fbd81be5051d4e57d4110ff" target="_blank">solution</a>.
+      </div>
+
+      <h2 id="events-functions">Events &amp; Functions</h2>
+
+      <a href="images/calc-2.gif" target="_blank">
+        <img src="images/calc-2.gif" class="supporting-image">
+      </a>
+
+      <p>
+        That calculator leaves a lot to be desired. But we don't know much yet, so we it's hard to do anything of substance. But, if we knew just a little bit more JavaScript and a few more things the browser can do, we could build something like this:
+      </p>
+
+      <p>
+        It's still pretty basic, but it does away with the ugly alerts and prompts. Essentially, we're building a program that takes in user input, does something, then displays output, which is basically what 90% of the programs we're going to write will do. And once we know how to write functions and listen to events, we'll be able to build programs like this with ease.
+      </p>
+
+      <h3>Event handlers</h3>
+
+      <div class="you-do">
+        Describe this improved calculator to someone. Or just write down in a sentence what the program does. Be more specific than "it adds two numbers together."
+      </div>
+
+      <p>
+        You should find that it's hard to describe a program without using the word "when." Being able to execute your code is great but if you can't control the timing, then you can't do much. In the calculator example, you want to add two numbers together based on input but only <em>when</em> the user clicks the button.
+      </p>
+
+      <p>
+        You'll need to write a function that handles the click event. You'll wire it up such that when the user clicks button, your function is called. In reality, your browser is constantly listening for events and calling functions when things happen but you've never really had to think about it.
+      </p>
+
+      <h3>Functions</h3>
+
+      <p>
+        So far we've called functions but we haven't written our own. In the calculator example, we want to add two numbers together, when the button is clicked. So let's write this add function.
+      </p>
+
+      <script src="https://gist.github.com/avand/596e31a1ab04aacd0eb3c5dbb65ff43e.js"></script>
+
+      <p>
+        The <code>function</code> keyword tells JavaScript we're going to declare a new function. Then we specify the name—it could be anything (sum, doMath, whatever) as long as it follows the naming rules (no special characters, can't start with a number, etc.). Then we use parenthesis to describe any arguments the function may take (this one doesn't take any). The actual code of the function, the <em class="vocab">body</em> goes in the <code>{}</code>.
+      </p>
+
+      <h3>Events</h3>
+
+      <p>
+        Events are all about calling a function, when the something happens. And in our browser, the way we do that is to grab a reference to an element, bind an event listener, and then define the event handler function. We're basically taking the function we just wrote and wiring it up to be called whenever this event occurs.
+      </p>
+
+      <script src="https://gist.github.com/avand/070405be3a44ceae6aa804741ebce8d2.js"></script>
+
+      <p>
+        It's very important that you not <em>call</em> the <code>add()</code> function when binding the event listener. You're simply referencing it. You should never call the event handler directly—the browser will listen for the user input and when the time is right call your function for you.
+      </p>
+
+      <h3>The Event Object</h3>
+
+      <p>
+        There's just one more thing you need to know about events. When an event occurs, a function is called. That much you know. But an object called an Event is actually passed into that function when it's called. The Event knows:
+      </p>
+
+      <ul>
+        <li>Exactly what time the event occurred</li>
+        <li>Which element triggered the event</li>
+      </ul>
+
+      <p>
+        This object also is responsible for telling the browser what to do after your event handler is called. For example, you might link to the sign out page but want to confirm with your user before continuing.
+      </p>
+
+      <script src="https://gist.github.com/avand/583c469b598c0185db1655b505f08c29.js"></script>
+
+      <p>
+        In the above example, when the user clicks the link the browser registers a new Event. Then it calls the function that you specified as an event handler and passes in the Event object to it. You can call it <code>event</code> or <code>e</code> or <code>taco</code> in your event handler but it will be an Event.
+      </p>
+
+      <p>
+        Calling <code>event.preventDefault()</code> is crucial to our programs because clicking links and submitting forms actually cause the page to change or reload. So from here on out when you declare an event handler function, have it take an <code>event</code> as an argument and call <code>event.preventDefault()</code> on the next line inside the function.
+      </p>
+
+      <script src="https://gist.github.com/avand/a60e5ec6814e0c5e3da5c1f50b61d87b.js"></script>
+
+      <h2 id="calculator-continued">Calculator Continued</h2>
+
+      <a href="images/calc-2.gif" target="_blank">
+        <img src="images/calc-2.gif" class="supporting-image">
+      </a>
+
+      <p>
+        So now, armed with this, you're very close to being able to build the second version of our calculator.
+      </p>
+
+      <p>
+        In the 1st version we took user input via the built-in <code>prompt()</code> function. We're not doing that anymore, so how do we get what the user typed in? And the same problem is true of displaying the result. We used to just call <code>alert()</code>, but now we're updating something on the page.
+      </p>
+
+      <p>
+        How do we change the text on the page? Here's an example:
+      </p>
+
+      <script src="https://gist.github.com/avand/e25b7fef4230d25295f4dba9b6e2bfa1.js"></script>
+
+      <p>
+        Now, before we take a crack at the new and improved calculator, let's write the program out in pseudo-code before we put it all together.
+      </p>
+
+      <pre>1. Get the button
+2. Add an event listener to the click of the button
+3. When the button is clicked...
+  a. Get the value of the first input
+  b. Get the value of the second input
+  c. Convert the string versions of those numbers into actual numbers
+  d. Add the numbers together
+  e. Set the sum as the text content of the paragraph</pre>
+
+      <p>
+        It's helpful to write this out because you'll see right away that you need a reference to every element. So writing up the HTML and then confirming that you can access each element in your script is a good place to start. You can do that by simply typing the name of your variable into your console and pressing enter. You should be able to hover over the output and see the element highlighted above.
+      </p>
+
+      <div class="you-do">
+        Now, you should have all the parts you need to build our better calculator. Give it a try and compare to the <a href="https://gist.github.com/avand/6f12294c77e123925b1e1cf7992b9798" target="_blank">solution</a> when you're ready.
+      </div>
+
+      <h2 id="yelp-revisited">Yelp Revisited</h2>
+
+      <a href="images/yelp.gif" target="_blank">
+        <img src="images/yelp.gif" class="supporting-image">
+      </a>
+
+      <p>
+        Now that you know a little JavaScript, take a look at that Yelp example again.
+      </p>
+
+      <p>
+        If nothing else, you should at least be able to understand that the <code>position</code> of the map changes as you scroll down the page. Something is updating the CSS.
+      </p>
+
+      <div class="you-do">
+        What is controlling the <code>position</code> of the Yelp Map? What are the key concepts you've learned that drive that interaction?
+      </div>
+
+      <h2 id="dom-manipulation">DOM Manipulation</h2>
+
+      <p>
+        If you're feeling comfortable with the calculator, great! You should be relieved. 90% of JavaScript programs you'll ever write will use these exact same concepts. You'll learn new functions and new types of objects to work with, but you just learned the absolute essentials.
+      </p>
+
+      <p>
+        As we've already learned you can't do much with <code>prompt()</code> and <code>alert()</code>. It's great to take in user input and display it back but those aren't the types of applications we want to build. We want to be able interact with elements on the page. And we also want to create new elements and put them on the page. You'll need to do this if you want to add a comment to the page as the result of the user filling out a form or to display results from a search that are loaded by JavaScript.
+      </p>
+
+      <h3>Interacting with Existing Elements</h3>
+
+      <p>
+        You've already done a bit of this but let's review.
+      </p>
+
+      <script src="https://gist.github.com/avand/bc640f2037b337000839f8e266b8da60.js"></script>
+
+      <div class="you-do">
+        <p>
+          You should now be able to look at the above code and figure out what the program is doing.
+        </p>
+
+        <p>
+          Describe every line of the above code in detail. Try it and compare your results to the <a href="https://gist.github.com/avand/0406f3a369ddfc7771d9e1cf7e19832c" target="_blank">annotated version</a>.
+        </p>
+
+        <p>
+          How would this program change if we used an <code>&lt;input&gt;</code> instead of a <code>&lt;button&gt;</code>?
+        </p>
+      </div>
+
+      <h3>Creating New Elements</h3>
+
+      <a href="images/comments.gif" target="_blank">
+        <img src="images/comments.gif" class="supporting-image">
+      </a>
+
+      <p>
+        Imagine you want to put a comments box at the bottom of your web page. Unlike the calculator, you can no longer simply update a paragraph with the sum. Now, you have to create new elements and them to the page as people submit comments.
+      </p>
+
+      <p>
+        This is a two step process: creating the element then adding it to the page. And you need to learn two new functions to make it happen.
+      </p>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Parameters</th>
+            <th>Returns</th>
+          </tr>
+        </thead>
+        <tr>
+          <td>
+            <code>document.createElement(tagName)</code>
+          </td>
+          <td>
+            <p>
+              Create a new element of a given tagName
+            </p>
+
+            <p>
+              For example:<br>
+              <code>document.createElement("p")</code><br>
+              <code>document.createElement("div")</code>
+            </p>
+          </td>
+          <td>
+            <p>
+              Returns an element, just like <code>document.querySelector()</code>. The only different is that this element does not exist on the page yet.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>parentEl.appendChild(childEl)</code>
+          </td>
+          <td>
+
+            <p>
+              Adds an element to the page. Call this method on the parent element and pass in the child element. In this way you specify <em>where</em> you want the element to go.
+            </p>
+          </td>
+          <td>
+            <p>
+              Returns the child element as a convenience.
+            </p>
+          </td>
+        </tr>
+      </table>
+
+      <p>
+        Once you've created a new element, it behaves just like every other element. So you can set the <code>textContent</code> or <code>addEventListener()</code> just like before.
+      </p>
+
+      <script src="https://gist.github.com/avand/73fce6e027bc00f3d63d135c0f234cee.js"></script>
+
+      <div class="you-do">
+        <p>
+          Try building a very simple interface for adding comments to the page. Try and build a program that behaves just like the <a href="images/comments.gif" target="_blank">GIF</a>.
+        </p>
+
+        <p>
+          When you're finished or if you get stuck, take a peek at the <a href="https://gist.github.com/avand/2c042e232a73349df9680bc0c76a42c3" target="_blank">solution</a>.
+        </p>
+      </div>
+
+      <h3>Adding or Removing a Class from an Element</h3>
+
+      <p>
+        So you now know how to find an existing elements, create new elements, attach event listeners to them, and change their text. What about changing the CSS of an element to make it look a certain way?
+      </p>
+
+      <p>
+        For the same reason that inline styles are bad, setting CSS properties of an element with JS isn't recommended. But you can do it.
+      </p>
+
+      <script src="https://gist.github.com/avand/d0cfb6ef643fbd24842b02402811384e.js"></script>
+
+      <p>
+        If you continue down this route, you'll find yourself writing a lot of CSS in your JS. Nobody on your team, including you, will ever think to look in the JS for styles. Instead, use clases. Declare your rules in CSS and then add/remove classes as needed using an element's <code>classList</code> object.
+      </p>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Parameters</th>
+            <th>Returns</th>
+          </tr>
+        </thead>
+        <tr>
+          <td>
+            <code>el.classList.add(className)</code>
+          </td>
+          <td>
+            <p>
+              Adds a class to the given element in the form of a string. No dot/period here. That would be the selector. We just want the class name here.
+            </p>
+          </td>
+          <td>
+            <p>
+              <code>undefined</code>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>el.classList.remove(className)</code>
+          </td>
+          <td>
+            <p>
+              Removes a class from the given element. Again no dot/period.
+            </p>
+          </td>
+          <td>
+            <p>
+              <code>undefined</code>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>el.classList.toggle(className)</code>
+          </td>
+          <td>
+            <p>
+              Removes a class from the given element if it already has the class. Otherwise, adds it. Very helpful for expanding/collapsing a menu, for example.
+            </p>
+          </td>
+          <td>
+            <p>
+              <code>true</code> if it added a class. <code>false</code> if it removed the class.
+            </p>
+          </td>
+        </tr>
+      </table>
+
+      <p>
+        Here's an example of that in action. It should go without saying that you'll need to have already defined the rules in your CSS (e.g., <code>.button-danger { background-color: red; }</code>).
+      </p>
+
+      <script src="https://gist.github.com/avand/61eefdd77a050364a6f9bd4c2bb96854.js"></script>
+
+      <p>
+        Feel free to stop and practice with this on your own now but we will be practicing this exhaustively in just a minute.
+      </p>
+
+      <h3>Setting an Attribute</h3>
+
+      <p>
+        What if you want to add an image tag to the page. You can, of course, use <code>document.createElement("img")</code> to create the element. But what about setting the <code>src</code> attribute? Elements like images or anchors are nothing without their attributes.
+      </p>
+
+      <p>
+        To set any attribute of any element, simply call the <code>setAttribute()</code> method. You can also remove an attribute altogether with <code>removeAttribute()</code>.
+      </p>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Parameters</th>
+            <th>Returns</th>
+          </tr>
+        </thead>
+        <tr>
+          <td>
+            <code>el.setAttribute(attrName, attrValue)</code>
+          </td>
+          <td>
+            <p>
+              Sets an attribute of the given element to the name and value you provide.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>img.setAttribute("src", "images/kitten.gif")</code>
+              <code>a.setAttribute("href", "http://example.com")</code>
+            </p>
+          </td>
+          <td>
+            <p>
+              <code>undefined</code>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>el.getAttribute(attrName, attrValue)</code>
+          </td>
+          <td>
+            <p>
+              Gets the value of an attribute for the given element by name.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>a.getAttribute("href")</code>
+            </p>
+          </td>
+          <td>
+            <p>
+              Returns the value as a string.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>el.removeAttribute(attrName)</code>
+          </td>
+          <td>
+            <p>
+              Removes an attribute of the given element by name.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>img.removeAttribute("width")</code>
+            </p>
+          </td>
+          <td>
+            <p>
+              <code>undefined</code>
+            </p>
+          </td>
+        </tr>
+      </table>
+
+      <p>
+        Here's a quick example just so you can see <code>setAttribute()</code> in action.
+      </p>
+
+      <script src="https://gist.github.com/avand/4fe3119b14b60132a275535eaa20d2db.js"></script>
+
+      <h2 id="acme-corp-js">ACME Corp Rebuilt with JS</h2>
+
+      <p>
+        Creating elements, modifying them, and putting them on the page is something you need to become very comfortable doing. So let's practice doing it—a lot.
+      </p>
+
+      <div class="you-do">
+        <p>
+          Rebuild the ACME Corp homepage. But this time, instead of writing the HTML by hand, use JS to compose all the elements, set their attributes, add their respective CSS classes, and append them all to the page in the right spot.
+        </p>
+
+        <p>
+          <a href="assets/acme-corp-built-with-js.zip" download>Download the ZIP</a> to get started. Open up "index.html" in your browser. You'll see it's empty. Now open "setup-page.js" and go start coding.
+        </p>
+
+        <p>
+          Use the "index-complete.html" as a reference. You'll see all the elements you need to create and their attributes there. You should be able to open "index.html" and "index-complete.html" side-by-side in Chrome and see no differences between them.
+        </p>
+      </div>
+
+      <h2 id="faq">Frequently Asked Questions</h2>
+
+      <h3>
+        How do I know when to use quotes?
+      </h3>
+
+      <p>
+        In JS, <code>"foo"</code> and <code>foo</code> are two different things. The first is a string and the second is a variable. Strings are used whenever you want to refer to something by name or value. You'd use a string to put text on the page (<code>el.textContent = "hello";</code>), reference a class name (<code>document.querySelector(".products")</code>), or specify a type of event (<code>"click"</code>). When you use a string you know its value. But when you reference something without quotes, it's value is dynamic. That's why we call it a variable, because it's value changes based on what a user typed in or what results came back from a database. If you don't put quotes around something, JS will assume that you've defined that thing elsewhere either with <code>var</code> or <code>function</code>. So a good rule of thumb is if it isn't in quotes there better be a <code>var</code> or <code>function</code> that defines it somewhere.
+      </p>
+
+      <h3>
+        How do I know when to use <code>()</code>?
+      </h3>
+
+      <p>
+        Parenthesis are used throughout JS and it can be confusing to know when to use them. It's very common for beginners to write something like <code>el.textContent("new text")</code>. But that isn't correct because <code>textContent</code> is a property. You don't <em>call</em> properties—you get or set properties, both of which involve a <code>=</code>. You use <code>()</code> when you're declaring and calling <em>functions</em>. A good rule of thumb is <em>verbs</em> are functions and <em>nouns</em> are a properties or variables.
+      </p>
+    </main>
+
+    <script src="../../../js/tracking.js"></script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+@import "base.css";
+
+.form-row {
+  margin-bottom: 1em;
+}
+
+label {
+  min-width: 150px;
+  display: inline-block;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgb(222, 222, 222);
+  border-radius: 4px;
+  padding: 4px 7px;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  outline: 0;
+  border-color: #2A4CB2;
+}

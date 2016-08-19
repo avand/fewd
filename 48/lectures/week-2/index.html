@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Week 2 Lecture Notes, FEWD 48</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/all.css" media="all" charset="utf-8">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="../../js/lectures.js"></script>
+  </head>
+  <body>
+    <nav><script>$("nav").load("../../partials/navigation.html");</script></nav>
+
+    <main class="container">
+      <h1>Week 2</h1>
+
+      <h2>Table of Contents</h2>
+
+      <ol>
+        <li><a href="#floats">Floats</a></li>
+        <li><a href="#classes-ids">Classes &amp; IDs</a></li>
+        <li><a href="#block-inline">Display: block &amp; inline</a></li>
+        <li><a href="#div-span">div &amp; span</a></li>
+        <li><a href="#inheritance">Inheritance</a></li>
+        <li><a href="#file-references">File references</a></li>
+        <li>Homework: <a href="../../assignments/2-acme-corp-extended.html">ACME Corp Extended</a></li>
+      </ol>
+
+      <h2>Resources</h2>
+
+      <ul>
+        <li><a href="http://learnlayout.com">Learn Layout</a></li>
+        <li><a href="http://www.csszengarden.com/">CSS Zen Garden</a></li>
+        <li><a href="http://learn.shayhowe.com/">Learn from Shay Howe</a></li>
+        <li><a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0182.html">History of the <code>img</code> tag</a></li>
+      </ul>
+
+      <h2 id="floats">Floats</h2>
+
+      <img src="images/balloon.png" class="supporting-image">
+
+      <p>
+        When you want an image and text to appear side-by-side, you want to `float` the image (usually) to the `left` or `right`.
+      </p>
+
+      <p>
+        The balloon to the right is <code>float: right</code>.
+      </p>
+
+      <p>
+        Once an element is floated, it is no longer part of the "document flow," which can often have unintended consequences.
+      </p>
+
+      <h3>Clearfix</h3>
+
+      <p>
+        A "clearfix" is a hack used to manage layouts with floats, see <a href="http://learnlayout.com/clearfix.html">this example</a>. The modern way to do this is by adding the CSS property <code>overflow: auto;</code> to the parent.
+      </p>
+
+      <p>
+        <a href="floats.html">Example</a>
+      </p>
+
+      <h2 id="classes-ids">Classes &amp; IDs</h2>
+
+      <p>
+        Classes and IDs allow us to identify and target styles on elements based on more than just their tag name. Let's say you have a particular button style you like. You'd like to be able to style <code>&lt;button&gt;</code> and <code>&lt;a&gt;</code> in the same way. One way to do this is to attach your styles to both elements:
+      </p>
+
+      <script src="https://gist.github.com/avand/cbbee16526a0f8e9ae31aa6e2152c588.js"></script>
+
+      <p>
+        Creating a class allows apply styles to any element as we choose. Define a class with a <code>.</code> followed by your own name. And in your HTML, give elements that class with the class attribute.
+      </p>
+
+      <script src="https://gist.github.com/avand/88c98588a081697a9d344be3de342a96.js"></script>
+
+      <h3>Sharing styles and writing less code</h3>
+
+      <p>
+        An element can have as many classes modifying it as you'd like. This let's us share common styles and get more specific as we need to.
+      </p>
+
+      <script src="https://gist.github.com/avand/9ad27f2e9d8d2bdf2b89d001580ff540.js"></script>
+
+      <div class="you-do">
+        Now, do some practice with creating classes by making some buttons. Create a class <code>.button</code> and apply it to <code>&lt;a&gt;</code>, <code>&lt;button&gt;</code>, and <code>&lt;input&gt;</code> (of type "submit"). Continue adding CSS declarations until all the buttons look the same. Then create a <code>.button-small</code> and <code>.button-danger</code> class that allows you to change the look of certain buttons simply by adding those classes. Here's an <a href="buttons.html">example</a> of the final result.
+      </div>
+
+      <h3>IDs</h3>
+
+      <p>
+        IDs work just like classes but are less flexible because <strong>an element can only have one ID</strong>. You also use a <code>#</code> instead of a <code>.</code> to select an element by ID.
+      </p>
+
+      <h2 id="block-inline">Display: block &amp; inline</h2>
+
+      <p>
+        <strong>Block</strong> elements are "100% wide" and do not let any other pieces of content share space on the same horizontal row.
+      </p>
+
+      <p>
+        <strong>Inline</strong> elements are as wide as their content and allow other elements to share space to the left and right.
+      </p>
+
+      <h2 id="div-span">div &amp; span</h2>
+
+      <p>
+        When you can add whatever descripitors you want to an element via classes or IDs, the name of the element becomes less important. For example, you could have a paragraph that serves as the "introduction" to an article. If you had a <code>&lt;introduction&gt;</code> tag, you might use it instead. In cases like this, consider using a completely generic element like <code>&lt;span&gt;</code> and <code>&lt;div&gt;</code>.
+      </p>
+
+      <h2 id="inheritance">Inheritance</h2>
+
+      <ul>
+        <li><a href="http://www.w3.org/TR/CSS21/propidx.html">CSS properties &amp; inheritance</a></li>
+        <li><code>inherit</code></li>
+      </ul>
+
+      <h2 id="file-references">File references</h2>
+
+      <ul>
+        <li><code>/</code> at the beginning of a path means "go to the root". For example, <code>/images/logo.png</code> will look for a file in an images folder that is at the root. But root can mean different things. If you're serving a file up in Chrome with <code>file://</code> then root means your hard drive. If you're running a web server, for example with <code>python -m SimpleHTTPServer</code> then root means your website project folder.</li>
+        <li><code>..</code> means "go up a folder"</li>
+      </ul>
+
+      <p>
+        It is recommended to references files in a "relative" way. So you have to ask yourself, "from the file I'm in, how do I get to the file I want to reference."
+      </p>
+    </main>
+
+    <script src="../../../js/tracking.js"></script>
+  </body>
+</html>

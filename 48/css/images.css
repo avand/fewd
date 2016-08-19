@@ -1,0 +1,34 @@
+.enlarge-on-hover,
+.image-enlargement-target {
+  cursor: pointer;
+}
+
+.enlarge-on-hover         { z-index: 1000; }
+.image-enlargement-target { z-index: 1010; }
+
+.thumbnail {
+  max-height: 200px;
+}
+
+.homework-thumbnail {
+  width: 30%;
+  float: right;
+  margin-left: 5%;
+  margin-bottom: 10px;
+  padding: 8px;
+  display: block;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  min-width: 300px;
+}
+
+.supporting-image {
+  float: right;
+  margin: 0 0 20px 20px;
+  max-width: 300px;
+  transition: all 100ms;
+  border-radius: 10px;
+}
+a:hover .supporting-image {
+  transform: scale(1.025);
+  border-radius: 0;
+}

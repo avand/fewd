@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Spreadsheet</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <style>
+    body {
+      font-family: sans-serif;
+      margin: 2em 4em;
+    }
+    table {
+      margin-bottom: 1em;
+    }
+    td {
+      padding: 1em;
+
+      /* Safari doesn't render borders for empty cells, use box-shadow instead */
+      box-shadow: inset 0 0 1px #8a8282;
+    }
+    button {
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-bottom-width: 2px;
+      border-radius: 5px; font-size: inherit;
+      color: white;
+      background-color: #049cd8;
+      padding: .5em 1em;
+      cursor: pointer;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>Spreadsheet</h1>
+
+    <table>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td contenteditable>Avand</td>
+          <td contenteditable>Instructor</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td contenteditable>Sandi</td>
+          <td contenteditable>TA</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td contenteditable>Yana</td>
+          <td contenteditable>Student</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td contenteditable>Maks</td>
+          <td contenteditable>Student</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button id="add-row">Add a Row</button>
+    <button id="add-column">Add a Column</button>
+
+    <script>
+      $("#add-column").on("click", function(event) {
+        event.preventDefault();
+
+        $("<td>").attr("contenteditable", true).appendTo("tr");
+      })
+
+      $("#add-row").on("click", function(event) {
+        event.preventDefault()
+
+        var row = $("<tr>")
+
+        $("tr:last-child td").each(function(i, td) {
+          $("<td>").attr("contenteditable", true).appendTo(row);
+        })
+
+        row.appendTo("table");
+      })
+    </script>
+  </body>
+</html>

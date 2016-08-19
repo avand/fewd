@@ -1,0 +1,48 @@
+<form>
+  <input type="text" id="query" placeholder="GitHub username">
+  <input type="submit" value="Lookup">
+</form>
+
+<table>
+  <tr>
+    <th>Name:</th>
+    <td id="user-name"></td>
+  </tr>
+  <tr>
+    <th>Bio:</th>
+    <td id="user-bio"></td>
+  </tr>
+  <tr>
+    <th>Picture:</th>
+    <td id="user-picture"></td>
+  </tr>
+</table>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<script>
+var form = document.querySelector("form");
+var query = document.querySelector("#query");
+
+form.addEventListener("submit", lookupUser);
+
+function lookupUser(event) {
+  event.preventDefault();
+
+  var url = "https://api.github.com/users/" + query.value;
+  $.get(url, showUser);
+}
+
+function showUser(user) {
+  var userName = document.querySelector("#user-name");
+  var userBio = document.querySelector("#user-bio");
+  var userPicture = document.querySelector("#user-picture");
+
+  var img = document.createElement("img");
+  img.setAttribute("src", user.avatar_url);
+
+  userName.textContent = user.name;
+  userBio.textContent = user.bio;
+  userPicture.appendChild(img);
+}
+</script>

@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Week 5 Lecture Notes, FEWD 48</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/all.css" media="all" charset="utf-8">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="../../js/lectures.js"></script>
+  </head>
+  <body>
+    <nav><script>$("nav").load("../../partials/navigation.html");</script></nav>
+
+    <main class="container">
+      <h1>Week 5</h1>
+
+      <h2>Table of Contents</h2>
+
+      <ol>
+        <li><a href="#taking-inventory">Taking Inventory</a></li>
+        <li><a href="#arrays">Arrays</a>
+        <li><a href="#debugging">Debugging</a></li>
+        <li><a href="#todo-list-csv">Todo List w/ Comma Separated Values</a></li>
+        <li><a href="#js-quiz">JS Quiz</a></li>
+      </ol>
+
+      <h2>Resources</h2>
+
+      <ul>
+        <li><a href="http://learnrubythehardway.org/book/intro.html" target="_blank">Programming Is Hard</a></li>
+        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfo61mGirnFjzXOaxdJy4TnJGIjSK5rFAYdH3isAScTCkAmfA/viewform" target="_blank">Exit Ticket</a></li>
+      </ul>
+
+      <h2 id="taking-inventory">Taking Inventory</h2>
+
+      <p>
+        Before we go any further, let's take stock of the functions and objects we currently know about.
+      </p>
+
+      <h3>Built-in Functions</h3>
+
+      <p>
+        These functions are pre-defined for us by browsers and available for us to use.
+      </p>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Usage</th>
+            <th>Description</th>
+            <th>Output</th>
+          </tr>
+        </thead>
+        <tr>
+          <td><code>alert(message)</code></td>
+          <td>
+            <p>
+              Displays a message to the user.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>alert("Congrats! You're visitor 1,000.");</code>
+            </p>
+          </td>
+          <td>
+            <code>undefined</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>prompt(message)</code></td>
+          <td>
+            <p>
+              Displays a message to the user and asks them for input.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>var age = prompt("How old are you?");</code>
+            </p>
+          </td>
+          <td>
+            String
+          </td>
+        </tr>
+        <tr>
+          <td><code>parseInt(string)</code></td>
+          <td>
+            <p>
+              Converts a string value into a whole number.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>var n = parseInt("123");</code>
+            </p>
+          </td>
+          <td>
+            Whole number (integer) or <code>NaN</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>parseFloat(string)</code></td>
+          <td>
+            <p>
+              Converts a string value into a decimal number.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>var pi = parseFloat("3.14");</code>
+            </p>
+          </td>
+          <td>
+            Decimal number (float) or <code>NaN</code>
+          </td>
+        </tr>
+      </table>
+
+      <h3>String</h3>
+
+      <p>
+        A string is a sequence of characters. We use them in code to represent names of CSS selectors or event names. But they can also store data or be used to construct content for the page. Here are a couple things strings can do but for a complete list, please reference the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/" target="_blank">MDN</a>.
+      </p>
+
+      <p>
+        Note that <code>string</code> below represents <em>any</em> string or variable with a string value. You could make these examples work by declare a variable like <code>var string = "something";</code>.
+      </p>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Usage</th>
+            <th>Description</th>
+            <th>Output</th>
+          </tr>
+        </thead>
+        <tr>
+          <td><code>string.length</code></td>
+          <td>
+            <p>
+              Retrieves the length of a the <code>string</code>.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>"apple".length</code>
+            </p>
+          </td>
+          <td>
+            Integer
+          </td>
+        </tr>
+        <tr>
+          <td><code>string.split(delimiter)</code></td>
+          <td>
+            <p>
+              Breaks up a string on a given delimiter.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>var fruits = "apples,bananas,oranges".split(",");</code>
+            </p>
+          </td>
+          <td>
+            Array
+          </td>
+        </tr>
+        <tr>
+          <td><code>string + string</code></td>
+          <td>
+            <p>
+              Concatenates (string addition) two strings together.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>"evil" + "olive"</code>
+            </p>
+          </td>
+          <td>
+            String
+          </td>
+        </tr>
+      </table>
+
+      <h3>Document</h3>
+
+      <p>
+        The <code>document</code> is a special object that is also available for us when developing for a browser. It has a few very useful properties and methods:
+      </p>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Usage</th>
+            <th>Description</th>
+            <th>Output</th>
+          </tr>
+        </thead>
+        <tr>
+          <td><code>document.title</code></td>
+          <td>
+            <p>
+              Retrieves the title of the current webpage.
+            </p>
+          </td>
+          <td>
+            String
+          </td>
+        </tr>
+        <tr>
+          <td><code>document.domain</code></td>
+          <td>
+            <p>
+              Retrieves the domain name of the current webpage.
+            </p>
+          </td>
+          <td>
+            String
+          </td>
+        </tr>
+        <tr>
+          <td><code>document.querySelector(selector)</code></td>
+          <td>
+            <p>
+              Retrieves a particular element on the webpage that matches a given CSS selector.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>var p = document.querySelector("p");</code><br>
+              <code>var lastItem = document.querySelector("li:last-child");</code>
+            </p>
+          </td>
+          <td>
+            Element
+          </td>
+        </tr>
+        <tr>
+          <td><code>document.createElement(tagName)</code></td>
+          <td>
+            <p>
+              Creates a new empty element given tag name. This new element does not exist in the document.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>var li = document.createElement("li");</code>
+            </p>
+          </td>
+          <td>
+            Element
+          </td>
+        </tr>
+      </table>
+
+      <h3>Elements</h3>
+
+      <p>
+        Without elements, you wouldn't be able to do much to a webpage. So being able to interact with them in JS is critical. Fortunately, elements can do a lot.
+      </p>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Usage</th>
+            <th>Description</th>
+            <th>Output</th>
+          </tr>
+        </thead>
+        <tr>
+          <td><code>element.textContent</code></td>
+          <td>
+            <p>
+              The contents of an element (everything between the opening and closing tag).
+            </p>
+
+            <p>
+              Can be used to get the text of an existing element, for example:<br>
+              <code>var text = document.querySelector("p").textContent</code>
+            </p>
+
+            <p>
+              Can also be used to set the text of an element. For example:<br>
+              <code>document.querySelector(".notice").textContent = "Times up!"</code>
+            </p>
+          </td>
+          <td>
+            String
+          </td>
+        </tr>
+        <tr>
+          <td><code>element.value</code></td>
+          <td>
+            <p>
+              The value of an <code>&lt;input&gt;</code>, <code>&lt;select&gt;</code>, or <code>&lt;textarea&gt;</code>. Does not apply to paragraphs or any other element with a closing tag.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>var s = document.querySelector("input").value</code>
+            </p>
+          </td>
+          <td>
+            String
+          </td>
+        </tr>
+        <tr>
+          <td><code>element.addEventListener(eventType, handler)</code></td>
+          <td>
+            <p>
+              Call the given <code>handler</code> function <em>when</em> an event of type <code>eventType</code> fires.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>button.addEventListener("click", startGame)</code>
+            </p>
+          </td>
+          <td>
+            <code>undefined</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>element.appendChild(childElement)</code></td>
+          <td>
+            <p>
+              Make one element a child of another. Always call this method on the parent and pass in the child.
+            </p>
+          </td>
+          <td>
+            The child element
+          </td>
+        </tr>
+        <tr>
+          <td><code>element.setAttribute(name, value)</code></td>
+          <td>
+            <p>
+              Set the <code>name</code> attribute of an element to a <code>value</code>.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>img.setAttribute("src", "logo.jpg")</code>
+            </p>
+          </td>
+          <td>
+            <code>undefined</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>element.getAttribute(name)</code></td>
+          <td>
+            <p>
+              Retrieve the value of an attribute by <code>name</code>.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>var destination = anchor.getAttribute("href")</code>
+            </p>
+          </td>
+          <td>
+            <code>String</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>element.removeAttribute(name)</code></td>
+          <td>
+            <p>
+              Removes an attribute from an element.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>img.removeAttribute("alt")</code>
+            </p>
+          </td>
+          <td>
+            <code>undefined</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>element.classList.add(className)</code></td>
+          <td>
+            <p>
+              Add a CSS class to an element. This method does not define the CSS rule. It simply allows the element to take on any matching rules in your stylesheets.
+            </p>
+
+            <p>
+              This is almost equivalent to <code>element.setAttribute("class", className)</code> but accounts for elements that have many classes.
+            </p>
+          </td>
+          <td>
+            <code>undefined</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>element.classList.remove(className)</code></td>
+          <td>
+            <p>
+              Removes a CSS class from an element.
+            </p>
+          </td>
+          <td>
+            <code>undefined</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>element.classList.toggle(className)</code></td>
+          <td>
+            <p>
+              Adds the class if the element doesn't have it. Removes the class if it is already there.
+            </p>
+
+            <p>
+              Great for expanding or collapsing a menu.
+            </p>
+
+            <p>
+              For example:<br>
+              <code>menu.toggleClass("expanded");</code>
+            </p>
+          </td>
+          <td>
+            Boolean
+          </td>
+        </tr>
+      </table>
+
+      <h3>Event</h3>
+
+      <p>
+        We've even seen the Event object here and there, mostly as a way to prevent the default behavior of built-in events like form submissions and link clicks.
+      </p>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Usage</th>
+            <th>Description</th>
+            <th>Output</th>
+          </tr>
+        </thead>
+        <tr>
+          <td><code>event.target</code></td>
+          <td>
+            <p>
+              A reference to the element that triggered an event. Especially useful when multiple events share one event handler.
+            </p>
+          </td>
+          <td>
+            Element
+          </td>
+        </tr>
+        <tr>
+          <td><code>event.timeStamp</code></td>
+          <td>
+            <p>
+              Returns the time (in milliseconds) at which the event occurred.
+            </p>
+          </td>
+          <td>
+            Integer
+          </td>
+        </tr>
+        <tr>
+          <td><code>event.preventDefault()</code></td>
+          <td>
+            <p>
+              Tells the browser to <em>skip</em> the default behavior for an event. For example, if you call this method within an event handler for the click of a link, the browser would not follow that link.
+            </p>
+          </td>
+          <td>
+            Integer
+          </td>
+        </tr>
+      </table>
+
+      <p>
+        Before moving on, you should make sure you understand how all these properties and methods behave.
+      </p>
+
+      <h2 id="arrays">Arrays</h2>
+
+      <p>
+        Now, it's time to add another object to our repertoire.
+      </p>
+
+      <p>
+        So far we've only dealt with one object at a time. We have accessed multiple elements from the DOM but only one at a time—one variable for each element. That only gets us so far. In order to really cook with gas we need to be able to deal with collections of things. And JS, like many other programming languages, has an Array object to do just that.
+      </p>
+
+      <p>
+        An Array (I titleize it because I'm referring to the class) simply represents a collection of other objects. It grows and shrinks as you add or remove objects. It always knows how many objects it contains and keeps track of them with a numerical index starting at zero. So the first object in an array is the "zeroth" one, the second is the "first," and so on.
+      </p>
+
+      <p>
+        Arrays are so common in JS that you can declare them with an <em class="vocab">object literal</em>, just like you can a string. Except, unlike using <code>""</code> for a string, we'll use <code>[]</code> to make an array. Then we'll use the <code>push()</code> and <code>pop()</code> methods to add and remove objects to and from the collection. You can inquire about the object at any position with the bracket syntax too.
+      </p>
+
+      <script src="https://gist.github.com/avand/7661163c2ae2273b77e35e04877dceb2.js"></script>
+
+      <p>
+        This is the first time you're seeing <em class="vocab">bracket notation</em>. When you write <code>array[1]</code> you're actually asking the array for it's <code>1</code> property. Think about that for a second. You ask the array's <code>length</code> by writing <code>array.length</code>. Well, theoretically you could ask for the <code>1</code> property in the same way: <code>array.1</code>. But that would violate the JS variable naming rules—you can't start a property, function, argument, or variable with a number. But you could access the length of the array with bracket notation: <code>array["length"]</code>. We don't do that frequently, but it's a nice connection to make. The elements of an array are simply properties of the array object!
+      </p>
+
+      <p>
+        Another interesting connection is that strings are actually implemented as arrays too. What do you get when you punch <code>"apple"[1]</code> into your console? You should get <code>"p"</code>. A string is just an array of characters!
+      </p>
+
+      <h3>Loops</h3>
+
+      <p>
+        Arguably the most important thing to be able to do with an array is to loop through the items in it. Why? Well, imagine you have a movie search engine. Someone types in "doubtfire" and your program goes to a database and returns an array of search results. You want to list them all on screen for the user to pick. The code to do that has to (a) create an element, (b) set the text content, and (c) add that element to the page. That's at least three steps (although you should be able to anticipate that it's going to be more than just three lines of code). It would really stink to have to repeat all those steps for every result, right?!
+      </p>
+
+      <p>
+        Consider the following program:
+      </p>
+
+      <script src="https://gist.github.com/avand/f7c2a80a29063244984f134b74062cb8.js"></script>
+
+      <p>
+        The key to this script is understanding <code>array.forEach()</code>. This function takes a function as its one and only argument, similar to how <code>element.addEventListener()</code> works. <code>forEach()</code> is the array's function and since the array knows about each and every item in its collection, it simply calls the function you specify once for in every object in the array. We call this function a <em class="vocab">callback function</em> because you aren't calling it directly. And when your function, in this case <code>createTodoItem()</code> is called, how does it know <em>which</em> todo to create? Well, when the time comes <code>forEach()</code> calls your function and passes in the "current" object. It also passes in the index of that object as a second (optional) parameter.
+      </p>
+
+      <p>
+        Here's another way to think about it. If you want to loop through an array and do something to every object in the collection, just write a function that performs does what you want to <em>one</em> of those objects. If you have an array of cars, maybe you want a <code>startCar()</code> function. Or if you have an array of movies maybe you want a <code>listMovie()</code> function. And this function, that acts on one object, must take that singular object in as a named argument.
+      </p>
+
+      <script src="https://gist.github.com/avand/47a0b21a018ed80f3b7454e571931028.js"></script>
+
+      <p>
+        Notice: the arguments to the callback function <code>startCar()</code> and <code>listMovie()</code> are the singular form of the array name. Arrays typically are plural nouns (cars, users, movies, etc.). The function that <code>forEach()</code> calls takes the singular form as an argument. This isn't a rule, just a good convention to follow that will make your code easier to understand.
+      </p>
+
+      <div class="you-do">
+        <p>
+          Using <a href="https://gist.github.com/avand/e830a86659d1861625144e10ceba7bcc" target="_blank">this code</a> as a starting point, add every item in the array to the list with JS. Then change the number in the paragraph to reflect the length of the array.
+        </p>
+      </div>
+
+      <h2 id="debugging">Debugging</h2>
+
+      <img src="images/confusion.gif" class="supporting-image">
+
+      <p>
+        "It's not working" is a necessary and frustrating part of being a developer. It's really important to be able to understand <em>why</em> something isn't working. Otherwise you're just banging your head against the wall.
+      </p>
+
+      <p>
+        Let's explore a few techniques for getting good at figuring out why our code won't do what we expect.
+      </p>
+
+      <h3>Syntax Errors</h3>
+
+      <p>
+        Of all the errors you can get, syntax errors are the best. Because your browser will tell you about them right away and they're usually easy to fix.
+      </p>
+
+      <p>
+        The first thing you should do when running your code in a browser is open up your developer tools. In Chrome, type <kbd><kbd>cmd</kbd> + <kbd>opt</kbd> + <kbd>J</kbd></kbd> to open up your JS console.
+      </p>
+
+      <p>
+        <img src="images/syntax-error.png" alt="syntax error" class="img-responsive" />
+      </p>
+
+      <p>
+        If you see a red circle with an "x" through it, your program probably won't run. Chrome does report other errors here too (like missing images). Click on the red circle and you'll see what errors have been logged.
+      </p>
+
+      <p>
+        The error message in this case, isn't super helpful. It tells me that the browser encountered an error when it got to a particular <code>:</code> in my code. But it doesn't tell me how to fix it. What's perhaps more useful is that it tells me where it encountered the error: "piano.html:8". The number after the colon is the line number where the error occurred. 90% of the time, the syntax error you've made is on that line or very close to it.
+      </p>
+
+      <p>
+        Syntax errors are usually pretty easy to spot. Practice good indentation to spot them more easily and avoid mistakes.
+      </p>
+
+      <script src="https://gist.github.com/avand/713852d7fc638cc2d57a7d1dac93655a.js"></script>
+
+      <p>
+        If you were missing a closing <code>}</code> in the first case, it would be hard to spot.
+      </p>
+
+      <h3>Type Errors</h3>
+
+      <p>
+        Beyond <code>SyntaxError</code>s there are a lots other kinds of errors in JS but <code>TypeError</code>s happen enough that they are worth exploring.
+      </p>
+
+      <p>
+        Consider the following program:
+      </p>
+
+      <script src="https://gist.github.com/avand/9a0f9446060921838110df4b9e5aef27.js"></script>
+
+      <p>
+        If you're paying close attention, you should realize that this program won't run. But if everything looks OK to you, you're going to be frustrated to realize that when you click the button nothing happens! You could spend a long time looking at the code, Googling for answers, asking your friends, and perhaps even questioning your own sanity.
+      </p>
+
+      <p>
+        There's a better way! Open your developer tools and you'll see what's happening instantly:
+      </p>
+
+      <p>
+        <img src="images/type-error.png" class="img-responsive">
+      </p>
+
+      <p>
+        Now, you have a clue: "Cannot read property 'addEventListener' of null." Let's decipher this message. First, the error happens on line 6. So we can focus our attention there. Now, remember, that "." in code translates to possession in English. For example, <code>user.name</code> translates to "the user's name" or "the name <em>of</em> the user." That's your next clue. Because the browser is attempting to call <code>button.addEventListener()</code>, which means "call addEventListener of button." Look familiar? The error mentions "addEventListener of null." That must mean that <code>button</code> is null. How could that be? What does <code>document.querySelector()</code> return when it doesn't find a matching element? <code>null</code>! If you had made a mistake typing <code>document.querySelector()</code> you would have gotten an error on line 4 so the issue has to be with your selector.
+      </p>
+
+      <h3>The Console</h3>
+
+      <p>
+        After a little practice you'll realize that you'll see fewer and fewer type errors and syntax errors. But that doesn't mean you'll be writing working programs. You'll still have to deal with programs not doing what you expect. This can be <em>very</em> frustrating. At least when you see an error you have a clue what to fix.
+      </p>
+
+      <p>
+        The key to solving these problems is to start with an <em class="vocab">assertion</em>. An good assertion is something like, "when I click this button, I expect to see a new div appear on the page." A bad assertion is something like, "it should work." Often an assertion can even be, "when I click this button, I should see an error." Knowing how to use to the console can help you make assertions.
+      </p>
+
+      <p>
+        Here's a bit of code that attempts to solve the "Like" portion of the <a href="../../assignments/3-likes-and-comments.html">Likes &amp; Comments</a> assignment:
+      </p>
+
+      <script src="https://gist.github.com/avand/7032ee9fddd232e43a045553759e62a4.js"></script>
+
+      <p>
+        Sadly, this code does not increment the like count. But it's so close! In order to figure out why this program doesn't work, we need some to make some assertions. Let's think through a few.
+      </p>
+
+      <h4>Do the variables point to the right elements?</h4>
+
+      <p>
+        Well, if they pointed to non-existent elements <code>document.querySelector()</code> would have returned <code>null</code>. Then, on line 4 or 5, you'd get a <code>TypeError</code>, just like in the example in the previous section.
+      </p>
+
+      <p>
+        Maybe we're querying the <em>wrong</em> element? A simple way to check that is to hop over to your console, type the variable's name, and hit enter. You should see an element printed to the console and, when you hover over it, you should also see the element in the document.
+      </p>
+
+      <p>
+        <img src="images/like-link.png" class="img-responsive" />
+      </p>
+
+      <p>
+        If all looks good, let's make another assertion.
+      </p>
+
+      <h4>Is the event listener working?</h4>
+
+      <p>
+        Assuming our first assertion passed, meaning the variables are what we expect them to be, there could be an issue with our event handler. Does the function we specified get called when the link is clicked?
+      </p>
+
+      <p>
+        To find this out, let's add a <code>console.log()</code> statement to our code:
+      </p>
+
+      <script src="https://gist.github.com/avand/0efd33db6766063ece8b4df48776aebe.js"></script>
+
+      <p>
+        Like <code>document</code>, <code>console</code> is a special built-in object that you can use to write messages to, you guessed it, the console! <code>log()</code> is perhaps the most common method although you can also call <code>error()</code> or <code>warn()</code> depending on the severity of the message you want to output.
+      </p>
+
+      <p>
+        You can pass pretty much anything to <code>console.log()</code>. In this case, we just pass a string <code>"hello?"</code>. So when I run this program and click the button, I better see that message in the console.
+      </p>
+
+      <p>
+        <img src="images/console-log.png" class="img-responsive">
+      </p>
+
+      <p>
+        So our event listener is working. Looks like we need another assertion.
+      </p>
+
+      <h4>
+        Do the variables have the correct values?
+      </h4>
+
+      <p>
+        In this example, <code>count</code>, declared within the <code>like()</code> event handler function should start with a value of <code>0</code>. Not <code>"0"</code>, because we're using <code>parseInt()</code>. But let's make sure that's what's happening.
+      </p>
+
+      <script src="https://gist.github.com/avand/67a7cb8417fea2959abc3984b2139405.js"></script>
+
+      <p>
+        Notice that <code>console.log()</code> can take any number of parameters. So you can log the name of the variable, <code>"count"</code> and the value at once.
+      </p>
+
+      <p>
+        <img src="images/console-log-multiple-params.png" class="img-responsive">
+      </p>
+
+      <p>
+        So far, everything checks out. To solve this problem, we'll explore one more tool to help us figure out what's wrong with this program.
+      </p>
+
+      <h3>The Debugger</h3>
+
+      <p>
+        When you're dealing with anything but the most trivial of programs, it becomes necessary to see what's happening at a particular moment. The debugger allows us to "freeze" the program on any line we wish. Whenever the program passes that line, it will pause and let you explore the state of that program at that time.
+      </p>
+
+      <p>
+        Continuing with the previous example, let's see what's going on inside our event handler, when someone clicks on the "Like" link. Simply add <code>debugger</code> wherever you wish to pause the program.
+      </p>
+
+      <script src="https://gist.github.com/avand/a851748053dc7304167e656b51ea758d.js"></script>
+
+      <p>
+        Now, when you load the page, nothing special happens. Because we haven't executed that line of code yet. That line is within an event handler function, so we have to call it by triggering the event. Click on the "Like" link and the program will pause when it hits that <code>debugger</code> statement.
+      </p>
+
+      <p>
+        <img src="images/debugger.gif" class="img-responsive">
+      </p>
+
+      <p>
+        Now, we can switch to the Console tab and see what the deal is with our <code>count</code> variable. Let's make one final assertion: <code>count++</code> should give <code>1</code> (0 + 1). But that isn't what we get. <code>count++</code> is incrementing the variable but before it does that it returns the <em>old</em> value. That's just a quirk of the <code>++</code> operator. So, instead of doing that, let's just change the code to be <code>count + 1</code>. Voilà!
+      </p>
+
+      <h2 id="todo-list-csv">Todo List w/ Comma Separated Values</h2>
+
+      <p>
+        By now, you should have a working version of the <a href="../../assignments/4-todo-list.html">Todo List</a>. Let's add a hidden feature to this program to make it easier to add multiple items at once.
+      </p>
+
+      <p>
+        When someone enters "milk, cookies" let's have the program automatically add two todo items to the list. This feature isn't without some downside. If someone tries to type "Finish homework due Jan 1st, 2016" then you'll mistakenly add "2016" as a separate item. Let's accept that as a downside for the sake of practice.
+      </p>
+
+      <p>
+        To do this you need to know about two complementary functions, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join" target="_blank"><code>Array#join()</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split"><code>String#split()</code></a>. (This notation simply means, for example, that we're talking about the <code>split()</code> function that is available on all strings.)
+      </p>
+
+      <script src="https://gist.github.com/avand/fc52613a0acac126e93e37585576a207.js"></script>
+
+      <div class="you-do">
+        <p>
+          Modify your todo list to allow for comma separated values. When you type "milk, cookies" and hit enter, you should end up with two items on the list, "milk" and "cookies".
+        </p>
+      </div>
+
+      <h2 id="js-quiz">JS Quiz</h2>
+
+      <h3>Set 1</h3>
+      <script src="https://gist.github.com/avand/d63bdc1e3a239b732bee33101e34017f.js"></script>
+
+      <h3>Set 2</h3>
+      <script src="https://gist.github.com/avand/42715b4b0edaecc6c9ceb9c9406fd877.js"></script>
+
+      <h3>Set 3</h3>
+      <script src="https://gist.github.com/avand/b851063b06e7532393390f206d3b4ec5.js"></script>
+    </main>
+
+    <script src="../../../js/tracking.js"></script>
+  </body>
+</html>

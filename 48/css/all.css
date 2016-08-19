@@ -1,0 +1,67 @@
+@import 'vendor/sprinkles-2.0.0.min.css';
+@import 'asides.css';
+@import 'headings.css';
+@import 'images.css';
+@import 'links.css';
+
+body {
+  padding-top: 70px;
+  background-color: hsl(47, 100%, 97%);
+}
+
+main {
+  font-family: "Georgia", serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+pre,
+.gist,
+.table {
+  clear: both;
+  margin: 2em 0;
+  max-width: 700px;
+}
+
+main p {
+  max-width: 600px;
+}
+
+code {
+  font-size: 0.75em;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.table {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+.table th,
+.table td {
+  padding: 4px !important;
+}
+
+.vocab {
+  font-size: 1.2em;
+  position: relative;
+  top: .05em;
+}
+
+.you-do {
+  padding: 1em;
+  border-left: 5px solid green;
+  margin: 3em 0;
+  font-size: 1.25em;
+}
+
+.you-do::before {
+  content: "Your turn";
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  text-transform: uppercase;
+  display: block;
+  font-size: 0.6em;
+  letter-spacing: 1px;
+  margin-bottom: 0.8em;
+  font-weight: 600;
+  color: green;
+}
