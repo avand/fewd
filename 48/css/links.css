@@ -1,6 +1,6 @@
-main a { color: hsl(120, 100%, 30%); }
-main a:hover { color: hsl(120, 100%, 35%); }
-main a:visited { color: hsl(190, 100%, 30%); }
+main a { color: hsl(180, 100%, 30%); }
+main a:hover { color: hsl(180, 100%, 35%); }
+main a:visited { color: hsl(200, 100%, 30%); }
 
 main a {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
