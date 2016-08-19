@@ -6,18 +6,18 @@
 
 body {
   padding-top: 70px;
-  background-color: hsl(47, 100%, 97%);
+  background-color: hsl(50, 100%, 98%);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 main {
-  font-family: "Georgia", serif;
   font-size: 16px;
   line-height: 1.6;
 }
 
-pre,
-.gist,
-.table {
+.lecture pre,
+.lecture .gist,
+.lecture .table {
   clear: both;
   margin: 2em 0;
   max-width: 700px;
