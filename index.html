@@ -7,7 +7,11 @@
       body {
         font: 14px/20px "Helvetica Neue", Helvetica, sans-serif;
         max-width: 600px;
-        margin: 0 auto;
+        margin: 40px auto;
+      }
+      h1 {
+        text-align: center;
+        margin: 2em 0 1.5em 0;
       }
       .cohorts {
         list-style: none;
@@ -18,17 +22,21 @@
         display: inline;
       }
       .cohort {
-        border: 2px solid rgb(225, 225, 225);
+        border: 2px solid rgba(0, 0, 0, 0.1);
         display: block;
-        padding: .5em;
+        padding: .5em 1em;
         margin-bottom: 1em;
         text-decoration: none;
+        border-radius: 5px;
       }
       .cohort:hover {
-        border-color: blue;
+        border-color: rgba(0, 0, 0, 0.2);
       }
       .cohort-current {
-        border-color: rgb(150, 150, 150);
+        border-color: rgba(20, 123, 189, 0.5);
+      }
+      .cohort-current:hover {
+        border-color: rgba(20, 123, 189, 1);
       }
       .cohort-name {
         text-decoration: underline;
@@ -41,17 +49,19 @@
       }
       .cohort-label {
         float: right;
-        background-color: rgb(150, 150, 150);
+        background-color: rgba(20, 189, 47, 0.5);
         color: white;
-        padding: 0 .5em;
+        padding: .1em .6em;
         text-transform: uppercase;
-        font-size: .8em;
+        font-size: .7em;
+        line-height: 1.6em;
+        border-radius: 3px;
       }
     </style>
     <meta name="google-site-verification" content="lfTB8bRnqK8x3gRIgyarAuyMeoV5Bl1g9yeCsGC8lXU" />
   </head>
   <body>
-    <h1>Avand’s Front-end Web Development</h1>
+    <h1>Avand’s Front-End Web Development</h1>
 
     <p>
       Hey there! You’ve just stumbled upon Avand’s front-end web development
@@ -74,8 +84,14 @@
 
     <ul class="cohorts">
       <li>
-        <a href="46" class="cohort cohort-current">
-          <div class="cohort-label">In progress</div>
+        <a href="48" class="cohort cohort-current">
+          <div class="cohort-label">Upcoming</div>
+          <div class="cohort-name">Section 48</div>
+          <div class="cohort-info">Aug 23rd, 2016 - Oct 27th, 2016</div>
+        </a>
+      </li>
+      <li>
+        <a href="46" class="cohort">
           <div class="cohort-name">Section 46</div>
           <div class="cohort-info">May 25th, 2016 - Aug 8th, 2016</div>
         </a>
@@ -116,6 +132,10 @@
     </p>
 
     <ul>
+      <li>
+        <a href="46/roster.html">Section 46 Final Projects</a>: Click on the
+        green checkmark in the far right column to see each student’s project.
+      </li>
       <li>
         <a href="37">Section 37 Final Projects</a>: Scroll down and follow the
         links under the "Final Project" column on the right for each student.
