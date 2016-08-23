@@ -7,11 +7,16 @@
       body {
         font: 14px/20px "Helvetica Neue", Helvetica, sans-serif;
         max-width: 600px;
-        margin: 40px auto;
+        margin: 20px auto;
+      }
+      .logo {
+        display: block;
+        margin: 0 auto;
+        animation: heartbeat 1.8s infinite;
       }
       h1 {
         text-align: center;
-        margin: 2em 0 1.5em 0;
+        margin: 20px 0 1.5em 0;
       }
       .cohorts {
         list-style: none;
@@ -57,10 +62,16 @@
         line-height: 1.6em;
         border-radius: 3px;
       }
+      @keyframes heartbeat {
+        0%, 60%, 80%, 100% { transform: scale(1); }
+        70%, 90% { transform: scale(1.05); }
+      }
     </style>
     <meta name="google-site-verification" content="lfTB8bRnqK8x3gRIgyarAuyMeoV5Bl1g9yeCsGC8lXU" />
   </head>
   <body>
+    <img src="images/ga.jpg" alt="General Assembly" width="100" class="logo">
+
     <h1>Avand’s Front-End Web Development</h1>
 
     <p>
