@@ -15,48 +15,29 @@
   <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-  <style media="screen">
-    i { color: #d4d4d4; padding: 0 0.2em; }
-    a i { color: inherit; }
-    h4 { margin-top: 2em; }
-    .truncate {
-      display: inline-block;
-      width: 50px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+  <style>
+    .team-member {
+      overflow: auto;
+      min-width: 300px;
+      float: left;
+      margin-bottom: 20px;
+      margin-right: 10px;
     }
-    .date {
-      float: right;
-      opacity: 0.5;
+    .team-member img {
+      width: 80px;
+      float: left;
+      margin-right: 10px;
+      border-radius: 10px;
     }
-    .info {
-      margin-bottom: .5em;
+    .team-member div {
+      line-height: 24px;
     }
-    .info:not(:last-of-type) {
-      padding-bottom: .25em;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    }
-    .calendar strong {
-      background-color: rgba(255, 255, 0, 0.4);
-    }
-    .today {
-      background-color: rgba(0, 0, 0, 0.05);
-    }
-    .info.hw {
-      background-color: rgba(0, 255, 0, 0.12);
+    .team-member-name {
+      font-size: 1.1em;
       font-weight: 500;
-      padding: 0.1em;
-      text-align: center;
-      border-radius: 4px;
-      border: 1px solid rgba(0, 0, 0, 0.2);
     }
-    .info.hw a {
-      color: inherit;
-      text-decoration: underline;
-    }
-    .info.hw a:hover {
-      text-decoration: none;
+    .team-member-info {
+      font-size: 0.8em;
     }
   </style>
 </head>
@@ -64,7 +45,9 @@
   <nav><script>$("nav").load("partials/navigation.html");</script></nav>
 
   <div class="container content">
-    <h1>Course details</h1>
+    <h1>Front-End Web Development 48</h1>
+
+    <h2>Calendar</h2>
 
     <p>
       June 14th - August 18th, 2016<br>
@@ -73,14 +56,47 @@
 
     <p>
       <strong>Study halls</strong>:<br>
-      Tuesdays &amp; Thursdays, 5:00 - 6:30<br>
+      Tuesdays &amp; Thursdays, 5:30 - 6:30<br>
     </p>
 
-    <p>
-      <strong>Contacts</strong>:<br>
-      Avand Amiri, Instructor (<a href="mailto:avand@avandamiri.com">avand@avandamiri.com</a>)<br>
-      Evan Ponchick, Producer (<a href="mailto:evan@generalassemb.ly">evan@generalassemb.ly</a>)
-    </p>
+    <h2>Instructional Team</h2>
+
+    <div class="team-member">
+      <img src="images/evan.jpg">
+      <div class="team-member-name">Evan Ponchick</div>
+      <div class="team-member-role">Course Producer</div>
+    </div>
+
+    <div class="team-member">
+      <img src="images/avand.jpeg">
+      <div class="team-member-name">Avand Amiri</div>
+      <div class="team-member-role">Instructor</div>
+    </div>
+
+    <div class="team-member">
+      <img src="images/sean.jpeg">
+      <div class="team-member-name">Xiao “Sean” Wu</div>
+      <div class="team-member-role">Teacher Assistant</div>
+    </div>
+
+    <div class="team-member">
+      <img src="images/heather.jpeg">
+      <div class="team-member-name">Heather Stenson</div>
+      <div class="team-member-role">Teacher Assistant</div>
+    </div>
+
+    <div class="team-member">
+      <img src="images/emily.jpg">
+      <div class="team-member-name">Emily Anne Moses</div>
+      <div class="team-member-role">Volunteer TA</div>
+    </div>
+
+    <hr style="clear: both;">
+
+    <a href="https://fewd48.slack.com/" class="button" target="_blank">Slack</a>&nbsp;&nbsp;
+    <a href="calendar.html" class="button">Full calendar</a>
+
+    <br><br>
   <div>
 
   <script src="../js/tracking.js"></script>

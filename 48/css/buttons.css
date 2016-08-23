@@ -1,0 +1,8 @@
+a.button {
+  color: white;
+  background-color: hsl(180, 100%, 30%);
+  display: inline-block;
+  padding: 0.6em 0.8em;
+  border-radius: 5px;
+  font-weight: 500;
+}

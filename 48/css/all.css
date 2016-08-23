@@ -3,6 +3,7 @@
 @import 'headings.css';
 @import 'images.css';
 @import 'links.css';
+@import 'buttons.css';
 
 body {
   padding-top: 50px;
