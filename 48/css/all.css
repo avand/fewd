@@ -16,12 +16,11 @@ main {
   line-height: 1.6;
 }
 
-.lecture pre,
-.lecture .gist,
-.lecture .table,
-.lecture ul,
-.lecture ol {
-  clear: both;
+.lecture > pre,
+.lecture > .gist,
+.lecture > .table,
+.lecture > ul,
+.lecture > ol {
   margin: 2em 0;
   max-width: 700px;
 }
