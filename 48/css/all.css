@@ -18,7 +18,9 @@ main {
 
 .lecture pre,
 .lecture .gist,
-.lecture .table {
+.lecture .table,
+.lecture ul,
+.lecture ol {
   clear: both;
   margin: 2em 0;
   max-width: 700px;
