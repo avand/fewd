@@ -1,5 +1,1 @@
-.bundle
-*.sqlite3
-*.sqlite3-journal
-log/*.log
-tmp
+*.DS_Store
