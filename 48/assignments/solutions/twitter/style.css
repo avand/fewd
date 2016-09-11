@@ -1,0 +1,166 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #f1f0f5;
+  font-family: sans-serif;
+  font-size: 18px;
+  line-height: 1.4em;
+}
+
+.inline-list {
+  padding: 0;
+}
+.inline-list li {
+  display: inline;
+}
+
+header {
+  padding: 0 20px;
+  color: white;
+  background-image: linear-gradient(0deg, rgb(7, 148, 88), rgb(38, 196, 129));
+  overflow: auto;
+}
+
+header h1 {
+  float: left;
+  font-size: 1.5em;
+}
+
+header ul {
+  text-align: right;
+}
+
+.button {
+  font-size: 0.8em;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  background: rgb(6, 148, 86);
+  border: none;
+  border-radius: .3em;
+  padding: .5em .9em;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom-width: 2px;
+  cursor: pointer;
+}
+
+.char-count-container {
+  position: relative;
+}
+
+.char-count {
+  position: absolute;
+  bottom: 6px;
+  right: 10px;
+  font-size: 0.6em;
+  font-weight: bold;
+}
+
+.tweets {
+  margin: 0;
+  padding: 0;
+}
+
+.tweet:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+}
+
+main {
+  margin: 2em auto;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  background: white;
+  padding: 1.5em 1.8em;
+  max-width: 800px;
+  border-radius: 5px;
+}
+
+.tweet {
+  display: flex;
+}
+.tweet-avatar img {
+  border-radius: 5px;
+}
+.tweet-text {
+  flex-grow: 3;
+  margin-left: 10px;
+}
+
+textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: .8em;
+  padding: .8em;
+}
+
+.tweet-actions {
+  font-size: 0.8em;
+}
+.tweet-actions a {
+  color: rgb(6, 148, 86);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.like-count {
+  opacity: 0.3;
+}
+
+label {
+  cursor: pointer;
+}
+
+.buttonish {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom-width: 2px;
+  border-radius: 5px; font-size: inherit;
+  padding: .5em 1em;
+  cursor: pointer;
+}
+
+#new-item-input {
+  width: 70%;
+}
+
+button {
+  color: white;
+  width: 28%;
+  background-color: #049cd8;
+}
+
+#todo-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#todo-list li {
+  margin-top: 0.75em;
+  padding-top: 0.75em;
+}
+
+input[type="checkbox"] {
+  margin-right: 1em;
+}
+input:checked + span {
+  opacity: 0.2;
+  text-decoration: line-through;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.7em;
+}
+footer li {
+  margin: 0 1em;
+}
+footer a {
+  color: rgb(180, 180, 180);
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
