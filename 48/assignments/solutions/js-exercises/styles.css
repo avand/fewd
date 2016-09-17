@@ -1,0 +1,23 @@
+h1 { font-size: 1.2em; }
+h2 { font-size: 1.1em; }
+body {
+  font-family: arial;
+  font-size: 20px;
+}
+input {
+  font-size: inherit;
+  font-family: inherit;
+}
+.times-table th,
+.times-table td {
+  width: 50px;
+  padding: 5px;
+}
+.times-table input {
+  width: 100%;
+  text-align: center;
+}
+label {
+  display: block;
+  margin-bottom: 1em;
+}
