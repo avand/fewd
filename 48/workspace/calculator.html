@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css" media="screen" title="no title">
+  </head>
+  <body>
+    <p>
+      Calculator
+    </p>
+
+    <form class="" action="index.html" method="post">
+      <input type="text" value="15" class="num-1"> +
+      <input type="text" value="16" class="num-2"> =
+      <input type="text" class="result" disabled><br>
+      <button type="submit">Add</button>
+    </form>
+
+    <script type="text/javascript">
+    var a = document.querySelector(".num-1");
+    var b = document.querySelector(".num-2");
+    var c = document.querySelector(".result");
+
+    var n = a.value;
+    var m = b.value;
+
+    n = parseInt(n);
+    m = parseInt(m);
+
+    c.value = n + m;
+    </script>
+  </body>
+</html>
