@@ -39,5 +39,29 @@ parent.appendChild(newChild);
 // Do whatever else you want to the child...
 ```
 
-* Set/get attributes of an element
-* Add/remove classes from an alement
+### Set/get attributes of an element
+
+```
+// Get the element (or create it!)
+var el = document.querySelector("img");
+
+// Get the current value of the src attribute
+var currentSrc = el.getAttribute("src");
+
+// Set the value of the src attribute
+el.setAttribute("src", "path/to/image.jpg")
+```
+
+### Add/remove classes from an alement
+
+```
+// Get the element (or create it!)
+var el = document.querySelector("a");
+
+// Add a class to the element
+el.classList.add("button");
+el.classList.add("button-danger");
+
+// Remove a class from the element
+el.classList.remove("button-danger");
+```
