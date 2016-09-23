@@ -12,8 +12,7 @@ function like(event) {
   event.preventDefault();
 
   var count = parseInt(likeCount.textContent)
-  debugger
-  likeCount.textContent = count++;
+  likeCount.textContent = count + 1;
 }
 
 function createComment(event) {
