@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Text Content</title>
+  </head>
+  <body>
+    <p>
+      Goodbye
+    </p>
+
+    <ul>
+      <li>Milk</li>
+    </ul>
+
+    <script type="text/javascript">
+    // Change text content
+    var p = document.querySelector("p");
+    console.log(p.textContent);
+    p.textContent = "Goodbye";
+
+    // Add an element
+    var li = document.createElement("li");
+    var ul = document.querySelector("ul");
+    ul.appendChild(li);
+    li.textContent = "🍪🍪🍪🍪"
+
+    // Add an image (with attributes)
+    var url = "https://s-media-cache-ak0.pinimg.com/236x/5e/40/0e/5e400ef29fa117b28f1ef5bd224732be.jpg"
+    var img = document.createElement("img");
+    img.setAttribute("src", url);
+    img.setAttribute("width", "500");
+    img.setAttribute("alt", "Laser cat");
+    var body = document.querySelector("body");
+    body.appendChild(img);
+    // Create the img element
+    // Set the src of the img to url
+    // Append the img to the page
+    </script>
+  </body>
+</html>
