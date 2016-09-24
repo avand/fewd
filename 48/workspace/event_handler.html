@@ -1,0 +1,86 @@
+<ul>
+  <li class="milk">Milk</li>
+  <li class="cookies">Cookies</li>
+</ul>
+
+<script>
+var milk = document.querySelector(".milk");
+var cookies = document.querySelector(".cookies");
+
+function consume(event) {
+  event.preventDefault();
+
+  console.log("delicious!");
+}
+
+milk.addEventListener("click", consume);
+cookies.addEventListener("click", consume);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+
+<a href="http://google.com">Click me!</a>
+
+<button>Click</button>
+
+<form action="http://google.com">
+  <input type="text" name="first-name">
+  <input type="submit" value="Save Changes">
+</form>
+
+<script>
+
+var button = document.querySelector("button");
+
+button.addEventListener("click", handleButtonClick)
+
+function handleButtonClick(event) {
+  console.log(event)
+}
+
+var form = document.querySelector("form");
+
+form.addEventListener("submit", handleFormSubmit);
+
+function handleFormSubmit(foo) {
+  console.log(foo);
+}
+
+var a = document.querySelector("a");
+
+a.addEventListener("click", handleLinkClick);
+
+function handleLinkClick(event) {
+  event.preventDefault();
+
+  console.log(event);
+}
+
+
+
+function handleSomething(event) {
+  event.preventDefault();
+}
+
+
+</script>
