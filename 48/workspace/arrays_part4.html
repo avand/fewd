@@ -1,0 +1,55 @@
+<h1>Practice with Arrays</h1>
+
+<p>
+  Instructions:
+</p>
+
+<ul>
+  Take the textContent of the div with the ID students, split it on a comma.
+  Then sort the resulting array. Then loop through the each student name and
+  add their name to the ordered list below. Finally put the total number of
+  students where the total appears. Do all of this when the button is
+  clicked.
+</ul>
+
+<hr>
+
+<p>
+  <strong>Student names:</strong>
+  <span id="students">Yaphet,Kelsey,Kat,Alex,Kirstin,David,Gian,Marcelo,Pablo,Michael,Mason,Lucas,Steve,Amanda,Tim,Aislinn</span>
+</p>
+
+<p>
+  Total students: <span id="count" style="font-weight: bold">0</span>
+</p>
+
+<ol>
+</ol>
+
+<button>
+  Role call!
+</button>
+
+<script>
+document.querySelector("button").addEventListener("click", roleCall);
+
+function roleCall(event) {
+  event.preventDefault();
+
+  var students = document.querySelector("#students").textContent.split(",");
+
+  students = students.sort();
+
+  for (var i = 0; i < students.length; i++) {
+    addStudent(students[i]);
+  }
+
+  document.querySelector("#count").textContent = students.length;
+}
+
+function addStudent(student) {
+  var li = document.createElement("li");
+  li.textContent = student;
+  document.querySelector("ol").appendChild(li);
+}
+</script>
