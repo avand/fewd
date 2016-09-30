@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Todo List Assignment, FEWD 48</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/all.css" media="screen" charset="utf-8">
+    <link rel="shortcut icon" type="image/x-icon" href="https://ga-shop-production-herokuapp-com.global.ssl.fastly.net/assets/images/favicon_1gyC3.ico" />
+    <link rel="apple-touch-icon" type="image/png" href="https://ga-shop-production-herokuapp-com.global.ssl.fastly.net/assets/images/apple-touch-icon_Zb6Ub.png" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <nav><script>$("nav").load("../partials/navigation.html");</script></nav>
+
+    <main class="container">
+      <h1>Todo List</h1>
+
+      <p>
+        A picture is worth a thousand words...
+      </p>
+
+      <p>
+        <img src="assets/todo-list/todo-list.gif" class="img-responsive">
+      </p>
+
+      <p>
+        Let's break it down.
+      </p>
+
+      <h2>Start with HTML and CSS</h2>
+
+      <p>
+        For this assignment you'll be starting from scratch to force you to keep your CSS
+        skills sharp. Don't even touch the JS until you've got the UI built. Put some todos on the page
+        with HTML and use an <code>&lt;input type="checkbox"&gt;</code> to make them checkable.
+        This is a great chance to use a label and some advanced to CSS to create the desired affect.
+        I would recommend the following markup for each todo:
+      </p>
+
+      <script src="https://gist.github.com/avand/7b7f39f41856efbdef8dd9c41873c40d.js"></script>
+
+      <p>
+        That extra <code>&lt;span&gt;</code> allows you to do something clever.
+        Use the <code>:checked</code> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes" target="_blank">pseudo-class</a>
+        and the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Adjacent_sibling_selectors" target="_blank">adjacent sibling selector</a> to
+        cross out checked items:
+      </p>
+
+      <script src="https://gist.github.com/avand/fa49dbdeadcda5dc3094ce8fd72215b1.js"></script>
+
+      <p>
+        Don't get too hung up on this. It's fine if checking an item doesn't cross it out.
+      </p>
+
+      <h2>JavaScript</h2>
+
+      <p>
+        Once you know exactly what the markup for each todo looks like, you should probably
+        write a function that can make one and append it to the page—I don't know, maybe you call it
+        <code>addTodo()</code> and pass in the text you want to appear. The function isn't
+        entirely necessary but start by writing the code that makes a todo appear and work your way backwards.
+      </p>
+
+      <p>
+        When the todo list form is submitted:
+      </p>
+
+      <ol>
+        <li>
+          Remove the element that says "Nothing to do". Can you think of how to do this?
+          Think about what CSS property you can set that makes something disappear. Can you apply
+          that rule via CSS?
+        </li>
+        <li>
+          Run the code that makes a todo, using the input's value as the <code>textContent</code>.
+          Nothing new here!
+        </li>
+        <li>
+          Update the number of total todos in the upper right. You can do this a few ways so I'll
+          let you solve this problem on your own too.
+        </li>
+      </ol>
+    </main>
+
+    <script src="../../js/tracking.js"></script>
+  </body>
+</html>

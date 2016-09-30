@@ -7,13 +7,25 @@
   </head>
   <body>
     <main>
+      <div class="todo-count">
+        0 todos
+      </div>
+
+      <h1>
+        Today’s Todos
+      </h1>
+
       <form id="new-item-form">
-        <input type="text" id="new-item-input" class="buttonish" placeholder="What do you need to do today?" autofocus required>
-        <button class="buttonish" type="submit">Create</button>
+        <input autocomplete="off" type="text" id="new-item-input" class="input" placeholder="What do you need to do today?" autofocus required>
+        <button id="new-item-button" class="button" type="submit">Create</button>
       </form>
 
       <ul id="todo-list">
       </ul>
+
+      <div class="no-todos">
+        Nothing to do
+      </div>
     </main>
 
     <script type="text/javascript" src="script.js"></script>
