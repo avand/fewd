@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Movie Favorites</title>
+    <link rel="stylesheet" href="styles.css" media="screen">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <h1>
+      My Favorite Movies
+    </h1>
+
+    <p>
+      Click on a movie to see the details.
+    </p>
+
+    <div class="container">
+      <table>
+        <tr>
+          <th>Title</th>
+          <td id="movie-title"></td>
+        </tr>
+        <tr>
+          <th>Year</th>
+          <td id="movie-year"></td>
+        </tr>
+        <tr>
+          <th>Rating</th>
+          <td id="movie-rating"></td>
+        </tr>
+        <tr>
+          <th>Runtime</th>
+          <td id="movie-runtime"></td>
+        </tr>
+        <tr>
+          <th>Plot</th>
+          <td id="movie-plot"></td>
+        </tr>
+      </table>
+
+      <ul>
+        <li>
+          <img src="images/cool-runnings.jpg" class="poster" id="tt0106611">
+        </li>
+        <li>
+          <img src="images/terminator-2.jpg" class="poster" id="tt0103064">
+        </li>
+        <li>
+          <img src="images/interstellar.jpg" class="poster" id="tt0816692">
+        </li>
+        <li>
+          <img src="images/aladdin.jpg" class="poster" id="tt0103639">
+        </li>
+        <li>
+          <img src="images/indiana-jones.jpg" class="poster" id="tt0087469">
+        </li>
+      </ul>
+    </div>
+
+    <script>
+    $(".poster").click(function(event) {
+      var url = "http://omdbapi.com/?i=" + event.target.id;
+      $.get(url, function(response) {
+        $("#movie-title").text(response.Title);
+        $("#movie-year").text(response.Year);
+        $("#movie-rating").text(response.Rated);
+        $("#movie-runtime").text(response.Runtime);
+        $("#movie-plot").text(response.Plot);
+      })
+    })
+    </script>
+  </body>
+</html>
