@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Movie Favorites Assignment, FEWD 48</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/all.css" media="screen" charset="utf-8">
+    <link rel="shortcut icon" type="image/x-icon" href="https://ga-shop-production-herokuapp-com.global.ssl.fastly.net/assets/images/favicon_1gyC3.ico" />
+    <link rel="apple-touch-icon" type="image/png" href="https://ga-shop-production-herokuapp-com.global.ssl.fastly.net/assets/images/apple-touch-icon_Zb6Ub.png" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <nav><script>$("nav").load("../partials/navigation.html");</script></nav>
+
+    <main class="container">
+      <h1>Movie Favorites</h1>
+
+      <h2>Video Walkthrough</h2>
+
+      <p>
+        Watch this video a couple times before getting started.
+      </p>
+
+      <video src="https://dl.dropboxusercontent.com/u/1062541/movie-favorites.mov" controls>
+      </video>
+
+      <h2>jQuery &amp; AJAX</h2>
+
+      <h3>Installing jQuery on the Page</h3>
+
+      <p>
+        When setting up your page, be sure to include jQuery. You can reference it
+        in the <code>src</code> of a <code>&lt;script&gt;</code> tag either locally
+        (download and serve it yourself) or from a CDN, like I do here:
+      </p>
+
+      <script src="https://gist.github.com/avand/c92b2d657be60b2fba9bd88877173b17.js"></script>
+
+      <h3>Making a Request and Handling the Response</h3>
+
+      <p>
+        Once jQuery is loaded, you can use it to make an HTTP request to OMDB,
+        a free movie API. Here's an example of searching for the details of
+        Aladdin:
+      </p>
+
+      <script src="https://gist.github.com/avand/a300b1a6b64aa9fd22a360ad3d8431f8.js"></script>
+
+      <p>
+        For this example, though, that won't be enough. We don't always want to
+        search for Aladdin. We want to search for whatever was clicked. There are
+        two ways to accomplish that. You could simply set up different event
+        handlers for each movie. Within each event handler you call <code>$.get()</code>
+        with the respective URL.
+      </p>
+
+      <script src="https://gist.github.com/avand/a089844416f5bc0114f24d3ea868bd32.js"></script>
+
+      <p>
+        Alternatively, you could have just <em>one</em> event handler. If you go
+        this route, you'll need to leverage <code>event.target</code> and build
+        the URL dynamically.
+      </p>
+
+      <script src="https://gist.github.com/avand/7d5f44fd6fb6ef1473e9522dd7c8e84e.js"></script>
+
+      <h2>Getting Set Up</h2>
+
+      <ol>
+        <li>Go to <a href="http://imdb.com" target="_blank">IMDB</a></li>
+        <li>Search for a few of your favorite movies</li>
+        <li>Click on the poster, right click, save as</li>
+        <li>Save the movie posters in a folder in your FEWD project dedicated to this assignment</li>
+        <li>Note the IMDB ID of each movie in the URL (e.g., tt0816692)</li>
+        <li>AJAX requests will be made to OMDB, a free movie API (example: <a href="http://omdbapi.com/?i=tt0103639" target="_blank">http://omdbapi.com/?i=tt0103639</a>)</li>
+      </ol>
+
+    <script src="../../js/tracking.js"></script>
+  </body>
+</html>
