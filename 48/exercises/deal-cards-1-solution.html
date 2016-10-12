@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Cards</title>
+    <style>
+    body {
+      background-color: #59A856;
+      font-family: sans-serif;
+    }
+
+    /* Style the cards here... */
+    .card {
+      background-color: white;
+      width: 50px;
+      height: 75px;
+      border-radius: 5px;
+      display: inline-block;
+      position: relative;
+      margin: 10px;
+      text-align: center;
+    }
+
+    .card-id {
+      text-align: center;
+      width: 25%;
+      position: absolute;
+
+    }
+
+    .card-id-top-left {
+      top: 5px;
+      left: 3px;
+    }
+
+    .card-id-bottom-right {
+      bottom: 5px;
+      right: 3px;
+      transform: rotate(180deg);
+    }
+
+    .card-value {
+      font-size: 1.2em;
+    }
+    </style>
+  </head>
+  <body>
+    <button>
+      Deal a new hand
+    </button>
+
+    <div id="board">
+
+    </div>
+
+    <script>
+    var suits = [
+      "♠️",
+      "❤️",
+      "♦️",
+      "♣️"
+    ];
+
+    var values = [
+      "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"
+    ];
+
+    var board = document.querySelector("#board");
+
+    function deal() {
+      var deck = [];
+
+      for (var i = 0; i < suits.length; i++) {
+        var suit = suits[i];
+
+        for (var j = 0; j < values.length; j++) {
+          var value = values[j];
+
+          var card = document.createElement("div");
+          card.textContent = value + " " + suit;
+          card.classList.add("card");
+
+          board.appendChild(card);
+        }
+      }
+
+      return deck;
+    }
+
+    var button =  document.querySelector("button");
+
+    button.addEventListener("click", deal);
+    </script>
+  </body>
+</html>
