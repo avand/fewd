@@ -1,0 +1,104 @@
+<h1>Cash Register</h1>
+
+<button id="hamburger" data-description="BURGER" data-price="7.99">
+  Hamburger<br>
+  $7.99
+</button>
+
+<button id="cheeseburger" data-description="BURGER W/ CHZ" data-price="8.99">
+  Cheeseburger<br>
+  $8.99
+</button>
+
+<button id="fries" data-description="FRY" data-price="3.99">
+  Fries<br>
+  $7.99
+</button>
+
+<button id="soda" data-description="FOUNTAIN" data-price="1.99">
+  Soda<br>
+  $1.99
+</button>
+
+<button id="shake" data-description="SHAKE" data-price="8.99">
+  Milke Shake<br>
+  $8.99
+</button>
+
+<button id="pie" data-description="PIE" data-price="1.99">
+  Apple Pie<br>
+  $1.99
+</button>
+
+<button id="bag" data-description="BAG" data-price="0.10">
+  Bag<br>
+  $0.10
+</button>
+
+<button id="shamrock" data-description="SHAMSHAKE" data-price="8.99">
+  Shamrock Shake<br>
+  $8.99
+</button>
+
+<h2>Receipt</h2>
+
+<table>
+  <tr>
+    <th>
+      Total
+    </td>
+    <td id="total">0</td>
+  </tr>
+  <tr id="no-items">
+    <td colspan="2">
+      No items. Press a button.
+    </td>
+  </tr>
+</table>
+
+<script>
+var buttons = document.querySelectorAll("button");
+
+for (var i = 0; i < buttons.length; i++) {
+  buttons[i].addEventListener("click", addToReceipt);
+}
+
+function addToReceipt(event) {
+  var tr = document.createElement("tr");
+  var tdValue = document.createElement("td");
+  var tdPrice = document.createElement("td");
+
+  document.querySelector("#no-items").classList.add("hidden");
+
+  tdValue.textContent = event.target.getAttribute("data-description");
+  tdPrice.textContent = event.target.getAttribute("data-price");
+
+  tr.appendChild(tdValue);
+  tr.appendChild(tdPrice);
+
+  document.querySelector("table").appendChild(tr);
+
+  var total = document.querySelector("#total");
+  total.textContent = (parseFloat(total.textContent) + parseFloat(tdPrice.textContent)).toFixed(2);
+}
+</script>
+
+<style>
+h1 { margin: 1em 0; font-size: 1.2em; }
+h2 { font-size: 1em; }
+body { font-family: sans-serif; font-size: 20px; }
+th { text-align: right; }
+th, td { border: 1px solid #ccc; padding: 1em; }
+button {
+  text-align: center;
+  background-color: rgb(241, 86, 52);
+  color: white;
+  border-radius: 5px;
+  border: 0;
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 0.5em 1em;
+}
+.hidden { display: none; }
+</style>
