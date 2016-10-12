@@ -2,6 +2,26 @@
   Array Practice
 </h1>
 
+<p>
+  There's an array of animals in this page stored in the variable <code>animals</code>.
+  If you download this page, you'll see it in the code declared like this:
+</p>
+
+<code>
+  var animals = [
+    "cow",
+    "dog",
+    "horse",
+    "moose",
+    "rooster"
+  ];
+</code>
+
+<p>
+  Add an event listener to the button that will place the values in the array
+  at each index (0-4) into the table.
+</p>
+
 <table>
   <tr>
     <th>Index</th>
@@ -40,18 +60,12 @@ var animals = [
   "rooster"
 ];
 
-var button = document.querySelector("button");
-button.addEventListener("click", function() {
-  document.querySelector(".a-0").textContent = animals[0];
-  document.querySelector(".a-1").textContent = animals[1];
-  document.querySelector(".a-2").textContent = animals[2];
-  document.querySelector(".a-3").textContent = animals[3];
-  document.querySelector(".a-4").textContent = animals[4];
-})
+// Your code goes here.
 </script>
 
 <style>
-body { font-family: sans-serif; font-size: 20px; }
+body { font-family: sans-serif; font-size: 18px; }
+table { margin: 1em 0; }
 th { text-align: left; }
 th, td { border: 1px solid #ccc; padding: 1em; }
 </style>

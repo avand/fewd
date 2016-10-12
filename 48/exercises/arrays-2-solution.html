@@ -44,31 +44,19 @@ var students = [
   "Aislinn"
 ];
 
-function foo(){
-  for (var i = 0; i < array.length; i++) {
-    array[i]
-  }
-}
-
-function foo2(){}
-
-students.sort();
-
 document.querySelector("button").addEventListener("click", roleCall);
 
 function roleCall(event) {
   event.preventDefault();
 
+  students.sort();
+
   for (var i = 0; i < students.length; i++) {
-    addStudent(students[i]);
+    var li = document.createElement("li");
+    li.textContent = students[i];
+    document.querySelector("ol").appendChild(li);
   }
 
   document.querySelector("#count").textContent = students.length;
-}
-
-function addStudent(student) {
-  var li = document.createElement("li");
-  li.textContent = student;
-  document.querySelector("ol").appendChild(li);
 }
 </script>
