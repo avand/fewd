@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Challenges, FEWD 48</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/all.css" media="screen" charset="utf-8">
+    <link rel="shortcut icon" type="image/x-icon" href="https://ga-shop-production-herokuapp-com.global.ssl.fastly.net/assets/images/favicon_1gyC3.ico" />
+    <link rel="apple-touch-icon" type="image/png" href="https://ga-shop-production-herokuapp-com.global.ssl.fastly.net/assets/images/apple-touch-icon_Zb6Ub.png" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <nav><script>$("nav").load("../partials/navigation.html");</script></nav>
+
+    <main class="container">
+      <h1>Challenges</h1>
+
+      <table class="table" id="challenges">
+      </table>
+    </main>
+
+    <script src="../../js/tracking.js"></script>
+
+    <script>
+    var challenges = [
+      {
+        name: "Arrays 1: Animals",
+        difficulty: "Easy",
+        description: "Put the values of an array of animals on the page."
+      },
+      {
+        name: "Arrays 2: Role Call",
+        difficulty: "Easy",
+        description: "Loop through an array of student names and add them to a list on the page."
+      },
+      {
+        name: "Arrays 3: Role Call with Split",
+        difficulty: "Easy",
+        description: "Just like Arrays 2, but this time, use content from the page to build the array of students."
+      },
+      {
+        name: "Deal Cards 1",
+        difficulty: "Medium",
+        description: "Loop through one array of suits, then (within that loop) loop through an array of card values (e.g. 2, 3, 4). Build cards within the nested loop and add them to the board."
+      },
+      {
+        name: "Cash Register 1",
+        difficulty: "Easy",
+        description: "Grab a bunch of items from a receipt. Loop through them and sum up the total."
+      },
+      {
+        name: "Cash Register 2",
+        difficulty: "Medium",
+        description: "Using buttons on the page, add items to a receipt and calculate the total."
+      },
+      {
+        name: "Spreadsheet",
+        difficulty: "Hard",
+        description: "Make it possible to add rows and columns to a spreadsheet. Cells are editable with <code>contenteditable</code>."
+      },
+      {
+        name: "Stop Light",
+        difficulty: "Medium",
+        description: "Change the color of a stop light when buttons are clicked. For more details: <a href='../../46/assignments/5-stop-light.html' target='_blank'>see FEWD 46</a>."
+      },
+      {
+        name: "Movie Search",
+        difficulty: "Hard",
+        description: "Take the value of user input and generate an HTTP request to OMDB (a free movie API). When the results come back from the server, list them on the page. For more information: <a href='../../46/assignments/6-movie-search.html' target='_blank'>see FEWD 46</a>."
+      }
+    ];
+
+    var rows = "";
+
+    for (var i = 0; i < challenges.length; i++) {
+      var row = "";
+      var challenge = challenges[i];
+      var fileBase = challenge.name.toLowerCase().replace(" ", "-");
+      var starter = fileBase + "-starter.html";
+      var solution = fileBase + "-solution.html";
+      var labelMapping = { "Hard": "danger", "Medium": "warning", "Easy": "success" };
+      var label = labelMapping[challenge.difficulty]
+
+      rows +=
+      "<tr>" +
+        "<td>" +
+          "<p class='bold'>" +
+            "<a href='" + solution + "' target='_blank'>" + challenge.name + "</a> " +
+            "<span class='label label-" + label + "'>" + challenge.difficulty + "</span>" +
+          "</p>" +
+          "<p>" +
+            challenge.description +
+          "</p>" +
+        "</td>" +
+        "<td>" +
+          "<div class='btn-group'>" +
+            "<button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>" +
+              "Download <span class='caret'></span>" +
+            "</button>" +
+            "<ul class='dropdown-menu'>" +
+              "<li><a href='" + starter + "' download>Starter code</a></li>" +
+              "<li><a href='" + solution + "' download>Solution</a></li>" +
+            "</ul>" +
+          "</div>" +
+        "</td>" +
+      "</tr>"
+    }
+
+    document.querySelector("#challenges").innerHTML = rows;
+    </script>
+  </body>
+</html>
