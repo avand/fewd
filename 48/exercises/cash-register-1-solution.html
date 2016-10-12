@@ -1,0 +1,60 @@
+<table>
+  <tr>
+    <td colspan="2">
+      <h1>
+        Receipt
+      </h1>
+    </td>
+  </tr>
+  <tr>
+    <td>Hamburger</td>
+    <td class="i-0 item-price">7.99</td>
+  </tr>
+  <tr>
+    <td>Fries</td>
+    <td class="i-1 item-price">3.99</td>
+  </tr>
+  <tr>
+    <td>Soda</td>
+    <td class="i-2 item-price">1.99</td>
+  </tr>
+  <tr>
+    <td>Apple Pie</td>
+    <td class="i-3 item-price">1.99</td>
+  </tr>
+  <tr>
+    <td>Bag</td>
+    <td class="i-4 item-price">0.10</td>
+  </tr>
+  <tr>
+    <th>
+      Total<br>
+      <button>Calculate</button>
+    </td>
+    <td class="t"></td>
+  </tr>
+</table>
+
+<script>
+var total = 0;
+var itemPrices = document.querySelectorAll(".item-price");
+
+document.querySelector("button").addEventListener("click", function(event) {
+  event.preventDefault();
+
+  for (var i = 0; i < itemPrices.length; i++) {
+    var itemPrice = itemPrices[i].textContent;
+    total += parseFloat(itemPrice);
+  }
+
+  document.querySelector(".t").textContent = total.toFixed(2);
+})
+</script>
+
+<style>
+h1 { text-align: center; margin: 0; font-size: 1.2em; }
+body { font-family: sans-serif; font-size: 20px; }
+table { margin: 0 auto; }
+th { text-align: right; }
+th, td { border: 1px solid #ccc; padding: 1em; }
+</style>
