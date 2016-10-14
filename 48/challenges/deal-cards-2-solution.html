@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Deal Cards 1 Solution</title>
+    <title>Deal Cards 2 Solution</title>
     <style>
     body {
       background-color: #59A856;
@@ -69,6 +69,7 @@
 
     function deal() {
       var deck = [];
+      board.textContent = "";
 
       for (var i = 0; i < suits.length; i++) {
         var suit = suits[i];
@@ -80,11 +81,30 @@
           card.textContent = value + " " + suit;
           card.classList.add("card");
 
-          board.appendChild(card);
+          deck.push(card);
         }
       }
 
-      return deck;
+      deck = randomize(deck);
+      deck = deck.splice(0, 5);
+
+      for (var i = 0; i < deck.length; i++) {
+        board.appendChild(deck[i]);
+      }
+    }
+
+    function randomize(array) {
+      var randoms = [];
+      var stopLimit = array.length;
+
+      for (var i = 0; i < stopLimit; i++) {
+        var randoIndex = Math.floor(Math.random() * array.length);
+        var randoName = array.splice(randoIndex, 1)[0]; // always one
+
+        randoms.push(randoName);
+      }
+
+      return randoms;
     }
 
     var button =  document.querySelector("button");
