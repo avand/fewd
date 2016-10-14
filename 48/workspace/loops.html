@@ -1,0 +1,14 @@
+<script type="text/javascript">
+  var names = ["avand", "mike", "kirstin", "lucas"];
+  var randoms = [];
+  var stopLimit = names.length;
+
+  for (var i = 0; i < stopLimit; i++) {
+    var randoIndex = Math.floor(Math.random() * names.length);
+    var randoName = names.splice(randoIndex, 1)[0]; // always one
+
+    randoms.push(randoName);
+  }
+
+  console.log(randoms)
+</script>

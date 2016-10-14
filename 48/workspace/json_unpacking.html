@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JSON Unpacking</title>
+    <script src="jquery-3.1.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <script>
+    $.get("http://omdbapi.com/?s=terminator", function(json) {
+      console.log(json.Search[2].Title);
+      console.log(json.Search[9].Title);
+
+      // Always the last one
+      console.log(json.Search[json.Search.length - 1].Title);
+
+      for (var i = 0; i < json.Search.length; i++) {
+        console.log(json.Search[i].Title)
+      }
+    });
+    </script>
+  </body>
+</html>
